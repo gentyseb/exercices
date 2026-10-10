@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Conjugaison</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px; }
+      .card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 28px; width: 100%; max-width: 560px; text-align: center; }
+      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
+      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
+      .settings { background: #f8fafc; border-radius: 12px; padding: 14px 16px; text-align: left; display: none; margin-top: 4px; }
+      .settings.open { display: block; }
+      .setting-row { margin-bottom: 12px; }
+      .setting-row:last-child { margin-bottom: 0; }
+      .setting-label { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
+      select { width: 100%; padding: 9px 12px; font-size: .95rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 10px; background: #fff; color: #374151; cursor: pointer; font-family: inherit; }
+      select:focus { outline: none; border-color: #93c5fd; }
+      .question { font-size: 1.9rem; font-weight: 800; margin: 16px 0 8px; display: flex; justify-content: center; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+      .question input { width: 170px; font-size: 1.9rem; font-weight: 800; text-align: center; border: none; border-bottom: 4px solid #1d4ed8; background: transparent; color: #111827; outline: none; font-family: inherit; }
+      .question input:disabled { opacity: .75; }
+      .tense-badge { display: inline-block; margin-bottom: 10px; padding: 5px 14px; font-size: .85rem; font-weight: 700; border-radius: 999px; background: #eff6ff; color: #1d4ed8; }
+      .feedback { min-height: 1.7rem; font-weight: 600; margin-bottom: 12px; font-size: 1.02rem; }
+      .good { color: #16a34a; }
+      .bad { color: #dc2626; }
+      #check { padding: 13px 36px; font-size: 1rem; font-weight: 700; border: none; border-radius: 12px; background: #1d4ed8; color: #fff; cursor: pointer; margin-bottom: 18px; transition: background .15s ease; }
+      #check:hover:not(:disabled) { background: #1e40af; }
+      #check:disabled { opacity: .6; cursor: default; }
+      .score { background: #f8fafc; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
+      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
+      #reset { padding: 11px 26px; font-size: .95rem; font-weight: 600; border: none; border-radius: 12px; background: #6b7280; color: #fff; cursor: pointer; transition: background .15s ease; }
+      #reset:hover { background: #4b5563; }
+      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
+      #settingsToggle { margin: 16px 0 6px; padding: 10px 22px; font-size: .9rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #374151; cursor: pointer; transition: all .15s ease; }
+      #settingsToggle:hover { border-color: #93c5fd; }
+      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
+      #settingsToggle.open .arrow { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Conjugaison</h1>
+      <p class="subtitle">Écris la forme conjuguée, puis clique sur Vérifier (ou appuie sur Entrée).</p>
+
+      <div class="tense-badge" id="tenseBadge">—</div>
+      <div class="question" id="question"></div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Temps</div>
+          <select id="setTense">
+            <option value="mix">Mélange (présent, futur, imparfait)</option>
+            <option value="present">Présent</option>
+            <option value="futur">Futur</option>
+            <option value="imparfait">Imparfait</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Verbes</div>
+          <select id="setGroup">
+            <option value="tous">Tous les verbes</option>
+            <option value="g1">1er groupe (chanter, jouer…)</option>
+            <option value="irr">Verbes irréguliers (être, avoir, aller…)</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      // ---- Paramètres et état ----
+      const STORAGE_KEY = "exercices-conjugaison";
+      let settings = { tense: "mix", group: "tous" };
+      let stats = { good: 0, total: 0 };
+      let current = null;
+      let answered = false;
+      let pending = null;
+
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && parsed.settings) settings = Object.assign(settings, parsed.settings);
+            if (parsed && parsed.stats) stats = Object.assign(stats, parsed.stats);
+            if (parsed && parsed.pending) pending = parsed.pending;
+          }
+        } catch (e) {}
+      }
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats,
+            pending: (current && !answered) ? current : null
+          }));
+        } catch (e) {}
+      }
+
+      // ---- Données : verbes et conjugaisons ----
+      const TENSES = { present: "présent", futur: "futur", imparfait: "imparfait" };
+      const PERSONS = [["je", "j'"], ["tu", "tu"], ["il", "il"], ["nous", "nous"], ["vous", "vous"], ["ils", "ils"]];
+
+      // Verbes du 1er groupe (réguliers, sans exception de radical)
+      const G1 = ["chanter", "danser", "jouer", "parler", "sauter", "écouter", "regarder", "aimer", "donner", "penser", "travailler", "laver", "casser", "fermer", "dessiner", "souffler", "arriver", "entrer", "dîner", "passer"];
+
+      // Terminaisons régulières sur le radical (infinitif sans "er")
+      const G1_ENDINGS = {
+        present: ["e", "es", "e", "ons", "ez", "ent"],
+        futur: ["erai", "eras", "era", "erons", "erez", "eront"],
+        imparfait: ["ais", "ais", "ait", "ions", "iez", "aient"]
+      };
+
+      // Verbes irréguliers : formes complètes par temps (je, tu, il, nous, vous, ils)
+      const IRR = {
+        "être":   { present: ["suis", "es", "est", "sommes", "êtes", "sont"], futur: ["serai", "seras", "sera", "serons", "serez", "seront"], imparfait: ["étais", "étais", "était", "étions", "étiez", "étaient"] },
+        "avoir":  { present: ["ai", "as", "a", "avons", "avez", "ont"], futur: ["aurai", "auras", "aura", "aurons", "aurez", "auront"], imparfait: ["avais", "avais", "avait", "avions", "aviez", "avaient"] },
+        "aller":  { present: ["vais", "vas", "va", "allons", "allez", "vont"], futur: ["irai", "iras", "ira", "irons", "irez", "iront"], imparfait: ["allais", "allais", "allait", "allions", "alliez", "allaient"] },
+        "faire":  { present: ["fais", "fais", "fait", "faisons", "faites", "font"], futur: ["ferai", "feras", "fera", "ferons", "ferez", "feront"], imparfait: ["faisais", "faisais", "faisait", "faisions", "faisiez", "faisaient"] },
+        "venir":  { present: ["viens", "viens", "vient", "venons", "venez", "viennent"], futur: ["viendrai", "viendras", "viendra", "viendrons", "viendrez", "viendront"], imparfait: ["venais", "venais", "venait", "venions", "veniez", "venaient"] },
+        "prendre": { present: ["prends", "prends", "prend", "prenons", "prenez", "prennent"], futur: ["prendrai", "prendras", "prendra", "prendrons", "prendrez", "prendront"], imparfait: ["prenais", "prenais", "prenait", "prenions", "preniez", "prenaient"] },
+        "voir":   { present: ["vois", "vois", "voit", "voyons", "voyez", "voient"], futur: ["verrai", "verras", "verra", "verrons", "verrez", "verront"], imparfait: ["voyais", "voyais", "voyait", "voyions", "voyiez", "voyaient"] },
+        "dire":   { present: ["dis", "dis", "dit", "disons", "dites", "disent"], futur: ["dirai", "diras", "dira", "dirons", "direz", "diront"], imparfait: ["disais", "disais", "disait", "disions", "disiez", "disaient"] },
+        "pouvoir": { present: ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"], futur: ["pourrai", "pourras", "pourra", "pourrons", "pourrez", "pourront"], imparfait: ["pouvais", "pouvais", "pouvait", "pouvions", "pouviez", "pouvaient"] },
+        "vouloir": { present: ["veux", "veux", "veut", "voulons", "voulez", "veulent"], futur: ["voudrai", "voudras", "voudra", "voudrons", "voudrez", "voudront"], imparfait: ["voulais", "voulais", "voulait", "voulions", "vouliez", "voulaient"] }
+      };
+
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+      function makeExercise() {
+        const tense = settings.tense === "mix" ? pick(["present", "futur", "imparfait"]) : settings.tense;
+        const personIdx = Math.floor(Math.random() * 6);
+        let verb, answer, isIrr;
+        if (settings.group === "g1") {
+          verb = pick(G1); isIrr = false;
+          const stem = verb.slice(0, -2);
+          answer = stem + G1_ENDINGS[tense][personIdx];
+        } else if (settings.group === "irr") {
+          verb = pick(Object.keys(IRR)); isIrr = true;
+          answer = IRR[verb][tense][personIdx];
+        } else {
+          if (Math.random() < 0.5) {
+            verb = pick(G1); isIrr = false;
+            const stem = verb.slice(0, -2);
+            answer = stem + G1_ENDINGS[tense][personIdx];
+          } else {
+            verb = pick(Object.keys(IRR)); isIrr = true;
+            answer = IRR[verb][tense][personIdx];
+          }
+        }
+        // Elision : j' devant une voyelle
+        let pronoun = PERSONS[personIdx][0];
+        if (personIdx === 0 && /^[aeiouéèêîôûh]/.test(answer)) pronoun = "j'";
+        return { verb, tense, personIdx, pronoun, answer };
+      }
+
+      // ---- Affichage ----
+      const questionEl = document.getElementById("question");
+      const tenseBadgeEl = document.getElementById("tenseBadge");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;
+          pending = null;
+        } else {
+          current = makeExercise();
+        }
+        answered = false;
+        saveState();
+        tenseBadgeEl.textContent = "Verbe : " + current.verb + " — " + TENSES[current.tense];
+        questionEl.innerHTML =
+          "<span>" + current.pronoun + "</span> " +
+          '<input type="text" id="answer" autocomplete="off" autocapitalize="off" spellcheck="false" />';
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        const input = document.getElementById("answer");
+        input.value = "";
+        input.disabled = false;
+        input.focus();
+        input.addEventListener("keydown", e => { if (e.key === "Enter" && !answered) checkAnswer(); });
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      // Comparaison indulgente : minuscules, espaces, accents tolérés
+      function normalize(s) {
+        return s.trim().toLowerCase()
+          .replace(/[éèêë]/g, "e").replace(/[àâä]/g, "a").replace(/[îï]/g, "i")
+          .replace(/[ôö]/g, "o").replace(/[ùûü]/g, "u").replace(/ç/g, "c")
+          .replace(/[\s'-]/g, "");
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const input = document.getElementById("answer");
+        if (!input.value.trim()) {
+          feedbackEl.textContent = "Écris ta réponse d'abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+        answered = true;
+        stats.total++;
+        const ok = normalize(input.value) === normalize(current.answer);
+        const full = current.pronoun + " " + current.answer + " (" + current.verb + ")";
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! " + full + " 🎉";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était : " + full;
+          feedbackEl.className = "feedback bad";
+        }
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, ok ? 2500 : 4500);
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+
+      // ---- Réglages ----
+      const tenseSelect = document.getElementById("setTense");
+      const groupSelect = document.getElementById("setGroup");
+      tenseSelect.addEventListener("change", () => { settings.tense = tenseSelect.value; onSettingsChanged(); });
+      groupSelect.addEventListener("change", () => { settings.group = groupSelect.value; onSettingsChanged(); });
+
+      function onSettingsChanged() {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        refreshSettingsUI();
+        updateScore();
+        renderExercise();
+      }
+
+      function refreshSettingsUI() {
+        tenseSelect.value = settings.tense;
+        groupSelect.value = settings.group;
+      }
+
+      const settingsToggle = document.getElementById("settingsToggle");
+      settingsToggle.addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        settingsToggle.classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>

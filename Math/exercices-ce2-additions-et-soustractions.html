@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices CE2 : Additions et Soustractions</title>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: #111827;
+        background: #f1f5f9;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 24px;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        padding: 28px;
+        width: 100%;
+        max-width: 560px;
+        text-align: center;
+      }
+      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
+      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
+
+      .settings {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 18px;
+        text-align: left;
+      }
+      .setting-row { margin-bottom: 10px; }
+      .setting-row:last-child { margin-bottom: 0; }
+      .setting-label {
+        font-size: .78rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #6b7280;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .setting-options { display: flex; flex-wrap: wrap; gap: 6px; }
+      .setting-options button {
+        padding: 7px 12px;
+        font-size: .85rem;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        color: #374151;
+        cursor: pointer;
+        transition: all .12s ease;
+      }
+      .setting-options button:hover { border-color: #93c5fd; }
+      .setting-options button.active {
+        border-color: #1d4ed8;
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+
+      .operation {
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 14px 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .operation .blank {
+        display: inline-block;
+        min-width: 110px;
+        border-bottom: 4px solid #1d4ed8;
+      }
+      .operation input {
+        width: 110px;
+        font-size: 2.2rem;
+        font-weight: 800;
+        text-align: center;
+        border: none;
+        border-bottom: 4px solid #1d4ed8;
+        background: transparent;
+        color: #111827;
+        outline: none;
+        font-family: inherit;
+      }
+      .operation input:focus { border-bottom-color: #2563eb; }
+      .operation input:disabled { opacity: .75; }
+
+      .feedback {
+        min-height: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        font-size: 1.02rem;
+      }
+      .good { color: #16a34a; }
+      .bad { color: #dc2626; }
+
+      #check {
+        padding: 13px 36px;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        background: #1d4ed8;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 18px;
+        transition: background .15s ease;
+      }
+      #check:hover:not(:disabled) { background: #1e40af; }
+      #check:disabled { opacity: .6; cursor: default; }
+
+      .score {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 14px;
+      }
+      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
+      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
+
+      #reset {
+        padding: 11px 26px;
+        font-size: .95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        background: #6b7280;
+        color: #fff;
+        cursor: pointer;
+        transition: background .15s ease;
+      }
+      #reset:hover { background: #4b5563; }
+      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
+
+      #settingsToggle {
+        margin: 16px 0 6px;
+        padding: 10px 22px;
+        font-size: .9rem;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        background: #f8fafc;
+        color: #374151;
+        cursor: pointer;
+        transition: all .15s ease;
+      }
+      #settingsToggle:hover { border-color: #93c5fd; }
+      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
+      #settingsToggle.open .arrow { transform: rotate(180deg); }
+      .settings { display: none; margin-top: 4px; }
+      .settings.open { display: block; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Additions et Soustractions — CE2</h1>
+      <p class="subtitle">Complète le résultat ou le nombre manquant, puis clique sur Vérifier.</p>
+
+      <div class="operation" id="operation"></div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Type d'exercice</div>
+          <div class="setting-options" id="setType">
+            <button data-value="mix">Mélange</button>
+            <button data-value="add">Additions seulement</button>
+            <button data-value="sous">Soustractions seulement</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Niveau</div>
+          <div class="setting-options" id="setLevel">
+            <button data-value="20">Niveau 1 (0 à 20)</button>
+            <button data-value="50">Niveau 2 (0 à 50)</button>
+            <button data-value="100">Niveau 3 (0 à 100)</button>
+          </div>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Mode</div>
+          <div class="setting-options" id="setMode">
+            <button data-value="mix">Mix des deux</button>
+            <button data-value="sans">Sans trou</button>
+            <button data-value="trou">Avec trou</button>
+          </div>
+        </div>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      // ---- Paramètres et état ----
+      const STORAGE_KEY = "exercices-ce2-add-sous";
+      let settings = { type: "mix", level: 20, mode: "mix" };
+      let stats = { good: 0, total: 0 };
+      let current = null;   // { op: "add"|"sous", a, b, result, missing: null|"a"|"b"|"result", answer }
+      let answered = false;
+      let pending = null;  // opération en attente de réponse (sauvegardée)
+
+      // ---- Sauvegarde / restauration (protégée) ----
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && parsed.settings) settings = Object.assign(settings, parsed.settings);
+            if (parsed && parsed.stats) stats = Object.assign(stats, parsed.stats);
+            if (parsed && parsed.pending) pending = parsed.pending;
+          }
+        } catch (e) { /* localStorage indisponible */ }
+      }
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats,
+            pending: (current && !answered) ? current : null
+          }));
+        } catch (e) { /* sauvegarde impossible : on ignore */ }
+      }
+
+      // ---- Génération des exercices ----
+      function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+      function makeExercise() {
+        const max = settings.level;
+        const op = settings.type === "mix" ? pick(["add", "sous"]) : settings.type;
+        const trou = settings.mode === "mix" ? pick([false, true]) : settings.mode === "trou";
+        let a, b, result;
+        if (op === "add") {
+          // a + b = result avec result <= max
+          result = randInt(2, max);
+          a = randInt(1, result - 1);
+          b = result - a;
+        } else {
+          // a - b = result avec a <= max
+          a = randInt(2, max);
+          b = randInt(1, a - 1);
+          result = a - b;
+        }
+        // Position du trou : sans trou, c'est le résultat qu'il faut trouver
+        let missing = "result";
+        if (trou) missing = pick(["a", "b", "result"]);
+        return { op, a, b, result, missing };
+      }
+
+      // ---- Affichage ----
+      const opEl = document.getElementById("operation");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+
+      function fmt(n, missing) {
+        if (missing) {
+          return '<input type="number" inputmode="numeric" min="0" class="blank" id="answer" autocomplete="off" />';
+        }
+        return "<span>" + n + "</span>";
+      }
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;           // on reprend exactement la même opération
+          pending = null;
+        } else {
+          current = makeExercise();
+        }
+        answered = false;
+        saveState();
+        const op = current.op === "add" ? "＋" : "−";
+        const sign2 = current.op === "add" ? "+" : "−";
+        let html = "";
+        if (current.missing === "a") {
+          html = fmt(null, true) + " <span>" + sign2 + "</span> " + fmt(current.b) + " <span>=</span> " + fmt(current.result);
+        } else if (current.missing === "b") {
+          html = fmt(current.a) + " <span>" + sign2 + "</span> " + fmt(null, true) + " <span>=</span> " + fmt(current.result);
+        } else {
+          html = fmt(current.a) + " <span>" + sign2 + "</span> " + fmt(current.b) + " <span>=</span> " + fmt(current.result, current.missing === "result");
+        }
+        opEl.innerHTML = html;
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        const input = document.getElementById("answer");
+        if (input) {
+          input.value = "";
+          input.disabled = false;
+          input.focus();
+          input.addEventListener("keydown", e => { if (e.key === "Enter" && !answered) checkAnswer(); });
+        }
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const input = document.getElementById("answer");
+        const given = input ? parseInt(input.value, 10) : NaN;
+        if (isNaN(given)) {
+          feedbackEl.textContent = "Écris ta réponse d'abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+        answered = true;
+        stats.total++;
+        const expected = current.missing === "a" ? current.a
+                       : current.missing === "b" ? current.b
+                       : current.result;
+        const ok = given === expected;
+        const sign = current.op === "add" ? "+" : "−";
+        let full = current.a + " " + sign + " " + current.b + " = " + current.result;
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! C'est juste 🎉 (" + full + ")";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était " + expected + ". (" + full + ")";
+          feedbackEl.className = "feedback bad";
+        }
+        if (input) input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();                    // la question étant répondue, elle n'est plus "en attente"
+        setTimeout(renderExercise, ok ? 2500 : 4500);
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+
+      // ---- Réglages ----
+      function bindSettings(containerId, key) {
+        const container = document.getElementById(containerId);
+        container.querySelectorAll("button").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const value = key === "level" ? parseInt(btn.dataset.value, 10) : btn.dataset.value;
+            settings[key] = value;
+            stats = { good: 0, total: 0 }; // changement de réglage : on repart de zéro
+            saveState();
+            updateScore();
+            refreshSettingsUI();
+            renderExercise();
+          });
+        });
+      }
+
+      function refreshSettingsUI() {
+        const map = { setType: "type", setLevel: "level", setMode: "mode" };
+        Object.keys(map).forEach(id => {
+          document.getElementById(id).querySelectorAll("button").forEach(btn => {
+            const v = map[id] === "level" ? parseInt(btn.dataset.value, 10) : btn.dataset.value;
+            btn.classList.toggle("active", settings[map[id]] === v);
+          });
+        });
+      }
+
+      bindSettings("setType", "type");
+      bindSettings("setLevel", "level");
+      bindSettings("setMode", "mode");
+
+      const settingsToggle = document.getElementById("settingsToggle");
+      const settingsPanel = document.getElementById("settingsPanel");
+      settingsToggle.addEventListener("click", () => {
+        settingsPanel.classList.toggle("open");
+        settingsToggle.classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);   // restaure l'opération en cours si elle existe
+    </script>
+  </body>
+</html>

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Tables de multiplication</title>
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        color: #111827;
+        background: #f1f5f9;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 24px;
+      }
+      .card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.08);
+        padding: 28px;
+        width: 100%;
+        max-width: 560px;
+        text-align: center;
+      }
+      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
+      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
+
+      .settings {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 18px;
+        text-align: left;
+        display: none;
+      }
+      .settings.open { display: block; }
+      .setting-row { margin-bottom: 12px; }
+      .setting-row:last-child { margin-bottom: 0; }
+      .setting-label {
+        font-size: .78rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #6b7280;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .setting-options { display: flex; flex-wrap: wrap; gap: 6px; }
+      .setting-options button {
+        padding: 7px 12px;
+        font-size: .85rem;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        color: #374151;
+        cursor: pointer;
+        transition: all .12s ease;
+      }
+      .setting-options button:hover { border-color: #93c5fd; }
+      .setting-options button.active {
+        border-color: #1d4ed8;
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+      select {
+        width: 100%;
+        padding: 9px 12px;
+        font-size: .95rem;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        color: #374151;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      select:focus { outline: none; border-color: #93c5fd; }
+
+      .operation {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin: 16px 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .operation input {
+        width: 120px;
+        font-size: 2.4rem;
+        font-weight: 800;
+        text-align: center;
+        border: none;
+        border-bottom: 4px solid #1d4ed8;
+        background: transparent;
+        color: #111827;
+        outline: none;
+        font-family: inherit;
+      }
+      .operation input:disabled { opacity: .75; }
+
+      .feedback {
+        min-height: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        font-size: 1.02rem;
+      }
+      .good { color: #16a34a; }
+      .bad { color: #dc2626; }
+
+      #check {
+        padding: 13px 36px;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 12px;
+        background: #1d4ed8;
+        color: #fff;
+        cursor: pointer;
+        margin-bottom: 18px;
+        transition: background .15s ease;
+      }
+      #check:hover:not(:disabled) { background: #1e40af; }
+      #check:disabled { opacity: .6; cursor: default; }
+
+      .progress {
+        color: #6b7280;
+        font-size: .85rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        min-height: 1.2rem;
+      }
+
+      .score {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 14px;
+      }
+      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
+      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
+
+      #reset {
+        padding: 11px 26px;
+        font-size: .95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 12px;
+        background: #6b7280;
+        color: #fff;
+        cursor: pointer;
+        transition: background .15s ease;
+      }
+      #reset:hover { background: #4b5563; }
+      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
+
+      #settingsToggle {
+        margin: 16px 0 10px;
+        padding: 10px 22px;
+        font-size: .9rem;
+        font-weight: 600;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        background: #f8fafc;
+        color: #374151;
+        cursor: pointer;
+        transition: all .15s ease;
+      }
+      #settingsToggle:hover { border-color: #93c5fd; }
+      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
+      #settingsToggle.open .arrow { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Tables de multiplication</h1>
+      <p class="subtitle">Écris le résultat, puis clique sur Vérifier (ou appuie sur Entrée).</p>
+
+      <div class="operation" id="operation"></div>
+      <div class="progress" id="progress"></div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Tables à réviser</div>
+          <select id="setTables">
+            <option value="0-10">0 à 10</option>
+            <option value="1-5">1 à 5</option>
+            <option value="6-10">6 à 10</option>
+            <option value="7-9">7 à 9</option>
+            <option value="0-12">0 à 12</option>
+            <option value="1-1">Table de 1</option>
+            <option value="2-2">Table de 2</option>
+            <option value="3-3">Table de 3</option>
+            <option value="4-4">Table de 4</option>
+            <option value="5-5">Table de 5</option>
+            <option value="6-6">Table de 6</option>
+            <option value="7-7">Table de 7</option>
+            <option value="8-8">Table de 8</option>
+            <option value="9-9">Table de 9</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Mode</div>
+          <div class="setting-options" id="setMode">
+            <button data-value="melange">Mélangé</button>
+            <button data-value="montent">Facteurs qui montent</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      // ---- Paramètres et état ----
+      const STORAGE_KEY = "exercices-tables-multiplications";
+      let settings = { tables: "0-10", mode: "melange" };
+      let stats = { good: 0, total: 0 };
+      let current = null;      // { a, b, result }
+      let answered = false;
+      let deck = [];           // pile mélangée (mode Mélangé)
+      let seqIndex = 0;        // position dans la progression (mode Facteurs qui montent)
+      let pending = null;      // opération en attente de réponse (sauvegardée)
+
+      // ---- Sauvegarde / restauration (protégée) ----
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && parsed.settings) settings = Object.assign(settings, parsed.settings);
+            if (parsed && parsed.stats) stats = Object.assign(stats, parsed.stats);
+            if (parsed && typeof parsed.seqIndex === "number") seqIndex = parsed.seqIndex;
+            if (parsed && parsed.pending) pending = parsed.pending;
+          }
+        } catch (e) { /* localStorage indisponible */ }
+      }
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats, seqIndex,
+            pending: (current && !answered) ? current : null
+          }));
+        } catch (e) { /* sauvegarde impossible : on ignore */ }
+      }
+
+      // ---- Génération des exercices ----
+      function tableRange() {
+        const [min, max] = settings.tables.split("-").map(Number);
+        return { min, max };
+      }
+
+      function allPairs() {
+        // Toutes les combinaisons : table t de min à max, multipliée de 0 à 10
+        const { min, max } = tableRange();
+        const pairs = [];
+        for (let t = min; t <= max; t++) {
+          for (let m = 0; m <= 10; m++) {
+            pairs.push({ a: t, b: m });
+          }
+        }
+        return pairs;
+      }
+
+      function shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      function makeExercise() {
+        if (settings.mode === "montent") {
+          // Progression en ordre : table de min à max, facteur de 0 à 10
+          const pairs = allPairs();
+          if (seqIndex >= pairs.length) seqIndex = 0; // on repart au début
+          const p = pairs[seqIndex];
+          seqIndex++;
+          return { a: p.a, b: p.b, result: p.a * p.b, progress: seqIndex, total: pairs.length };
+        }
+        // Mode Mélangé : tirage aléatoire
+        const { min, max } = tableRange();
+        return {
+          a: min + Math.floor(Math.random() * (max - min + 1)),
+          b: Math.floor(Math.random() * 11),
+          result: 0, progress: null, total: null
+        };
+      }
+
+      // ---- Affichage ----
+      const opEl = document.getElementById("operation");
+      const progressEl = document.getElementById("progress");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;           // on reprend exactement la même opération
+          pending = null;
+        } else {
+          current = makeExercise();
+          if (settings.mode === "melange") current.result = current.a * current.b;
+        }
+        answered = false;
+        saveState();
+        opEl.innerHTML =
+          "<span>" + current.a + "</span> <span>×</span> <span>" + current.b +
+          "</span> <span>=</span> " +
+          '<input type="number" inputmode="numeric" min="0" id="answer" autocomplete="off" />';
+        progressEl.textContent = current.progress
+          ? "Opération " + current.progress + " / " + current.total + " de la série"
+          : "";
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        const input = document.getElementById("answer");
+        input.value = "";
+        input.disabled = false;
+        input.focus();
+        input.addEventListener("keydown", e => { if (e.key === "Enter" && !answered) checkAnswer(); });
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const input = document.getElementById("answer");
+        const given = parseInt(input.value, 10);
+        if (isNaN(given)) {
+          feedbackEl.textContent = "Écris ta réponse d'abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+        answered = true;
+        stats.total++;
+        const ok = given === current.result;
+        const full = current.a + " × " + current.b + " = " + current.result;
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! C'est juste 🎉 (" + full + ")";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était " + current.result + ". (" + full + ")";
+          feedbackEl.className = "feedback bad";
+        }
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();                    // la question étant répondue, elle n'est plus "en attente"
+        setTimeout(renderExercise, ok ? 2500 : 4500);
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+
+      // ---- Réglages ----
+      const tablesSelect = document.getElementById("setTables");
+      tablesSelect.value = settings.tables;
+      tablesSelect.addEventListener("change", () => {
+        settings.tables = tablesSelect.value;
+        onSettingsChanged();
+      });
+
+      document.getElementById("setMode").querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          settings.mode = btn.dataset.value;
+          onSettingsChanged();
+        });
+      });
+
+      function onSettingsChanged() {
+        stats = { good: 0, total: 0 };   // changement de réglage : on repart de zéro
+        deck = [];
+        seqIndex = 0;
+        saveState();
+        refreshSettingsUI();
+        updateScore();
+        renderExercise();
+      }
+
+      function refreshSettingsUI() {
+        tablesSelect.value = settings.tables;
+        document.getElementById("setMode").querySelectorAll("button").forEach(btn => {
+          btn.classList.toggle("active", settings.mode === btn.dataset.value);
+        });
+      }
+
+      const settingsToggle = document.getElementById("settingsToggle");
+      settingsToggle.addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        settingsToggle.classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        seqIndex = 0;
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);   // restaure l'opération en cours si elle existe
+    </script>
+  </body>
+</html>

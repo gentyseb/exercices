@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Petits problèmes</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px; }
+      .card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 28px; width: 100%; max-width: 600px; text-align: center; }
+      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
+      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
+      .settings { background: #f8fafc; border-radius: 12px; padding: 14px 16px; text-align: left; display: none; margin-top: 4px; }
+      .settings.open { display: block; }
+      .setting-row { margin-bottom: 12px; }
+      .setting-row:last-child { margin-bottom: 0; }
+      .setting-label { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
+      select { width: 100%; padding: 9px 12px; font-size: .95rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 10px; background: #fff; color: #374151; cursor: pointer; font-family: inherit; }
+      select:focus { outline: none; border-color: #93c5fd; }
+      .problem {
+        background: #f8fafc; border-left: 5px solid #1d4ed8; border-radius: 12px;
+        padding: 18px 20px; margin: 16px 0 14px; text-align: left;
+        font-size: 1.25rem; line-height: 1.55; font-weight: 600;
+      }
+      .answer-row { display: flex; justify-content: center; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+      .answer-row label { font-size: 1.05rem; font-weight: 700; color: #374151; }
+      .answer-row input { width: 130px; font-size: 1.6rem; font-weight: 800; text-align: center; border: none; border-bottom: 4px solid #1d4ed8; background: transparent; color: #111827; outline: none; font-family: inherit; }
+      .answer-row input:disabled { opacity: .75; }
+      .feedback { min-height: 1.7rem; font-weight: 600; margin-bottom: 12px; font-size: 1.02rem; }
+      .good { color: #16a34a; }
+      .bad { color: #dc2626; }
+      #check { padding: 13px 36px; font-size: 1rem; font-weight: 700; border: none; border-radius: 12px; background: #1d4ed8; color: #fff; cursor: pointer; margin-bottom: 18px; transition: background .15s ease; }
+      #check:hover:not(:disabled) { background: #1e40af; }
+      #check:disabled { opacity: .6; cursor: default; }
+      .score { background: #f8fafc; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
+      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
+      #reset { padding: 11px 26px; font-size: .95rem; font-weight: 600; border: none; border-radius: 12px; background: #6b7280; color: #fff; cursor: pointer; transition: background .15s ease; }
+      #reset:hover { background: #4b5563; }
+      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
+      #settingsToggle { margin: 16px 0 6px; padding: 10px 22px; font-size: .9rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #374151; cursor: pointer; transition: all .15s ease; }
+      #settingsToggle:hover { border-color: #93c5fd; }
+      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
+      #settingsToggle.open .arrow { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Petits problèmes</h1>
+      <p class="subtitle">Lis le problème, calcule la réponse, puis clique sur Vérifier.</p>
+
+      <div class="problem" id="problem"></div>
+      <div class="answer-row">
+        <label for="answer">Ma réponse :</label>
+        <input type="number" inputmode="numeric" min="0" id="answer" autocomplete="off" />
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Opérations</div>
+          <select id="setOp">
+            <option value="mix">Mélange (tout)</option>
+            <option value="add">Additions seulement</option>
+            <option value="sous">Soustractions seulement</option>
+            <option value="mult">Multiplications seulement</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Niveau</div>
+          <select id="setLevel">
+            <option value="20">Nombres jusqu'à 20</option>
+            <option value="100">Nombres jusqu'à 100</option>
+            <option value="1000">Nombres jusqu'à 1 000</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      // ---- Paramètres et état ----
+      const STORAGE_KEY = "exercices-problemes";
+      let settings = { op: "mix", level: 20 };
+      let stats = { good: 0, total: 0 };
+      let current = null;
+      let answered = false;
+      let pending = null;
+
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && parsed.settings) settings = Object.assign(settings, parsed.settings);
+            if (parsed && parsed.stats) stats = Object.assign(stats, parsed.stats);
+            if (parsed && parsed.pending) pending = parsed.pending;
+          }
+        } catch (e) {}
+      }
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats,
+            pending: (current && !answered) ? current : null
+          }));
+        } catch (e) {}
+      }
+
+      function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+      // [prénom, pronom] pour des phrases correctes
+      const NAMES = [["Emma", "Elle"], ["Jade", "Elle"], ["Louise", "Elle"], ["Alice", "Elle"], ["Chloé", "Elle"], ["Léa", "Elle"], ["Manon", "Elle"], ["Zoé", "Elle"], ["Louna", "Elle"], ["Juliette", "Elle"], ["Adrien", "Il"], ["Lucas", "Il"], ["Hugo", "Il"], ["Jules", "Il"], ["Léo", "Il"], ["Nathan", "Il"], ["Victor", "Il"], ["Enzo", "Il"], ["Théo", "Il"], ["Anaïs", "Elle"]];
+
+      // [singulier, pluriel] pour des phrases correctes
+      const OBJECTS = [["bille", "billes"], ["bonbon", "bonbons"], ["carte", "cartes"], ["timbre", "timbres"], ["crayon", "crayons"], ["sticker", "stickers"], ["gomette", "gomettes"], ["coquillage", "coquillages"], ["image", "images"], ["jeton", "jetons"]];
+
+      function makeExercise() {
+        const max = settings.level;
+        const op = settings.op === "mix" ? pick(["add", "sous", "mult"]) : settings.op;
+        const [name, pron] = pick(NAMES);
+        const [otherName] = pick(NAMES.filter(n => n[0] !== name));
+        const obj = pick(OBJECTS);
+        if (op === "add") {
+          const a = randInt(2, max - 2);
+          const b = randInt(1, Math.min(20, max - a));
+          return {
+            text: name + " a " + a + " " + (a > 1 ? obj[1] : obj[0]) + ". " + otherName + " lui en donne " + b + ". Combien " + name + " a-t" + (pron === "Elle" ? "-elle" : "-il") + " maintenant de " + obj[1] + " ?",
+            answer: a + b, detail: a + " + " + b + " = " + (a + b)
+          };
+        }
+        if (op === "sous") {
+          const a = randInt(5, max);
+          const b = randInt(1, a - 1);
+          return {
+            text: name + " avait " + a + " " + (a > 1 ? obj[1] : obj[0]) + ". " + pron + " en perd " + b + " en récréation. Combien lui en reste-t-il ?",
+            answer: a - b, detail: a + " − " + b + " = " + (a - b)
+          };
+        }
+        const boxes = randInt(2, Math.min(10, Math.floor(max / 2)));
+        const per = randInt(2, Math.max(2, Math.min(10, Math.floor(max / boxes))));
+        return {
+          text: "Une boîte contient " + per + " " + (per > 1 ? obj[1] : obj[0]) + ". Combien de " + obj[1] + " y a-t-il dans " + boxes + " boîtes ?",
+          answer: per * boxes, detail: per + " × " + boxes + " = " + (per * boxes)
+        };
+      }
+
+      // ---- Affichage ----
+      const problemEl = document.getElementById("problem");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+      const input = document.getElementById("answer");
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;
+          pending = null;
+        } else {
+          current = makeExercise();
+        }
+        answered = false;
+        saveState();
+        problemEl.textContent = current.text;
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        input.value = "";
+        input.disabled = false;
+        input.focus();
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const given = parseInt(input.value, 10);
+        if (isNaN(given)) {
+          feedbackEl.textContent = "Écris ta réponse d'abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+        answered = true;
+        stats.total++;
+        const ok = given === current.answer;
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! " + current.detail + " 🎉";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était " + current.answer + ". (" + current.detail + ")";
+          feedbackEl.className = "feedback bad";
+        }
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, ok ? 3000 : 5500);
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+      input.addEventListener("keydown", e => { if (e.key === "Enter" && !answered) checkAnswer(); });
+
+      // ---- Réglages ----
+      const opSelect = document.getElementById("setOp");
+      const levelSelect = document.getElementById("setLevel");
+      opSelect.addEventListener("change", () => { settings.op = opSelect.value; onSettingsChanged(); });
+      levelSelect.addEventListener("change", () => { settings.level = parseInt(levelSelect.value, 10); onSettingsChanged(); });
+
+      function onSettingsChanged() {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        refreshSettingsUI();
+        updateScore();
+        renderExercise();
+      }
+
+      function refreshSettingsUI() {
+        opSelect.value = settings.op;
+        levelSelect.value = String(settings.level);
+      }
+
+      const settingsToggle = document.getElementById("settingsToggle");
+      settingsToggle.addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        settingsToggle.classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>

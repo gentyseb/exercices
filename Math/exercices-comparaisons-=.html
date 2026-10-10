@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Comparaisons</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px; }
+      .card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 28px; width: 100%; max-width: 560px; text-align: center; }
+      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
+      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
+      .settings { background: #f8fafc; border-radius: 12px; padding: 14px 16px; text-align: left; display: none; margin-top: 4px; }
+      .settings.open { display: block; }
+      .setting-label { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
+      select { width: 100%; padding: 9px 12px; font-size: .95rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 10px; background: #fff; color: #374151; cursor: pointer; font-family: inherit; }
+      select:focus { outline: none; border-color: #93c5fd; }
+      .operation { font-size: 3rem; font-weight: 800; margin: 18px 0 12px; display: flex; justify-content: center; align-items: center; gap: 22px; }
+      .operation .box {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 70px; height: 70px; border: 4px dashed #93c5fd; border-radius: 14px; color: #93c5fd;
+      }
+      .feedback { min-height: 1.7rem; font-weight: 600; margin-bottom: 14px; font-size: 1.02rem; }
+      .good { color: #16a34a; }
+      .bad { color: #dc2626; }
+      .choices { display: flex; justify-content: center; gap: 14px; margin-bottom: 20px; }
+      .choices button {
+        width: 84px; padding: 12px 0; font-size: 1.7rem; font-weight: 800;
+        border: 2px solid #e5e7eb; border-radius: 12px; background: #fff; color: #374151; cursor: pointer;
+        transition: all .15s ease;
+      }
+      .choices button:hover:not(:disabled) { border-color: #1d4ed8; color: #1d4ed8; }
+      .choices button:disabled { opacity: .55; cursor: default; }
+      .score { background: #f8fafc; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
+      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
+      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
+      #reset { padding: 11px 26px; font-size: .95rem; font-weight: 600; border: none; border-radius: 12px; background: #6b7280; color: #fff; cursor: pointer; transition: background .15s ease; }
+      #reset:hover { background: #4b5563; }
+      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
+      #settingsToggle { margin: 16px 0 6px; padding: 10px 22px; font-size: .9rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #374151; cursor: pointer; transition: all .15s ease; }
+      #settingsToggle:hover { border-color: #93c5fd; }
+      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
+      #settingsToggle.open .arrow { transform: rotate(180deg); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Comparaisons</h1>
+      <p class="subtitle">Clique sur le bon signe : plus petit, plus grand ou égal.</p>
+
+      <div class="operation" id="operation"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="choices" id="choices">
+        <button data-answer="&lt;">&lt;</button>
+        <button data-answer="&gt;">&gt;</button>
+        <button data-answer="=">=</button>
+      </div>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-label">Nombres jusqu'à…</div>
+        <select id="setRange">
+          <option value="20">20</option>
+          <option value="100">100</option>
+          <option value="1000">1 000</option>
+          <option value="10000">10 000</option>
+        </select>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      // ---- Paramètres et état ----
+      const STORAGE_KEY = "exercices-comparaisons";
+      let settings = { range: 100 };
+      let stats = { good: 0, total: 0 };
+      let current = null;   // { a, b, answer }
+      let answered = false;
+      let pending = null;
+
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && parsed.settings) settings = Object.assign(settings, parsed.settings);
+            if (parsed && parsed.stats) stats = Object.assign(stats, parsed.stats);
+            if (parsed && parsed.pending) pending = parsed.pending;
+          }
+        } catch (e) {}
+      }
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats,
+            pending: (current && !answered) ? current : null
+          }));
+        } catch (e) {}
+      }
+
+      function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+      function makeExercise() {
+        const max = settings.range;
+        // 1 fois sur 6, les deux nombres sont égaux (pour travailler le =)
+        if (Math.random() < 1 / 6) {
+          const n = randInt(0, max);
+          return { a: n, b: n, answer: "=" };
+        }
+        const a = randInt(0, max);
+        const b = randInt(0, max);
+        if (a === b) return { a, b, answer: "=" };
+        return { a, b, answer: a < b ? "<" : ">" };
+      }
+
+      // ---- Affichage ----
+      const opEl = document.getElementById("operation");
+      const feedbackEl = document.getElementById("feedback");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+      const buttons = Array.from(document.querySelectorAll("#choices button"));
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;
+          pending = null;
+        } else {
+          current = makeExercise();
+        }
+        answered = false;
+        saveState();
+        opEl.innerHTML =
+          "<span>" + current.a + "</span> " +
+          '<span class="box" id="signBox">?</span> ' +
+          "<span>" + current.b + "</span>";
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        buttons.forEach(b => (b.disabled = false));
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      function handleChoice(btn) {
+        if (answered) return;
+        answered = true;
+        stats.total++;
+        const ok = btn.dataset.answer === current.answer;
+        document.getElementById("signBox").textContent = current.answer;
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! " + current.a + " " + current.answer + " " + current.b + " 🎉";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était : " + current.a + " " + current.answer + " " + current.b;
+          feedbackEl.className = "feedback bad";
+        }
+        buttons.forEach(b => (b.disabled = true));
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, ok ? 2500 : 4500);
+      }
+
+      buttons.forEach(btn => btn.addEventListener("click", () => handleChoice(btn)));
+
+      // ---- Réglages ----
+      const rangeSelect = document.getElementById("setRange");
+      rangeSelect.addEventListener("change", () => {
+        settings.range = parseInt(rangeSelect.value, 10);
+        onSettingsChanged();
+      });
+
+      function onSettingsChanged() {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        refreshSettingsUI();
+        updateScore();
+        renderExercise();
+      }
+
+      function refreshSettingsUI() {
+        rangeSelect.value = String(settings.range);
+      }
+
+      const settingsToggle = document.getElementById("settingsToggle");
+      settingsToggle.addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        settingsToggle.classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>
