@@ -31,6 +31,8 @@
           <option value="monde">Capitales du monde</option>
           <option value="europe">Capitales d'Europe</option>
           <option value="departements">Villes et départements français</option>
+          <option value="regions">Villes et régions françaises</option>
+          <option value="fleuves">Fleuves et villes</option>
         </select>
       </div>
       <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
@@ -39,7 +41,7 @@
     <script>(async () => {
   const response = await fetch("../data/geographie-capitales-departements.json");
   if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + "../data/geographie-capitales-departements.json");
-  const { EUROPE, MONDE, DEPARTEMENTS } = await response.json();
+  const { EUROPE, MONDE, DEPARTEMENTS, REGIONS, FLEUVES } = await response.json();
 
       // ---- Paramètres et état ----
       const STORAGE_KEY = "exercices-geographie";
@@ -87,7 +89,9 @@
       const MODES = {
         monde:      { data: Object.assign({}, EUROPE, MONDE), task: "Quelle est la capitale de ce pays ?", prompt: s => s },
         europe:     { data: EUROPE, task: "Quelle est la capitale de ce pays ?", prompt: s => s },
-        departements: { data: DEPARTEMENTS, task: "Dans quel département se trouve cette ville ?", prompt: s => s }
+        departements: { data: DEPARTEMENTS, task: "Dans quel département se trouve cette ville ?", prompt: s => s },
+        regions:    { data: REGIONS, task: "Dans quelle région se trouve cette ville ?", prompt: s => s },
+        fleuves:    { data: FLEUVES, task: "Par quelle ville passe ce fleuve ?", prompt: s => s }
       };
 
       let deck = [];
