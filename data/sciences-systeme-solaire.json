@@ -1,0 +1,26 @@
+{
+  "titre": "Système solaire",
+  "niveau": "CE2-CM2",
+  "questions": [
+    {
+      "type": "ordre",
+      "enonce": "Range les planètes du Soleil vers l'extérieur.",
+      "reponse": ["Mercure", "Vénus", "Terre", "Mars"]
+    },
+    {
+      "type": "ordre",
+      "enonce": "Range ces planètes dans l'ordre croissant de distance au Soleil.",
+      "reponse": ["Jupiter", "Saturne", "Uranus", "Neptune"]
+    },
+    {
+      "type": "ordre",
+      "enonce": "Range les planètes telluriques de la plus proche à la plus lointaine.",
+      "reponse": ["Mercure", "Vénus", "Terre", "Mars"]
+    },
+    {
+      "type": "ordre",
+      "enonce": "Place ces planètes dans l'ordre du Soleil vers l'extérieur.",
+      "reponse": ["Mercure", "Vénus", "Terre", "Mars", "Jupiter"]
+    }
+  ]
+}

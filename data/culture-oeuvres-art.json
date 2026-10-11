@@ -1,0 +1,31 @@
+{
+  "titre": "Œuvres d’art et artistes",
+  "niveau": "CM1-CM2",
+  "questions": [
+    {
+      "oeuvre": "La Joconde",
+      "reponse": "Léonard de Vinci",
+      "options": ["Léonard de Vinci", "Vincent van Gogh", "Pablo Picasso", "Claude Monet"]
+    },
+    {
+      "oeuvre": "Le Cri",
+      "reponse": "Edvard Munch",
+      "options": ["Edvard Munch", "Paul Cézanne", "Gustav Klimt", "Salvador Dalí"]
+    },
+    {
+      "oeuvre": "Nymphéas",
+      "reponse": "Claude Monet",
+      "options": ["Claude Monet", "Henri Matisse", "Michel-Ange", "Raphaël"]
+    },
+    {
+      "oeuvre": "La Nuit étoilée",
+      "reponse": "Vincent van Gogh",
+      "options": ["Vincent van Gogh", "Rembrandt", "Auguste Renoir", "Piet Mondrian"]
+    },
+    {
+      "oeuvre": "Le Tableau du déluge",
+      "reponse": "Gustave Doré",
+      "options": ["Gustave Doré", "Frida Kahlo", "Albrecht Dürer", "Édouard Manet"]
+    }
+  ]
+}

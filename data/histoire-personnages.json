@@ -1,0 +1,31 @@
+{
+  "titre": "Personnages historiques",
+  "niveau": "CM1-CM2",
+  "questions": [
+    {
+      "personnage": "Vercingétorix",
+      "reponse": "Chef gaulois",
+      "options": ["Grand empereur romain", "Chef gaulois", "Roi de France", "Saint de l'Église"]
+    },
+    {
+      "personnage": "Charlemagne",
+      "reponse": "Empereur",
+      "options": ["Chef des Vikings", "Empereur", "Président de la République", "Pape"]
+    },
+    {
+      "personnage": "Jeanne d'Arc",
+      "reponse": "Héroïne de la France",
+      "options": ["Exploratrice", "Héroïne de la France", "Reine d'Angleterre", "Astronaute"]
+    },
+    {
+      "personnage": "Napoléon Bonaparte",
+      "reponse": "Empereur français",
+      "options": ["Empereur français", "Roi d'Espagne", "Chef des Gaulois", "Pape de Rome"]
+    },
+    {
+      "personnage": "Louis XIV",
+      "reponse": "Roi de France",
+      "options": ["Roi de France", "Chef des Romains", "Premier ministre", "Maire de Paris"]
+    }
+  ]
+}

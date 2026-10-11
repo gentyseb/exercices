@@ -1,0 +1,36 @@
+{
+  "titre": "Animaux et habitats",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "type": "association",
+      "animal": "Lion",
+      "reponse": "Savane",
+      "options": ["Savane", "Océan", "Désert", "Arctique"]
+    },
+    {
+      "type": "association",
+      "animal": "Pingouin",
+      "reponse": "Antarctique",
+      "options": ["Prairie", "Antarctique", "Forêt", "Marais"]
+    },
+    {
+      "type": "association",
+      "animal": "Kangourou",
+      "reponse": "Australie",
+      "options": ["Forêt", "Australie", "Montagne", "Rivière"]
+    },
+    {
+      "type": "association",
+      "animal": "Ours polaire",
+      "reponse": "Arctique",
+      "options": ["Arctique", "Savane", "Jungle", "Plage"]
+    },
+    {
+      "type": "association",
+      "animal": "Dauphin",
+      "reponse": "Océan",
+      "options": ["Océan", "Désert", "Prairie", "Forêt"]
+    }
+  ]
+}

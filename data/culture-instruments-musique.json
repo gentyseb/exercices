@@ -1,0 +1,31 @@
+{
+  "titre": "Instruments de musique",
+  "niveau": "CE2-CM2",
+  "questions": [
+    {
+      "instrument": "Violon",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Flûte",
+      "reponse": "Vents",
+      "options": ["Percussions", "Vents", "Cordes", "Clavier"]
+    },
+    {
+      "instrument": "Tambour",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Piano",
+      "reponse": "Cordes",
+      "options": ["Percussions", "Cordes", "Vents", "Électronique"]
+    },
+    {
+      "instrument": "Saxophone",
+      "reponse": "Vents",
+      "options": ["Vents", "Cordes", "Percussions", "Clavier"]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "titre": "Corps humain",
+  "niveau": "CM1-CM2",
+  "questions": [
+    {
+      "organe": "Cœur",
+      "reponse": "Pomper le sang",
+      "options": ["Pomper le sang", "Digérer les aliments", "Filtrer l’air", "Produire des hormones"]
+    },
+    {
+      "organe": "Poumons",
+      "reponse": "Permettre la respiration",
+      "options": ["Permettre la respiration", "Pomper le sang", "Mâcher les aliments", "Décomposer les déchets"]
+    },
+    {
+      "organe": "Estomac",
+      "reponse": "Digérer les aliments",
+      "options": ["Digérer les aliments", "Boire l’eau", "Voir les objets", "Écouter les sons"]
+    },
+    {
+      "organe": "Reins",
+      "reponse": "Filtrer le sang",
+      "options": ["Filtrer le sang", "Pomper le sang", "Voir la nuit", "Manger les aliments"]
+    },
+    {
+      "organe": "Cerveau",
+      "reponse": "Penser et contrôler le corps",
+      "options": ["Penser et contrôler le corps", "Pomper le sang", "Digérer les aliments", "Produire de l’ADN"]
+    }
+  ]
+}

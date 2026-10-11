@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Cycle de l’eau</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Cycle de l’eau</h1>
+      <p class="subtitle">Range les étapes du cycle de l’eau dans le bon ordre.</p>
+
+      <div class="task" id="task">Question</div>
+      <div class="word" id="word">—</div>
+      <div class="feedback" id="feedback"></div>
+      <div class="choices" id="choices"></div>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+    </main>
+
+    <script>
+      (async () => {
+        const response = await fetch('../data/sciences-cycle-eau.json');
+        if (!response.ok) throw new Error('Impossible de charger le cycle de l’eau.');
+        const { questions } = await response.json();
+
+        const STORAGE_KEY = 'exercices-sciences-cycle-eau';
+        let stats = { good: 0, total: 0 };
+        let current = null;
+        let selection = [];
+        let deck = [];
+
+        function loadState() {
+          try {
+            const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            if (saved.stats) stats = { ...stats, ...saved.stats };
+          } catch (error) {
+            console.warn('Impossible de charger le score.', error);
+          }
+        }
+
+        function saveState() {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats }));
+        }
+
+        function shuffle(items) {
+          const copy = [...items];
+          for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+          }
+          return copy;
+        }
+
+        function makeQuestion() {
+          if (deck.length === 0) deck = shuffle(questions.map((_, index) => index));
+          const index = deck.pop();
+          const item = questions[index];
+          return {
+            ...item,
+            options: shuffle(item.reponse)
+          };
+        }
+
+        function updateScore() {
+          const good = document.getElementById('good');
+          const total = document.getElementById('total');
+          const pct = document.getElementById('pct');
+
+          good.textContent = stats.good;
+          total.textContent = stats.total;
+          const percentage = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+          pct.textContent = percentage === null ? '— %' : percentage + ' %';
+          pct.style.color = percentage === null || percentage >= 70 ? '#16a34a' : '#dc2626';
+        }
+
+        function renderExercise() {
+          current = makeQuestion();
+          selection = [];
+          const taskEl = document.getElementById('task');
+          const wordEl = document.getElementById('word');
+          const feedbackEl = document.getElementById('feedback');
+          const choicesEl = document.getElementById('choices');
+
+          taskEl.textContent = 'Étapes';
+          wordEl.textContent = current.enonce;
+          feedbackEl.textContent = '';
+          feedbackEl.className = 'feedback';
+          choicesEl.innerHTML = current.options
+            .map((step) => '<button data-step="' + step + '">' + step + '</button>')
+            .join('');
+
+          choicesEl.querySelectorAll('button').forEach((button) => {
+            button.addEventListener('click', () => handleChoice(button.dataset.step));
+          });
+        }
+
+        function updateSelectionText() {
+          const wordEl = document.getElementById('word');
+          if (selection.length === 0) {
+            wordEl.textContent = current.enonce;
+            return;
+          }
+          wordEl.textContent = selection.join(' → ');
+        }
+
+        function handleChoice(step) {
+          if (selection.length >= current.reponse.length) return;
+
+          selection.push(step);
+          const choicesEl = document.getElementById('choices');
+          const button = Array.from(choicesEl.querySelectorAll('button')).find((node) => node.dataset.step === step);
+          if (button) button.disabled = true;
+          updateSelectionText();
+
+          if (selection.length === current.reponse.length) {
+            const feedbackEl = document.getElementById('feedback');
+            const isCorrect = selection.every((name, index) => name === current.reponse[index]);
+            stats.total += 1;
+
+            if (isCorrect) {
+              stats.good += 1;
+              feedbackEl.textContent = '✅ Bravo ! C’est le bon ordre.';
+              feedbackEl.className = 'feedback good';
+            } else {
+              feedbackEl.textContent = '❌ Faux. L’ordre correct était : ' + current.reponse.join(' → ');
+              feedbackEl.className = 'feedback bad';
+            }
+
+            updateScore();
+            saveState();
+            setTimeout(renderExercise, isCorrect ? 1800 : 2600);
+          }
+        }
+
+        document.getElementById('reset').addEventListener('click', () => {
+          stats = { good: 0, total: 0 };
+          saveState();
+          updateScore();
+          renderExercise();
+        });
+
+        loadState();
+        updateScore();
+        renderExercise();
+      })().catch((error) => {
+        console.error(error);
+        document.body.innerHTML = '<main class="card"><h1>Erreur</h1><p class="subtitle">Impossible de charger l’exercice.</p></main>';
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "titre": "Cycle de l’eau",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Remets les étapes du cycle de l’eau dans l’ordre.",
+      "reponse": ["Évaporation", "Condensation", "Précipitations", "Ruissellement"]
+    },
+    {
+      "enonce": "Classe ces étapes du cycle de l’eau dans l’ordre logique.",
+      "reponse": ["L’eau s’évapore", "Les nuages se forment", "Il pleut", "L’eau retourne vers la terre"]
+    },
+    {
+      "enonce": "Ordonne ces éléments du cycle de l’eau.",
+      "reponse": ["Évaporation", "Condensation", "Précipitations", "Infiltration"]
+    }
+  ]
+}
