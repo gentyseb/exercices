@@ -430,6 +430,27 @@ button.choice.reveal {
   background: var(--color-success-soft);
 }
 
+.selection-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  margin: 10px auto 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: .82rem;
+  font-weight: 700;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.selection-box[hidden],
+.buttons[hidden] {
+  display: none;
+}
+
 .choices {
   display: flex;
   gap: 10px;
@@ -457,6 +478,13 @@ button.choice.reveal {
   color: var(--color-primary);
   box-shadow: 0 5px 12px rgba(29, 78, 216, 0.12);
   transform: translateY(-2px);
+}
+
+.choices button.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  box-shadow: 0 5px 12px rgba(29, 78, 216, 0.12);
 }
 
 .choices button:disabled {
@@ -521,15 +549,30 @@ button.choice.reveal {
   transform: none;
 }
 
+#clear-selection,
 #reset {
   padding: 11px 26px;
   font-size: .95rem;
   font-weight: 700;
   border: none;
   border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(75, 85, 99, 0.18);
+}
+
+#clear-selection {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+#clear-selection:hover:not(:disabled) {
+  background: #d1d5db;
+  box-shadow: 0 8px 18px rgba(75, 85, 99, 0.22);
+  transform: translateY(-2px);
+}
+
+#reset {
   background: #6b7280;
   color: #fff;
-  box-shadow: 0 6px 14px rgba(75, 85, 99, 0.18);
 }
 
 #reset:hover {
@@ -538,6 +581,7 @@ button.choice.reveal {
   transform: translateY(-2px);
 }
 
+#clear-selection:active:not(:disabled),
 #reset:active:not(:disabled) {
   box-shadow: 0 4px 10px rgba(75, 85, 99, 0.18);
   transform: translateY(0);
@@ -552,6 +596,12 @@ button.choice.reveal {
   border-radius: 14px;
   background: var(--color-surface-soft);
   color: var(--color-text-subtle);
+}
+
+#settingsToggle.solar-settings-toggle {
+  margin: 0;
+  padding: 11px 26px;
+  font-size: .95rem;
 }
 
 #settingsToggle:hover {

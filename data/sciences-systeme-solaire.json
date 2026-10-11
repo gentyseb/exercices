@@ -3,24 +3,144 @@
   "niveau": "CE2-CM2",
   "questions": [
     {
-      "type": "ordre",
+      "mode": "ordre",
       "enonce": "Range les planètes du Soleil vers l'extérieur.",
       "reponse": ["Mercure", "Vénus", "Terre", "Mars"]
     },
     {
-      "type": "ordre",
+      "mode": "ordre",
       "enonce": "Range ces planètes dans l'ordre croissant de distance au Soleil.",
       "reponse": ["Jupiter", "Saturne", "Uranus", "Neptune"]
     },
     {
-      "type": "ordre",
+      "mode": "ordre",
       "enonce": "Range les planètes telluriques de la plus proche à la plus lointaine.",
       "reponse": ["Mercure", "Vénus", "Terre", "Mars"]
     },
     {
-      "type": "ordre",
+      "mode": "ordre",
       "enonce": "Place ces planètes dans l'ordre du Soleil vers l'extérieur.",
       "reponse": ["Mercure", "Vénus", "Terre", "Mars", "Jupiter"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 1re planète en partant du Soleil ?",
+      "reponse": "Mercure",
+      "options": ["Mercure", "Vénus", "Terre", "Mars"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 2e planète en partant du Soleil ?",
+      "reponse": "Vénus",
+      "options": ["Mercure", "Vénus", "Terre", "Mars"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 3e planète en partant du Soleil ?",
+      "reponse": "Terre",
+      "options": ["Vénus", "Terre", "Mars", "Jupiter"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 4e planète en partant du Soleil ?",
+      "reponse": "Mars",
+      "options": ["Terre", "Mars", "Jupiter", "Saturne"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 5e planète en partant du Soleil ?",
+      "reponse": "Jupiter",
+      "options": ["Mars", "Jupiter", "Saturne", "Uranus"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 6e planète en partant du Soleil ?",
+      "reponse": "Saturne",
+      "options": ["Jupiter", "Saturne", "Uranus", "Neptune"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 7e planète en partant du Soleil ?",
+      "reponse": "Uranus",
+      "options": ["Saturne", "Uranus", "Neptune", "Jupiter"]
+    },
+    {
+      "mode": "position",
+      "enonce": "Quelle est la 8e planète en partant du Soleil ?",
+      "reponse": "Neptune",
+      "options": ["Jupiter", "Saturne", "Uranus", "Neptune"]
+    },
+    {
+      "mode": "lunes-nombre",
+      "enonce": "Combien de lunes naturelles connues possède Mercure ?",
+      "reponse": "0",
+      "options": ["0", "1", "2", "4"]
+    },
+    {
+      "mode": "lunes-nombre",
+      "enonce": "Combien de lunes naturelles connues possède Vénus ?",
+      "reponse": "0",
+      "options": ["0", "1", "2", "4"]
+    },
+    {
+      "mode": "lunes-nombre",
+      "enonce": "Combien de lunes naturelles connues possède la Terre ?",
+      "reponse": "1",
+      "options": ["0", "1", "2", "4"]
+    },
+    {
+      "mode": "lunes-nombre",
+      "enonce": "Combien de lunes naturelles connues possède Mars ?",
+      "reponse": "2",
+      "options": ["0", "1", "2", "4"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la lune naturelle de la Terre ?",
+      "reponse": "La Lune",
+      "options": ["La Lune", "Phobos", "Titan", "Ganymède"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quels sont les noms des deux lunes de Mars ?",
+      "reponse": "Phobos et Déimos",
+      "options": ["Phobos et Déimos", "Io et Europe", "Titan et Rhéa", "Triton et Titania"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle est la plus grande lune de Jupiter ?",
+      "reponse": "Ganymède",
+      "options": ["Ganymède", "Europe", "Titan", "Phobos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la plus grande lune de Saturne ?",
+      "reponse": "Titan",
+      "options": ["Titan", "Io", "La Lune", "Déimos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la plus grande lune de Neptune ?",
+      "reponse": "Triton",
+      "options": ["Triton", "Titania", "Europe", "Ganymède"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est une géante gazeuse ?",
+      "reponse": "Jupiter",
+      "options": ["Jupiter", "Mars", "Terre", "Mercure"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est une géante gazeuse ?",
+      "reponse": "Saturne",
+      "options": ["Saturne", "Vénus", "Uranus", "Neptune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Uranus et Neptune sont des géantes de glace. Laquelle est la plus proche du Soleil ?",
+      "reponse": "Uranus",
+      "options": ["Uranus", "Neptune", "Saturne", "Jupiter"]
     }
   ]
 }

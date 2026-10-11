@@ -12,9 +12,16 @@
       <p class="subtitle">Range les étapes du cycle de l’eau dans le bon ordre.</p>
 
       <div class="task" id="task">Question</div>
+      <div class="selection-box" id="selection-box">
+        Sélection : <span id="selection-label">Aucune étape choisie</span>
+      </div>
       <div class="word" id="word">—</div>
       <div class="feedback" id="feedback"></div>
       <div class="choices" id="choices"></div>
+
+      <div class="buttons">
+        <button id="clear-selection" type="button">Effacer</button>
+      </div>
 
       <div class="score">
         <div class="label">Score</div>
@@ -22,7 +29,9 @@
         <div class="pct" id="pct">— %</div>
       </div>
 
-      <button id="reset">Réinitialiser le score</button>
+      <div class="buttons">
+        <button id="reset" type="button">Réinitialiser le score</button>
+      </div>
     </main>
 
     <script>
@@ -94,31 +103,48 @@
           feedbackEl.textContent = '';
           feedbackEl.className = 'feedback';
           choicesEl.innerHTML = current.options
-            .map((step) => '<button data-step="' + step + '">' + step + '</button>')
+            .map((step) => '<button type="button" data-step="' + step + '">' + step + '</button>')
             .join('');
 
           choicesEl.querySelectorAll('button').forEach((button) => {
             button.addEventListener('click', () => handleChoice(button.dataset.step));
           });
+
+          updateSelectionText();
+          syncChoiceButtons();
         }
 
         function updateSelectionText() {
           const wordEl = document.getElementById('word');
+          const selectionLabel = document.getElementById('selection-label');
+          const clearButton = document.getElementById('clear-selection');
           if (selection.length === 0) {
             wordEl.textContent = current.enonce;
+            selectionLabel.textContent = 'Aucune étape choisie';
+            clearButton.disabled = true;
             return;
           }
           wordEl.textContent = selection.join(' → ');
+          selectionLabel.textContent = selection.join(' → ');
+          clearButton.disabled = false;
+        }
+
+        function syncChoiceButtons() {
+          const choicesEl = document.getElementById('choices');
+          choicesEl.querySelectorAll('button').forEach((button) => {
+            const step = button.dataset.step;
+            const isSelected = selection.includes(step);
+            button.classList.toggle('selected', isSelected);
+            button.disabled = isSelected || selection.length >= current.reponse.length;
+          });
         }
 
         function handleChoice(step) {
-          if (selection.length >= current.reponse.length) return;
+          if (selection.length >= current.reponse.length || selection.includes(step)) return;
 
           selection.push(step);
-          const choicesEl = document.getElementById('choices');
-          const button = Array.from(choicesEl.querySelectorAll('button')).find((node) => node.dataset.step === step);
-          if (button) button.disabled = true;
           updateSelectionText();
+          syncChoiceButtons();
 
           if (selection.length === current.reponse.length) {
             const feedbackEl = document.getElementById('feedback');
@@ -139,6 +165,13 @@
             setTimeout(renderExercise, isCorrect ? 1800 : 2600);
           }
         }
+
+        document.getElementById('clear-selection').addEventListener('click', () => {
+          if (selection.length === 0) return;
+          selection = [];
+          updateSelectionText();
+          syncChoiceButtons();
+        });
 
         document.getElementById('reset').addEventListener('click', () => {
           stats = { good: 0, total: 0 };

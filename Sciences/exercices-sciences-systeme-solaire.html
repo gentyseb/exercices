@@ -9,12 +9,19 @@
   <body>
     <main class="card">
       <h1>Système solaire</h1>
-      <p class="subtitle">Classe les planètes dans l’ordre du Soleil vers l’extérieur.</p>
+      <p class="subtitle">Révise les planètes, leurs lunes et leurs caractéristiques.</p>
 
       <div class="task" id="task">Question</div>
+      <div class="selection-box" id="selection-box" hidden>
+        Sélection : <span id="selection-label">Aucune planète choisie</span>
+      </div>
       <div class="word" id="word">—</div>
       <div class="feedback" id="feedback"></div>
       <div class="choices" id="choices"></div>
+
+      <div class="buttons" id="clear-controls" hidden>
+        <button id="clear-selection" type="button">Effacer</button>
+      </div>
 
       <div class="score">
         <div class="label">Score</div>
@@ -22,7 +29,24 @@
         <div class="pct" id="pct">— %</div>
       </div>
 
-      <button id="reset">Réinitialiser le score</button>
+      <div class="buttons">
+        <button id="reset" type="button">Réinitialiser le score</button>
+        <button id="settingsToggle" class="solar-settings-toggle" type="button" aria-expanded="false" aria-controls="settingsPanel">
+          ⚙️ Paramètres <span class="arrow">▾</span>
+        </button>
+      </div>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-label">Mode de jeu</div>
+        <select id="mode">
+          <option value="melange">Mélangé</option>
+          <option value="ordre">Ordre des planètes</option>
+          <option value="position">Rang des planètes</option>
+          <option value="lunes-nombre">Nombre de lunes (planètes rocheuses)</option>
+          <option value="lunes-nom">Noms des lunes</option>
+          <option value="classification">Planètes gazeuses</option>
+        </select>
+      </div>
+      <div class="hint">Ton score et ton mode de jeu sont sauvegardés automatiquement.</div>
     </main>
 
     <script>
@@ -33,21 +57,31 @@
 
         const STORAGE_KEY = 'exercices-sciences-systeme-solaire';
         let stats = { good: 0, total: 0 };
+        let settings = { mode: 'melange' };
         let current = null;
         let selection = [];
         let deck = [];
+        let answered = false;
+        let nextQuestionTimeout = null;
+        let activeMode = document.getElementById('mode').value;
 
         function loadState() {
           try {
             const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
             if (saved.stats) stats = { ...stats, ...saved.stats };
+            const modeSelect = document.getElementById('mode');
+            if (saved.settings && Array.from(modeSelect.options).some((option) => option.value === saved.settings.mode)) {
+              settings = { ...settings, ...saved.settings };
+            }
           } catch (error) {
             console.warn('Impossible de charger le score.', error);
           }
+          document.getElementById('mode').value = settings.mode;
+          activeMode = settings.mode;
         }
 
         function saveState() {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats }));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats, settings }));
         }
 
         function shuffle(items) {
@@ -60,13 +94,14 @@
         }
 
         function makeQuestion() {
-          if (deck.length === 0) deck = shuffle(questions.map((_, index) => index));
-          const index = deck.pop();
-          const item = questions[index];
-          return {
-            ...item,
-            options: shuffle(item.reponse)
-          };
+          const modeQuestions = activeMode === 'melange'
+            ? questions
+            : questions.filter((question) => question.mode === activeMode);
+          if (deck.length === 0) deck = shuffle(modeQuestions.map((_, index) => index));
+          const item = modeQuestions[deck.pop()];
+          return item.mode === 'ordre'
+            ? { ...item, options: shuffle(item.reponse) }
+            : { ...item, options: shuffle(item.options) };
         }
 
         function updateScore() {
@@ -82,47 +117,81 @@
         }
 
         function renderExercise() {
+          if (nextQuestionTimeout !== null) {
+            clearTimeout(nextQuestionTimeout);
+            nextQuestionTimeout = null;
+          }
           current = makeQuestion();
           selection = [];
+          answered = false;
           const taskEl = document.getElementById('task');
           const wordEl = document.getElementById('word');
           const feedbackEl = document.getElementById('feedback');
           const choicesEl = document.getElementById('choices');
+          const selectionBox = document.getElementById('selection-box');
+          const clearControls = document.getElementById('clear-controls');
+          const isOrderQuestion = current.mode === 'ordre';
 
-          taskEl.textContent = 'Ordre correct';
+          taskEl.textContent = isOrderQuestion ? 'Ordre correct' : 'À toi de répondre';
           wordEl.textContent = current.enonce;
           feedbackEl.textContent = '';
           feedbackEl.className = 'feedback';
-          choicesEl.innerHTML = current.options
-            .map((planet) => '<button data-planet="' + planet + '">' + planet + '</button>')
-            .join('');
+          selectionBox.hidden = !isOrderQuestion;
+          clearControls.hidden = !isOrderQuestion;
+          choicesEl.innerHTML = current.options.map((option) => {
+            const attribute = isOrderQuestion ? 'data-planet' : 'data-answer';
+            return '<button type="button" ' + attribute + '="' + option + '">' + option + '</button>';
+          }).join('');
 
           choicesEl.querySelectorAll('button').forEach((button) => {
-            button.addEventListener('click', () => handleOrder(button.dataset.planet));
+            button.addEventListener('click', () => {
+              if (isOrderQuestion) handleOrder(button.dataset.planet);
+              else handleAnswer(button.dataset.answer);
+            });
           });
+
+          if (isOrderQuestion) {
+            updateSelectionText();
+            syncChoiceButtons();
+          }
         }
 
         function updateSelectionText() {
           const wordEl = document.getElementById('word');
+          const selectionLabel = document.getElementById('selection-label');
+          const clearButton = document.getElementById('clear-selection');
           if (selection.length === 0) {
             wordEl.textContent = current.enonce;
+            selectionLabel.textContent = 'Aucune planète choisie';
+            clearButton.disabled = answered;
             return;
           }
           wordEl.textContent = selection.join(' → ');
+          selectionLabel.textContent = selection.join(' → ');
+          clearButton.disabled = answered;
+        }
+
+        function syncChoiceButtons() {
+          const choicesEl = document.getElementById('choices');
+          choicesEl.querySelectorAll('button').forEach((button) => {
+            const planet = button.dataset.planet;
+            const isSelected = selection.includes(planet);
+            button.classList.toggle('selected', isSelected);
+            button.disabled = answered || isSelected || selection.length >= current.reponse.length;
+          });
         }
 
         function handleOrder(planet) {
-          if (selection.length >= current.reponse.length) return;
+          if (answered || selection.length >= current.reponse.length || selection.includes(planet)) return;
 
           selection.push(planet);
-          const choicesEl = document.getElementById('choices');
-          const button = Array.from(choicesEl.querySelectorAll('button')).find((node) => node.dataset.planet === planet);
-          if (button) button.disabled = true;
           updateSelectionText();
+          syncChoiceButtons();
 
           if (selection.length === current.reponse.length) {
             const feedbackEl = document.getElementById('feedback');
             const isCorrect = selection.every((name, index) => name === current.reponse[index]);
+            answered = true;
             stats.total += 1;
 
             if (isCorrect) {
@@ -136,14 +205,67 @@
 
             updateScore();
             saveState();
-            setTimeout(renderExercise, isCorrect ? 1800 : 2600);
+            updateSelectionText();
+            syncChoiceButtons();
+            nextQuestionTimeout = setTimeout(renderExercise, isCorrect ? 1800 : 2600);
           }
         }
+
+        function handleAnswer(answer) {
+          if (answered) return;
+          answered = true;
+          const feedbackEl = document.getElementById('feedback');
+          const choicesEl = document.getElementById('choices');
+          const isCorrect = answer === current.reponse;
+          stats.total += 1;
+
+          if (isCorrect) {
+            stats.good += 1;
+            feedbackEl.textContent = '✅ Bravo ! Bonne réponse.';
+            feedbackEl.className = 'feedback good';
+          } else {
+            feedbackEl.textContent = '❌ Faux. La bonne réponse était : ' + current.reponse;
+            feedbackEl.className = 'feedback bad';
+          }
+
+          choicesEl.querySelectorAll('button').forEach((button) => {
+            button.disabled = true;
+            if (button.dataset.answer === current.reponse) button.classList.add('selected');
+          });
+
+          updateScore();
+          saveState();
+          nextQuestionTimeout = setTimeout(renderExercise, isCorrect ? 1800 : 2600);
+        }
+
+        document.getElementById('clear-selection').addEventListener('click', () => {
+          if (answered || selection.length === 0) return;
+          selection = [];
+          updateSelectionText();
+          syncChoiceButtons();
+        });
+
+        document.getElementById('mode').addEventListener('change', (event) => {
+          activeMode = event.target.value;
+          settings.mode = activeMode;
+          deck = [];
+          saveState();
+          renderExercise();
+        });
+
+        document.getElementById('settingsToggle').addEventListener('click', (event) => {
+          const button = event.currentTarget;
+          const panel = document.getElementById('settingsPanel');
+          const isOpen = panel.classList.toggle('open');
+          button.classList.toggle('open', isOpen);
+          button.setAttribute('aria-expanded', String(isOpen));
+        });
 
         document.getElementById('reset').addEventListener('click', () => {
           stats = { good: 0, total: 0 };
           saveState();
           updateScore();
+          deck = [];
           renderExercise();
         });
 
