@@ -141,6 +141,7 @@ function slug(s) {
 function buildHtml(root, categories) {
   const total = categories.reduce((n, c) => n + c.exercises.length, 0);
   const now = new Date().toLocaleString("fr-FR");
+  const generationInfo = `${total} exercice${total > 1 ? "s" : ""} — généré le ${now}`;
 
   const sections = categories
     .map((cat) => {
@@ -177,41 +178,16 @@ function buildHtml(root, categories) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index des exercices</title>
-    <style>
-      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
-      * { box-sizing: border-box; }
-      body { margin: 0; padding: 32px 24px 48px; }
-      .wrap { max-width: 900px; margin: 0 auto; }
-      h1 { font-size: 1.8rem; margin: 0 0 6px; color: #1d4ed8; text-align: center; }
-      .meta { text-align: center; color: #6b7280; margin: 0 0 22px; font-size: .95rem; }
-      .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 28px; }
-      .nav a { padding: 7px 14px; font-size: .88rem; font-weight: 700; text-decoration: none; color: #1d4ed8; background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 999px; }
-      .nav a:hover { background: #dbeafe; }
-      .category { margin-bottom: 34px; }
-      .category h2 { font-size: 1.25rem; margin: 0 0 14px; color: #111827; display: flex; align-items: center; gap: 10px; }
-      .count { font-size: .8rem; background: #1d4ed8; color: #fff; border-radius: 999px; padding: 2px 11px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
-      a.card {
-        display: flex; flex-direction: column; gap: 6px;
-        background: #fff; border-radius: 14px; padding: 18px;
-        box-shadow: 0 4px 14px rgba(0,0,0,.06);
-        text-decoration: none; color: #111827; font-weight: 700; font-size: 1rem;
-        border: 2px solid transparent; transition: all .15s ease;
-      }
-      a.card:hover { border-color: #1d4ed8; transform: translateY(-2px); }
-      a.card span { font-size: .8rem; color: #1d4ed8; font-weight: 600; }
-      footer { text-align: center; color: #9ca3af; font-size: .78rem; margin-top: 12px; }
-    </style>
+    <link rel="stylesheet" href="core/style.css" />
   </head>
   <body>
     <div class="wrap">
       <h1>📚 Index des exercices</h1>
-      <p class="meta">${total} exercice${total > 1 ? "s" : ""} — généré le ${now}</p>
       <nav class="nav">
       ${nav}
       </nav>
 ${sections}
-      <footer>Page générée automatiquement par generer-index.js — relance le script après avoir ajouté ou retiré des exercices.</footer>
+      <footer>${generationInfo}</footer>
     </div>
   </body>
 </html>

@@ -1,0 +1,343 @@
+{
+  "TENSES": {
+    "present": "présent",
+    "futur": "futur",
+    "imparfait": "imparfait"
+  },
+  "PERSONS": [
+    [
+      "je",
+      "j'"
+    ],
+    [
+      "tu",
+      "tu"
+    ],
+    [
+      "il",
+      "il"
+    ],
+    [
+      "nous",
+      "nous"
+    ],
+    [
+      "vous",
+      "vous"
+    ],
+    [
+      "ils",
+      "ils"
+    ]
+  ],
+  "G1": [
+    "chanter",
+    "danser",
+    "jouer",
+    "parler",
+    "sauter",
+    "écouter",
+    "regarder",
+    "aimer",
+    "donner",
+    "penser",
+    "travailler",
+    "laver",
+    "casser",
+    "fermer",
+    "dessiner",
+    "souffler",
+    "arriver",
+    "entrer",
+    "dîner",
+    "passer"
+  ],
+  "G1_ENDINGS": {
+    "present": [
+      "e",
+      "es",
+      "e",
+      "ons",
+      "ez",
+      "ent"
+    ],
+    "futur": [
+      "erai",
+      "eras",
+      "era",
+      "erons",
+      "erez",
+      "eront"
+    ],
+    "imparfait": [
+      "ais",
+      "ais",
+      "ait",
+      "ions",
+      "iez",
+      "aient"
+    ]
+  },
+  "IRR": {
+    "être": {
+      "present": [
+        "suis",
+        "es",
+        "est",
+        "sommes",
+        "êtes",
+        "sont"
+      ],
+      "futur": [
+        "serai",
+        "seras",
+        "sera",
+        "serons",
+        "serez",
+        "seront"
+      ],
+      "imparfait": [
+        "étais",
+        "étais",
+        "était",
+        "étions",
+        "étiez",
+        "étaient"
+      ]
+    },
+    "avoir": {
+      "present": [
+        "ai",
+        "as",
+        "a",
+        "avons",
+        "avez",
+        "ont"
+      ],
+      "futur": [
+        "aurai",
+        "auras",
+        "aura",
+        "aurons",
+        "aurez",
+        "auront"
+      ],
+      "imparfait": [
+        "avais",
+        "avais",
+        "avait",
+        "avions",
+        "aviez",
+        "avaient"
+      ]
+    },
+    "aller": {
+      "present": [
+        "vais",
+        "vas",
+        "va",
+        "allons",
+        "allez",
+        "vont"
+      ],
+      "futur": [
+        "irai",
+        "iras",
+        "ira",
+        "irons",
+        "irez",
+        "iront"
+      ],
+      "imparfait": [
+        "allais",
+        "allais",
+        "allait",
+        "allions",
+        "alliez",
+        "allaient"
+      ]
+    },
+    "faire": {
+      "present": [
+        "fais",
+        "fais",
+        "fait",
+        "faisons",
+        "faites",
+        "font"
+      ],
+      "futur": [
+        "ferai",
+        "feras",
+        "fera",
+        "ferons",
+        "ferez",
+        "feront"
+      ],
+      "imparfait": [
+        "faisais",
+        "faisais",
+        "faisait",
+        "faisions",
+        "faisiez",
+        "faisaient"
+      ]
+    },
+    "venir": {
+      "present": [
+        "viens",
+        "viens",
+        "vient",
+        "venons",
+        "venez",
+        "viennent"
+      ],
+      "futur": [
+        "viendrai",
+        "viendras",
+        "viendra",
+        "viendrons",
+        "viendrez",
+        "viendront"
+      ],
+      "imparfait": [
+        "venais",
+        "venais",
+        "venait",
+        "venions",
+        "veniez",
+        "venaient"
+      ]
+    },
+    "prendre": {
+      "present": [
+        "prends",
+        "prends",
+        "prend",
+        "prenons",
+        "prenez",
+        "prennent"
+      ],
+      "futur": [
+        "prendrai",
+        "prendras",
+        "prendra",
+        "prendrons",
+        "prendrez",
+        "prendront"
+      ],
+      "imparfait": [
+        "prenais",
+        "prenais",
+        "prenait",
+        "prenions",
+        "preniez",
+        "prenaient"
+      ]
+    },
+    "voir": {
+      "present": [
+        "vois",
+        "vois",
+        "voit",
+        "voyons",
+        "voyez",
+        "voient"
+      ],
+      "futur": [
+        "verrai",
+        "verras",
+        "verra",
+        "verrons",
+        "verrez",
+        "verront"
+      ],
+      "imparfait": [
+        "voyais",
+        "voyais",
+        "voyait",
+        "voyions",
+        "voyiez",
+        "voyaient"
+      ]
+    },
+    "dire": {
+      "present": [
+        "dis",
+        "dis",
+        "dit",
+        "disons",
+        "dites",
+        "disent"
+      ],
+      "futur": [
+        "dirai",
+        "diras",
+        "dira",
+        "dirons",
+        "direz",
+        "diront"
+      ],
+      "imparfait": [
+        "disais",
+        "disais",
+        "disait",
+        "disions",
+        "disiez",
+        "disaient"
+      ]
+    },
+    "pouvoir": {
+      "present": [
+        "peux",
+        "peux",
+        "peut",
+        "pouvons",
+        "pouvez",
+        "peuvent"
+      ],
+      "futur": [
+        "pourrai",
+        "pourras",
+        "pourra",
+        "pourrons",
+        "pourrez",
+        "pourront"
+      ],
+      "imparfait": [
+        "pouvais",
+        "pouvais",
+        "pouvait",
+        "pouvions",
+        "pouviez",
+        "pouvaient"
+      ]
+    },
+    "vouloir": {
+      "present": [
+        "veux",
+        "veux",
+        "veut",
+        "voulons",
+        "voulez",
+        "veulent"
+      ],
+      "futur": [
+        "voudrai",
+        "voudras",
+        "voudra",
+        "voudrons",
+        "voudrez",
+        "voudront"
+      ],
+      "imparfait": [
+        "voulais",
+        "voulais",
+        "voulait",
+        "voulions",
+        "vouliez",
+        "voulaient"
+      ]
+    }
+  }
+}

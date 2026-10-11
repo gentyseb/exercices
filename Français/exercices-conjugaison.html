@@ -4,42 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercices : Conjugaison</title>
-    <style>
-      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
-      * { box-sizing: border-box; }
-      body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px; }
-      .card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 28px; width: 100%; max-width: 560px; text-align: center; }
-      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
-      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
-      .settings { background: #f8fafc; border-radius: 12px; padding: 14px 16px; text-align: left; display: none; margin-top: 4px; }
-      .settings.open { display: block; }
-      .setting-row { margin-bottom: 12px; }
-      .setting-row:last-child { margin-bottom: 0; }
-      .setting-label { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
-      select { width: 100%; padding: 9px 12px; font-size: .95rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 10px; background: #fff; color: #374151; cursor: pointer; font-family: inherit; }
-      select:focus { outline: none; border-color: #93c5fd; }
-      .question { font-size: 1.9rem; font-weight: 800; margin: 16px 0 8px; display: flex; justify-content: center; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-      .question input { width: 170px; font-size: 1.9rem; font-weight: 800; text-align: center; border: none; border-bottom: 4px solid #1d4ed8; background: transparent; color: #111827; outline: none; font-family: inherit; }
-      .question input:disabled { opacity: .75; }
-      .tense-badge { display: inline-block; margin-bottom: 10px; padding: 5px 14px; font-size: .85rem; font-weight: 700; border-radius: 999px; background: #eff6ff; color: #1d4ed8; }
-      .feedback { min-height: 1.7rem; font-weight: 600; margin-bottom: 12px; font-size: 1.02rem; }
-      .good { color: #16a34a; }
-      .bad { color: #dc2626; }
-      #check { padding: 13px 36px; font-size: 1rem; font-weight: 700; border: none; border-radius: 12px; background: #1d4ed8; color: #fff; cursor: pointer; margin-bottom: 18px; transition: background .15s ease; }
-      #check:hover:not(:disabled) { background: #1e40af; }
-      #check:disabled { opacity: .6; cursor: default; }
-      .score { background: #f8fafc; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
-      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
-      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
-      #reset { padding: 11px 26px; font-size: .95rem; font-weight: 600; border: none; border-radius: 12px; background: #6b7280; color: #fff; cursor: pointer; transition: background .15s ease; }
-      #reset:hover { background: #4b5563; }
-      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
-      #settingsToggle { margin: 16px 0 6px; padding: 10px 22px; font-size: .9rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #374151; cursor: pointer; transition: all .15s ease; }
-      #settingsToggle:hover { border-color: #93c5fd; }
-      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
-      #settingsToggle.open .arrow { transform: rotate(180deg); }
-    </style>
+    <link rel="stylesheet" href="../core/style.css" />
   </head>
   <body>
     <main class="card">
@@ -82,7 +47,11 @@
       <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
     </main>
 
-    <script>
+    <script>(async () => {
+  const response = await fetch("../data/conjugaison.json");
+  if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + "../data/conjugaison.json");
+  const { TENSES, PERSONS, G1, G1_ENDINGS, IRR } = await response.json();
+
       // ---- Paramètres et état ----
       const STORAGE_KEY = "exercices-conjugaison";
       let settings = { tense: "mix", group: "tous" };
@@ -112,32 +81,17 @@
       }
 
       // ---- Données : verbes et conjugaisons ----
-      const TENSES = { present: "présent", futur: "futur", imparfait: "imparfait" };
-      const PERSONS = [["je", "j'"], ["tu", "tu"], ["il", "il"], ["nous", "nous"], ["vous", "vous"], ["ils", "ils"]];
+      
+      
 
       // Verbes du 1er groupe (réguliers, sans exception de radical)
-      const G1 = ["chanter", "danser", "jouer", "parler", "sauter", "écouter", "regarder", "aimer", "donner", "penser", "travailler", "laver", "casser", "fermer", "dessiner", "souffler", "arriver", "entrer", "dîner", "passer"];
+      
 
       // Terminaisons régulières sur le radical (infinitif sans "er")
-      const G1_ENDINGS = {
-        present: ["e", "es", "e", "ons", "ez", "ent"],
-        futur: ["erai", "eras", "era", "erons", "erez", "eront"],
-        imparfait: ["ais", "ais", "ait", "ions", "iez", "aient"]
-      };
+      
 
       // Verbes irréguliers : formes complètes par temps (je, tu, il, nous, vous, ils)
-      const IRR = {
-        "être":   { present: ["suis", "es", "est", "sommes", "êtes", "sont"], futur: ["serai", "seras", "sera", "serons", "serez", "seront"], imparfait: ["étais", "étais", "était", "étions", "étiez", "étaient"] },
-        "avoir":  { present: ["ai", "as", "a", "avons", "avez", "ont"], futur: ["aurai", "auras", "aura", "aurons", "aurez", "auront"], imparfait: ["avais", "avais", "avait", "avions", "aviez", "avaient"] },
-        "aller":  { present: ["vais", "vas", "va", "allons", "allez", "vont"], futur: ["irai", "iras", "ira", "irons", "irez", "iront"], imparfait: ["allais", "allais", "allait", "allions", "alliez", "allaient"] },
-        "faire":  { present: ["fais", "fais", "fait", "faisons", "faites", "font"], futur: ["ferai", "feras", "fera", "ferons", "ferez", "feront"], imparfait: ["faisais", "faisais", "faisait", "faisions", "faisiez", "faisaient"] },
-        "venir":  { present: ["viens", "viens", "vient", "venons", "venez", "viennent"], futur: ["viendrai", "viendras", "viendra", "viendrons", "viendrez", "viendront"], imparfait: ["venais", "venais", "venait", "venions", "veniez", "venaient"] },
-        "prendre": { present: ["prends", "prends", "prend", "prenons", "prenez", "prennent"], futur: ["prendrai", "prendras", "prendra", "prendrons", "prendrez", "prendront"], imparfait: ["prenais", "prenais", "prenait", "prenions", "preniez", "prenaient"] },
-        "voir":   { present: ["vois", "vois", "voit", "voyons", "voyez", "voient"], futur: ["verrai", "verras", "verra", "verrons", "verrez", "verront"], imparfait: ["voyais", "voyais", "voyait", "voyions", "voyiez", "voyaient"] },
-        "dire":   { present: ["dis", "dis", "dit", "disons", "dites", "disent"], futur: ["dirai", "diras", "dira", "dirons", "direz", "diront"], imparfait: ["disais", "disais", "disait", "disions", "disiez", "disaient"] },
-        "pouvoir": { present: ["peux", "peux", "peut", "pouvons", "pouvez", "peuvent"], futur: ["pourrai", "pourras", "pourra", "pourrons", "pourrez", "pourront"], imparfait: ["pouvais", "pouvais", "pouvait", "pouvions", "pouviez", "pouvaient"] },
-        "vouloir": { present: ["veux", "veux", "veut", "voulons", "voulez", "veulent"], futur: ["voudrai", "voudras", "voudra", "voudrons", "voudrez", "voudront"], imparfait: ["voulais", "voulais", "voulait", "voulions", "vouliez", "voulaient"] }
-      };
+      
 
       function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
@@ -283,6 +237,11 @@
       refreshSettingsUI();
       updateScore();
       renderExercise(true);
-    </script>
+    
+})().catch(error => {
+  console.error('Erreur de chargement des données de l’exercice :', error);
+  document.body.textContent = 'Impossible de charger les données de l’exercice. Vérifie que le site est lancé depuis un serveur web.';
+});
+</script>
   </body>
 </html>

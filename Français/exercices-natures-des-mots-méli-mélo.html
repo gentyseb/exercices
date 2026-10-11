@@ -4,44 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercices : Natures des mots</title>
-    <style>
-      :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #111827; background: #f1f5f9; }
-      * { box-sizing: border-box; }
-      body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 24px; }
-      .card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 28px; width: 100%; max-width: 600px; text-align: center; }
-      h1 { font-size: 1.25rem; margin: 0 0 4px; color: #1d4ed8; }
-      .subtitle { color: #6b7280; margin: 0 0 18px; font-size: .92rem; }
-      .word { font-size: 2.6rem; font-weight: 800; margin: 18px 0 6px; min-height: 3.4rem; letter-spacing: .5px; }
-      .feedback { min-height: 1.7rem; font-weight: 600; margin-bottom: 14px; font-size: 1.02rem; }
-      .good { color: #16a34a; }
-      .bad { color: #dc2626; }
-      .choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
-      .choices button {
-        padding: 12px 18px; font-size: 1rem; font-weight: 700;
-        border: 2px solid #e5e7eb; border-radius: 12px;
-        background: #fff; color: #374151; cursor: pointer;
-        transition: all .15s ease;
-      }
-      .choices button:hover:not(:disabled) { border-color: #1d4ed8; color: #1d4ed8; }
-      .choices button:disabled { opacity: .55; cursor: default; }
-      .score { background: #f8fafc; border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-      .score .label { color: #6b7280; font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; }
-      .score .numbers { font-size: 1.5rem; font-weight: 800; color: #1d4ed8; }
-      .score .pct { font-size: 1.05rem; color: #16a34a; font-weight: 700; margin-top: 2px; }
-      #reset { padding: 11px 26px; font-size: .95rem; font-weight: 600; border: none; border-radius: 12px; background: #6b7280; color: #fff; cursor: pointer; transition: background .15s ease; }
-      #reset:hover { background: #4b5563; }
-      .hint { color: #9ca3af; font-size: .78rem; margin-top: 12px; }
-      #settingsToggle { margin: 16px 0 6px; padding: 10px 22px; font-size: .9rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 12px; background: #f8fafc; color: #374151; cursor: pointer; transition: all .15s ease; }
-      #settingsToggle:hover { border-color: #93c5fd; }
-      #settingsToggle .arrow { display: inline-block; transition: transform .2s ease; }
-      #settingsToggle.open .arrow { transform: rotate(180deg); }
-      .settings { background: #f8fafc; border-radius: 12px; padding: 14px 16px; text-align: left; display: none; margin-top: 4px; }
-      .settings.open { display: block; }
-      .setting-label { font-size: .78rem; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 5px; }
-      .setting-options { display: flex; flex-wrap: wrap; gap: 6px; }
-      .setting-options button { padding: 7px 12px; font-size: .85rem; font-weight: 600; border: 2px solid #e5e7eb; border-radius: 10px; background: #fff; color: #374151; cursor: pointer; transition: all .12s ease; }
-      .setting-options button.active { border-color: #1d4ed8; background: #eff6ff; color: #1d4ed8; }
-    </style>
+    <link rel="stylesheet" href="../core/style.css" />
   </head>
   <body>
     <main class="card">
@@ -68,17 +31,14 @@
       <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
     </main>
 
-    <script>
+    <script>(async () => {
+  const response = await fetch("../data/natures-mots.json");
+  if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + "../data/natures-mots.json");
+  const { NATURES, DATA, EXPLAIN } = await response.json();
+
       // ---- Paramètres et état ----
       const STORAGE_KEY = "exercices-natures-des-mots";
-      const NATURES = [
-        { id: "propre", label: "Nom propre" },
-        { id: "commun", label: "Nom commun" },
-        { id: "verbe", label: "Verbe" },
-        { id: "adjectif", label: "Adjectif" },
-        { id: "adverbe", label: "Adverbe" },
-        { id: "determinant", label: "Déterminant" }
-      ];
+      
       let settings = { natures: ["propre", "commun", "verbe", "adjectif", "adverbe", "determinant"] };
       let stats = { good: 0, total: 0 };
       let current = null;
@@ -106,23 +66,9 @@
       }
 
       // ---- Données : mots par nature ----
-      const DATA = {
-        propre: ["Paris","Marseille","Lyon","Bordeaux","Lille","Nantes","Strasbourg","Toulouse","Nice","Rennes","France","Espagne","Italie","Allemagne","Suisse","Belgique","Canada","Japon","Chine","Brésil","Bretagne","Normandie","Provence","Alsace","Seine","Loire","Rhône","Garonne","Mont Blanc","Tour Eiffel","Louvre","Emma","Jade","Louise","Alice","Chloé","Léa","Manon","Zoé","Juliette","Adrien","Lucas","Hugo","Jules","Léo","Nathan","Victor","Enzo","Théo","Sally","Anaïs","Odile","Genty","Molière","Victor Hugo","Tintin","Milou","Mickey","Harry Potter","Michelin","Renault","Danone","Carrefour","Décathlon"],
-        commun: ["chien","chat","cheval","vache","lapin","éléphant","lion","loup","renard","papillon","abeille","maison","jardin","cuisine","chambre","table","chaise","lit","armoire","lampe","miroir","école","classe","professeur","élève","cahier","livre","crayon","cartable","pomme","poire","banane","fraise","pain","fromage","gâteau","chocolat","fleur","arbre","forêt","montagne","rivière","nuage","soleil","étoile","hiver","matin","nuit","ville","rue","voiture","vélo","bateau","avion","train","père","mère","frère","sœur","ami","voisin","famille","médecin","boulanger","pompier","bonheur","amitié","courage","liberté","bruit","silence","couleur","lumière","ombre","idée","rêve","histoire"],
-        verbe: ["manger","boire","dormir","courir","marcher","sauter","nager","voler","chanter","danser","rire","pleurer","parler","crier","écouter","entendre","voir","regarder","lire","écrire","dessiner","compter","jouer","travailler","apprendre","comprendre","savoir","croire","penser","rêver","construire","casser","réparer","ouvrir","fermer","monter","descendre","entrer","sortir","arriver","partir","aller","rester","habiter","tomber","attendre","chercher","trouver","perdre","gagner","donner","recevoir","prendre","pousser","tirer","porter","jeter","nettoyer","laver","ranger","couper","coller","cuire","aider","obéir","protéger","suivre","remercier","saluer","choisir","commencer","finir","continuer","arrêter","changer","tourner","avancer","rouler"],
-        adjectif: ["grand","petit","gros","maigre","haut","bas","long","court","beau","joli","moche","bon","mauvais","gentil","méchant","joyeux","triste","content","fâché","heureux","courageux","peureux","fort","faible","rapide","lent","lourd","léger","dur","mou","doux","lisse","chaud","froid","frais","propre","sale","neuf","vieux","jeune","plein","vide","ouvert","fermé","riche","pauvre","facile","difficile","clair","sombre","brillant","blanc","noir","rouge","bleu","vert","jaune","bruyant","silencieux","calme","drôle","amusant","curieux","sage","bavard","timide","poli","malin","intelligent","mince","rond","profond","humide","sec","mouillé","épais","fin","mûr","croustillant","sucré","salé","amer","fatigué","rusé","honnête","jaloux","généreux","patient","sportif"],
-        adverbe: ["doucement","fortement","rapidement","lentement","silencieusement","bruyamment","joyeusement","tristement","facilement","sérieusement","poliment","soudain","longtemps","toujours","jamais","souvent","parfois","maintenant","hier","demain","tôt","tard","aujourd'hui","ici","là","partout","dedans","dehors","ensemble","vite","bien","mieux","mal","assez","trop","presque","vraiment","surtout","alors","ensuite","enfin"],
-        determinant: ["le","la","les","un","une","des","du","de la","mon","ma","ton","ta","son","sa","mes","tes","ses","notre","votre","nos","vos","ce","cet","cette","ces","quelques","plusieurs","chaque","tout","toute","tous","toutes","deux","trois","cinq","dix","vingt","cent","mille","premier","dernier","et","ou","mais","donc","car","ni","or","oui","non"]
-      };
+      
 
-      const EXPLAIN = {
-        propre: "Un nom propre désigne un être, un lieu ou une chose unique. Il prend une majuscule.",
-        commun: "Un nom commun désigne une catégorie de personnes, d'animaux ou de choses.",
-        verbe: "Un verbe indique ce que fait le sujet. Il se conjugue.",
-        adjectif: "Un adjectif décrit comment est le nom (une qualité).",
-        adverbe: "Un adverbe précise comment, quand ou où se passe l'action.",
-        determinant: "Un déterminant accompagne le nom (petit mot : article, possessif, nombre…)."
-      };
+      
 
       function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
       function shuffle(arr) {
@@ -247,6 +193,11 @@
       refreshSettingsUI();
       updateScore();
       renderExercise(true);
-    </script>
+    
+})().catch(error => {
+  console.error('Erreur de chargement des données de l’exercice :', error);
+  document.body.textContent = 'Impossible de charger les données de l’exercice. Vérifie que le site est lancé depuis un serveur web.';
+});
+</script>
   </body>
 </html>
