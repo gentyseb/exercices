@@ -100,6 +100,30 @@ body {
   background: var(--color-primary-soft-strong);
 }
 
+.global-score {
+  margin: 0 auto 28px;
+  padding: 16px 20px;
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.global-score h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.global-score p {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.global-score-percentage {
+  color: var(--color-text-muted);
+}
+
 .category {
   margin-bottom: 34px;
 }
@@ -152,6 +176,32 @@ a.card span {
   font-size: 0.8rem;
   color: var(--color-primary);
   font-weight: 600;
+}
+
+a.card .exercise-score {
+  color: var(--color-text);
+}
+
+a.card .exercise-score-percentage {
+  color: var(--color-text-muted);
+}
+
+a.card .exercise-score-percentage.score-low {
+  color: var(--color-error);
+}
+
+a.card .exercise-score-percentage.score-medium,
+.global-score-percentage.score-medium {
+  color: var(--color-warning);
+}
+
+a.card .exercise-score-percentage.score-high,
+.global-score-percentage.score-high {
+  color: var(--color-success);
+}
+
+.global-score-percentage.score-low {
+  color: var(--color-error);
 }
 
 footer {

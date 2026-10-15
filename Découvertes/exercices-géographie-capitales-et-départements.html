@@ -33,6 +33,7 @@
           <option value="departements">Villes et départements français</option>
           <option value="regions">Villes et régions françaises</option>
           <option value="fleuves">Fleuves et villes</option>
+          <option value="melange">Mélangé (toutes les catégories)</option>
         </select>
       </div>
       <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
@@ -96,14 +97,27 @@
 
       let deck = [];
       function makeExercise() {
-        const def = MODES[settings.mode];
-        const keys = Object.keys(def.data);
-        if (deck.length === 0) deck = shuffle(keys);
-        const key = deck.pop();
-        const answer = def.data[key];
+        const selectedModes = settings.mode === "melange"
+          ? [MODES.monde, MODES.departements, MODES.regions, MODES.fleuves]
+          : [MODES[settings.mode]];
+        const questions = selectedModes.flatMap(def =>
+          Object.entries(def.data).map(([key, answer]) => ({
+            key,
+            answer,
+            task: def.task,
+            answers: Object.values(def.data)
+          }))
+        );
+        if (deck.length === 0) deck = shuffle(questions);
+        const question = deck.pop();
         // 3 distracteurs pris dans les autres valeurs
-        const others = shuffle(Object.values(def.data).filter(v => v !== answer)).slice(0, 3);
-        return { key, answer, choices: shuffle([answer].concat(others)), task: def.task };
+        const others = shuffle(question.answers.filter(v => v !== question.answer)).slice(0, 3);
+        return {
+          key: question.key,
+          answer: question.answer,
+          choices: shuffle([question.answer].concat(others)),
+          task: question.task
+        };
       }
 
       // ---- Affichage ----

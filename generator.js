@@ -52,6 +52,17 @@ function extractTitle(filePath) {
   return null;
 }
 
+function extractStorageKey(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, "utf8");
+    const match = content.match(/\bSTORAGE_KEY\s*=\s*(["'])([^"']+)\1/);
+    if (match) return match[2];
+  } catch (e) {
+    /* lecture impossible : aucun score ne sera associé */
+  }
+  return null;
+}
+
 // Liste récursive des fichiers .html d'un dossier (en ignorant index.html)
 function findHtmlFiles(dir) {
   const results = [];
@@ -112,7 +123,8 @@ function scan(root) {
     const exercises = files.map((file) => {
       const title = extractTitle(file) || path.basename(file, ".html");
       const rel = path.relative(root, file).split(path.sep).join("/");
-      return { title, rel };
+      const storageKey = extractStorageKey(file);
+      return { title, rel, storageKey };
     });
     // Tri alphabétique des exercices
     exercises.sort((a, b) => a.title.localeCompare(b.title, "fr"));
@@ -150,7 +162,11 @@ function buildHtml(root, categories) {
           (ex) =>
             '        <a class="card" href="' + escapeHtml(ex.rel) + '">' +
             escapeHtml(ex.title) +
-            "<span>Ouvrir l'exercice →</span></a>"
+            "<span>Ouvrir l'exercice →</span>" +
+            '<span class="exercise-score" data-score-key="' +
+            escapeHtml(ex.storageKey || "") +
+            '">Score : <span class="exercise-score-value">0 / 0</span> · ' +
+            '<span class="exercise-score-percentage">— %</span></span></a>'
         )
         .join("\n");
 
@@ -186,9 +202,86 @@ function buildHtml(root, categories) {
       <nav class="nav">
       ${nav}
       </nav>
+      <section class="global-score" aria-live="polite">
+        <h2>Score global</h2>
+        <p><span id="global-score-value">0 / 0</span> · <span id="global-score-percentage" class="global-score-percentage">— %</span></p>
+      </section>
 ${sections}
       <footer>${generationInfo}</footer>
     </div>
+    <script>
+      function updatePercentage(element, good, total) {
+        const percentage = total > 0 ? Math.round((good / total) * 100) : null;
+        element.textContent = percentage === null ? "— %" : percentage + " %";
+        element.classList.remove("score-low", "score-medium", "score-high");
+        if (percentage !== null) {
+          element.classList.add(
+            percentage < 80 ? "score-low" : percentage < 92 ? "score-medium" : "score-high"
+          );
+        }
+      }
+
+      function renderScores() {
+        let globalGood = 0;
+        let globalTotal = 0;
+        const countedStorageKeys = new Set();
+
+        document.querySelectorAll(".exercise-score").forEach((scoreElement) => {
+          const storageKey = scoreElement.dataset.scoreKey;
+          if (!storageKey) return;
+
+          const valueElement = scoreElement.querySelector(".exercise-score-value");
+          const percentageElement = scoreElement.querySelector(".exercise-score-percentage");
+          const updateScore = (good, total) => {
+            valueElement.textContent = good + " / " + total;
+            updatePercentage(percentageElement, good, total);
+          };
+
+          try {
+            const alreadyCounted = countedStorageKeys.has(storageKey);
+            countedStorageKeys.add(storageKey);
+            const saved = localStorage.getItem(storageKey);
+            if (!saved) {
+              updateScore(0, 0);
+              return;
+            }
+
+            const parsed = JSON.parse(saved);
+            const stats = parsed && parsed.stats ? parsed.stats : parsed;
+            if (
+              !stats ||
+              !Number.isFinite(stats.good) ||
+              !Number.isFinite(stats.total) ||
+              stats.good < 0 ||
+              stats.total < 0 ||
+              stats.good > stats.total
+            ) {
+              console.warn("Score invalide pour l'exercice " + storageKey);
+              return;
+            }
+
+            updateScore(stats.good, stats.total);
+            if (!alreadyCounted) {
+              globalGood += stats.good;
+              globalTotal += stats.total;
+            }
+          } catch (error) {
+            console.warn("Impossible de lire le score de l'exercice " + storageKey, error);
+          }
+        });
+
+        document.getElementById("global-score-value").textContent =
+          globalGood + " / " + globalTotal;
+        updatePercentage(
+          document.getElementById("global-score-percentage"),
+          globalGood,
+          globalTotal
+        );
+      }
+
+      renderScores();
+      window.addEventListener("pageshow", renderScores);
+    </script>
   </body>
 </html>
 `;
