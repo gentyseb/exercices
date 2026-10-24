@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Heures, minutes et secondes</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Heures, minutes et secondes</h1>
+      <p class="subtitle">Entraîne-toi à convertir les durées et à calculer le temps écoulé, du CE1 au CM2.</p>
+
+      <div class="task" id="task">Question</div>
+      <div class="operation" id="operation"></div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Niveau scolaire</div>
+          <select id="setLevel">
+            <option value="ce1">CE1 — heures et minutes</option>
+            <option value="ce2">CE2 — heures, minutes et secondes</option>
+            <option value="cm1">CM1 — conversions et durées</option>
+            <option value="cm2">CM2 — calculs de durées</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Ton score et ton réglage sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "exercices-heures-minutes-secondes";
+      const levelSelect = document.getElementById("setLevel");
+      const taskEl = document.getElementById("task");
+      const operationEl = document.getElementById("operation");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+
+      let settings = { level: "ce2" };
+      let stats = { good: 0, total: 0 };
+      let current = null;
+      let pending = null;
+      let answered = false;
+
+      function loadState() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+          if (saved.settings && ["ce1", "ce2", "cm1", "cm2"].includes(saved.settings.level)) {
+            settings = { ...settings, ...saved.settings };
+          }
+          if (saved.stats && Number.isFinite(saved.stats.good) && Number.isFinite(saved.stats.total)) {
+            stats = { good: saved.stats.good, total: saved.stats.total };
+          }
+          if (
+            saved.pending &&
+            saved.pending.level === settings.level &&
+            typeof saved.pending.prompt === "string"
+          ) {
+            pending = saved.pending;
+          }
+        } catch (error) {
+          console.warn("Impossible de charger le score.", error);
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings,
+            stats,
+            pending: current && !answered ? { ...current, level: settings.level } : null
+          }));
+        } catch (error) {
+          console.warn("Impossible de sauvegarder le score.", error);
+        }
+      }
+
+      function randInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function makeExercise() {
+        if (settings.level === "ce1") {
+          const type = randInt(0, 2);
+          if (type === 0) {
+            const hours = randInt(1, 4);
+            return { prompt: hours + " h = ? minutes", answer: hours * 60, unit: "minutes" };
+          }
+          if (type === 1) {
+            const hours = randInt(1, 4);
+            return { prompt: hours * 60 + " min = ? heures", answer: hours, unit: "heures" };
+          }
+          const startHour = randInt(8, 16);
+          const startMinute = randInt(0, 39);
+          const duration = randInt(5, Math.min(20, 59 - startMinute));
+          return {
+            prompt: "Combien de minutes entre " + formatClock(startHour, startMinute) +
+              " et " + formatClock(startHour, startMinute + duration) + " ?",
+            answer: duration,
+            unit: "minutes"
+          };
+        }
+
+        if (settings.level === "ce2") {
+          const type = randInt(0, 3);
+          if (type === 0) {
+            const hours = randInt(1, 5);
+            return { prompt: hours + " h = ? minutes", answer: hours * 60, unit: "minutes" };
+          }
+          if (type === 1) {
+            const minutes = randInt(1, 10);
+            return { prompt: minutes + " min = ? secondes", answer: minutes * 60, unit: "secondes" };
+          }
+          if (type === 2) {
+            const hours = randInt(1, 2);
+            const minutes = randInt(0, 59);
+            return {
+              prompt: hours + " h " + minutes + " min = ? minutes",
+              answer: hours * 60 + minutes,
+              unit: "minutes"
+            };
+          }
+          const minutes = randInt(1, 5);
+          const seconds = randInt(0, 59);
+          return {
+            prompt: minutes + " min " + seconds + " s = ? secondes",
+            answer: minutes * 60 + seconds,
+            unit: "secondes"
+          };
+        }
+
+        if (settings.level === "cm1") {
+          if (Math.random() < 0.5) {
+            const first = randInt(1, 3) * 60 + randInt(0, 59);
+            const second = randInt(15, 120);
+            const isAddition = Math.random() < 0.5;
+            const left = isAddition || first >= second ? first : second;
+            const right = isAddition || first >= second ? second : first;
+            return {
+              prompt: formatDurationMinutes(left) + (isAddition ? " + " : " − ") +
+                formatDurationMinutes(right) + " = ? minutes",
+              answer: isAddition ? left + right : left - right,
+              unit: "minutes"
+            };
+          }
+          const minutes = randInt(1, 9);
+          const seconds = randInt(0, 59);
+          return {
+            prompt: minutes + " min " + seconds + " s = ? secondes",
+            answer: minutes * 60 + seconds,
+            unit: "secondes"
+          };
+        }
+
+        if (Math.random() < 0.5) {
+          const first = randInt(1, 5) * 60 + randInt(0, 59);
+          const second = randInt(1, 3) * 60 + randInt(0, 59);
+          const isAddition = Math.random() < 0.5;
+          const left = isAddition || first >= second ? first : second;
+          const right = isAddition || first >= second ? second : first;
+          return {
+            prompt: formatDurationMinutes(left) + (isAddition ? " + " : " − ") +
+              formatDurationMinutes(right) + " = ? minutes",
+            answer: isAddition ? left + right : left - right,
+            unit: "minutes"
+          };
+        }
+
+        const startHour = randInt(7, 12);
+        const startMinute = randInt(0, 59);
+        const duration = randInt(30, 300);
+        const start = startHour * 60 + startMinute;
+        const end = start + duration;
+        const endHour = Math.floor(end / 60);
+        const endMinute = end % 60;
+        return {
+          prompt: "Combien de minutes s’écoulent entre " +
+            formatClock(startHour, startMinute) + " et " + formatClock(endHour, endMinute) + " ?",
+          answer: duration,
+          unit: "minutes"
+        };
+      }
+
+      function formatClock(hours, minutes) {
+        return String(hours).padStart(2, "0") + " h " + String(minutes).padStart(2, "0");
+      }
+
+      function formatDurationMinutes(minutes) {
+        const hours = Math.floor(minutes / 60);
+        const remainingMinutes = minutes % 60;
+        if (hours === 0) return remainingMinutes + " min";
+        if (remainingMinutes === 0) return hours + " h";
+        return hours + " h " + remainingMinutes + " min";
+      }
+
+      function renderExercise(restore) {
+        current = restore && pending ? pending : makeExercise();
+        pending = null;
+        answered = false;
+        taskEl.textContent = current.prompt.startsWith("Combien")
+          ? "Calcul du temps écoulé"
+          : "Conversion ou calcul de durée";
+        operationEl.textContent = "";
+        const questionMark = current.prompt.indexOf("?");
+        const beforeAnswer = document.createElement("span");
+        const afterAnswer = document.createElement("span");
+        beforeAnswer.textContent = questionMark === -1
+          ? current.prompt
+          : current.prompt.slice(0, questionMark);
+        afterAnswer.textContent = questionMark === -1
+          ? " " + current.unit
+          : current.prompt.slice(questionMark + 1) || " " + current.unit;
+        const input = document.createElement("input");
+        input.type = "number";
+        input.inputMode = "numeric";
+        input.min = "0";
+        input.id = "answer";
+        input.autocomplete = "off";
+        input.setAttribute("aria-label", "Ta réponse en " + current.unit);
+        operationEl.append(beforeAnswer, input, afterAnswer);
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" && !answered) checkAnswer();
+        });
+        input.focus();
+        saveState();
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const percentage = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = percentage === null ? "— %" : percentage + " %";
+        pctEl.style.color = percentage === null || percentage >= 70 ? "#16a34a" : "#dc2626";
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const input = document.getElementById("answer");
+        if (input.value === "") {
+          feedbackEl.textContent = "Écris ta réponse d’abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+
+        answered = true;
+        stats.total++;
+        const given = Number(input.value);
+        const isCorrect = given === current.answer;
+        if (isCorrect) stats.good++;
+        const correctAnswer = current.answer + " " + current.unit;
+        feedbackEl.textContent = isCorrect
+          ? "Bravo ! C’est juste 🎉"
+          : "Oups… La bonne réponse était : " + correctAnswer + ".";
+        if (isCorrect) feedbackEl.textContent += " (" + correctAnswer + ")";
+        feedbackEl.className = isCorrect ? "feedback good" : "feedback bad";
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, isCorrect ? 2200 : 4000);
+      }
+
+      function refreshSettingsUI() {
+        levelSelect.value = settings.level;
+      }
+
+      levelSelect.addEventListener("change", () => {
+        settings.level = levelSelect.value;
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      document.getElementById("settingsToggle").addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        document.getElementById("settingsToggle").classList.toggle("open");
+      });
+
+      document.getElementById("check").addEventListener("click", checkAnswer);
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>

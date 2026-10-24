@@ -46,7 +46,7 @@
           <option value="classification">Planètes gazeuses</option>
         </select>
       </div>
-      <div class="hint">Ton score et ton mode de jeu sont sauvegardés automatiquement.</div>
+      <div class="hint">Ton score, ton mode et l’exercice en cours sont sauvegardés automatiquement.</div>
     </main>
 
     <script>
@@ -61,7 +61,9 @@
         let current = null;
         let selection = [];
         let deck = [];
+        let pending = null;
         let answered = false;
+        let feedbackState = null;
         let nextQuestionTimeout = null;
         let activeMode = document.getElementById('mode').value;
 
@@ -73,6 +75,24 @@
             if (saved.settings && Array.from(modeSelect.options).some((option) => option.value === saved.settings.mode)) {
               settings = { ...settings, ...saved.settings };
             }
+            activeMode = settings.mode;
+
+            const modeQuestions = getModeQuestions();
+            if (
+              Array.isArray(saved.deck) &&
+              saved.deck.every((index) => Number.isInteger(index) && index >= 0 && index < modeQuestions.length)
+            ) {
+              deck = saved.deck;
+            }
+
+            const savedPending = saved.pending;
+            if (
+              savedPending &&
+              savedPending.mode === activeMode &&
+              isValidPendingQuestion(savedPending, modeQuestions)
+            ) {
+              pending = savedPending;
+            }
           } catch (error) {
             console.warn('Impossible de charger le score.', error);
           }
@@ -81,7 +101,68 @@
         }
 
         function saveState() {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats, settings }));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            stats,
+            settings,
+            deck,
+            pending: current
+              ? { mode: activeMode, current, selection, answered, feedback: feedbackState }
+              : null
+          }));
+        }
+
+        function getModeQuestions() {
+          return activeMode === 'melange'
+            ? questions
+            : questions.filter((question) => question.mode === activeMode);
+        }
+
+        function isValidPendingQuestion(savedPending, modeQuestions) {
+          const savedQuestion = savedPending.current;
+          if (
+            !savedQuestion ||
+            typeof savedQuestion.enonce !== 'string' ||
+            !Array.isArray(savedQuestion.options) ||
+            !Array.isArray(savedPending.selection) ||
+            typeof savedPending.answered !== 'boolean' ||
+            (savedPending.answered && !savedPending.feedback)
+          ) {
+            return false;
+          }
+
+          const original = modeQuestions.find((question) =>
+            question.mode === savedQuestion.mode &&
+            question.enonce === savedQuestion.enonce &&
+            JSON.stringify(question.reponse) === JSON.stringify(savedQuestion.reponse)
+          );
+          if (!original) return false;
+
+          const expectedOptions = original.mode === 'ordre' ? original.reponse : original.options;
+          if (
+            !Array.isArray(expectedOptions) ||
+            savedQuestion.options.length !== expectedOptions.length ||
+            !expectedOptions.every((option) => savedQuestion.options.includes(option))
+          ) {
+            return false;
+          }
+
+          if (
+            original.mode === 'ordre' &&
+            (!savedPending.selection.every((planet) =>
+              original.reponse.includes(planet)
+            ) || new Set(savedPending.selection).size !== savedPending.selection.length)
+          ) {
+            return false;
+          }
+
+          if (
+            savedPending.feedback &&
+            (typeof savedPending.feedback.text !== 'string' ||
+              !['feedback good', 'feedback bad'].includes(savedPending.feedback.className))
+          ) {
+            return false;
+          }
+          return true;
         }
 
         function shuffle(items) {
@@ -94,9 +175,7 @@
         }
 
         function makeQuestion() {
-          const modeQuestions = activeMode === 'melange'
-            ? questions
-            : questions.filter((question) => question.mode === activeMode);
+          const modeQuestions = getModeQuestions();
           if (deck.length === 0) deck = shuffle(modeQuestions.map((_, index) => index));
           const item = modeQuestions[deck.pop()];
           return item.mode === 'ordre'
@@ -121,9 +200,12 @@
             clearTimeout(nextQuestionTimeout);
             nextQuestionTimeout = null;
           }
-          current = makeQuestion();
-          selection = [];
-          answered = false;
+          const savedPending = pending;
+          pending = null;
+          current = savedPending ? savedPending.current : makeQuestion();
+          selection = savedPending ? savedPending.selection : [];
+          answered = savedPending ? savedPending.answered : false;
+          feedbackState = savedPending ? savedPending.feedback : null;
           const taskEl = document.getElementById('task');
           const wordEl = document.getElementById('word');
           const feedbackEl = document.getElementById('feedback');
@@ -153,6 +235,27 @@
           if (isOrderQuestion) {
             updateSelectionText();
             syncChoiceButtons();
+          }
+
+          if (answered && feedbackState) {
+            feedbackEl.textContent = feedbackState.text;
+            feedbackEl.className = feedbackState.className;
+            if (isOrderQuestion) {
+              updateSelectionText();
+              syncChoiceButtons();
+            } else {
+              choicesEl.querySelectorAll('button').forEach((button) => {
+                button.disabled = true;
+                if (button.dataset.answer === current.reponse) button.classList.add('selected');
+              });
+            }
+          }
+          saveState();
+          if (savedPending && answered && feedbackState) {
+            nextQuestionTimeout = setTimeout(
+              renderExercise,
+              feedbackState.className === 'feedback good' ? 1800 : 2600
+            );
           }
         }
 
@@ -187,6 +290,7 @@
           selection.push(planet);
           updateSelectionText();
           syncChoiceButtons();
+          saveState();
 
           if (selection.length === current.reponse.length) {
             const feedbackEl = document.getElementById('feedback');
@@ -203,6 +307,7 @@
               feedbackEl.className = 'feedback bad';
             }
 
+            feedbackState = { text: feedbackEl.textContent, className: feedbackEl.className };
             updateScore();
             saveState();
             updateSelectionText();
@@ -228,6 +333,7 @@
             feedbackEl.className = 'feedback bad';
           }
 
+          feedbackState = { text: feedbackEl.textContent, className: feedbackEl.className };
           choicesEl.querySelectorAll('button').forEach((button) => {
             button.disabled = true;
             if (button.dataset.answer === current.reponse) button.classList.add('selected');
@@ -243,13 +349,17 @@
           selection = [];
           updateSelectionText();
           syncChoiceButtons();
+          saveState();
         });
 
         document.getElementById('mode').addEventListener('change', (event) => {
           activeMode = event.target.value;
           settings.mode = activeMode;
           deck = [];
-          saveState();
+          current = null;
+          selection = [];
+          answered = false;
+          feedbackState = null;
           renderExercise();
         });
 
@@ -263,9 +373,12 @@
 
         document.getElementById('reset').addEventListener('click', () => {
           stats = { good: 0, total: 0 };
-          saveState();
           updateScore();
           deck = [];
+          current = null;
+          selection = [];
+          answered = false;
+          feedbackState = null;
           renderExercise();
         });
 

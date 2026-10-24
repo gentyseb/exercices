@@ -10,7 +10,7 @@
     {
       "instrument": "Flûte",
       "reponse": "Vents",
-      "options": ["Percussions", "Vents", "Cordes", "Clavier"]
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
     },
     {
       "instrument": "Tambour",
@@ -20,12 +20,232 @@
     {
       "instrument": "Piano",
       "reponse": "Cordes",
-      "options": ["Percussions", "Cordes", "Vents", "Électronique"]
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
     },
     {
       "instrument": "Saxophone",
       "reponse": "Vents",
-      "options": ["Vents", "Cordes", "Percussions", "Clavier"]
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Guitare",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Harpe",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Violoncelle",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Alto",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Contrebasse",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Ukulélé",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Banjo",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Mandoline",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Guitare basse",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cithare",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Clarinette",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Trompette",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Trombone",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Tuba",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cor",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Hautbois",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Basson",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Flûte à bec",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Piccolo",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Harmonica",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cornemuse",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Accordéon",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Mélodica",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Ocarina",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Tambourin",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Triangle",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cymbales",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Maracas",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Xylophone",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Caisse claire",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Grosse caisse",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Timbales",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Djembé",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Castagnettes",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Claves",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Güiro",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cajón",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Gong",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Vibraphone",
+      "reponse": "Percussions",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Synthétiseur",
+      "reponse": "Électronique",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Thérémine",
+      "reponse": "Électronique",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Boîte à rythmes",
+      "reponse": "Électronique",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Sampleur",
+      "reponse": "Électronique",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Clavier électronique",
+      "reponse": "Électronique",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
     }
   ]
 }

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Périmètres et aires</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Périmètres et aires</h1>
+      <p class="subtitle">Calcule le périmètre ou l’aire de carrés et de rectangles — niveau CM1-CM2.</p>
+
+      <div class="task" id="task">Périmètre</div>
+      <div class="problem" id="figure"></div>
+      <div class="operation" id="operation"></div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Notion</div>
+          <select id="setTopic">
+            <option value="mix">Périmètres et aires</option>
+            <option value="perimetre">Périmètres</option>
+            <option value="aire">Aires</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Niveau scolaire</div>
+          <select id="setLevel">
+            <option value="cm1">CM1 — nombres plus petits</option>
+            <option value="cm2">CM2 — nombres plus grands</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">P rectangle = 2 × (L + l) · Aire rectangle = L × l · P carré = 4 × c · Aire carré = c × c</div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "exercices-perimetres-aires";
+      const topicSelect = document.getElementById("setTopic");
+      const levelSelect = document.getElementById("setLevel");
+      const taskEl = document.getElementById("task");
+      const figureEl = document.getElementById("figure");
+      const operationEl = document.getElementById("operation");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+
+      let settings = { topic: "mix", level: "cm1" };
+      let stats = { good: 0, total: 0 };
+      let current = null;
+      let pending = null;
+      let answered = false;
+
+      function loadState() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+          if (saved.settings) {
+            if (["mix", "perimetre", "aire"].includes(saved.settings.topic)) {
+              settings.topic = saved.settings.topic;
+            }
+            if (["cm1", "cm2"].includes(saved.settings.level)) {
+              settings.level = saved.settings.level;
+            }
+          }
+          if (saved.stats && Number.isFinite(saved.stats.good) && Number.isFinite(saved.stats.total)) {
+            stats = { good: saved.stats.good, total: saved.stats.total };
+          }
+          if (
+            saved.pending &&
+            saved.pending.topic === settings.topic &&
+            saved.pending.level === settings.level &&
+            Number.isFinite(saved.pending.answer)
+          ) {
+            pending = saved.pending;
+          }
+        } catch (error) {
+          console.warn("Impossible de charger le score.", error);
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings,
+            stats,
+            pending: current && !answered
+              ? { ...current, topic: settings.topic, level: settings.level }
+              : null
+          }));
+        } catch (error) {
+          console.warn("Impossible de sauvegarder le score.", error);
+        }
+      }
+
+      function randInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function makeExercise() {
+        const topic = settings.topic === "mix"
+          ? (Math.random() < 0.5 ? "perimetre" : "aire")
+          : settings.topic;
+        const size = settings.level === "cm1"
+          ? { min: 2, max: 12 }
+          : { min: 10, max: 40 };
+        const unit = "cm";
+        const isSquare = Math.random() < 0.35;
+        const length = randInt(isSquare ? size.min : size.min + 1, size.max);
+        const width = isSquare ? length : randInt(size.min, length - 1);
+        const shapeName = isSquare ? "Carré" : "Rectangle";
+        const dimensions = isSquare
+          ? shapeName + " : côté de " + length + " " + unit
+          : shapeName + " : longueur de " + length + " " + unit +
+            " et largeur de " + width + " " + unit;
+        const isPerimeter = topic === "perimetre";
+
+        return {
+          topic: settings.topic,
+          level: settings.level,
+          task: isPerimeter ? "Périmètre" : "Aire",
+          figure: dimensions,
+          prompt: (isPerimeter ? "Périmètre" : "Aire") + " = ?",
+          answer: isPerimeter
+            ? (isSquare ? 4 * length : 2 * (length + width))
+            : length * width,
+          unit: isPerimeter ? unit : unit + "²"
+        };
+      }
+
+      function renderExercise(restore) {
+        current = restore && pending ? pending : makeExercise();
+        pending = null;
+        answered = false;
+        taskEl.textContent = current.task;
+        figureEl.textContent = current.figure;
+        operationEl.textContent = "";
+
+        const questionMark = current.prompt.indexOf("?");
+        const beforeAnswer = document.createElement("span");
+        const afterAnswer = document.createElement("span");
+        beforeAnswer.textContent = current.prompt.slice(0, questionMark);
+        afterAnswer.textContent = current.prompt.slice(questionMark + 1) || " " + current.unit;
+        const input = document.createElement("input");
+        input.type = "number";
+        input.inputMode = "numeric";
+        input.min = "0";
+        input.id = "answer";
+        input.autocomplete = "off";
+        input.setAttribute("aria-label", "Ta réponse en " + current.unit);
+        operationEl.append(beforeAnswer, input, afterAnswer);
+
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" && !answered) checkAnswer();
+        });
+        input.focus();
+        saveState();
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const percentage = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = percentage === null ? "— %" : percentage + " %";
+        pctEl.style.color = percentage === null || percentage >= 70 ? "#16a34a" : "#dc2626";
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const input = document.getElementById("answer");
+        if (input.value === "") {
+          feedbackEl.textContent = "Écris ta réponse d’abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+
+        answered = true;
+        stats.total++;
+        const isCorrect = Number(input.value) === current.answer;
+        if (isCorrect) stats.good++;
+        feedbackEl.textContent = isCorrect
+          ? "Bravo ! C’est juste 🎉 (" + current.answer + " " + current.unit + ")"
+          : "Oups… La bonne réponse était : " + current.answer + " " + current.unit + ".";
+        feedbackEl.className = isCorrect ? "feedback good" : "feedback bad";
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, isCorrect ? 2200 : 4000);
+      }
+
+      function onSettingsChanged() {
+        settings.topic = topicSelect.value;
+        settings.level = levelSelect.value;
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        updateScore();
+        renderExercise();
+      }
+
+      topicSelect.addEventListener("change", onSettingsChanged);
+      levelSelect.addEventListener("change", onSettingsChanged);
+      document.getElementById("settingsToggle").addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        document.getElementById("settingsToggle").classList.toggle("open");
+      });
+      checkBtn.addEventListener("click", checkAnswer);
+      document.getElementById("reset").addEventListener("click", () => {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      loadState();
+      topicSelect.value = settings.topic;
+      levelSelect.value = settings.level;
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>
