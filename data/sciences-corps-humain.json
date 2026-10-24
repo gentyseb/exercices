@@ -1,31 +1,251 @@
 {
   "titre": "Corps humain",
   "niveau": "CM1-CM2",
+  "config": {
+    "questionCount": 12,
+    "order": "shuffle",
+    "difficulty": "normal"
+  },
   "questions": [
     {
       "organe": "Cœur",
+      "difficulte": "facile",
       "reponse": "Pomper le sang",
       "options": ["Pomper le sang", "Digérer les aliments", "Filtrer l’air", "Produire des hormones"]
     },
     {
       "organe": "Poumons",
+      "difficulte": "facile",
       "reponse": "Permettre la respiration",
       "options": ["Permettre la respiration", "Pomper le sang", "Mâcher les aliments", "Décomposer les déchets"]
     },
     {
       "organe": "Estomac",
+      "difficulte": "facile",
       "reponse": "Digérer les aliments",
       "options": ["Digérer les aliments", "Boire l’eau", "Voir les objets", "Écouter les sons"]
     },
     {
       "organe": "Reins",
+      "difficulte": "facile",
       "reponse": "Filtrer le sang",
       "options": ["Filtrer le sang", "Pomper le sang", "Voir la nuit", "Manger les aliments"]
     },
     {
       "organe": "Cerveau",
+      "difficulte": "facile",
       "reponse": "Penser et contrôler le corps",
       "options": ["Penser et contrôler le corps", "Pomper le sang", "Digérer les aliments", "Produire de l’ADN"]
+    },
+    {
+      "organe": "Foie",
+      "difficulte": "facile",
+      "reponse": "Nettoyer le sang et produire la bile",
+      "options": ["Nettoyer le sang et produire la bile", "Pomper le sang dans le cœur", "Envoyer les messages nerveux", "Mâcher les aliments"]
+    },
+    {
+      "organe": "Intestins",
+      "difficulte": "facile",
+      "reponse": "Absorber les nutriments",
+      "options": ["Absorber les nutriments", "Produire des os", "Faire battre le cœur", "Respirer l’air"]
+    },
+    {
+      "organe": "Peau",
+      "difficulte": "facile",
+      "reponse": "Protéger le corps et réguler la température",
+      "options": ["Protéger le corps et réguler la température", "Filtrer les déchets du sang", "Digérer les aliments", "Voir les objets"]
+    },
+    {
+      "organe": "Yeux",
+      "difficulte": "facile",
+      "reponse": "Permettre de voir",
+      "options": ["Permettre de voir", "Sentir les odeurs", "Entendre les sons", "Manger les aliments"]
+    },
+    {
+      "organe": "Oreilles",
+      "difficulte": "facile",
+      "reponse": "Permettre d’entendre",
+      "options": ["Permettre d’entendre", "Voir les couleurs", "Digérer les aliments", "Réguler la pression du sang"]
+    },
+    {
+      "organe": "Nez",
+      "difficulte": "facile",
+      "reponse": "Permettre de sentir les odeurs",
+      "options": ["Permettre de sentir les odeurs", "Pomper le sang", "Filtrer les liquides", "Manger rapidement"]
+    },
+    {
+      "organe": "Langue",
+      "difficulte": "facile",
+      "reponse": "Aider à goûter les aliments",
+      "options": ["Aider à goûter les aliments", "Écouter les cris", "Respirer l’air", "Pomper le sang"]
+    },
+    {
+      "organe": "Sang",
+      "difficulte": "facile",
+      "reponse": "Transporter l’oxygène et les nutriments",
+      "options": ["Transporter l’oxygène et les nutriments", "Ralentir les battements du cœur", "Mâcher les aliments", "Produire de la lumière"]
+    },
+    {
+      "organe": "Os",
+      "difficulte": "normal",
+      "reponse": "Soutenir le corps et protéger les organes",
+      "options": ["Soutenir le corps et protéger les organes", "Pomper le sang", "Décomposer la nourriture", "Produire des ondes sonores"]
+    },
+    {
+      "organe": "Muscles",
+      "difficulte": "normal",
+      "reponse": "Permettre le mouvement",
+      "options": ["Permettre le mouvement", "Transporter l’oxygène", "Recevoir les odeurs", "Convertir la lumière en énergie"]
+    },
+    {
+      "organe": "Dents",
+      "difficulte": "normal",
+      "reponse": "Mâcher les aliments",
+      "options": ["Mâcher les aliments", "Stocker l’eau", "Filtrer l’air", "Produire des hormones"]
+    },
+    {
+      "organe": "Vessie",
+      "difficulte": "normal",
+      "reponse": "Stocker l’urine",
+      "options": ["Stocker l’urine", "Pomper le sang", "Décomposer les aliments", "Envoyer les messages"]
+    },
+    {
+      "organe": "Trachée",
+      "difficulte": "normal",
+      "reponse": "Faire passer l’air jusqu’aux poumons",
+      "options": ["Faire passer l’air jusqu’aux poumons", "Transporter le sang vers le cœur", "Convertir les aliments en énergie", "Réguler la température du corps"]
+    },
+    {
+      "organe": "Veines",
+      "difficulte": "normal",
+      "reponse": "Ramener le sang vers le cœur",
+      "options": ["Ramener le sang vers le cœur", "Pousser le sang vers les muscles", "Nettoyer l’air inspiré", "Absorber les nutriments"]
+    },
+    {
+      "organe": "Artères",
+      "difficulte": "normal",
+      "reponse": "Transporter le sang du cœur vers le corps",
+      "options": ["Transporter le sang du cœur vers le corps", "Stocker la nourriture", "Créer les mouvements", "Réguler les odeurs"]
+    },
+    {
+      "organe": "Cervelet",
+      "difficulte": "normal",
+      "reponse": "Réguler l’équilibre et la coordination",
+      "options": ["Réguler l’équilibre et la coordination", "Pomper le sang", "Produire la bile", "Détecter le goût"]
+    },
+    {
+      "organe": "Pancréas",
+      "difficulte": "difficile",
+      "reponse": "Produire des enzymes digestives et de l’insuline",
+      "options": ["Produire des enzymes digestives et de l’insuline", "Pomper le sang dans le cœur", "Émettre des sons", "Réguler la digestion des os"]
+    },
+    {
+      "organe": "Rate",
+      "difficulte": "difficile",
+      "reponse": "Nettoyer les globules rouges et aider au système immunitaire",
+      "options": ["Nettoyer les globules rouges et aider au système immunitaire", "Produire l’air respiré", "Récupérer le goût dans la langue", "Aider les os à se développer"]
+    },
+    {
+      "organe": "Moelle épinière",
+      "difficulte": "difficile",
+      "reponse": "Transmettre les messages entre le cerveau et le corps",
+      "options": ["Transmettre les messages entre le cerveau et le corps", "Produire de la salive", "Réguler la température du sang", "Créer les muscles du visage"]
+    },
+    {
+      "organe": "Capillaires",
+      "difficulte": "difficile",
+      "reponse": "Échanger l’oxygène et les nutriments avec les cellules",
+      "options": ["Échanger l’oxygène et les nutriments avec les cellules", "Produire la bile", "Mâcher les aliments", "Garder la forme du corps"]
+    },
+    {
+      "organe": "Glande thyroïde",
+      "difficulte": "difficile",
+      "reponse": "Réguler le métabolisme du corps",
+      "options": ["Réguler le métabolisme du corps", "Contrôler la vision", "Filtrer le sang dans le cœur", "Aider à sentir les odeurs"]
+    },
+    {
+      "organe": "Ganglions lymphatiques",
+      "difficulte": "difficile",
+      "reponse": "Participer à la défense du corps contre les microbes",
+      "options": ["Participer à la défense du corps contre les microbes", "Pomper le sang vers les muscles", "Absorber l’air dans les poumons", "Régler le mouvement des os"]
+    },
+    {
+      "organe": "Hypophyse",
+      "difficulte": "difficile",
+      "reponse": "Réguler les hormones du corps",
+      "options": ["Réguler les hormones du corps", "Émettre les messages visuels", "Transporter l’oxygène dans le sang", "Créer la salive"]
+    },
+    {
+      "organe": "Diaphragme",
+      "difficulte": "normal",
+      "reponse": "Aider l’air à entrer et sortir des poumons",
+      "options": ["Aider l’air à entrer et sortir des poumons", "Faire circuler le sang dans les veines", "Digérer les aliments dans l’estomac", "Protéger les yeux de la lumière"]
+    },
+    {
+      "organe": "Cage thoracique",
+      "difficulte": "normal",
+      "reponse": "Protéger notamment le cœur et les poumons",
+      "options": ["Protéger notamment le cœur et les poumons", "Filtrer le sang", "Produire les hormones", "Absorber les nutriments"]
+    },
+    {
+      "organe": "Articulations",
+      "difficulte": "normal",
+      "reponse": "Permettre aux os de bouger les uns par rapport aux autres",
+      "options": ["Permettre aux os de bouger les uns par rapport aux autres", "Transporter l’oxygène", "Produire la bile", "Faire entrer l’air dans les poumons"]
+    },
+    {
+      "organe": "Glandes salivaires",
+      "difficulte": "normal",
+      "reponse": "Produire la salive qui humidifie les aliments et commence leur digestion",
+      "options": ["Produire la salive qui humidifie les aliments et commence leur digestion", "Filtrer les déchets du sang", "Faire battre le cœur", "Transmettre les messages au cerveau"]
+    },
+    {
+      "organe": "Côlon",
+      "difficulte": "normal",
+      "reponse": "Absorber une partie de l’eau et former les selles",
+      "options": ["Absorber une partie de l’eau et former les selles", "Produire l’insuline", "Faire circuler l’air vers les poumons", "Contrôler les mouvements"]
+    },
+    {
+      "organe": "Œsophage",
+      "difficulte": "normal",
+      "reponse": "Faire passer les aliments de la bouche à l’estomac",
+      "options": ["Faire passer les aliments de la bouche à l’estomac", "Transporter le sang vers les organes", "Produire les globules rouges", "Filtrer l’air inspiré"]
+    },
+    {
+      "organe": "Uretères",
+      "difficulte": "difficile",
+      "reponse": "Transporter l’urine des reins vers la vessie",
+      "options": ["Transporter l’urine des reins vers la vessie", "Transporter le sang du cœur vers les poumons", "Faire passer les aliments vers l’estomac", "Envoyer les messages du cerveau"]
+    },
+    {
+      "organe": "Vésicule biliaire",
+      "difficulte": "difficile",
+      "reponse": "Stocker la bile produite par le foie",
+      "options": ["Stocker la bile produite par le foie", "Produire l’insuline", "Filtrer l’urine", "Absorber l’oxygène dans les poumons"]
+    },
+    {
+      "organe": "Tendons",
+      "difficulte": "difficile",
+      "reponse": "Relier les muscles aux os",
+      "options": ["Relier les muscles aux os", "Relier les os entre eux", "Transporter l’oxygène dans le sang", "Protéger le cerveau"]
+    },
+    {
+      "organe": "Globules blancs",
+      "difficulte": "difficile",
+      "reponse": "Aider le corps à se défendre contre les microbes",
+      "options": ["Aider le corps à se défendre contre les microbes", "Transporter principalement l’oxygène", "Produire la bile", "Aider les muscles à se contracter"]
+    },
+    {
+      "organe": "Globules rouges",
+      "difficulte": "difficile",
+      "reponse": "Transporter principalement l’oxygène dans le sang",
+      "options": ["Transporter principalement l’oxygène dans le sang", "Combattre directement tous les microbes", "Produire l’urine", "Digérer les aliments"]
+    },
+    {
+      "organe": "Iris",
+      "difficulte": "difficile",
+      "reponse": "Régler la quantité de lumière qui entre dans l’œil",
+      "options": ["Régler la quantité de lumière qui entre dans l’œil", "Transformer les sons en messages", "Produire les larmes", "Protéger les poumons"]
     }
   ]
 }

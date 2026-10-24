@@ -24,15 +24,38 @@
       </div>
 
       <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Difficulté</div>
+          <select id="setDifficulty">
+            <option value="facile">Facile</option>
+            <option value="normal">Normal</option>
+            <option value="difficile">Difficile</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
     </main>
 
     <script>
       (async () => {
         const response = await fetch('../data/sciences-corps-humain.json');
         if (!response.ok) throw new Error('Impossible de charger les données du corps humain.');
-        const { questions } = await response.json();
+        const { questions, config = {} } = await response.json();
 
         const STORAGE_KEY = 'exercices-sciences-corps-humain';
+        const difficultyOrder = {
+          facile: ['facile'],
+          normal: ['facile', 'normal'],
+          difficile: ['facile', 'normal', 'difficile']
+        };
+
+        const defaultSettings = {
+          difficulty: config.difficulty || 'normal'
+        };
+        let settings = { ...defaultSettings };
         let stats = { good: 0, total: 0 };
         let current = null;
         let deck = [];
@@ -41,13 +64,16 @@
           try {
             const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
             if (saved.stats) stats = { ...stats, ...saved.stats };
+            if (saved.settings && saved.settings.difficulty) {
+              settings.difficulty = saved.settings.difficulty;
+            }
           } catch (error) {
             console.warn('Impossible de charger le score.', error);
           }
         }
 
         function saveState() {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats }));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({ stats, settings }));
         }
 
         function shuffle(items) {
@@ -59,10 +85,24 @@
           return copy;
         }
 
+        function getAvailableQuestions() {
+          const allowed = difficultyOrder[settings.difficulty] || difficultyOrder.normal;
+          const filtered = questions.filter((item) => allowed.includes(item.difficulte));
+          return filtered.length > 0 ? filtered : questions;
+        }
+
+        function resetDeck() {
+          const available = getAvailableQuestions();
+          deck = shuffle(available);
+        }
+
         function makeQuestion() {
-          if (deck.length === 0) deck = shuffle(questions.map((_, index) => index));
-          const index = deck.pop();
-          const item = questions[index];
+          if (deck.length === 0) resetDeck();
+          const item = deck.pop();
+          if (!item) {
+            const fallback = questions[0];
+            return { ...fallback, options: shuffle(fallback.options) };
+          }
           return {
             ...item,
             options: shuffle(item.options)
@@ -125,14 +165,40 @@
           setTimeout(renderExercise, isCorrect ? 1500 : 2200);
         }
 
+        function refreshSettingsUI() {
+          document.getElementById('setDifficulty').value = settings.difficulty;
+        }
+
+        function onSettingsChanged() {
+          stats = { good: 0, total: 0 };
+          resetDeck();
+          saveState();
+          refreshSettingsUI();
+          updateScore();
+          renderExercise();
+        }
+
+        document.getElementById('setDifficulty').addEventListener('change', (event) => {
+          settings.difficulty = event.target.value;
+          onSettingsChanged();
+        });
+
+        document.getElementById('settingsToggle').addEventListener('click', () => {
+          document.getElementById('settingsPanel').classList.toggle('open');
+          document.getElementById('settingsToggle').classList.toggle('open');
+        });
+
         document.getElementById('reset').addEventListener('click', () => {
           stats = { good: 0, total: 0 };
+          resetDeck();
           saveState();
           updateScore();
           renderExercise();
         });
 
         loadState();
+        refreshSettingsUI();
+        resetDeck();
         updateScore();
         renderExercise();
       })().catch((error) => {
