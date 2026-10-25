@@ -947,23 +947,36 @@ function buildBadgesSection(categories) {
   const badgeCount =
     exerciseBadgeCount + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length +
     DAILY_CHALLENGE_BADGES.length;
+  const totalBadgeCount = badgeCount + 1;
 
   return `      <section class="badges-panel" aria-labelledby="badges-title" data-exercise-count="${exerciseBadgeCount}">
         <h2 id="badges-title">Mes badges</h2>
-        <p id="badge-summary" role="status">0 / ${badgeCount} badges débloqués.</p>
+        <p id="badge-summary" role="status">0 / ${totalBadgeCount} badges débloqués.</p>
 ${badgeCategories}
 ${buildGlobalBadgesSection()}
 ${buildGoodAnswerBadgesSection()}
 ${buildDailyChallengeBadgesSection()}
+        <div class="badge-category ultimate-badge-category">
+          <h3>Badge ultime</h3>
+          <div class="badge-grid">
+            <article class="badge-card ultimate-badge-card">
+              <span class="badge-icon" aria-hidden="true">🏆</span>
+              <h4>Collection complète</h4>
+              <p>Débloquer tous les autres badges.</p>
+              <span class="badge-status">${badgeCount} badges à obtenir</span>
+            </article>
+          </div>
+        </div>
       </section>`;
 }
 
 function buildBadgesSummary(categories) {
-  const badgeCount = categories.reduce(
+  const baseBadgeCount = categories.reduce(
     (count, category) => count + category.exercises.length,
     0
   ) + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length +
     DAILY_CHALLENGE_BADGES.length;
+  const badgeCount = baseBadgeCount + 1;
   const earnedBadges = categories
     .flatMap((category) => category.exercises)
     .map(
@@ -993,13 +1006,17 @@ function buildBadgesSummary(categories) {
       badge.threshold + '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
       badge.icon + "</span><span>" + badge.title + "</span></span>"
   ).join("\n");
+  const ultimateBadge =
+    '          <span class="earned-badge ultimate-badge earned-ultimate-badge" hidden>' +
+    '<span class="earned-badge-icon" aria-hidden="true">🏆</span>' +
+    "<span>Collection complète</span></span>";
 
   const exerciseCount = categories.reduce(
     (count, category) => count + category.exercises.length,
     0
   );
 
-  return `      <section class="badges-summary" aria-labelledby="badges-summary-title" data-exercise-count="${exerciseCount}">
+  return `      <section class="badges-summary" aria-labelledby="badges-summary-title" data-exercise-count="${exerciseCount}" data-base-badge-count="${baseBadgeCount}">
         <h2 id="badges-summary-title">Mes badges</h2>
         <p><span id="badge-summary-earned">0</span> / ${badgeCount} badges débloqués</p>
         <p id="earned-badges-empty">Les badges obtenus apparaîtront ici.</p>
@@ -1008,6 +1025,7 @@ ${earnedBadges}
 ${globalBadges}
 ${goodAnswerBadges}
 ${dailyChallengeBadges}
+${ultimateBadge}
         </div>
         <a href="${BADGES_NAME}">Voir tous mes badges →</a>
       </section>`;
@@ -1116,6 +1134,14 @@ function buildBadgesSummaryScript() {
       badge.hidden = !earned;
       if (earned) earnedCount++;
     });
+
+    const ultimateBadge = document.querySelector(".earned-ultimate-badge");
+    const baseBadgeCount = Number(
+      document.querySelector(".badges-summary").dataset.baseBadgeCount
+    );
+    const ultimateEarned = earnedCount === baseBadgeCount;
+    ultimateBadge.hidden = !ultimateEarned;
+    if (ultimateEarned) earnedCount++;
 
     document.getElementById("badge-summary-earned").textContent = earnedCount;
     document.getElementById("earned-badges-empty").hidden = earnedCount > 0;
@@ -1263,6 +1289,16 @@ function buildBadgeScript() {
               : dailyChallengeCount + " / " + threshold + " défis terminés";
           if (earned) earnedCount++;
         });
+
+        const ultimateCard = document.querySelector(".ultimate-badge-card");
+        const baseBadgeCount = document.querySelectorAll(".badge-card").length - 1;
+        const ultimateEarned = earnedCount === baseBadgeCount;
+        const ultimateStatus = ultimateCard.querySelector(".badge-status");
+        ultimateCard.classList.toggle("earned", ultimateEarned);
+        ultimateStatus.textContent = ultimateEarned
+          ? "Tous les badges obtenus !"
+          : earnedCount + " / " + baseBadgeCount + " badges débloqués";
+        if (ultimateEarned) earnedCount++;
 
         document.getElementById("badge-summary").textContent =
           earnedCount + " / " + document.querySelectorAll(".badge-card").length +

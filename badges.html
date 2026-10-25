@@ -13,7 +13,7 @@
       <p class="subtitle">Les badges d’exercice se débloquent avec au moins 20 réponses et 80 % de réussite. Les badges de réussite globale demandent au moins 20 réponses dans chaque exercice ; les badges de bonnes réponses comptent toutes les bonnes réponses cumulées.</p>
       <section class="badges-panel" aria-labelledby="badges-title" data-exercise-count="24">
         <h2 id="badges-title">Mes badges</h2>
-        <p id="badge-summary" role="status">0 / 36 badges débloqués.</p>
+        <p id="badge-summary" role="status">0 / 37 badges débloqués.</p>
         <div class="badge-category">
           <h3>Culture</h3>
           <div class="badge-grid">
@@ -275,9 +275,20 @@
           </article>
           </div>
         </div>
+        <div class="badge-category ultimate-badge-category">
+          <h3>Badge ultime</h3>
+          <div class="badge-grid">
+            <article class="badge-card ultimate-badge-card">
+              <span class="badge-icon" aria-hidden="true">🏆</span>
+              <h4>Collection complète</h4>
+              <p>Débloquer tous les autres badges.</p>
+              <span class="badge-status">36 badges à obtenir</span>
+            </article>
+          </div>
+        </div>
       </section>
       <p class="progress-link"><a href="progression.html">📈 Voir ma progression complète →</a></p>
-      <footer>24 exercices — généré le 25/10/2026 02:14:58</footer>
+      <footer>24 exercices — généré le 25/10/2026 02:20:38</footer>
     </div>
     <script>
       function isExerciseBadgeEarned(good, total) {
@@ -414,6 +425,16 @@
               : dailyChallengeCount + " / " + threshold + " défis terminés";
           if (earned) earnedCount++;
         });
+
+        const ultimateCard = document.querySelector(".ultimate-badge-card");
+        const baseBadgeCount = document.querySelectorAll(".badge-card").length - 1;
+        const ultimateEarned = earnedCount === baseBadgeCount;
+        const ultimateStatus = ultimateCard.querySelector(".badge-status");
+        ultimateCard.classList.toggle("earned", ultimateEarned);
+        ultimateStatus.textContent = ultimateEarned
+          ? "Tous les badges obtenus !"
+          : earnedCount + " / " + baseBadgeCount + " badges débloqués";
+        if (ultimateEarned) earnedCount++;
 
         document.getElementById("badge-summary").textContent =
           earnedCount + " / " + document.querySelectorAll(".badge-card").length +
