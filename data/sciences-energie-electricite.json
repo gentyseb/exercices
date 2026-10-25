@@ -1,0 +1,106 @@
+{
+  "titre": "Énergie et électricité",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "À quoi sert une source d’énergie ?",
+      "reponse": "À fournir de l’énergie pour faire fonctionner ou déplacer quelque chose",
+      "options": ["À fournir de l’énergie pour faire fonctionner ou déplacer quelque chose", "À fabriquer de l’eau", "À arrêter le temps", "À changer la couleur de tous les objets"]
+    },
+    {
+      "enonce": "Le Soleil est une source de…",
+      "reponse": "Lumière et chaleur",
+      "options": ["Lumière et chaleur", "Plastique", "Métal", "Glace uniquement"]
+    },
+    {
+      "enonce": "Quel objet transforme l’énergie électrique en lumière ?",
+      "reponse": "Une lampe",
+      "options": ["Une lampe", "Un cahier", "Une cuillère", "Un ballon"]
+    },
+    {
+      "enonce": "Quel appareil transforme l’énergie électrique en son ?",
+      "reponse": "Un haut-parleur",
+      "options": ["Un haut-parleur", "Une assiette", "Une règle", "Un crayon"]
+    },
+    {
+      "enonce": "De quoi un circuit électrique simple a-t-il besoin pour fonctionner ?",
+      "reponse": "D’une source, de fils et d’un appareil reliés en circuit fermé",
+      "options": ["D’une source, de fils et d’un appareil reliés en circuit fermé", "D’un circuit ouvert sans source", "Uniquement d’un morceau de papier", "D’eau versée sur les fils"]
+    },
+    {
+      "enonce": "Que se passe-t-il si le circuit d’une lampe est ouvert ?",
+      "reponse": "Le courant ne circule pas et la lampe reste éteinte",
+      "options": ["Le courant ne circule pas et la lampe reste éteinte", "La lampe éclaire davantage", "La pile se transforme en lampe", "Le fil devient une source d’énergie"]
+    },
+    {
+      "enonce": "Quel matériau conduit généralement bien l’électricité ?",
+      "reponse": "Le cuivre",
+      "options": ["Le cuivre", "Le plastique", "Le bois sec", "Le caoutchouc"]
+    },
+    {
+      "enonce": "Quel matériau est généralement isolant ?",
+      "reponse": "Le plastique",
+      "options": ["Le plastique", "Le cuivre", "L’aluminium", "Le fer"]
+    },
+    {
+      "enonce": "À quoi sert l’interrupteur dans un circuit ?",
+      "reponse": "À ouvrir ou fermer le circuit",
+      "options": ["À ouvrir ou fermer le circuit", "À produire de l’eau", "À remplacer tous les fils", "À refroidir la pile"]
+    },
+    {
+      "enonce": "Quelle source d’énergie est renouvelable ?",
+      "reponse": "Le vent",
+      "options": ["Le vent", "Le charbon", "Le pétrole", "Le gaz naturel"]
+    },
+    {
+      "enonce": "Quel appareil utilise l’énergie du vent pour produire de l’électricité ?",
+      "reponse": "Une éolienne",
+      "options": ["Une éolienne", "Un réfrigérateur", "Une bougie", "Un thermomètre"]
+    },
+    {
+      "enonce": "Quel appareil peut transformer l’énergie du Soleil en électricité ?",
+      "reponse": "Un panneau solaire photovoltaïque",
+      "options": ["Un panneau solaire photovoltaïque", "Une feuille de papier", "Un radiateur éteint", "Une boussole"]
+    },
+    {
+      "enonce": "Quelle forme d’énergie permet d’entendre une radio ?",
+      "reponse": "L’énergie sonore",
+      "options": ["L’énergie sonore", "L’énergie magnétique uniquement", "L’énergie du papier", "L’énergie du sol"]
+    },
+    {
+      "enonce": "Quel geste aide à économiser l’électricité ?",
+      "reponse": "Éteindre la lumière en quittant une pièce",
+      "options": ["Éteindre la lumière en quittant une pièce", "Laisser toutes les lampes allumées", "Ouvrir le réfrigérateur longtemps", "Laisser les appareils inutilisés en marche"]
+    },
+    {
+      "enonce": "Que fournit principalement une pile dans un circuit simple ?",
+      "reponse": "De l’énergie électrique",
+      "options": ["De l’énergie électrique", "De l’eau potable", "De la lumière du Soleil", "Du vent"]
+    },
+    {
+      "enonce": "Comment appelle-t-on une matière qui laisse passer le courant électrique ?",
+      "reponse": "Un conducteur",
+      "options": ["Un conducteur", "Un isolant", "Un aimant", "Un réservoir"]
+    },
+    {
+      "enonce": "Pourquoi les fils électriques sont-ils souvent entourés de plastique ?",
+      "reponse": "Parce que le plastique est isolant",
+      "options": ["Parce que le plastique est isolant", "Parce que le plastique produit du courant", "Pour rendre le fil comestible", "Pour transformer le fil en pile"]
+    },
+    {
+      "enonce": "Quel comportement est prudent avec l’électricité ?",
+      "reponse": "Ne jamais toucher une prise ou un fil abîmé",
+      "options": ["Ne jamais toucher une prise ou un fil abîmé", "Mettre un objet dans une prise", "Manipuler un fil dénudé", "Verser de l’eau sur un appareil branché"]
+    },
+    {
+      "enonce": "Quelle énergie fait avancer un vélo quand on pédale ?",
+      "reponse": "L’énergie musculaire du cycliste",
+      "options": ["L’énergie musculaire du cycliste", "L’énergie d’une pile cachée", "L’énergie du pétrole dans les pneus", "L’énergie de la lumière seule"]
+    },
+    {
+      "enonce": "Quand une bouilloire chauffe l’eau, l’énergie électrique devient surtout…",
+      "reponse": "De la chaleur",
+      "options": ["De la chaleur", "Du papier", "Du vent", "De la terre"]
+    }
+  ]
+}

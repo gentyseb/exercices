@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Énergie et électricité</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Énergie et électricité</h1>
+      <p class="subtitle">Comprends les sources d’énergie, les circuits et les bons gestes de sécurité.</p>
+      <div class="task" id="question">Chargement de la question…</div>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="choices" id="choices"></div>
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="percentage">— %</div>
+      </div>
+      <button id="reset" type="button">Réinitialiser le score</button>
+      <p class="hint">Ton score est sauvegardé automatiquement.</p>
+    </main>
+    <script>
+      const STORAGE_KEY = "exercices-sciences-energie-electricite";
+      window.CHOICE_EXERCISE_CONFIG = {
+        storageKey: STORAGE_KEY,
+        dataUrl: "../data/sciences-energie-electricite.json"
+      };
+    </script>
+    <script src="../core/choice-exercise.js"></script>
+  </body>
+</html>

@@ -32,6 +32,9 @@
           <option value="animaux">Animaux</option>
           <option value="nombres">Nombres (1 à 20)</option>
           <option value="famille">Famille</option>
+          <option value="jours">Jours de la semaine</option>
+          <option value="mois">Mois de l’année</option>
+          <option value="phrases">Phrases simples</option>
         </select>
       </div>
       <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
@@ -85,7 +88,7 @@
 
       let deck = [];
       function activePairs() {
-        if (settings.theme === "mix") return [].concat(THEMES.couleurs, THEMES.animaux, THEMES.nombres, THEMES.famille);
+        if (settings.theme === "mix") return Object.values(THEMES).flat();
         return THEMES[settings.theme];
       }
 

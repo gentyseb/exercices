@@ -1,0 +1,106 @@
+{
+  "titre": "Environnement et chaîne alimentaire",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Qu’est-ce qu’une chaîne alimentaire ?",
+      "reponse": "Une suite d’êtres vivants où chacun peut servir de nourriture au suivant",
+      "options": ["Une suite d’êtres vivants où chacun peut servir de nourriture au suivant", "Une liste de courses", "Un trajet de migration", "Une suite de saisons"]
+    },
+    {
+      "enonce": "Quel être vivant est souvent à la base d’une chaîne alimentaire terrestre ?",
+      "reponse": "Une plante",
+      "options": ["Une plante", "Un renard", "Un aigle", "Un champignon uniquement"]
+    },
+    {
+      "enonce": "Dans la chaîne herbe → lapin → renard, que mange le lapin ?",
+      "reponse": "L’herbe",
+      "options": ["L’herbe", "Le renard", "Les cailloux", "L’eau uniquement"]
+    },
+    {
+      "enonce": "Dans la chaîne herbe → lapin → renard, quel animal est le prédateur du lapin ?",
+      "reponse": "Le renard",
+      "options": ["Le renard", "L’herbe", "Une fleur", "Un arbre"]
+    },
+    {
+      "enonce": "Comment appelle-t-on un animal qui mange des plantes ?",
+      "reponse": "Un herbivore",
+      "options": ["Un herbivore", "Un carnivore", "Un producteur", "Un minéral"]
+    },
+    {
+      "enonce": "Comment appelle-t-on un animal qui mange d’autres animaux ?",
+      "reponse": "Un carnivore",
+      "options": ["Un carnivore", "Un herbivore", "Un végétal", "Un producteur"]
+    },
+    {
+      "enonce": "Quel rôle jouent les plantes vertes dans une chaîne alimentaire ?",
+      "reponse": "Elles produisent leur matière grâce à la lumière",
+      "options": ["Elles produisent leur matière grâce à la lumière", "Elles chassent tous les animaux", "Elles ne servent jamais de nourriture", "Elles fabriquent le sol"]
+    },
+    {
+      "enonce": "Quel animal peut être un décomposeur ?",
+      "reponse": "Un ver de terre",
+      "options": ["Un ver de terre", "Un aigle", "Un dauphin", "Un papillon adulte"]
+    },
+    {
+      "enonce": "Que font les décomposeurs dans la nature ?",
+      "reponse": "Ils transforment les restes d’êtres vivants",
+      "options": ["Ils transforment les restes d’êtres vivants", "Ils fabriquent du plastique", "Ils empêchent les plantes de pousser", "Ils changent les animaux en pierres"]
+    },
+    {
+      "enonce": "Qu’est-ce qu’un habitat naturel ?",
+      "reponse": "Le lieu où un être vivant trouve ce dont il a besoin",
+      "options": ["Le lieu où un être vivant trouve ce dont il a besoin", "Un magasin pour animaux", "Une salle de classe", "Un type de nourriture"]
+    },
+    {
+      "enonce": "Pourquoi les arbres sont-ils utiles dans un environnement ?",
+      "reponse": "Ils offrent des abris et contribuent à la vie des écosystèmes",
+      "options": ["Ils offrent des abris et contribuent à la vie des écosystèmes", "Ils rendent l’eau salée", "Ils empêchent toute vie animale", "Ils produisent du plastique"]
+    },
+    {
+      "enonce": "Quel geste réduit les déchets ?",
+      "reponse": "Utiliser plusieurs fois un objet quand c’est possible",
+      "options": ["Utiliser plusieurs fois un objet quand c’est possible", "Jeter un objet encore utile", "Prendre un nouvel emballage à chaque fois", "Laisser ses déchets dans la nature"]
+    },
+    {
+      "enonce": "Que faut-il faire d’un déchet dans un parc ?",
+      "reponse": "Le mettre dans une poubelle adaptée",
+      "options": ["Le mettre dans une poubelle adaptée", "Le laisser sous un arbre", "Le jeter dans une rivière", "Le cacher dans l’herbe"]
+    },
+    {
+      "enonce": "Pourquoi faut-il éviter de polluer les rivières ?",
+      "reponse": "La pollution peut nuire aux êtres vivants et à l’eau",
+      "options": ["La pollution peut nuire aux êtres vivants et à l’eau", "Les poissons ont besoin de déchets", "L’eau polluée devient toujours potable", "La pollution fait pousser tous les arbres"]
+    },
+    {
+      "enonce": "Quelle ressource naturelle faut-il éviter de gaspiller ?",
+      "reponse": "L’eau potable",
+      "options": ["L’eau potable", "Les déchets", "Le plastique jetable", "La fumée"]
+    },
+    {
+      "enonce": "Que signifie protéger la biodiversité ?",
+      "reponse": "Préserver la variété des êtres vivants et de leurs milieux",
+      "options": ["Préserver la variété des êtres vivants et de leurs milieux", "Remplacer toutes les espèces par une seule", "Supprimer les habitats naturels", "Ne garder que les animaux domestiques"]
+    },
+    {
+      "enonce": "Dans une chaîne alimentaire, que peut-il arriver si une espèce disparaît ?",
+      "reponse": "L’équilibre de la chaîne peut être perturbé",
+      "options": ["L’équilibre de la chaîne peut être perturbé", "Toutes les autres espèces disparaissent forcément aussitôt", "La chaîne devient une plante", "Rien ne peut jamais changer"]
+    },
+    {
+      "enonce": "Quel est un exemple d’énergie renouvelable utile pour l’environnement ?",
+      "reponse": "L’énergie du vent",
+      "options": ["L’énergie du vent", "Le charbon", "Le pétrole", "Le plastique brûlé"]
+    },
+    {
+      "enonce": "Quel geste aide à préserver la nature lors d’une promenade ?",
+      "reponse": "Rester sur les chemins et ne pas déranger les animaux",
+      "options": ["Rester sur les chemins et ne pas déranger les animaux", "Cueillir toutes les fleurs", "Abandonner ses emballages", "Détruire les nids"]
+    },
+    {
+      "enonce": "Pourquoi les animaux et les plantes ont-ils besoin d’un environnement sain ?",
+      "reponse": "Pour trouver nourriture, eau, abri et conditions de vie adaptées",
+      "options": ["Pour trouver nourriture, eau, abri et conditions de vie adaptées", "Pour ne jamais se déplacer", "Pour arrêter les saisons", "Pour transformer l’air en métal"]
+    }
+  ]
+}

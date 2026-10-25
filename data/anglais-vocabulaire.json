@@ -239,6 +239,46 @@
         "bébé",
         "baby"
       ]
+    ],
+    "jours": [
+      ["lundi", "Monday"],
+      ["mardi", "Tuesday"],
+      ["mercredi", "Wednesday"],
+      ["jeudi", "Thursday"],
+      ["vendredi", "Friday"],
+      ["samedi", "Saturday"],
+      ["dimanche", "Sunday"]
+    ],
+    "mois": [
+      ["janvier", "January"],
+      ["février", "February"],
+      ["mars", "March"],
+      ["avril", "April"],
+      ["mai", "May"],
+      ["juin", "June"],
+      ["juillet", "July"],
+      ["août", "August"],
+      ["septembre", "September"],
+      ["octobre", "October"],
+      ["novembre", "November"],
+      ["décembre", "December"]
+    ],
+    "phrases": [
+      ["Bonjour !", "Hello!"],
+      ["Comment ça va ?", "How are you?"],
+      ["Je m’appelle…", "My name is…"],
+      ["Je ne comprends pas.", "I don’t understand."],
+      ["Peux-tu m’aider ?", "Can you help me?"],
+      ["S’il te plaît.", "Please."],
+      ["Merci beaucoup.", "Thank you very much."],
+      ["Au revoir !", "Goodbye!"],
+      ["À bientôt !", "See you soon!"],
+      ["Quel âge as-tu ?", "How old are you?"],
+      ["J’ai dix ans.", "I am ten years old."],
+      ["Où sont les toilettes ?", "Where is the toilet?"],
+      ["Je voudrais de l’eau.", "I would like some water."],
+      ["Quelle heure est-il ?", "What time is it?"],
+      ["J’aime apprendre l’anglais.", "I like learning English."]
     ]
   }
 }

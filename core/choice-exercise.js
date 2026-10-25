@@ -21,6 +21,8 @@
   let activeQuestions = [];
   let deck = [];
   let currentQuestion = null;
+  let currentQuestionIndex = null;
+  let restoredQuestionState = null;
   let stats = { good: 0, total: 0 };
   let settings = {
     questionType: config && config.settings ? config.settings.defaultValue : "all",
@@ -56,10 +58,20 @@
   function saveState() {
     try {
       const state = config.settings ? { stats, settings } : { stats };
+      if (currentQuestionIndex !== null) {
+        state.questionState = {
+          index: currentQuestionIndex,
+          questionType: settings.questionType,
+          difficulty: settings.difficulty,
+          answered,
+          feedbackText: feedback.textContent,
+          feedbackClass: feedback.className
+        };
+      }
       localStorage.setItem(config.storageKey, JSON.stringify(state));
-      saveStatus.textContent = "";
+      if (saveStatus) saveStatus.textContent = "";
     } catch (error) {
-      saveStatus.textContent = "La sauvegarde du score a échoué.";
+      if (saveStatus) saveStatus.textContent = "La sauvegarde du score a échoué.";
       console.error("Impossible de sauvegarder le score.", error);
     }
   }
@@ -70,12 +82,36 @@
       showError("Aucune question disponible pour ce réglage.", new Error(settings.questionType));
       return;
     }
-    if (deck.length === 0) deck = shuffle(activeQuestions.map((_, index) => index));
-    currentQuestion = activeQuestions[deck.pop()];
-    answered = false;
+    const canRestoreQuestion = restoredQuestionState &&
+      restoredQuestionState.index < activeQuestions.length &&
+      (!config.settings ||
+        (
+          restoredQuestionState.questionType === settings.questionType &&
+          restoredQuestionState.difficulty === settings.difficulty
+        ));
+    if (canRestoreQuestion) {
+      const restored = restoredQuestionState;
+      restoredQuestionState = null;
+      currentQuestionIndex = restored.index;
+      currentQuestion = activeQuestions[currentQuestionIndex];
+      deck = shuffle(activeQuestions
+        .map((_, index) => index)
+        .filter((index) => index !== currentQuestionIndex));
+      answered = restored.answered;
+      if (answered) {
+        feedback.textContent = restored.feedbackText;
+        feedback.className = restored.feedbackClass;
+      }
+    } else {
+      restoredQuestionState = null;
+      if (deck.length === 0) deck = shuffle(activeQuestions.map((_, index) => index));
+      currentQuestionIndex = deck.pop();
+      currentQuestion = activeQuestions[currentQuestionIndex];
+      answered = false;
+      feedback.textContent = "";
+      feedback.className = "feedback";
+    }
     questionElement.textContent = currentQuestion.enonce;
-    feedback.textContent = "";
-    feedback.className = "feedback";
     choices.replaceChildren();
 
     shuffle(currentQuestion.options).forEach((option) => {
@@ -83,8 +119,16 @@
       button.type = "button";
       button.textContent = option;
       button.addEventListener("click", () => handleAnswer(option));
+      button.disabled = answered;
       choices.append(button);
     });
+    saveState();
+    if (answered) {
+      advanceTimeout = window.setTimeout(
+        renderQuestion,
+        feedback.className === "feedback good" ? 1300 : 2000
+      );
+    }
   }
 
   function handleAnswer(answer) {
@@ -126,6 +170,20 @@
           throw new Error("Le score sauvegardé est invalide.");
         }
         stats = parsed.stats;
+        if (
+          parsed.questionState &&
+          Number.isInteger(parsed.questionState.index) &&
+          parsed.questionState.index >= 0 &&
+          typeof parsed.questionState.answered === "boolean" &&
+          (!parsed.questionState.answered ||
+            (
+              typeof parsed.questionState.feedbackText === "string" &&
+              (parsed.questionState.feedbackClass === "feedback good" ||
+                parsed.questionState.feedbackClass === "feedback bad")
+            ))
+        ) {
+          restoredQuestionState = parsed.questionState;
+        }
         if (
           config.settings &&
           parsed.settings &&
@@ -184,6 +242,8 @@
               settings.questionType !== "centimes";
           }
           deck = [];
+          currentQuestionIndex = null;
+          restoredQuestionState = null;
           activeQuestions = getActiveQuestions();
           if (advanceTimeout !== null) {
             window.clearTimeout(advanceTimeout);

@@ -1,0 +1,106 @@
+{
+  "titre": "Les états de la matière",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Quels sont les trois états les plus courants de la matière ?",
+      "reponse": "Solide, liquide et gazeux",
+      "options": ["Solide, liquide et gazeux", "Chaud, froid et tiède", "Petit, moyen et grand", "Lourd, léger et brillant"]
+    },
+    {
+      "enonce": "Dans quel état est un glaçon ?",
+      "reponse": "Solide",
+      "options": ["Solide", "Liquide", "Gazeux", "Invisible"]
+    },
+    {
+      "enonce": "Dans quel état est l’eau d’un verre ?",
+      "reponse": "Liquide",
+      "options": ["Liquide", "Solide", "Gazeux", "Métallique"]
+    },
+    {
+      "enonce": "Dans quel état est la vapeur d’eau ?",
+      "reponse": "Gazeux",
+      "options": ["Gazeux", "Solide", "Liquide", "Pâteux"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de l’état solide à l’état liquide ?",
+      "reponse": "La fusion",
+      "options": ["La fusion", "La solidification", "La condensation", "L’évaporation"]
+    },
+    {
+      "enonce": "Que devient la glace lorsqu’elle fond ?",
+      "reponse": "De l’eau liquide",
+      "options": ["De l’eau liquide", "Du sable", "De l’air", "Du métal"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de l’état liquide à l’état solide ?",
+      "reponse": "La solidification",
+      "options": ["La solidification", "La fusion", "L’évaporation", "La condensation"]
+    },
+    {
+      "enonce": "Que devient l’eau lorsqu’elle gèle ?",
+      "reponse": "De la glace",
+      "options": ["De la glace", "De la vapeur", "Du sel", "De l’huile"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de l’état liquide à l’état gazeux ?",
+      "reponse": "La vaporisation",
+      "options": ["La vaporisation", "La fusion", "La solidification", "La condensation"]
+    },
+    {
+      "enonce": "Que se passe-t-il quand une flaque sèche au soleil ?",
+      "reponse": "L’eau s’évapore",
+      "options": ["L’eau s’évapore", "L’eau se transforme en pierre", "L’eau gèle", "L’eau devient du sable"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de l’état gazeux à l’état liquide ?",
+      "reponse": "La condensation",
+      "options": ["La condensation", "La fusion", "La vaporisation", "La solidification"]
+    },
+    {
+      "enonce": "Pourquoi voit-on parfois de la buée sur une vitre froide ?",
+      "reponse": "La vapeur d’eau se condense en petites gouttes",
+      "options": ["La vapeur d’eau se condense en petites gouttes", "La vitre fond", "L’air devient solide", "La vitre fabrique de l’eau"]
+    },
+    {
+      "enonce": "Quelle forme prend un liquide dans un récipient ?",
+      "reponse": "Il prend la forme du récipient",
+      "options": ["Il prend la forme du récipient", "Il garde toujours une forme carrée", "Il devient solide", "Il disparaît"]
+    },
+    {
+      "enonce": "Quelle propriété caractérise un gaz ?",
+      "reponse": "Il occupe l’espace disponible",
+      "options": ["Il occupe l’espace disponible", "Il garde toujours une forme fixe", "Il ne peut jamais bouger", "Il est toujours visible"]
+    },
+    {
+      "enonce": "Lequel de ces objets est généralement solide ?",
+      "reponse": "Un caillou",
+      "options": ["Un caillou", "Du jus", "De la vapeur", "De l’air"]
+    },
+    {
+      "enonce": "Lequel de ces éléments est un liquide ?",
+      "reponse": "Le lait",
+      "options": ["Le lait", "Un glaçon", "La fumée", "Une règle"]
+    },
+    {
+      "enonce": "L’air que nous respirons est principalement dans quel état ?",
+      "reponse": "Gazeux",
+      "options": ["Gazeux", "Solide", "Liquide", "Cristallisé"]
+    },
+    {
+      "enonce": "Que faut-il généralement faire à l’eau pour qu’elle gèle ?",
+      "reponse": "La refroidir suffisamment",
+      "options": ["La refroidir suffisamment", "La mélanger avec du sable", "La secouer", "La mettre à la lumière"]
+    },
+    {
+      "enonce": "Que se passe-t-il généralement quand on chauffe un solide comme la cire ?",
+      "reponse": "Il peut fondre",
+      "options": ["Il peut fondre", "Il devient toujours du bois", "Il disparaît sans changement", "Il se transforme en eau"]
+    },
+    {
+      "enonce": "La matière est ce qui…",
+      "reponse": "Compose les objets et les substances qui nous entourent",
+      "options": ["Compose les objets et les substances qui nous entourent", "N’existe que dans les liquides", "Est toujours invisible", "Ne peut jamais changer d’état"]
+    }
+  ]
+}
