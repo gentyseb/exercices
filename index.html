@@ -17,9 +17,16 @@
       <a href="#math">Math (10)</a>
       <a href="#sciences">Sciences (4)</a>
       </nav>
+      <section class="daily-challenge-promo">
+        <div>
+          <h2>☀️ Défi du jour</h2>
+          <p id="daily-challenge-summary">5 questions variées pour tester tes connaissances. Le défi change chaque jour !</p>
+        </div>
+        <a id="daily-challenge-link" href="defi-du-jour.html">Faire le défi →</a>
+      </section>
       <section class="badges-summary" aria-labelledby="badges-summary-title" data-exercise-count="24">
         <h2 id="badges-summary-title">Mes badges</h2>
-        <p><span id="badge-summary-earned">0</span> / 31 badges débloqués</p>
+        <p><span id="badge-summary-earned">0</span> / 36 badges débloqués</p>
         <p id="earned-badges-empty">Les badges obtenus apparaîtront ici.</p>
         <div class="earned-badges" aria-live="polite">
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-culture-instruments-musique" hidden><span class="earned-badge-icon" aria-hidden="true">🎼</span><span>Exercices : Instruments de musique</span></span>
@@ -36,7 +43,7 @@
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-conversions" hidden><span class="earned-badge-icon" aria-hidden="true">📏</span><span>Exercices : Conversions de mesures</span></span>
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-divisions" hidden><span class="earned-badge-icon" aria-hidden="true">➗</span><span>Exercices : Divisions</span></span>
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-doubles-moities" hidden><span class="earned-badge-icon" aria-hidden="true">✖️</span><span>Exercices : Doubles, moitiés, triples et quarts</span></span>
-          <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-fractions" hidden><span class="earned-badge-icon" aria-hidden="true">🍕</span><span>Exercices : Fractions</span></span>
+          <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-fractions" hidden><span class="earned-badge-icon" aria-hidden="true">½</span><span>Exercices : Fractions</span></span>
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-heures-minutes-secondes" hidden><span class="earned-badge-icon" aria-hidden="true">⏰</span><span>Exercices : Heures, minutes et secondes</span></span>
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-perimetres-aires" hidden><span class="earned-badge-icon" aria-hidden="true">📐</span><span>Exercices : Périmètres et aires</span></span>
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-problemes" hidden><span class="earned-badge-icon" aria-hidden="true">🧩</span><span>Exercices : Petits problèmes</span></span>
@@ -48,11 +55,16 @@
           <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="exercices-sciences-systeme-solaire" hidden><span class="earned-badge-icon" aria-hidden="true">🪐</span><span>Exercices : Système solaire</span></span>
           <span class="earned-badge earned-global-badge" data-global-threshold="80" hidden><span class="earned-badge-icon" aria-hidden="true">🌟</span><span>80 % global</span></span>
           <span class="earned-badge earned-global-badge" data-global-threshold="90" hidden><span class="earned-badge-icon" aria-hidden="true">🏆</span><span>90 % global</span></span>
+          <span class="earned-badge earned-global-badge" data-global-threshold="95" hidden><span class="earned-badge-icon" aria-hidden="true">🥇</span><span>95 % global</span></span>
           <span class="earned-badge earned-global-badge" data-global-threshold="100" hidden><span class="earned-badge-icon" aria-hidden="true">💎</span><span>100 % global</span></span>
           <span class="earned-badge earned-good-answer-badge" data-good-threshold="100" hidden><span class="earned-badge-icon" aria-hidden="true">🌱</span><span>Apprenti · 100</span></span>
           <span class="earned-badge earned-good-answer-badge" data-good-threshold="300" hidden><span class="earned-badge-icon" aria-hidden="true">⭐</span><span>Confirmé · 300</span></span>
           <span class="earned-badge earned-good-answer-badge" data-good-threshold="500" hidden><span class="earned-badge-icon" aria-hidden="true">🏆</span><span>Champion · 500</span></span>
           <span class="earned-badge earned-good-answer-badge" data-good-threshold="1000" hidden><span class="earned-badge-icon" aria-hidden="true">💎</span><span>Légende · 1000</span></span>
+          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="20" hidden><span class="earned-badge-icon" aria-hidden="true">🌱</span><span>20 défis terminés</span></span>
+          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="50" hidden><span class="earned-badge-icon" aria-hidden="true">⭐</span><span>50 défis terminés</span></span>
+          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="100" hidden><span class="earned-badge-icon" aria-hidden="true">🏆</span><span>100 défis terminés</span></span>
+          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="200" hidden><span class="earned-badge-icon" aria-hidden="true">💎</span><span>200 défis terminés</span></span>
         </div>
         <a href="badges.html">Voir tous mes badges →</a>
       </section>
@@ -139,7 +151,7 @@
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-conversions" hidden><span class="earned-badge-icon" aria-hidden="true">📏</span><span>Exercices : Conversions de mesures</span></span>
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-divisions" hidden><span class="earned-badge-icon" aria-hidden="true">➗</span><span>Exercices : Divisions</span></span>
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-doubles-moities" hidden><span class="earned-badge-icon" aria-hidden="true">✖️</span><span>Exercices : Doubles, moitiés, triples et quarts</span></span>
-        <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-fractions" hidden><span class="earned-badge-icon" aria-hidden="true">🍕</span><span>Exercices : Fractions</span></span>
+        <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-fractions" hidden><span class="earned-badge-icon" aria-hidden="true">½</span><span>Exercices : Fractions</span></span>
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-heures-minutes-secondes" hidden><span class="earned-badge-icon" aria-hidden="true">⏰</span><span>Exercices : Heures, minutes et secondes</span></span>
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-perimetres-aires" hidden><span class="earned-badge-icon" aria-hidden="true">📐</span><span>Exercices : Périmètres et aires</span></span>
         <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="exercices-problemes" hidden><span class="earned-badge-icon" aria-hidden="true">🧩</span><span>Exercices : Petits problèmes</span></span>
@@ -179,11 +191,26 @@
         <a class="card" href="Sciences/exercices-sciences-systeme-solaire.html">Exercices : Système solaire<span>Ouvrir l'exercice →</span><span class="exercise-score" data-score-key="exercices-sciences-systeme-solaire">Score : <span class="exercise-score-value">0 / 0</span> · <span class="exercise-score-percentage">— %</span></span></a>
     </div>
   </section>
-      <footer>24 exercices — généré le 25/10/2026 01:26:41</footer>
+      <footer>24 exercices — généré le 25/10/2026 02:14:58</footer>
     </div>
     <script>
         function isExerciseBadgeEarned(good, total) {
-    return total >= 10 && good / total >= 0.8;
+    return total >= 20 && good / total >= 0.8;
+  }
+
+        function readDailyChallengeCompletions() {
+    try {
+      const saved = localStorage.getItem("daily-challenge:completed");
+      if (!saved) return 0;
+      const days = JSON.parse(saved);
+      if (!Array.isArray(days) || !days.every((day) => typeof day === "string")) {
+        throw new Error("Historique des défis terminés invalide.");
+      }
+      return new Set(days).size;
+    } catch (error) {
+      console.warn("Impossible de lire les défis quotidiens terminés.", error);
+      return null;
+    }
   }
 
         function renderBadgeSummary() {
@@ -262,6 +289,13 @@
       badge.hidden = !earned;
       if (earned) earnedCount++;
     });
+    const dailyChallengeCount = readDailyChallengeCompletions();
+    document.querySelectorAll(".earned-daily-challenge-badge").forEach((badge) => {
+      const earned = dailyChallengeCount !== null &&
+        dailyChallengeCount >= Number(badge.dataset.dailyChallengeThreshold);
+      badge.hidden = !earned;
+      if (earned) earnedCount++;
+    });
 
     document.getElementById("badge-summary-earned").textContent = earnedCount;
     document.getElementById("earned-badges-empty").hidden = earnedCount > 0;
@@ -274,6 +308,39 @@
 
       const searchInput = document.getElementById("exercise-search-input");
       const searchStatus = document.getElementById("exercise-search-status");
+
+      function renderDailyChallengeSummary() {
+        const today = new Date();
+        const dateKey = today.getFullYear() + "-" +
+          String(today.getMonth() + 1).padStart(2, "0") + "-" +
+          String(today.getDate()).padStart(2, "0");
+        const summary = document.getElementById("daily-challenge-summary");
+        const link = document.getElementById("daily-challenge-link");
+        try {
+          const saved = localStorage.getItem("daily-challenge:result:" + dateKey);
+          const result = saved ? JSON.parse(saved) : null;
+          if (
+            result &&
+            Number.isInteger(result.score) &&
+            Number.isInteger(result.total) &&
+            result.total === 5 &&
+            result.score >= 0 &&
+            result.score <= result.total
+          ) {
+            summary.textContent = "Défi du jour terminé : " +
+              result.score + " / " + result.total + ".";
+            link.textContent = "Voir mon résultat →";
+            return;
+          }
+          summary.textContent =
+            "5 questions variées pour tester tes connaissances. Le défi change chaque jour !";
+          link.textContent = "Faire le défi →";
+        } catch (error) {
+          console.warn("Impossible de lire le résultat du défi du jour.", error);
+          summary.textContent = "Le résultat du défi du jour est indisponible.";
+          link.textContent = "Ouvrir le défi →";
+        }
+      }
 
       function normalizeSearchText(text) {
         return text
@@ -396,8 +463,11 @@
       searchInput.addEventListener("input", filterExercises);
       filterExercises();
       renderScores();
+      renderDailyChallengeSummary();
       window.addEventListener("pageshow", renderScores);
       window.addEventListener("storage", renderScores);
+      window.addEventListener("pageshow", renderDailyChallengeSummary);
+      window.addEventListener("storage", renderDailyChallengeSummary);
     </script>
   </body>
 </html>

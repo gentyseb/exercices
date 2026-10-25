@@ -27,10 +27,41 @@ const path = require("path");
 const OUTPUT_NAME = "index.html";
 const PROGRESSION_NAME = "progression.html";
 const BADGES_NAME = "badges.html";
+const DAILY_CHALLENGE_NAME = "defi-du-jour.html";
+const DAILY_CHALLENGE_QUESTION_COUNT = 5;
+const DAILY_CHALLENGE_POOL_SIZE = 80;
+const DAILY_CHALLENGE_COMPLETIONS_KEY = "daily-challenge:completed";
+const DAILY_CHALLENGE_RESULT_PREFIX = "daily-challenge:result:";
+const DAILY_CHALLENGE_BADGES = [
+  { threshold: 20, icon: "🌱", title: "20 défis terminés" },
+  { threshold: 50, icon: "⭐", title: "50 défis terminés" },
+  { threshold: 100, icon: "🏆", title: "100 défis terminés" },
+  { threshold: 200, icon: "💎", title: "200 défis terminés" }
+];
+const DAILY_CHALLENGE_BANK_FILES = [
+  "accords.json",
+  "anglais-vocabulaire.json",
+  "conjugaison.json",
+  "conversions-mesures.json",
+  "culture-instruments-musique.json",
+  "culture-oeuvres-art.json",
+  "geographie-capitales-departements.json",
+  "histoire-dates-cles.json",
+  "histoire-personnages.json",
+  "natures-mots.json",
+  "noms-propres-communs.json",
+  "operations-numeriques.json",
+  "petits-problemes.json",
+  "sciences-animaux-habitats.json",
+  "sciences-corps-humain.json",
+  "sciences-cycle-eau.json",
+  "sciences-systeme-solaire.json"
+];
 const FALLBACK_CATEGORY = "Divers";
 const GLOBAL_BADGES = [
   { id: "global-80", threshold: 80, icon: "🌟" },
   { id: "global-90", threshold: 90, icon: "🏆" },
+  { id: "global-95", threshold: 95, icon: "🥇" },
   { id: "global-100", threshold: 100, icon: "💎" }
 ];
 const GOOD_ANSWER_BADGES = [
@@ -54,7 +85,7 @@ const BADGE_ICONS = {
   "exercices-conversions": "📏",
   "exercices-divisions": "➗",
   "exercices-doubles-moities": "✖️",
-  "exercices-fractions": "🍕",
+  "exercices-fractions": "½",
   "exercices-heures-minutes-secondes": "⏰",
   "exercices-perimetres-aires": "📐",
   "exercices-problemes": "🧩",
@@ -116,7 +147,7 @@ function findHtmlFiles(dir) {
     if (entry.isDirectory()) {
       results.push(...findHtmlFiles(full));
     } else if (entry.isFile() && entry.name.toLowerCase().endsWith(".html")) {
-      if ([OUTPUT_NAME, PROGRESSION_NAME, BADGES_NAME].includes(entry.name.toLowerCase())) continue;
+      if ([OUTPUT_NAME, PROGRESSION_NAME, BADGES_NAME, DAILY_CHALLENGE_NAME].includes(entry.name.toLowerCase())) continue;
       results.push(full);
     }
   }
@@ -146,7 +177,7 @@ function scan(root) {
     } else if (
       entry.isFile() &&
       entry.name.toLowerCase().endsWith(".html") &&
-      ![OUTPUT_NAME, PROGRESSION_NAME, BADGES_NAME].includes(entry.name.toLowerCase())
+      ![OUTPUT_NAME, PROGRESSION_NAME, BADGES_NAME, DAILY_CHALLENGE_NAME].includes(entry.name.toLowerCase())
     ) {
       // Fichier html à la racine -> catégorie "Divers"
       if (!categories.has(FALLBACK_CATEGORY)) {
@@ -193,6 +224,634 @@ function getBadgeIcon(exercise) {
   return BADGE_ICONS[exercise.storageKey] || "🏅";
 }
 
+function createSeededRandom(seedText) {
+  let seed = 2166136261;
+  for (const character of seedText) {
+    seed = Math.imul(seed ^ character.charCodeAt(0), 16777619);
+  }
+  return function () {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    return seed / 4294967296;
+  };
+}
+
+function loadDailyChallengeQuestions(root, categories) {
+  const data = Object.fromEntries(
+    DAILY_CHALLENGE_BANK_FILES.map((file) => [
+      file,
+      JSON.parse(fs.readFileSync(path.join(root, "data", file), "utf8"))
+    ])
+  );
+  const exerciseInfo = new Map(
+    categories.flatMap((category) =>
+      category.exercises
+        .filter((exercise) => exercise.storageKey)
+        .map((exercise) => [
+          exercise.storageKey,
+          { title: exercise.title, category: category.category, rel: exercise.rel }
+        ])
+    )
+  );
+  const questionPools = new Map();
+
+  function addQuestion(key, prompt, answer, distractors) {
+    if (
+      typeof prompt !== "string" ||
+      !prompt.trim() ||
+      answer === null ||
+      answer === undefined ||
+      String(answer).trim() === ""
+    ) {
+      return;
+    }
+
+    const answerText = String(answer);
+    const options = [...new Set(
+      distractors.map(String).filter((option) => option !== answerText)
+    )].slice(0, 3);
+    if (options.length < 3) return;
+    options.push(answerText);
+    if (!questionPools.has(key)) questionPools.set(key, []);
+    questionPools.get(key).push({ prompt: prompt.trim(), answer: answerText, options });
+  }
+
+  function addChoiceQuestion(key, item, prompt, field) {
+    if (!item) {
+      return;
+    }
+    let questionPrompt = item.enonce;
+    if (!questionPrompt && field && typeof item[field] === "string") {
+      questionPrompt = prompt + " « " + item[field] + " » ?";
+    }
+    if (
+      typeof item.reponse === "string" &&
+      Array.isArray(item.options) &&
+      item.options.every((option) => typeof option === "string") &&
+      item.options.includes(item.reponse)
+    ) {
+      addQuestion(key, questionPrompt, item.reponse, item.options);
+    } else if (Array.isArray(item.reponse) && item.reponse.length > 1) {
+      const answer = item.reponse.join(" → ");
+      const alternatives = [
+        [...item.reponse].reverse(),
+        [...item.reponse.slice(1), item.reponse[0]],
+        [...item.reponse.slice(0, -1)].reverse().concat(item.reponse[item.reponse.length - 1]),
+        [...item.reponse]
+      ].map((sequence) => sequence.join(" → "));
+      addQuestion(key, questionPrompt, answer, alternatives);
+    }
+  }
+
+  const directSources = [
+    ["exercices-culture-instruments-musique", "culture-instruments-musique.json", "À quelle famille appartient l’instrument", "instrument"],
+    ["exercices-culture-oeuvres-art", "culture-oeuvres-art.json", "Qui a créé l’œuvre", "oeuvre"],
+    ["exercices-histoire-dates-cles", "histoire-dates-cles.json", "", null],
+    ["exercices-histoire-personnages", "histoire-personnages.json", "Quel rôle historique avait", "personnage"],
+    ["exercices-sciences-animaux-habitats", "sciences-animaux-habitats.json", "Dans quel habitat vit", "animal"],
+    ["exercices-sciences-corps-humain", "sciences-corps-humain.json", "Quelle est la fonction du", "organe"],
+    ["exercices-sciences-cycle-eau", "sciences-cycle-eau.json", "", null],
+    ["exercices-sciences-systeme-solaire", "sciences-systeme-solaire.json", "", null]
+  ];
+  for (const [key, file, prompt, field] of directSources) {
+    const questions = data[file].questions;
+    if (!Array.isArray(questions)) {
+      throw new Error("La banque de questions est invalide : " + file);
+    }
+    questions.forEach((item) => addChoiceQuestion(key, item, prompt, field));
+  }
+
+  const englishPairs = Object.values(data["anglais-vocabulaire.json"].THEMES).flat();
+  const englishAnswers = englishPairs.map((pair) => pair[1]);
+  englishPairs.forEach(([french, english]) =>
+    addQuestion("exercices-anglais", "Comment dit-on « " + french + " » en anglais ?", english, englishAnswers)
+  );
+
+  const geography = data["geographie-capitales-departements.json"];
+  const geoQuestions = [
+    [geography.EUROPE, "Quelle est la capitale de"],
+    [geography.MONDE, "Quelle est la capitale de"],
+    [geography.DEPARTEMENTS, "Dans quel département se trouve la ville de"],
+    [geography.REGIONS, "Dans quelle région se trouve la ville de"],
+    [geography.FLEUVES, "Par quelle ville passe le fleuve"]
+  ];
+  for (const [entries, prompt] of geoQuestions) {
+    if (!entries || typeof entries !== "object") continue;
+    const answers = Object.values(entries);
+    Object.entries(entries).forEach(([subject, answer]) =>
+      addQuestion("exercices-geographie", prompt + " " + subject + " ?", answer, answers)
+    );
+  }
+
+  data["accords.json"].WORDS.forEach(([masculine, plural, feminine]) => {
+    addQuestion("exercices-accords", "Mets « " + masculine + " » au pluriel.", plural,
+      data["accords.json"].WORDS.map((word) => word[1]));
+    addQuestion("exercices-accords", "Mets « " + masculine + " » au féminin.", feminine,
+      data["accords.json"].WORDS.map((word) => word[2]));
+  });
+
+  const conjugation = data["conjugaison.json"];
+  const persons = conjugation.PERSONS.map((person) => person[0]);
+  for (const [tense, endings] of Object.entries(conjugation.G1_ENDINGS)) {
+    conjugation.G1.forEach((verb) => {
+      const stem = verb.replace(/er$/, "");
+      persons.forEach((person, index) => {
+        const answer = stem + endings[index];
+        const alternatives = conjugation.G1
+          .map((otherVerb) => otherVerb.replace(/er$/, "") + endings[index]);
+        addQuestion(
+          "exercices-conjugaison",
+          "Conjugue « " + verb + " » au " + tense + " avec « " + person + " ».",
+          answer,
+          alternatives
+        );
+      });
+    });
+  }
+  for (const [verb, tenses] of Object.entries(conjugation.IRR)) {
+    for (const [tense, forms] of Object.entries(tenses)) {
+      forms.forEach((answer, index) => {
+        const alternatives = Object.values(conjugation.IRR)
+          .flatMap((otherTenses) => otherTenses[tense] || [])
+          .filter((form) => form !== answer);
+        addQuestion(
+          "exercices-conjugaison",
+          "Conjugue « " + verb + " » au " + tense + " avec « " + persons[index] + " ».",
+          answer,
+          alternatives
+        );
+      });
+    }
+  }
+
+  const natures = data["natures-mots.json"];
+  const natureLabels = Object.fromEntries(natures.NATURES.map((nature) => [nature.id, nature.label]));
+  const allNatureLabels = Object.values(natureLabels);
+  for (const [nature, words] of Object.entries(natures.DATA)) {
+    words.forEach((word) =>
+      addQuestion("exercices-natures-des-mots", "Quelle est la nature du mot « " + word + " » ?",
+        natureLabels[nature], allNatureLabels)
+    );
+  }
+
+  const properCommon = data["noms-propres-communs.json"];
+  const properKeys = ["PRENOMS", "VILLES", "PAYS_REGIONS", "MARQUES", "DIVERS_PROPRE"];
+  const commonKeys = ["NOMS_COMMUNS", "COMMUNS2", "VERBES", "ADJECTIFS", "ADVERBES_ET_AUTRES"];
+  for (const key of properKeys) {
+    properCommon[key].forEach((word) =>
+      addQuestion("score-noms-propres-communs", "« " + word + " » est-il un nom propre ou un nom commun ?",
+        "Nom propre", ["Nom commun", "Verbe", "Adjectif"])
+    );
+  }
+  for (const key of commonKeys) {
+    properCommon[key].forEach((word) =>
+      addQuestion("score-noms-propres-communs", "« " + word + " » est-il un nom propre ou un nom commun ?",
+        "Nom commun", ["Nom propre", "Verbe", "Adjectif"])
+    );
+  }
+
+  const conversionPairs = Object.values(data["conversions-mesures.json"].PAIRS).flat();
+  conversionPairs.forEach(([from, to, factor]) => {
+    [1, 2].forEach((value) => {
+      const answer = value * factor;
+      addQuestion(
+        "exercices-conversions",
+        "Convertis " + value + " " + from + " en " + to + ".",
+        answer + " " + to,
+        [answer + factor + " " + to, Math.max(0, answer - factor) + " " + to, answer * 10 + " " + to]
+      );
+      addQuestion(
+        "exercices-conversions",
+        "Convertis " + (value * factor) + " " + to + " en " + from + ".",
+        value + " " + from,
+        [
+          (value + 1) + " " + from,
+          Math.max(0, value - 1) + " " + from,
+          (value * 10) + " " + from
+        ]
+      );
+    });
+  });
+
+  const randomFor = (key) => createSeededRandom("daily-bank:" + key);
+  const integer = (random, min, max) => min + Math.floor(random() * (max - min + 1));
+  const numericDistractors = (answer, suffix = "") => {
+    const candidates = [answer + 1, answer + 2, answer + 5, answer - 1, answer - 2, answer * 2]
+      .filter((value) => value >= 0 && value !== answer);
+    return candidates.slice(0, 3).map((value) => String(value) + suffix);
+  };
+  function addGeneratedNumberQuestion(key, prompt, answer, suffix = "") {
+    addQuestion(key, prompt, String(answer) + suffix, numericDistractors(answer, suffix));
+  }
+
+  const addSubRandom = randomFor("exercices-ce2-add-sous");
+  for (let index = 0; index < 80; index++) {
+    const first = integer(addSubRandom, 10, 100);
+    const second = integer(addSubRandom, 1, first);
+    const isAddition = index % 2 === 0;
+    const answer = isAddition ? first + second : first - second;
+    addGeneratedNumberQuestion(
+      "exercices-ce2-add-sous",
+      "Combien font " + first + (isAddition ? " + " : " − ") + second + " ?",
+      answer
+    );
+  }
+
+  const compareRandom = randomFor("exercices-comparaisons");
+  for (let index = 0; index < 80; index++) {
+    const first = integer(compareRandom, 1, 999);
+    const second = integer(compareRandom, 1, 999);
+    const answer = Math.max(first, second);
+    addGeneratedNumberQuestion(
+      "exercices-comparaisons",
+      "Quel est le plus grand nombre : " + first + " ou " + second + " ?",
+      answer,
+      ""
+    );
+  }
+
+  const divisionRandom = randomFor("exercices-divisions");
+  for (let index = 0; index < 80; index++) {
+    const divisor = integer(divisionRandom, 2, 12);
+    const quotient = integer(divisionRandom, 2, 30);
+    addGeneratedNumberQuestion(
+      "exercices-divisions",
+      "Combien font " + (divisor * quotient) + " ÷ " + divisor + " ?",
+      quotient
+    );
+  }
+
+  const operationsRandom = randomFor("exercices-doubles-moities");
+  const operationNames = data["operations-numeriques.json"].OP_LABELS;
+  for (let index = 0; index < 80; index++) {
+    const operation = ["double", "moitie", "triple", "quart"][index % 4];
+    const multiplier =
+      operation === "double" ? 2 :
+        operation === "triple" ? 3 :
+          operation === "quart" ? 0.25 : 0.5;
+    const value = integer(operationsRandom, 2, 50) * (operation === "quart" || operation === "moitie" ? 4 : 1);
+    addGeneratedNumberQuestion(
+      "exercices-doubles-moities",
+      operationNames[operation] + " " + value + " ?",
+      value * multiplier
+    );
+  }
+
+  const fractionRandom = randomFor("exercices-fractions");
+  for (let index = 0; index < 80; index++) {
+    const denominator = integer(fractionRandom, 2, 10);
+    const numerator = integer(fractionRandom, 1, denominator - 1);
+    const whole = denominator * integer(fractionRandom, 1, 10);
+    addGeneratedNumberQuestion(
+      "exercices-fractions",
+      "Combien vaut " + numerator + "/" + denominator + " de " + whole + " ?",
+      (whole / denominator) * numerator
+    );
+  }
+
+  const timeRandom = randomFor("exercices-heures-minutes-secondes");
+  for (let index = 0; index < 80; index++) {
+    const hours = integer(timeRandom, 1, 12);
+    addGeneratedNumberQuestion(
+      "exercices-heures-minutes-secondes",
+      "Combien de minutes y a-t-il dans " + hours + " h ?",
+      hours * 60,
+      " min"
+    );
+  }
+
+  const geometryRandom = randomFor("exercices-perimetres-aires");
+  for (let index = 0; index < 80; index++) {
+    const length = integer(geometryRandom, 2, 30);
+    const width = integer(geometryRandom, 2, 20);
+    const areaQuestion = index % 2 === 0;
+    addGeneratedNumberQuestion(
+      "exercices-perimetres-aires",
+      (areaQuestion ? "Quelle est l’aire" : "Quel est le périmètre") +
+        " d’un rectangle de " + length + " cm sur " + width + " cm ?",
+      areaQuestion ? length * width : 2 * (length + width),
+      " cm" + (areaQuestion ? "²" : "")
+    );
+  }
+
+  const problemData = data["petits-problemes.json"];
+  const problemRandom = randomFor("exercices-problemes");
+  for (let index = 0; index < 80; index++) {
+    const [name, pronoun] = problemData.NAMES[index % problemData.NAMES.length];
+    const [, objectPlural] = problemData.OBJECTS[index % problemData.OBJECTS.length];
+    const first = integer(problemRandom, 2, 25);
+    const second = integer(problemRandom, 2, 25);
+    addGeneratedNumberQuestion(
+      "exercices-problemes",
+      name + " a " + first + " " + objectPlural + " et en reçoit " +
+        second + ". Combien en a-" + (pronoun === "Elle" ? "t-elle" : "t-il") + " maintenant ?",
+      first + second,
+      ""
+    );
+    addGeneratedNumberQuestion(
+      "exercices-problemes",
+      name + " a " + (first + second) + " " + objectPlural + " et en donne " +
+        second + ". Combien lui en reste-t-il ?",
+      first,
+      ""
+    );
+  }
+
+  const tablesRandom = randomFor("exercices-tables-multiplications");
+  for (let index = 0; index < 100; index++) {
+    const first = integer(tablesRandom, 2, 12);
+    const second = integer(tablesRandom, 0, 12);
+    addGeneratedNumberQuestion(
+      "exercices-tables-multiplications",
+      "Combien font " + first + " × " + second + " ?",
+      first * second
+    );
+  }
+
+  const expectedExerciseKeys = new Set(exerciseInfo.keys());
+  const missingQuestions = [...expectedExerciseKeys].filter(
+    (key) => !questionPools.has(key) || questionPools.get(key).length === 0
+  );
+  if (missingQuestions.length > 0) {
+    throw new Error(
+      "Aucune question de défi n’est définie pour : " + missingQuestions.join(", ")
+    );
+  }
+
+  return [...expectedExerciseKeys].map((exerciseKey) => ({
+    exerciseKey,
+    exercise: exerciseInfo.get(exerciseKey),
+    questions: (() => {
+      const pool = questionPools.get(exerciseKey);
+      const random = createSeededRandom("daily-question-pool:" + exerciseKey);
+      for (let index = pool.length - 1; index > 0; index--) {
+        const other = Math.floor(random() * (index + 1));
+        [pool[index], pool[other]] = [pool[other], pool[index]];
+      }
+      return pool.slice(0, DAILY_CHALLENGE_POOL_SIZE);
+    })()
+  }));
+}
+
+function buildDailyChallengeHtml(questionPools, generationInfo) {
+  const embeddedQuestions = JSON.stringify(questionPools).replace(/</g, "\\u003c");
+
+  return `<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Défi du jour — Exercices</title>
+    <link rel="stylesheet" href="core/style.css" />
+  </head>
+  <body>
+    <main class="daily-challenge-page">
+      <p class="back-link"><a href="index.html">← Retour aux exercices</a></p>
+      <h1>☀️ Défi du jour</h1>
+      <p class="subtitle">5 questions sur 5 exercices différents chaque jour. Le défi fait tourner les 24 exercices au fil des jours. Tes réponses ici ne modifient pas leurs scores.</p>
+      <section class="daily-challenge-card" aria-live="polite">
+        <p id="daily-challenge-date" class="daily-challenge-date"></p>
+        <progress id="daily-challenge-progress" max="${DAILY_CHALLENGE_QUESTION_COUNT}" value="0"></progress>
+        <p id="daily-challenge-count" class="daily-challenge-count"></p>
+        <p id="daily-challenge-source" class="daily-challenge-source"></p>
+        <h2 id="daily-challenge-question"></h2>
+        <div id="daily-challenge-choices" class="choices"></div>
+        <p id="daily-challenge-feedback" class="feedback" role="status"></p>
+        <div id="daily-challenge-result" class="daily-challenge-result" hidden>
+          <h2>Défi terminé !</h2>
+          <p>Ton résultat : <strong id="daily-challenge-score"></strong></p>
+        </div>
+        <p id="daily-challenge-save-status" class="daily-challenge-save-status" role="status"></p>
+      </section>
+      <footer>${generationInfo}</footer>
+    </main>
+    <script>
+      const EXERCISE_QUESTION_BANKS = ${embeddedQuestions};
+      const QUESTION_COUNT = ${DAILY_CHALLENGE_QUESTION_COUNT};
+      const STORAGE_KEY_PREFIX = "daily-challenge:";
+      const COMPLETIONS_STORAGE_KEY = "${DAILY_CHALLENGE_COMPLETIONS_KEY}";
+      const today = new Date();
+      const dateKey = today.getFullYear() + "-" +
+        String(today.getMonth() + 1).padStart(2, "0") + "-" +
+        String(today.getDate()).padStart(2, "0");
+      const dateLabel = new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long", day: "numeric", month: "long", year: "numeric"
+      }).format(today);
+
+      function createRandom(seedText) {
+        let seed = 2166136261;
+        for (const character of seedText) {
+          seed = Math.imul(seed ^ character.charCodeAt(0), 16777619);
+        }
+        return function () {
+          seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+          return seed / 4294967296;
+        };
+      }
+
+      function shuffle(items, random) {
+        const result = [...items];
+        for (let index = result.length - 1; index > 0; index--) {
+          const other = Math.floor(random() * (index + 1));
+          [result[index], result[other]] = [result[other], result[index]];
+        }
+        return result;
+      }
+
+      const dayNumber = Math.floor(Date.UTC(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate()
+      ) / 86400000);
+      const firstExerciseIndex =
+        (dayNumber * QUESTION_COUNT) % EXERCISE_QUESTION_BANKS.length;
+      const dailyQuestions = Array.from({ length: QUESTION_COUNT }, (_, index) => {
+        const exerciseBank =
+          EXERCISE_QUESTION_BANKS[(firstExerciseIndex + index) % EXERCISE_QUESTION_BANKS.length];
+        const random = createRandom(dateKey + ":" + exerciseBank.exerciseKey);
+        const question =
+          exerciseBank.questions[Math.floor(random() * exerciseBank.questions.length)];
+        return {
+          ...question,
+          exerciseKey: exerciseBank.exerciseKey,
+          exercise: exerciseBank.exercise,
+          options: shuffle(question.options, random)
+        };
+      });
+      const challengeId = dailyQuestions
+        .map((question) => question.exerciseKey + ":" + question.prompt)
+        .join("|");
+      const storageKey = STORAGE_KEY_PREFIX + dateKey;
+      const resultStorageKey = "${DAILY_CHALLENGE_RESULT_PREFIX}" + dateKey;
+      const answers = Array(QUESTION_COUNT).fill(null);
+      let completedResult = null;
+
+      try {
+        const savedResult = JSON.parse(localStorage.getItem(resultStorageKey) || "null");
+        if (
+          savedResult &&
+          savedResult.challengeId === challengeId &&
+          Number.isInteger(savedResult.score) &&
+          savedResult.score >= 0 &&
+          savedResult.score <= QUESTION_COUNT
+        ) {
+          completedResult = savedResult;
+        }
+        const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
+        if (
+          saved &&
+          saved.challengeId === challengeId &&
+          Array.isArray(saved.answers) &&
+          saved.answers.length === QUESTION_COUNT
+        ) {
+          saved.answers.forEach((answer, index) => {
+            if (
+              Number.isInteger(answer) &&
+              answer >= 0 &&
+              answer < dailyQuestions[index].options.length
+            ) {
+              answers[index] = answer;
+            }
+          });
+        }
+      } catch (error) {
+        console.warn("Impossible de reprendre le défi du jour.", error);
+      }
+
+      const questionElement = document.getElementById("daily-challenge-question");
+      const choicesElement = document.getElementById("daily-challenge-choices");
+      const feedbackElement = document.getElementById("daily-challenge-feedback");
+      const resultElement = document.getElementById("daily-challenge-result");
+      const progressElement = document.getElementById("daily-challenge-progress");
+      const saveStatus = document.getElementById("daily-challenge-save-status");
+      let currentIndex = 0;
+
+      function saveAnswers() {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify({ challengeId, answers }));
+          saveStatus.textContent = "";
+        } catch (error) {
+          console.warn("Impossible de sauvegarder le défi du jour.", error);
+          saveStatus.textContent = "La sauvegarde du défi a échoué.";
+        }
+      }
+
+      function recordDailyCompletion(correctCount) {
+        completedResult = {
+          challengeId,
+          score: correctCount,
+          total: QUESTION_COUNT
+        };
+        try {
+          localStorage.setItem(
+            resultStorageKey,
+            JSON.stringify(completedResult)
+          );
+          const saved = localStorage.getItem(COMPLETIONS_STORAGE_KEY);
+          const completedDays = saved ? JSON.parse(saved) : [];
+          if (
+            !Array.isArray(completedDays) ||
+            !completedDays.every((day) => typeof day === "string")
+          ) {
+            throw new Error("Historique des défis terminés invalide.");
+          }
+          if (!completedDays.includes(dateKey)) {
+            completedDays.push(dateKey);
+            localStorage.setItem(
+              COMPLETIONS_STORAGE_KEY,
+              JSON.stringify(completedDays)
+            );
+          }
+        } catch (error) {
+          console.warn("Impossible d’enregistrer le défi terminé.", error);
+          saveStatus.textContent = "La sauvegarde de la progression des défis a échoué.";
+        }
+      }
+
+      function render() {
+        if (completedResult) {
+          questionElement.hidden = true;
+          choicesElement.hidden = true;
+          feedbackElement.hidden = true;
+          resultElement.hidden = false;
+          progressElement.value = QUESTION_COUNT;
+          document.getElementById("daily-challenge-count").textContent =
+            "Défi déjà terminé aujourd’hui";
+          document.getElementById("daily-challenge-score").textContent =
+            completedResult.score + " / " + completedResult.total;
+          return;
+        }
+
+        const answeredCount = answers.filter((answer) => answer !== null).length;
+        progressElement.value = answeredCount;
+        document.getElementById("daily-challenge-date").textContent =
+          "Défi du " + dateLabel;
+
+        currentIndex = answers.findIndex((answer) => answer === null);
+        if (currentIndex === -1) {
+          const correctCount = answers.reduce(
+            (count, answer, index) =>
+              count + (dailyQuestions[index].options[answer] === dailyQuestions[index].answer ? 1 : 0),
+            0
+          );
+          recordDailyCompletion(correctCount);
+          questionElement.hidden = true;
+          choicesElement.hidden = true;
+          feedbackElement.hidden = true;
+          resultElement.hidden = false;
+          document.getElementById("daily-challenge-count").textContent =
+            "Défi déjà terminé aujourd’hui";
+          document.getElementById("daily-challenge-score").textContent =
+            correctCount + " / " + QUESTION_COUNT;
+          return;
+        }
+
+        questionElement.hidden = false;
+        choicesElement.hidden = false;
+        feedbackElement.hidden = true;
+        resultElement.hidden = true;
+        document.getElementById("daily-challenge-count").textContent =
+          "Question " + (currentIndex + 1) + " sur " + QUESTION_COUNT;
+        const sourceLink = document.createElement("a");
+        sourceLink.href = dailyQuestions[currentIndex].exercise.rel;
+        sourceLink.textContent =
+          dailyQuestions[currentIndex].exercise.category + " · " +
+          dailyQuestions[currentIndex].exercise.title;
+        const sourceElement = document.getElementById("daily-challenge-source");
+        sourceElement.replaceChildren(sourceLink);
+        questionElement.textContent = dailyQuestions[currentIndex].prompt;
+        choicesElement.replaceChildren();
+        dailyQuestions[currentIndex].options.forEach((option, optionIndex) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = option;
+          button.addEventListener("click", () => {
+            answers[currentIndex] = optionIndex;
+            saveAnswers();
+            const correct = option === dailyQuestions[currentIndex].answer;
+            feedbackElement.textContent = correct
+              ? "✅ Bonne réponse !"
+              : "❌ La bonne réponse était : " + dailyQuestions[currentIndex].answer;
+            feedbackElement.className = "feedback " + (correct ? "good" : "bad");
+            feedbackElement.hidden = false;
+            choicesElement.querySelectorAll("button").forEach((choice) => {
+              choice.disabled = true;
+            });
+            progressElement.value = answers.filter((answer) => answer !== null).length;
+            window.setTimeout(render, 700);
+          });
+          choicesElement.append(button);
+        });
+      }
+
+      document.getElementById("daily-challenge-date").textContent =
+        "Défi du " + dateLabel;
+      render();
+    </script>
+  </body>
+</html>
+`;
+}
+
 function buildGlobalBadgesSection() {
   const cards = GLOBAL_BADGES.map(
     (badge) =>
@@ -234,6 +893,26 @@ ${cards}
         </div>`;
 }
 
+function buildDailyChallengeBadgesSection() {
+  const cards = DAILY_CHALLENGE_BADGES.map(
+    (badge) =>
+      '          <article class="badge-card daily-challenge-badge" data-daily-challenge-threshold="' +
+      badge.threshold + '">\n' +
+      '            <span class="badge-icon" aria-hidden="true">' + badge.icon + "</span>\n" +
+      "            <h4>" + badge.title + "</h4>\n" +
+      "            <p>Terminer " + badge.threshold + " défis quotidiens.</p>\n" +
+      '            <span class="badge-status">0 / ' + badge.threshold + " défis terminés</span>\n" +
+      "          </article>"
+  ).join("\n");
+
+  return `        <div class="badge-category daily-challenge-badge-category">
+          <h3>Badges du défi quotidien</h3>
+          <div class="badge-grid">
+${cards}
+          </div>
+        </div>`;
+}
+
 function buildBadgesSection(categories) {
   const badgeCategories = categories
     .map((category) => {
@@ -246,8 +925,8 @@ function buildBadgesSection(categories) {
             '              <span class="badge-icon" aria-hidden="true">' +
             escapeHtml(getBadgeIcon(exercise)) + "</span>\n" +
             "              <h4>" + escapeHtml(exercise.title) + "</h4>\n" +
-            "              <p>Au moins 10 réponses et 80 % de réussite.</p>\n" +
-            '              <span class="badge-status">0 / 10 réponses</span>\n' +
+            "              <p>Au moins 20 réponses et 80 % de réussite.</p>\n" +
+            '              <span class="badge-status">0 / 20 réponses</span>\n' +
             "            </article>"
         )
         .join("\n");
@@ -266,7 +945,8 @@ function buildBadgesSection(categories) {
     0
   );
   const badgeCount =
-    exerciseBadgeCount + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length;
+    exerciseBadgeCount + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length +
+    DAILY_CHALLENGE_BADGES.length;
 
   return `      <section class="badges-panel" aria-labelledby="badges-title" data-exercise-count="${exerciseBadgeCount}">
         <h2 id="badges-title">Mes badges</h2>
@@ -274,6 +954,7 @@ function buildBadgesSection(categories) {
 ${badgeCategories}
 ${buildGlobalBadgesSection()}
 ${buildGoodAnswerBadgesSection()}
+${buildDailyChallengeBadgesSection()}
       </section>`;
 }
 
@@ -281,7 +962,8 @@ function buildBadgesSummary(categories) {
   const badgeCount = categories.reduce(
     (count, category) => count + category.exercises.length,
     0
-  ) + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length;
+  ) + GLOBAL_BADGES.length + GOOD_ANSWER_BADGES.length +
+    DAILY_CHALLENGE_BADGES.length;
   const earnedBadges = categories
     .flatMap((category) => category.exercises)
     .map(
@@ -305,6 +987,12 @@ function buildBadgesSummary(categories) {
       badge.threshold + '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
       badge.icon + "</span><span>" + badge.title + " · " + badge.threshold + "</span></span>"
   ).join("\n");
+  const dailyChallengeBadges = DAILY_CHALLENGE_BADGES.map(
+    (badge) =>
+      '          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="' +
+      badge.threshold + '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
+      badge.icon + "</span><span>" + badge.title + "</span></span>"
+  ).join("\n");
 
   const exerciseCount = categories.reduce(
     (count, category) => count + category.exercises.length,
@@ -319,6 +1007,7 @@ function buildBadgesSummary(categories) {
 ${earnedBadges}
 ${globalBadges}
 ${goodAnswerBadges}
+${dailyChallengeBadges}
         </div>
         <a href="${BADGES_NAME}">Voir tous mes badges →</a>
       </section>`;
@@ -326,7 +1015,22 @@ ${goodAnswerBadges}
 
 function buildBadgesSummaryScript() {
   return `        function isExerciseBadgeEarned(good, total) {
-    return total >= 10 && good / total >= 0.8;
+    return total >= 20 && good / total >= 0.8;
+  }
+
+        function readDailyChallengeCompletions() {
+    try {
+      const saved = localStorage.getItem("${DAILY_CHALLENGE_COMPLETIONS_KEY}");
+      if (!saved) return 0;
+      const days = JSON.parse(saved);
+      if (!Array.isArray(days) || !days.every((day) => typeof day === "string")) {
+        throw new Error("Historique des défis terminés invalide.");
+      }
+      return new Set(days).size;
+    } catch (error) {
+      console.warn("Impossible de lire les défis quotidiens terminés.", error);
+      return null;
+    }
   }
 
         function renderBadgeSummary() {
@@ -405,6 +1109,13 @@ function buildBadgesSummaryScript() {
       badge.hidden = !earned;
       if (earned) earnedCount++;
     });
+    const dailyChallengeCount = readDailyChallengeCompletions();
+    document.querySelectorAll(".earned-daily-challenge-badge").forEach((badge) => {
+      const earned = dailyChallengeCount !== null &&
+        dailyChallengeCount >= Number(badge.dataset.dailyChallengeThreshold);
+      badge.hidden = !earned;
+      if (earned) earnedCount++;
+    });
 
     document.getElementById("badge-summary-earned").textContent = earnedCount;
     document.getElementById("earned-badges-empty").hidden = earnedCount > 0;
@@ -419,7 +1130,22 @@ function buildBadgesSummaryScript() {
 
 function buildBadgeScript() {
   return `      function isExerciseBadgeEarned(good, total) {
-        return total >= 10 && good / total >= 0.8;
+        return total >= 20 && good / total >= 0.8;
+      }
+
+      function readDailyChallengeCompletions() {
+        try {
+          const saved = localStorage.getItem("${DAILY_CHALLENGE_COMPLETIONS_KEY}");
+          if (!saved) return 0;
+          const days = JSON.parse(saved);
+          if (!Array.isArray(days) || !days.every((day) => typeof day === "string")) {
+            throw new Error("Historique des défis terminés invalide.");
+          }
+          return new Set(days).size;
+        } catch (error) {
+          console.warn("Impossible de lire les défis quotidiens terminés.", error);
+          return null;
+        }
       }
 
       function renderBadges() {
@@ -476,9 +1202,9 @@ function buildBadgeScript() {
             earned && total > 0 && good === total
           );
           status.textContent = earned
-            ? "Débloqué !"
-            : total < 10
-              ? total + " / 10 réponses"
+            ? "Débloqué !" + (total > 0 && good === total ? " · 100 %" : "")
+            : total < 20
+              ? total + " / 20 réponses"
               : Math.round((good / total) * 100) + " % · objectif 80 %";
           if (earned) earnedCount++;
           if (!countedStorageKeys.has(storageKey)) {
@@ -506,7 +1232,7 @@ function buildBadgeScript() {
             earned && threshold === 100 && globalPercentage === 100
           );
           status.textContent = earned
-            ? "Débloqué !"
+            ? "Débloqué !" + (threshold === 100 ? " · 100 %" : "")
             : !allExercisesReady
               ? "20 réponses requises dans chaque exercice"
               : Math.round(globalPercentage) + " % · objectif " + threshold + " %";
@@ -522,6 +1248,19 @@ function buildBadgeScript() {
             : goodAnswerStatsValid
               ? goodAnswerTotal + " / " + threshold + " bonnes réponses"
               : "Scores indisponibles";
+          if (earned) earnedCount++;
+        });
+        const dailyChallengeCount = readDailyChallengeCompletions();
+        document.querySelectorAll(".daily-challenge-badge").forEach((card) => {
+          const threshold = Number(card.dataset.dailyChallengeThreshold);
+          const status = card.querySelector(".badge-status");
+          const earned = dailyChallengeCount !== null && dailyChallengeCount >= threshold;
+          card.classList.toggle("earned", earned);
+          status.textContent = earned
+            ? "Débloqué !"
+            : dailyChallengeCount === null
+              ? "Progression indisponible"
+              : dailyChallengeCount + " / " + threshold + " défis terminés";
           if (earned) earnedCount++;
         });
 
@@ -545,7 +1284,7 @@ function buildBadgesHtml(categories, generationInfo) {
     <div class="wrap">
       <p class="back-link"><a href="index.html">← Retour aux exercices</a></p>
       <h1>🏅 Mes badges</h1>
-      <p class="subtitle">Les badges d’exercice se débloquent avec au moins 10 réponses et 80 % de réussite. Les badges de réussite globale demandent au moins 20 réponses dans chaque exercice ; les badges de bonnes réponses comptent toutes les bonnes réponses cumulées.</p>
+      <p class="subtitle">Les badges d’exercice se débloquent avec au moins 20 réponses et 80 % de réussite. Les badges de réussite globale demandent au moins 20 réponses dans chaque exercice ; les badges de bonnes réponses comptent toutes les bonnes réponses cumulées.</p>
 ${buildBadgesSection(categories)}
       <p class="progress-link"><a href="progression.html">📈 Voir ma progression complète →</a></p>
       <footer>${generationInfo}</footer>
@@ -622,7 +1361,7 @@ ${sections}
     <script>
 ${buildBadgeScript()}
       function applyScoreColor(element, percentage, total) {
-        element.classList.remove("score-low", "score-medium", "score-high");
+        element.classList.remove("score-low", "score-medium", "score-high", "score-perfect");
         if (total < 20) {
           element.classList.add("score-low");
           return;
@@ -685,6 +1424,13 @@ ${buildBadgeScript()}
             const percentage = Math.round((stats.good / stats.total) * 100);
             applyScoreColor(scoreElement, percentage, stats.total);
             applyScoreColor(progressElement, percentage, stats.total);
+            if (stats.total >= 20 && stats.good === stats.total) {
+              item.classList.add("score-perfect");
+              scoreElement.classList.add("score-perfect");
+              progressElement.classList.add("score-perfect");
+            } else {
+              item.classList.remove("score-perfect");
+            }
             progressElement.value = percentage;
             detailElement.textContent =
               stats.total + " question(s) répondue(s) · " + percentage + " % de réussite";
@@ -835,6 +1581,13 @@ function buildHtml(root, categories) {
       <nav class="nav">
       ${nav}
       </nav>
+      <section class="daily-challenge-promo">
+        <div>
+          <h2>☀️ Défi du jour</h2>
+          <p id="daily-challenge-summary">5 questions variées pour tester tes connaissances. Le défi change chaque jour !</p>
+        </div>
+        <a id="daily-challenge-link" href="${DAILY_CHALLENGE_NAME}">Faire le défi →</a>
+      </section>
 ${buildBadgesSummary(categories)}
       <section class="global-score" aria-live="polite">
         <h2>Score global</h2>
@@ -853,6 +1606,39 @@ ${sections}
 ${buildBadgesSummaryScript()}
       const searchInput = document.getElementById("exercise-search-input");
       const searchStatus = document.getElementById("exercise-search-status");
+
+      function renderDailyChallengeSummary() {
+        const today = new Date();
+        const dateKey = today.getFullYear() + "-" +
+          String(today.getMonth() + 1).padStart(2, "0") + "-" +
+          String(today.getDate()).padStart(2, "0");
+        const summary = document.getElementById("daily-challenge-summary");
+        const link = document.getElementById("daily-challenge-link");
+        try {
+          const saved = localStorage.getItem("${DAILY_CHALLENGE_RESULT_PREFIX}" + dateKey);
+          const result = saved ? JSON.parse(saved) : null;
+          if (
+            result &&
+            Number.isInteger(result.score) &&
+            Number.isInteger(result.total) &&
+            result.total === ${DAILY_CHALLENGE_QUESTION_COUNT} &&
+            result.score >= 0 &&
+            result.score <= result.total
+          ) {
+            summary.textContent = "Défi du jour terminé : " +
+              result.score + " / " + result.total + ".";
+            link.textContent = "Voir mon résultat →";
+            return;
+          }
+          summary.textContent =
+            "5 questions variées pour tester tes connaissances. Le défi change chaque jour !";
+          link.textContent = "Faire le défi →";
+        } catch (error) {
+          console.warn("Impossible de lire le résultat du défi du jour.", error);
+          summary.textContent = "Le résultat du défi du jour est indisponible.";
+          link.textContent = "Ouvrir le défi →";
+        }
+      }
 
       function normalizeSearchText(text) {
         return text
@@ -975,8 +1761,11 @@ ${buildBadgesSummaryScript()}
       searchInput.addEventListener("input", filterExercises);
       filterExercises();
       renderScores();
+      renderDailyChallengeSummary();
       window.addEventListener("pageshow", renderScores);
       window.addEventListener("storage", renderScores);
+      window.addEventListener("pageshow", renderDailyChallengeSummary);
+      window.addEventListener("storage", renderDailyChallengeSummary);
     </script>
   </body>
 </html>
@@ -1005,9 +1794,14 @@ function main() {
   const html = buildHtml(root, categories);
   const progressionHtml = buildProgressionHtml(categories, generationInfo);
   const badgesHtml = buildBadgesHtml(categories, generationInfo);
+  const dailyChallengeHtml = buildDailyChallengeHtml(
+    loadDailyChallengeQuestions(root, categories),
+    generationInfo
+  );
   const outPath = path.join(root, OUTPUT_NAME);
   const progressionPath = path.join(root, PROGRESSION_NAME);
   const badgesPath = path.join(root, BADGES_NAME);
+  const dailyChallengePath = path.join(root, DAILY_CHALLENGE_NAME);
 
   // Dossier OneDrive « en ligne uniquement » ou chemin déplacé : on s'assure
   // que le dossier de sortie existe bien sur le disque avant d'écrire.
@@ -1024,6 +1818,8 @@ function main() {
     fs.writeFileSync(progressionPath, progressionHtml, "utf8");
     failedPath = badgesPath;
     fs.writeFileSync(badgesPath, badgesHtml, "utf8");
+    failedPath = dailyChallengePath;
+    fs.writeFileSync(dailyChallengePath, dailyChallengeHtml, "utf8");
   } catch (e) {
     console.error("");
     console.error("Échec de l'écriture de : " + failedPath);
@@ -1034,13 +1830,15 @@ function main() {
     const fallbackPath = path.join(scriptDir, OUTPUT_NAME);
     const fallbackProgressionPath = path.join(scriptDir, PROGRESSION_NAME);
     const fallbackBadgesPath = path.join(scriptDir, BADGES_NAME);
+    const fallbackDailyChallengePath = path.join(scriptDir, DAILY_CHALLENGE_NAME);
     if (fallbackPath !== path.resolve(outPath) && failedPath === outPath) {
       try {
         fs.writeFileSync(fallbackPath, html, "utf8");
         fs.writeFileSync(fallbackProgressionPath, progressionHtml, "utf8");
         fs.writeFileSync(fallbackBadgesPath, badgesHtml, "utf8");
+        fs.writeFileSync(fallbackDailyChallengePath, dailyChallengeHtml, "utf8");
         console.error("=> Le fichier a été écrit ici à la place : " + fallbackPath);
-        console.error("   Déplace les trois pages dans le dossier scanné");
+        console.error("   Déplace les pages générées dans le dossier scanné");
         console.error("   pour que les liens vers les exercices fonctionnent.");
         return;
       } catch (e2) {
@@ -1068,6 +1866,7 @@ function main() {
   console.log("Page générée : " + outPath);
   console.log("Page générée : " + progressionPath);
   console.log("Page générée : " + badgesPath);
+  console.log("Page générée : " + dailyChallengePath);
 }
 
 main();

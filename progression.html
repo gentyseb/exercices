@@ -177,11 +177,26 @@
         <button id="reset-scores-button" type="button">Réinitialiser tous les scores</button>
         <p id="reset-scores-status" role="status" aria-live="polite"></p>
       </details>
-      <footer>24 exercices — généré le 25/10/2026 01:26:41</footer>
+      <footer>24 exercices — généré le 25/10/2026 02:14:58</footer>
     </div>
     <script>
       function isExerciseBadgeEarned(good, total) {
-        return total >= 10 && good / total >= 0.8;
+        return total >= 20 && good / total >= 0.8;
+      }
+
+      function readDailyChallengeCompletions() {
+        try {
+          const saved = localStorage.getItem("daily-challenge:completed");
+          if (!saved) return 0;
+          const days = JSON.parse(saved);
+          if (!Array.isArray(days) || !days.every((day) => typeof day === "string")) {
+            throw new Error("Historique des défis terminés invalide.");
+          }
+          return new Set(days).size;
+        } catch (error) {
+          console.warn("Impossible de lire les défis quotidiens terminés.", error);
+          return null;
+        }
       }
 
       function renderBadges() {
@@ -238,9 +253,9 @@
             earned && total > 0 && good === total
           );
           status.textContent = earned
-            ? "Débloqué !"
-            : total < 10
-              ? total + " / 10 réponses"
+            ? "Débloqué !" + (total > 0 && good === total ? " · 100 %" : "")
+            : total < 20
+              ? total + " / 20 réponses"
               : Math.round((good / total) * 100) + " % · objectif 80 %";
           if (earned) earnedCount++;
           if (!countedStorageKeys.has(storageKey)) {
@@ -268,7 +283,7 @@
             earned && threshold === 100 && globalPercentage === 100
           );
           status.textContent = earned
-            ? "Débloqué !"
+            ? "Débloqué !" + (threshold === 100 ? " · 100 %" : "")
             : !allExercisesReady
               ? "20 réponses requises dans chaque exercice"
               : Math.round(globalPercentage) + " % · objectif " + threshold + " %";
@@ -286,6 +301,19 @@
               : "Scores indisponibles";
           if (earned) earnedCount++;
         });
+        const dailyChallengeCount = readDailyChallengeCompletions();
+        document.querySelectorAll(".daily-challenge-badge").forEach((card) => {
+          const threshold = Number(card.dataset.dailyChallengeThreshold);
+          const status = card.querySelector(".badge-status");
+          const earned = dailyChallengeCount !== null && dailyChallengeCount >= threshold;
+          card.classList.toggle("earned", earned);
+          status.textContent = earned
+            ? "Débloqué !"
+            : dailyChallengeCount === null
+              ? "Progression indisponible"
+              : dailyChallengeCount + " / " + threshold + " défis terminés";
+          if (earned) earnedCount++;
+        });
 
         document.getElementById("badge-summary").textContent =
           earnedCount + " / " + document.querySelectorAll(".badge-card").length +
@@ -293,7 +321,7 @@
       }
 
       function applyScoreColor(element, percentage, total) {
-        element.classList.remove("score-low", "score-medium", "score-high");
+        element.classList.remove("score-low", "score-medium", "score-high", "score-perfect");
         if (total < 20) {
           element.classList.add("score-low");
           return;
@@ -356,6 +384,13 @@
             const percentage = Math.round((stats.good / stats.total) * 100);
             applyScoreColor(scoreElement, percentage, stats.total);
             applyScoreColor(progressElement, percentage, stats.total);
+            if (stats.total >= 20 && stats.good === stats.total) {
+              item.classList.add("score-perfect");
+              scoreElement.classList.add("score-perfect");
+              progressElement.classList.add("score-perfect");
+            } else {
+              item.classList.remove("score-perfect");
+            }
             progressElement.value = percentage;
             detailElement.textContent =
               stats.total + " question(s) répondue(s) · " + percentage + " % de réussite";
