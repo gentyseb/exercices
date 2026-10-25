@@ -1,0 +1,316 @@
+{
+  "titre": "Synonymes et contraires",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Quel est un synonyme de « content » ?",
+      "reponse": "Joyeux",
+      "options": [
+        "Joyeux",
+        "Triste",
+        "Lent",
+        "Froid"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « grand » ?",
+      "reponse": "Petit",
+      "options": [
+        "Petit",
+        "Géant",
+        "Long",
+        "Haut"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « rapide » ?",
+      "reponse": "Véloce",
+      "options": [
+        "Véloce",
+        "Lent",
+        "Calme",
+        "Lourd"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « chaud » ?",
+      "reponse": "Froid",
+      "options": [
+        "Froid",
+        "Brûlant",
+        "Tiède",
+        "Sec"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « finir » ?",
+      "reponse": "Terminer",
+      "options": [
+        "Terminer",
+        "Commencer",
+        "Courir",
+        "Ranger"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « ouvrir » ?",
+      "reponse": "Fermer",
+      "options": [
+        "Fermer",
+        "Entrer",
+        "Pousser",
+        "Montrer"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « joli » ?",
+      "reponse": "Beau",
+      "options": [
+        "Beau",
+        "Laid",
+        "Lent",
+        "Grand"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « monter » ?",
+      "reponse": "Descendre",
+      "options": [
+        "Descendre",
+        "Grimper",
+        "Avancer",
+        "Sauter"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « parler » ?",
+      "reponse": "Discuter",
+      "options": [
+        "Discuter",
+        "Écouter",
+        "Dormir",
+        "Chanter"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « propre » ?",
+      "reponse": "Sale",
+      "options": [
+        "Sale",
+        "Net",
+        "Rangé",
+        "Sec"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « peur » ?",
+      "reponse": "Crainte",
+      "options": [
+        "Crainte",
+        "Joie",
+        "Colère",
+        "Repos"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « commencer » ?",
+      "reponse": "Finir",
+      "options": [
+        "Finir",
+        "Continuer",
+        "Essayer",
+        "Avancer"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « maison » ?",
+      "reponse": "Habitation",
+      "options": [
+        "Habitation",
+        "Jardin",
+        "Route",
+        "Nuage"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « léger » ?",
+      "reponse": "Lourd",
+      "options": [
+        "Lourd",
+        "Fin",
+        "Petit",
+        "Mince"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « regarder » ?",
+      "reponse": "Observer",
+      "options": [
+        "Observer",
+        "Cacher",
+        "Toucher",
+        "Écouter"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « bruyant » ?",
+      "reponse": "Silencieux",
+      "options": [
+        "Silencieux",
+        "Sonore",
+        "Agité",
+        "Rapide"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « débuter » ?",
+      "reponse": "Commencer",
+      "options": [
+        "Commencer",
+        "Finir",
+        "Arrêter",
+        "Oublier"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « vide » ?",
+      "reponse": "Plein",
+      "options": [
+        "Plein",
+        "Creux",
+        "Léger",
+        "Ouvert"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « immense » ?",
+      "reponse": "Énorme",
+      "options": [
+        "Énorme",
+        "Minuscule",
+        "Étroit",
+        "Court"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « avancer » ?",
+      "reponse": "Reculer",
+      "options": [
+        "Reculer",
+        "Marcher",
+        "Courir",
+        "Monter"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « drôle » ?",
+      "reponse": "Amusant",
+      "options": [
+        "Amusant",
+        "Sérieux",
+        "Triste",
+        "Fatigué"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « difficile » ?",
+      "reponse": "Facile",
+      "options": [
+        "Facile",
+        "Compliqué",
+        "Long",
+        "Dur"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « crier » ?",
+      "reponse": "Hurler",
+      "options": [
+        "Hurler",
+        "Chuchoter",
+        "Rêver",
+        "Sourire"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « généreux » ?",
+      "reponse": "Avare",
+      "options": [
+        "Avare",
+        "Gentil",
+        "Honnête",
+        "Poli"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « terminer » ?",
+      "reponse": "Achever",
+      "options": [
+        "Achever",
+        "Entamer",
+        "Préparer",
+        "Continuer"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « ancien » ?",
+      "reponse": "Nouveau",
+      "options": [
+        "Nouveau",
+        "Vieux",
+        "Passé",
+        "Usé"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « aider » ?",
+      "reponse": "Secourir",
+      "options": [
+        "Secourir",
+        "Gêner",
+        "Ignorer",
+        "Empêcher"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « calme » ?",
+      "reponse": "Agité",
+      "options": [
+        "Agité",
+        "Paisible",
+        "Doux",
+        "Tranquille"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « délicieux » ?",
+      "reponse": "Savoureux",
+      "options": [
+        "Savoureux",
+        "Fade",
+        "Salé",
+        "Amer"
+      ]
+    },
+    {
+      "enonce": "Quel est le contraire de « courageux » ?",
+      "reponse": "Peureux",
+      "options": [
+        "Peureux",
+        "Brave",
+        "Fort",
+        "Fier"
+      ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « silencieux » ?",
+      "reponse": "Muet",
+      "options": [
+        "Muet",
+        "Bruyant",
+        "Parlant",
+        "Agité"
+      ]
+    }
+  ]
+}

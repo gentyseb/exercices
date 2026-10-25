@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Continents et océans</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Continents et océans</h1>
+      <p class="subtitle">Repère les continents et les océans du monde.</p>
+      <div class="task" id="question">Chargement de la question…</div>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="choices" id="choices"></div>
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="percentage">— %</div>
+      </div>
+      <button id="reset" type="button">Réinitialiser le score</button>
+      <p class="hint" id="save-status" role="status"></p>
+      <p class="hint">Ton score est sauvegardé automatiquement.</p>
+    </main>
+    <script>
+      const STORAGE_KEY = "exercices-geographie-continents-oceans";
+      window.CHOICE_EXERCISE_CONFIG = {
+        storageKey: STORAGE_KEY,
+        dataUrl: "../data/geographie-continents-oceans.json"
+      };
+    </script>
+    <script src="../core/choice-exercise.js"></script>
+  </body>
+</html>

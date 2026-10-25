@@ -46,8 +46,10 @@ const DAILY_CHALLENGE_BANK_FILES = [
   "culture-instruments-musique.json",
   "culture-oeuvres-art.json",
   "geographie-capitales-departements.json",
+  "geographie-continents-oceans.json",
   "histoire-dates-cles.json",
   "histoire-personnages.json",
+  "monnaie.json",
   "natures-mots.json",
   "noms-propres-communs.json",
   "operations-numeriques.json",
@@ -55,7 +57,9 @@ const DAILY_CHALLENGE_BANK_FILES = [
   "sciences-animaux-habitats.json",
   "sciences-corps-humain.json",
   "sciences-cycle-eau.json",
-  "sciences-systeme-solaire.json"
+  "sciences-plantes.json",
+  "sciences-systeme-solaire.json",
+  "synonymes-contraires.json"
 ];
 const FALLBACK_CATEGORY = "Divers";
 const GLOBAL_BADGES = [
@@ -94,7 +98,11 @@ const BADGE_ICONS = {
   "exercices-sciences-animaux-habitats": "🐾",
   "exercices-sciences-corps-humain": "🫀",
   "exercices-sciences-cycle-eau": "💧",
-  "exercices-sciences-systeme-solaire": "🪐"
+  "exercices-sciences-plantes": "🌱",
+  "exercices-sciences-systeme-solaire": "🪐",
+  "exercices-monnaie": "💶",
+  "exercices-synonymes-contraires": "🔤",
+  "exercices-geographie-continents-oceans": "🌍"
 };
 
 // --- Utilitaires -----------------------------------------------------------
@@ -310,7 +318,11 @@ function loadDailyChallengeQuestions(root, categories) {
     ["exercices-sciences-animaux-habitats", "sciences-animaux-habitats.json", "Dans quel habitat vit", "animal"],
     ["exercices-sciences-corps-humain", "sciences-corps-humain.json", "Quelle est la fonction du", "organe"],
     ["exercices-sciences-cycle-eau", "sciences-cycle-eau.json", "", null],
-    ["exercices-sciences-systeme-solaire", "sciences-systeme-solaire.json", "", null]
+    ["exercices-sciences-plantes", "sciences-plantes.json", "", null],
+    ["exercices-sciences-systeme-solaire", "sciences-systeme-solaire.json", "", null],
+    ["exercices-monnaie", "monnaie.json", "", null],
+    ["exercices-synonymes-contraires", "synonymes-contraires.json", "", null],
+    ["exercices-geographie-continents-oceans", "geographie-continents-oceans.json", "", null]
   ];
   for (const [key, file, prompt, field] of directSources) {
     const questions = data[file].questions;

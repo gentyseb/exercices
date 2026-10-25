@@ -1,0 +1,316 @@
+{
+  "titre": "Les plantes",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Quelle partie de la plante absorbe l’eau dans le sol ?",
+      "reponse": "Les racines",
+      "options": [
+        "Les racines",
+        "Les feuilles",
+        "La fleur",
+        "Le fruit"
+      ]
+    },
+    {
+      "enonce": "Quelle partie de la plante capte la lumière du soleil ?",
+      "reponse": "Les feuilles",
+      "options": [
+        "Les feuilles",
+        "Les racines",
+        "Les graines",
+        "Le fruit"
+      ]
+    },
+    {
+      "enonce": "De quoi une plante a-t-elle besoin pour grandir ?",
+      "reponse": "D’eau, de lumière et d’air",
+      "options": [
+        "D’eau, de lumière et d’air",
+        "De bonbons",
+        "De sable uniquement",
+        "D’obscurité totale"
+      ]
+    },
+    {
+      "enonce": "Quelle partie soutient la plante et transporte l’eau ?",
+      "reponse": "La tige",
+      "options": [
+        "La tige",
+        "La fleur",
+        "Le fruit",
+        "La graine"
+      ]
+    },
+    {
+      "enonce": "Quelle partie de nombreuses plantes permet de former des graines ?",
+      "reponse": "La fleur",
+      "options": [
+        "La fleur",
+        "La racine",
+        "La tige",
+        "La feuille"
+      ]
+    },
+    {
+      "enonce": "Que contient souvent un fruit ?",
+      "reponse": "Des graines",
+      "options": [
+        "Des graines",
+        "Des racines",
+        "De la terre",
+        "Des feuilles"
+      ]
+    },
+    {
+      "enonce": "Comment appelle-t-on une jeune plante qui commence à pousser ?",
+      "reponse": "Une pousse",
+      "options": [
+        "Une pousse",
+        "Un caillou",
+        "Une branche morte",
+        "Un pétale"
+      ]
+    },
+    {
+      "enonce": "Où se trouvent généralement les racines ?",
+      "reponse": "Dans le sol",
+      "options": [
+        "Dans le sol",
+        "Dans le ciel",
+        "Sur les pétales",
+        "À l’intérieur des fruits"
+      ]
+    },
+    {
+      "enonce": "Quel gaz les plantes utilisent-elles avec la lumière pour fabriquer leur nourriture ?",
+      "reponse": "Le dioxyde de carbone",
+      "options": [
+        "Le dioxyde de carbone",
+        "L’hélium",
+        "La vapeur d’essence",
+        "Le sel"
+      ]
+    },
+    {
+      "enonce": "Que peut-il arriver à une plante qui ne reçoit pas d’eau ?",
+      "reponse": "Elle se fane",
+      "options": [
+        "Elle se fane",
+        "Elle devient une pierre",
+        "Elle pousse plus vite",
+        "Elle change d’espèce"
+      ]
+    },
+    {
+      "enonce": "Comment appelle-t-on le déplacement du pollen d’une fleur à une autre ?",
+      "reponse": "La pollinisation",
+      "options": [
+        "La pollinisation",
+        "La germination",
+        "La digestion",
+        "La respiration"
+      ]
+    },
+    {
+      "enonce": "De quoi une graine a-t-elle souvent besoin pour germer ?",
+      "reponse": "D’eau, d’air et d’une température adaptée",
+      "options": [
+        "D’eau, d’air et d’une température adaptée",
+        "De peinture",
+        "De lumière électrique uniquement",
+        "De sucre"
+      ]
+    },
+    {
+      "enonce": "Comment appelle-t-on le début du développement d’une graine ?",
+      "reponse": "La germination",
+      "options": [
+        "La germination",
+        "La pollinisation",
+        "La récolte",
+        "La photosynthèse"
+      ]
+    },
+    {
+      "enonce": "Quelle partie de la plante porte généralement les feuilles et les fleurs ?",
+      "reponse": "La tige",
+      "options": [
+        "La tige",
+        "La racine",
+        "Le fruit",
+        "La graine"
+      ]
+    },
+    {
+      "enonce": "Comment les graines de certaines plantes sont-elles transportées par le vent ?",
+      "reponse": "Elles sont légères et peuvent être emportées",
+      "options": [
+        "Elles sont légères et peuvent être emportées",
+        "Elles nagent sous la terre",
+        "Elles se transforment en oiseaux",
+        "Elles restent collées aux racines"
+      ]
+    },
+    {
+      "enonce": "Quel animal peut transporter du pollen en visitant les fleurs ?",
+      "reponse": "L’abeille",
+      "options": [
+        "L’abeille",
+        "Le poisson",
+        "La taupe",
+        "Le ver de terre"
+      ]
+    },
+    {
+      "enonce": "Quelle partie de la plante absorbe aussi des sels minéraux du sol ?",
+      "reponse": "Les racines",
+      "options": [
+        "Les racines",
+        "Les pétales",
+        "Les fruits",
+        "Les graines"
+      ]
+    },
+    {
+      "enonce": "Pourquoi les feuilles sont-elles souvent vertes ?",
+      "reponse": "Elles contiennent de la chlorophylle",
+      "options": [
+        "Elles contiennent de la chlorophylle",
+        "Elles sont faites de terre",
+        "Elles absorbent de l’encre",
+        "Elles sont toujours peintes"
+      ]
+    },
+    {
+      "enonce": "Quel est le rôle principal de la fleur dans la reproduction de nombreuses plantes ?",
+      "reponse": "Elle aide la plante à produire des graines",
+      "options": [
+        "Elle aide la plante à produire des graines",
+        "Elle absorbe l’eau du sol",
+        "Elle remplace les racines",
+        "Elle fabrique la terre"
+      ]
+    },
+    {
+      "enonce": "Comment appelle-t-on la fabrication de nourriture par la plante grâce à la lumière ?",
+      "reponse": "La photosynthèse",
+      "options": [
+        "La photosynthèse",
+        "La germination",
+        "La pollinisation",
+        "La digestion"
+      ]
+    },
+    {
+      "enonce": "Quel élément du sol aide les racines à rester en place ?",
+      "reponse": "La terre",
+      "options": [
+        "La terre",
+        "La lumière",
+        "Le vent",
+        "Les nuages"
+      ]
+    },
+    {
+      "enonce": "Que devient souvent une fleur après la fécondation ?",
+      "reponse": "Elle peut former un fruit contenant des graines",
+      "options": [
+        "Elle peut former un fruit contenant des graines",
+        "Elle devient une racine",
+        "Elle se transforme en feuille",
+        "Elle disparaît toujours sans laisser de trace"
+      ]
+    },
+    {
+      "enonce": "Pourquoi les plantes ont-elles besoin de lumière ?",
+      "reponse": "Pour fabriquer leur nourriture",
+      "options": [
+        "Pour fabriquer leur nourriture",
+        "Pour boire directement les rayons",
+        "Pour produire des cailloux",
+        "Pour remplacer l’air"
+      ]
+    },
+    {
+      "enonce": "Quelle partie protège souvent les graines à l’intérieur d’une pomme ?",
+      "reponse": "Le fruit",
+      "options": [
+        "Le fruit",
+        "La racine",
+        "La tige",
+        "Le pétale"
+      ]
+    },
+    {
+      "enonce": "De quoi les racines ont-elles besoin pour bien respirer ?",
+      "reponse": "D’air présent dans le sol",
+      "options": [
+        "D’air présent dans le sol",
+        "De lumière directe",
+        "De peinture",
+        "De feuilles"
+      ]
+    },
+    {
+      "enonce": "Comment les graines du pissenlit se déplacent-elles souvent ?",
+      "reponse": "Grâce au vent",
+      "options": [
+        "Grâce au vent",
+        "Grâce aux rochers",
+        "En nageant",
+        "En creusant le sol"
+      ]
+    },
+    {
+      "enonce": "Que faut-il éviter pour qu’une plante en pot reste en bonne santé ?",
+      "reponse": "La laisser longtemps sans eau",
+      "options": [
+        "La laisser longtemps sans eau",
+        "Lui donner de la lumière",
+        "L’arroser selon ses besoins",
+        "La placer dans un pot adapté"
+      ]
+    },
+    {
+      "enonce": "Quel est le rôle des feuilles dans la vie de la plante ?",
+      "reponse": "Elles captent la lumière et participent à la fabrication de nourriture",
+      "options": [
+        "Elles captent la lumière et participent à la fabrication de nourriture",
+        "Elles aspirent les graines",
+        "Elles remplacent les fleurs",
+        "Elles ancrent la plante dans le sol"
+      ]
+    },
+    {
+      "enonce": "Comment appelle-t-on une plante qui pousse naturellement sans être plantée par une personne ?",
+      "reponse": "Une plante sauvage",
+      "options": [
+        "Une plante sauvage",
+        "Une plante en plastique",
+        "Une plante artificielle",
+        "Une plante peinte"
+      ]
+    },
+    {
+      "enonce": "Quel organe d’une plante peut devenir une carotte ?",
+      "reponse": "La racine",
+      "options": [
+        "La racine",
+        "La fleur",
+        "La feuille",
+        "Le pétale"
+      ]
+    },
+    {
+      "enonce": "Quel organe d’une plante peut devenir une pomme de terre ?",
+      "reponse": "Un tubercule",
+      "options": [
+        "Un tubercule",
+        "Une fleur",
+        "Un pétale",
+        "Une graine"
+      ]
+    }
+  ]
+}

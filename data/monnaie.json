@@ -1,0 +1,316 @@
+{
+  "titre": "Monnaie et rendu de monnaie",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Un cahier coûte 3 €. Tu paies avec un billet de 5 €. Combien te rend-on ?",
+      "reponse": "2 €",
+      "options": [
+        "2 €",
+        "1 €",
+        "3 €",
+        "8 €"
+      ]
+    },
+    {
+      "enonce": "Un livre coûte 12 €. Tu paies avec 20 €. Quelle monnaie te rend-on ?",
+      "reponse": "8 €",
+      "options": [
+        "8 €",
+        "6 €",
+        "10 €",
+        "32 €"
+      ]
+    },
+    {
+      "enonce": "Une pomme coûte 2 €. Tu en achètes 3. Quel est le prix total ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "5 €",
+        "8 €",
+        "9 €"
+      ]
+    },
+    {
+      "enonce": "Un jouet coûte 15 €. Tu paies avec 20 €. Combien te rend-on ?",
+      "reponse": "5 €",
+      "options": [
+        "5 €",
+        "4 €",
+        "10 €",
+        "35 €"
+      ]
+    },
+    {
+      "enonce": "Un crayon coûte 1 €. Tu en achètes 4. Quel est le prix total ?",
+      "reponse": "4 €",
+      "options": [
+        "4 €",
+        "3 €",
+        "5 €",
+        "8 €"
+      ]
+    },
+    {
+      "enonce": "Un ballon coûte 8 €. Tu paies avec 10 €. Quelle monnaie te rend-on ?",
+      "reponse": "2 €",
+      "options": [
+        "2 €",
+        "1 €",
+        "3 €",
+        "18 €"
+      ]
+    },
+    {
+      "enonce": "Une boîte de feutres coûte 6 €. Tu en achètes 2. Combien paies-tu ?",
+      "reponse": "12 €",
+      "options": [
+        "12 €",
+        "8 €",
+        "10 €",
+        "14 €"
+      ]
+    },
+    {
+      "enonce": "Un jeu coûte 25 €. Tu paies avec 50 €. Combien te rend-on ?",
+      "reponse": "25 €",
+      "options": [
+        "25 €",
+        "20 €",
+        "30 €",
+        "75 €"
+      ]
+    },
+    {
+      "enonce": "Une baguette coûte 1 €. Tu en achètes 2 et tu paies avec 5 €. Quelle monnaie te rend-on ?",
+      "reponse": "3 €",
+      "options": [
+        "3 €",
+        "2 €",
+        "4 €",
+        "7 €"
+      ]
+    },
+    {
+      "enonce": "Un paquet de cartes coûte 7 €. Tu en achètes 2. Quel est le prix total ?",
+      "reponse": "14 €",
+      "options": [
+        "14 €",
+        "9 €",
+        "12 €",
+        "16 €"
+      ]
+    },
+    {
+      "enonce": "Une règle coûte 2 €. Tu paies avec 10 €. Combien te rend-on ?",
+      "reponse": "8 €",
+      "options": [
+        "8 €",
+        "6 €",
+        "10 €",
+        "12 €"
+      ]
+    },
+    {
+      "enonce": "Un sac coûte 18 €. Tu paies avec 20 €. Quelle monnaie te rend-on ?",
+      "reponse": "2 €",
+      "options": [
+        "2 €",
+        "1 €",
+        "8 €",
+        "38 €"
+      ]
+    },
+    {
+      "enonce": "Une glace coûte 3 €. Tu en achètes 2. Combien paies-tu ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "5 €",
+        "8 €",
+        "9 €"
+      ]
+    },
+    {
+      "enonce": "Un album coûte 14 €. Tu paies avec 20 €. Combien te rend-on ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "4 €",
+        "8 €",
+        "34 €"
+      ]
+    },
+    {
+      "enonce": "Un ticket coûte 4 €. Tu en achètes 3. Quel est le prix total ?",
+      "reponse": "12 €",
+      "options": [
+        "12 €",
+        "7 €",
+        "10 €",
+        "16 €"
+      ]
+    },
+    {
+      "enonce": "Un jeu coûte 32 €. Tu paies avec 50 €. Quelle monnaie te rend-on ?",
+      "reponse": "18 €",
+      "options": [
+        "18 €",
+        "12 €",
+        "22 €",
+        "82 €"
+      ]
+    },
+    {
+      "enonce": "Une gomme coûte 2 €. Tu en achètes 5. Combien paies-tu ?",
+      "reponse": "10 €",
+      "options": [
+        "10 €",
+        "7 €",
+        "8 €",
+        "12 €"
+      ]
+    },
+    {
+      "enonce": "Un livre coûte 17 €. Tu paies avec 20 €. Combien te rend-on ?",
+      "reponse": "3 €",
+      "options": [
+        "3 €",
+        "2 €",
+        "7 €",
+        "37 €"
+      ]
+    },
+    {
+      "enonce": "Un jouet coûte 9 € et un ballon coûte 6 €. Quel est le prix total ?",
+      "reponse": "15 €",
+      "options": [
+        "15 €",
+        "13 €",
+        "16 €",
+        "54 €"
+      ]
+    },
+    {
+      "enonce": "Tu achètes un livre à 13 € et tu paies avec 20 €. Quelle monnaie te rend-on ?",
+      "reponse": "7 €",
+      "options": [
+        "7 €",
+        "5 €",
+        "8 €",
+        "33 €"
+      ]
+    },
+    {
+      "enonce": "Un paquet de gommettes coûte 3 €. Tu en achètes 4. Quel est le prix total ?",
+      "reponse": "12 €",
+      "options": [
+        "12 €",
+        "7 €",
+        "9 €",
+        "15 €"
+      ]
+    },
+    {
+      "enonce": "Un puzzle coûte 27 €. Tu paies avec 50 €. Combien te rend-on ?",
+      "reponse": "23 €",
+      "options": [
+        "23 €",
+        "13 €",
+        "27 €",
+        "77 €"
+      ]
+    },
+    {
+      "enonce": "Une carte coûte 2 € et un stylo coûte 3 €. Combien coûtent-ils ensemble ?",
+      "reponse": "5 €",
+      "options": [
+        "5 €",
+        "4 €",
+        "6 €",
+        "8 €"
+      ]
+    },
+    {
+      "enonce": "Tu achètes un cahier à 4 € et une trousse à 8 €. Combien paies-tu ?",
+      "reponse": "12 €",
+      "options": [
+        "12 €",
+        "10 €",
+        "14 €",
+        "32 €"
+      ]
+    },
+    {
+      "enonce": "Un album coûte 16 €. Tu paies avec 50 €. Quelle monnaie te rend-on ?",
+      "reponse": "34 €",
+      "options": [
+        "34 €",
+        "24 €",
+        "36 €",
+        "66 €"
+      ]
+    },
+    {
+      "enonce": "Une brioche coûte 4 €. Tu en achètes 3. Combien paies-tu ?",
+      "reponse": "12 €",
+      "options": [
+        "12 €",
+        "7 €",
+        "9 €",
+        "16 €"
+      ]
+    },
+    {
+      "enonce": "Un livre coûte 21 €. Tu paies avec 50 €. Combien te rend-on ?",
+      "reponse": "29 €",
+      "options": [
+        "29 €",
+        "19 €",
+        "31 €",
+        "71 €"
+      ]
+    },
+    {
+      "enonce": "Un paquet de biscuits coûte 5 €. Tu en achètes 2 et un jus à 3 €. Quel est le total ?",
+      "reponse": "13 €",
+      "options": [
+        "13 €",
+        "10 €",
+        "12 €",
+        "15 €"
+      ]
+    },
+    {
+      "enonce": "Tu achètes un jouet à 14 € et tu paies avec 20 €. Quelle monnaie te rend-on ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "4 €",
+        "8 €",
+        "34 €"
+      ]
+    },
+    {
+      "enonce": "Un paquet de cartes coûte 8 €. Tu en achètes 3. Combien paies-tu ?",
+      "reponse": "24 €",
+      "options": [
+        "24 €",
+        "18 €",
+        "21 €",
+        "32 €"
+      ]
+    },
+    {
+      "enonce": "Une casquette coûte 19 €. Tu paies avec 20 €. Combien te rend-on ?",
+      "reponse": "1 €",
+      "options": [
+        "1 €",
+        "2 €",
+        "9 €",
+        "39 €"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "titre": "Continents et océans",
+  "niveau": "CE2-CM1",
+  "questions": [
+    {
+      "enonce": "Sur quel continent se trouve la France ?",
+      "reponse": "L’Europe",
+      "options": [
+        "L’Europe",
+        "L’Asie",
+        "L’Afrique",
+        "L’Amérique du Sud"
+      ]
+    },
+    {
+      "enonce": "Quel est le plus grand continent ?",
+      "reponse": "L’Asie",
+      "options": [
+        "L’Asie",
+        "L’Europe",
+        "L’Océanie",
+        "L’Antarctique"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le désert du Sahara ?",
+      "reponse": "L’Afrique",
+      "options": [
+        "L’Afrique",
+        "L’Europe",
+        "L’Amérique du Nord",
+        "L’Océanie"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Brésil ?",
+      "reponse": "L’Amérique du Sud",
+      "options": [
+        "L’Amérique du Sud",
+        "L’Amérique du Nord",
+        "L’Afrique",
+        "L’Asie"
+      ]
+    },
+    {
+      "enonce": "Quel continent entoure le pôle Sud ?",
+      "reponse": "L’Antarctique",
+      "options": [
+        "L’Antarctique",
+        "L’Europe",
+        "L’Asie",
+        "L’Océanie"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Canada ?",
+      "reponse": "L’Amérique du Nord",
+      "options": [
+        "L’Amérique du Nord",
+        "L’Amérique du Sud",
+        "L’Europe",
+        "L’Afrique"
+      ]
+    },
+    {
+      "enonce": "Quel continent comprend l’Australie ?",
+      "reponse": "L’Océanie",
+      "options": [
+        "L’Océanie",
+        "L’Asie",
+        "L’Afrique",
+        "L’Antarctique"
+      ]
+    },
+    {
+      "enonce": "Quel océan se trouve entre l’Afrique et l’Australie ?",
+      "reponse": "L’océan Indien",
+      "options": [
+        "L’océan Indien",
+        "L’océan Atlantique",
+        "L’océan Arctique",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel océan borde la côte ouest de la France ?",
+      "reponse": "L’océan Atlantique",
+      "options": [
+        "L’océan Atlantique",
+        "L’océan Pacifique",
+        "L’océan Indien",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel est le plus grand océan du monde ?",
+      "reponse": "L’océan Pacifique",
+      "options": [
+        "L’océan Pacifique",
+        "L’océan Atlantique",
+        "L’océan Indien",
+        "L’océan Arctique"
+      ]
+    },
+    {
+      "enonce": "Quel océan se trouve autour du pôle Nord ?",
+      "reponse": "L’océan Arctique",
+      "options": [
+        "L’océan Arctique",
+        "L’océan Indien",
+        "L’océan Atlantique",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel océan entoure l’Antarctique ?",
+      "reponse": "L’océan Austral",
+      "options": [
+        "L’océan Austral",
+        "L’océan Arctique",
+        "L’océan Indien",
+        "L’océan Pacifique"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Égypte ?",
+      "reponse": "L’Afrique",
+      "options": [
+        "L’Afrique",
+        "L’Europe",
+        "L’Amérique du Sud",
+        "L’Océanie"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Inde ?",
+      "reponse": "L’Asie",
+      "options": [
+        "L’Asie",
+        "L’Europe",
+        "L’Amérique du Nord",
+        "L’Antarctique"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Espagne ?",
+      "reponse": "L’Europe",
+      "options": [
+        "L’Europe",
+        "L’Asie",
+        "L’Afrique",
+        "L’Océanie"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Mexique ?",
+      "reponse": "L’Amérique du Nord",
+      "options": [
+        "L’Amérique du Nord",
+        "L’Amérique du Sud",
+        "L’Europe",
+        "L’Afrique"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Argentine ?",
+      "reponse": "L’Amérique du Sud",
+      "options": [
+        "L’Amérique du Sud",
+        "L’Amérique du Nord",
+        "L’Asie",
+        "L’Europe"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Japon ?",
+      "reponse": "L’Asie",
+      "options": [
+        "L’Asie",
+        "L’Afrique",
+        "L’Europe",
+        "L’Amérique du Sud"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Kenya ?",
+      "reponse": "L’Afrique",
+      "options": [
+        "L’Afrique",
+        "L’Asie",
+        "L’Océanie",
+        "L’Europe"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Nouvelle-Zélande ?",
+      "reponse": "L’Océanie",
+      "options": [
+        "L’Océanie",
+        "L’Europe",
+        "L’Afrique",
+        "L’Amérique du Nord"
+      ]
+    },
+    {
+      "enonce": "Quel océan sépare en grande partie l’Europe et l’Amérique ?",
+      "reponse": "L’océan Atlantique",
+      "options": [
+        "L’océan Atlantique",
+        "L’océan Indien",
+        "L’océan Arctique",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel océan borde l’est de l’Afrique ?",
+      "reponse": "L’océan Indien",
+      "options": [
+        "L’océan Indien",
+        "L’océan Arctique",
+        "L’océan Austral",
+        "L’océan Atlantique"
+      ]
+    },
+    {
+      "enonce": "Quel océan borde l’ouest de l’Amérique du Sud ?",
+      "reponse": "L’océan Pacifique",
+      "options": [
+        "L’océan Pacifique",
+        "L’océan Indien",
+        "L’océan Arctique",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel est le plus petit continent ?",
+      "reponse": "L’Océanie",
+      "options": [
+        "L’Océanie",
+        "L’Asie",
+        "L’Afrique",
+        "L’Amérique du Nord"
+      ]
+    },
+    {
+      "enonce": "Quel continent est aussi appelé le « continent blanc » ?",
+      "reponse": "L’Antarctique",
+      "options": [
+        "L’Antarctique",
+        "L’Afrique",
+        "L’Europe",
+        "L’Amérique du Sud"
+      ]
+    },
+    {
+      "enonce": "Quel continent est traversé par l’équateur et comprend le bassin du Congo ?",
+      "reponse": "L’Afrique",
+      "options": [
+        "L’Afrique",
+        "L’Europe",
+        "L’Antarctique",
+        "L’Océanie"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Chine ?",
+      "reponse": "L’Asie",
+      "options": [
+        "L’Asie",
+        "L’Europe",
+        "L’Afrique",
+        "L’Amérique du Sud"
+      ]
+    },
+    {
+      "enonce": "Quel océan se situe entre l’Amérique et l’Asie ?",
+      "reponse": "L’océan Pacifique",
+      "options": [
+        "L’océan Pacifique",
+        "L’océan Atlantique",
+        "L’océan Indien",
+        "L’océan Austral"
+      ]
+    },
+    {
+      "enonce": "Quel océan borde l’est de l’Amérique du Nord ?",
+      "reponse": "L’océan Atlantique",
+      "options": [
+        "L’océan Atlantique",
+        "L’océan Indien",
+        "L’océan Austral",
+        "L’océan Pacifique"
+      ]
+    },
+    {
+      "enonce": "Quel continent se trouve au sud de l’Europe, de l’autre côté de la mer Méditerranée ?",
+      "reponse": "L’Afrique",
+      "options": [
+        "L’Afrique",
+        "L’Asie",
+        "L’Océanie",
+        "L’Antarctique"
+      ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Pérou ?",
+      "reponse": "L’Amérique du Sud",
+      "options": [
+        "L’Amérique du Sud",
+        "L’Amérique du Nord",
+        "L’Afrique",
+        "L’Asie"
+      ]
+    }
+  ]
+}
