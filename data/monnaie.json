@@ -311,6 +311,715 @@
         "9 €",
         "39 €"
       ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as une pièce de 2 €, deux pièces de 1 € et une pièce de 50 centimes. Combien as-tu ?",
+      "reponse": "4,50 €",
+      "options": [
+        "4,50 €",
+        "3,50 €",
+        "5 €",
+        "2,50 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as trois pièces de 2 € et deux pièces de 50 centimes. Quelle somme as-tu ?",
+      "reponse": "7 €",
+      "options": [
+        "7 €",
+        "6 €",
+        "8 €",
+        "5 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu comptes quatre pièces de 20 centimes et une pièce de 10 centimes. Combien cela fait-il ?",
+      "reponse": "0,90 €",
+      "options": [
+        "0,90 €",
+        "0,80 €",
+        "1,10 €",
+        "0,70 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "enonce": "Tu as un billet de 10 €, une pièce de 2 € et une pièce de 1 €. Quel est le total ?",
+      "reponse": "13 €",
+      "options": [
+        "13 €",
+        "12 €",
+        "11 €",
+        "14 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as deux pièces de 1 €, trois pièces de 20 centimes et une pièce de 10 centimes. Combien as-tu ?",
+      "reponse": "2,70 €",
+      "options": [
+        "2,70 €",
+        "2,50 €",
+        "3,10 €",
+        "2,30 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as un billet de 20 €, deux pièces de 2 € et une pièce de 50 centimes. Quelle somme as-tu ?",
+      "reponse": "24,50 €",
+      "options": [
+        "24,50 €",
+        "24 €",
+        "22,50 €",
+        "25 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as cinq pièces de 10 centimes et trois pièces de 5 centimes. Combien cela fait-il ?",
+      "reponse": "0,65 €",
+      "options": [
+        "0,65 €",
+        "0,55 €",
+        "0,80 €",
+        "0,35 €"
+      ]
+    },
+    {
+      "type": "pieces",
+      "usesCentimes": true,
+      "enonce": "Tu as deux billets de 5 €, une pièce de 2 € et une pièce de 50 centimes. Combien as-tu ?",
+      "reponse": "12,50 €",
+      "options": [
+        "12,50 €",
+        "10,50 €",
+        "12 €",
+        "13,50 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "enonce": "Quelle combinaison de pièces fait exactement 7 € ?",
+      "reponse": "3 pièces de 2 € et 1 pièce de 1 €",
+      "options": [
+        "3 pièces de 2 € et 1 pièce de 1 €",
+        "2 pièces de 2 € et 1 pièce de 1 €",
+        "3 pièces de 2 €",
+        "1 pièce de 2 € et 3 pièces de 1 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "usesCentimes": true,
+      "enonce": "Quelle combinaison fait exactement 4,50 € ?",
+      "reponse": "2 pièces de 2 € et 1 pièce de 50 centimes",
+      "options": [
+        "2 pièces de 2 € et 1 pièce de 50 centimes",
+        "2 pièces de 2 €",
+        "1 pièce de 2 € et 2 pièces de 1 €",
+        "4 pièces de 1 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "enonce": "Comment peux-tu faire exactement 10 € avec des billets ?",
+      "reponse": "2 billets de 5 €",
+      "options": [
+        "2 billets de 5 €",
+        "1 billet de 5 € et 2 pièces de 2 €",
+        "1 billet de 10 € et 1 pièce de 1 €",
+        "4 pièces de 2 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "usesCentimes": true,
+      "enonce": "Quelle combinaison fait exactement 3,20 € ?",
+      "reponse": "1 pièce de 2 €, 1 pièce de 1 € et 1 pièce de 20 centimes",
+      "options": [
+        "1 pièce de 2 €, 1 pièce de 1 € et 1 pièce de 20 centimes",
+        "1 pièce de 2 € et 1 pièce de 10 centimes",
+        "3 pièces de 1 €",
+        "2 pièces de 2 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "usesCentimes": true,
+      "enonce": "Quelle combinaison fait exactement 1 € ?",
+      "reponse": "2 pièces de 50 centimes",
+      "options": [
+        "2 pièces de 50 centimes",
+        "1 pièce de 20 centimes et 1 pièce de 50 centimes",
+        "3 pièces de 20 centimes",
+        "1 pièce de 2 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "usesCentimes": true,
+      "enonce": "Quelle combinaison fait exactement 5,50 € ?",
+      "reponse": "2 pièces de 2 €, 1 pièce de 1 € et 1 pièce de 50 centimes",
+      "options": [
+        "2 pièces de 2 €, 1 pièce de 1 € et 1 pièce de 50 centimes",
+        "2 pièces de 2 € et 1 pièce de 50 centimes",
+        "1 pièce de 2 € et 2 pièces de 1 €",
+        "1 billet de 5 €"
+      ]
+    },
+    {
+      "type": "composer",
+      "usesCentimes": true,
+      "enonce": "Quelle combinaison de pièces fait exactement 2,30 € ?",
+      "reponse": "1 pièce de 2 € et 3 pièces de 10 centimes",
+      "options": [
+        "1 pièce de 2 € et 3 pièces de 10 centimes",
+        "1 pièce de 2 € et 2 pièces de 10 centimes",
+        "2 pièces de 1 € et 1 pièce de 20 centimes",
+        "1 pièce de 1 € et 2 pièces de 50 centimes"
+      ]
+    },
+    {
+      "type": "composer",
+      "enonce": "Quelle combinaison fait exactement 8 € ?",
+      "reponse": "1 billet de 5 € et 3 pièces de 1 €",
+      "options": [
+        "1 billet de 5 € et 3 pièces de 1 €",
+        "1 billet de 5 € et 2 pièces de 1 €",
+        "2 billets de 2 € et 1 pièce de 1 €",
+        "1 billet de 5 € et 1 pièce de 2 €"
+      ]
+    },
+    {
+      "type": "comparer",
+      "enonce": "Quel article coûte le moins cher : un livre à 8 € ou un jeu à 11 € ?",
+      "reponse": "Le livre",
+      "options": [
+        "Le livre",
+        "Le jeu",
+        "Ils coûtent le même prix",
+        "Impossible à savoir"
+      ]
+    },
+    {
+      "type": "comparer",
+      "enonce": "Un ballon coûte 12 € et une poupée coûte 9 €. Quel article coûte le plus cher ?",
+      "reponse": "Le ballon",
+      "options": [
+        "Le ballon",
+        "La poupée",
+        "Ils coûtent le même prix",
+        "Aucun des deux"
+      ]
+    },
+    {
+      "type": "comparer",
+      "enonce": "Un cahier coûte 4 € et un stylo 2 €. Quelle est la différence de prix ?",
+      "reponse": "2 €",
+      "options": [
+        "2 €",
+        "1 €",
+        "6 €",
+        "8 €"
+      ]
+    },
+    {
+      "type": "comparer",
+      "usesCentimes": true,
+      "enonce": "Quel article est le moins cher : une gomme à 1,20 € ou une règle à 1,50 € ?",
+      "reponse": "La gomme",
+      "options": [
+        "La gomme",
+        "La règle",
+        "Ils coûtent le même prix",
+        "Aucun des deux"
+      ]
+    },
+    {
+      "type": "comparer",
+      "enonce": "Un album coûte 15 € et un livre coûte 15 €. Que peux-tu dire ?",
+      "reponse": "Ils coûtent le même prix",
+      "options": [
+        "Ils coûtent le même prix",
+        "L’album coûte moins cher",
+        "Le livre coûte moins cher",
+        "Le livre coûte deux fois plus cher"
+      ]
+    },
+    {
+      "type": "comparer",
+      "usesCentimes": true,
+      "enonce": "Une boîte de crayons coûte 6,50 € et une boîte de feutres 8 €. Quelle est la différence ?",
+      "reponse": "1,50 €",
+      "options": [
+        "1,50 €",
+        "1 €",
+        "2,50 €",
+        "14,50 €"
+      ]
+    },
+    {
+      "type": "comparer",
+      "usesCentimes": true,
+      "enonce": "Quel prix est le plus élevé : 2,75 € ou 2,50 € ?",
+      "reponse": "2,75 €",
+      "options": [
+        "2,75 €",
+        "2,50 €",
+        "Ils sont égaux",
+        "On ne peut pas comparer"
+      ]
+    },
+    {
+      "type": "comparer",
+      "enonce": "Un jeu coûte 24 € et un puzzle 18 €. De combien le jeu est-il plus cher ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "4 €",
+        "8 €",
+        "42 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 10 €. Peux-tu acheter un livre à 7 € et un crayon à 2 € ?",
+      "reponse": "Oui, il reste 1 €",
+      "options": [
+        "Oui, il reste 1 €",
+        "Non, il manque 1 €",
+        "Oui, il reste 3 €",
+        "Non, il manque 2 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 8 €. Un jeu coûte 9 €. Peux-tu l’acheter ?",
+      "reponse": "Non, il manque 1 €",
+      "options": [
+        "Non, il manque 1 €",
+        "Oui, il reste 1 €",
+        "Non, il manque 2 €",
+        "Oui, il reste 2 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 20 €. Un ballon coûte 8 € et un livre 7 €. Combien te reste-t-il ?",
+      "reponse": "5 €",
+      "options": [
+        "5 €",
+        "3 €",
+        "7 €",
+        "15 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 15 €. Une trousse coûte 6 € et un cahier 4 €. As-tu assez ?",
+      "reponse": "Oui, il reste 5 €",
+      "options": [
+        "Oui, il reste 5 €",
+        "Oui, il reste 3 €",
+        "Non, il manque 5 €",
+        "Oui, il ne reste rien"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 12 €. Un jouet coûte 8 € et une carte 3 €. Combien te reste-t-il ?",
+      "reponse": "1 €",
+      "options": [
+        "1 €",
+        "2 €",
+        "3 €",
+        "11 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 10 €. Un livre coûte 6 € et un jeu coûte 5 €. Peux-tu acheter les deux ?",
+      "reponse": "Non, il manque 1 €",
+      "options": [
+        "Non, il manque 1 €",
+        "Oui, il reste 1 €",
+        "Non, il manque 2 €",
+        "Oui, il ne reste rien"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 25 €. Tu achètes deux jeux à 8 € chacun. Combien te reste-t-il ?",
+      "reponse": "9 €",
+      "options": [
+        "9 €",
+        "8 €",
+        "7 €",
+        "16 €"
+      ]
+    },
+    {
+      "type": "budget",
+      "enonce": "Tu as 5 €. Un jus coûte 2 € et un fruit 2 €. Peux-tu acheter les deux ?",
+      "reponse": "Oui, il reste 1 €",
+      "options": [
+        "Oui, il reste 1 €",
+        "Non, il manque 1 €",
+        "Oui, il reste 2 €",
+        "Non, il manque 2 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes un cahier à 3 €, un stylo à 2 € et une gomme à 1 €. Quel est le total ?",
+      "reponse": "6 €",
+      "options": [
+        "6 €",
+        "5 €",
+        "7 €",
+        "9 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes 2 livres à 6 € chacun et un marque-page à 1 €. Combien paies-tu ?",
+      "reponse": "13 €",
+      "options": [
+        "13 €",
+        "12 €",
+        "7 €",
+        "14 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Un sandwich coûte 5 € et une boisson 2 €. Quel est le prix total ?",
+      "reponse": "7 €",
+      "options": [
+        "7 €",
+        "3 €",
+        "10 €",
+        "12 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes 3 pains au chocolat à 2 € et tu paies avec 10 €. Quelle monnaie te rend-on ?",
+      "reponse": "4 €",
+      "options": [
+        "4 €",
+        "2 €",
+        "6 €",
+        "8 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes un jeu à 12 € et un livre à 9 €. Combien coûtent-ils ensemble ?",
+      "reponse": "21 €",
+      "options": [
+        "21 €",
+        "20 €",
+        "3 €",
+        "108 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes 4 crayons à 1 € et tu paies avec 5 €. Combien te rend-on ?",
+      "reponse": "1 €",
+      "options": [
+        "1 €",
+        "2 €",
+        "4 €",
+        "5 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Un ballon coûte 11 € et une corde à sauter 7 €. Quel est le prix total ?",
+      "reponse": "18 €",
+      "options": [
+        "18 €",
+        "17 €",
+        "4 €",
+        "77 €"
+      ]
+    },
+    {
+      "type": "achats",
+      "enonce": "Tu achètes un livre à 8 € et deux cahiers à 3 € chacun. Combien paies-tu ?",
+      "reponse": "14 €",
+      "options": [
+        "14 €",
+        "11 €",
+        "16 €",
+        "24 €"
+      ]
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un jouet coûte 2 €. Tu paies avec 5 €. Combien te rend-on ?",
+      "reponse": "3 €",
+      "options": ["3 €", "2 €", "4 €", "7 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu achètes trois pommes à 1 € chacune. Quel est le prix total ?",
+      "reponse": "3 €",
+      "options": ["3 €", "2 €", "4 €", "6 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un carnet coûte 2,35 €. Tu paies avec 5 €. Quelle monnaie te rend-on ?",
+      "reponse": "2,65 €",
+      "options": [
+        "2,65 €",
+        "2,75 €",
+        "3,65 €",
+        "1,65 €"
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un pain coûte 1,10 € et un croissant 0,90 €. Quel est le total ?",
+      "reponse": "2 €",
+      "options": [
+        "2 €",
+        "1,90 €",
+        "2,10 €",
+        "1 €"
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 3 €. Tu achètes un fruit à 0,75 €. Combien te reste-t-il ?",
+      "reponse": "2,25 €",
+      "options": [
+        "2,25 €",
+        "2,75 €",
+        "1,25 €",
+        "3,75 €"
+      ],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un paquet coûte 1,45 € et un autre 2,30 €. Quel est le prix total ?",
+      "reponse": "3,75 €",
+      "options": [
+        "3,75 €",
+        "3,65 €",
+        "4,75 €",
+        "3,05 €"
+      ],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Une boisson coûte 1,50 €. Tu en achètes 3. Combien paies-tu ?",
+      "reponse": "4,50 €",
+      "options": [
+        "4,50 €",
+        "3,50 €",
+        "4 €",
+        "5 €"
+      ],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu achètes un stylo à 2,80 € et tu paies avec 5 €. Combien te rend-on ?",
+      "reponse": "2,20 €",
+      "options": [
+        "2,20 €",
+        "2,30 €",
+        "3,20 €",
+        "1,20 €"
+      ],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un livre coûte 4 €. Tu paies avec 5 €. Combien te rend-on ?",
+      "reponse": "1 €",
+      "options": ["1 €", "2 €", "4 €", "9 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Deux cahiers coûtent 4 € chacun. Combien paies-tu ?",
+      "reponse": "8 €",
+      "options": ["8 €", "6 €", "4 €", "10 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un jeu coûte 10 €. Tu paies avec 20 €. Quelle monnaie te rend-on ?",
+      "reponse": "10 €",
+      "options": ["10 €", "5 €", "15 €", "30 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu achètes trois crayons à 2 € chacun. Quel est le total ?",
+      "reponse": "6 €",
+      "options": ["6 €", "5 €", "8 €", "9 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 20 €. Tu achètes un ballon à 8 € et un livre à 7 €. Combien te reste-t-il ?",
+      "reponse": "5 €",
+      "options": ["5 €", "3 €", "7 €", "15 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Deux jouets coûtent 5 € chacun. Combien coûtent-ils ensemble ?",
+      "reponse": "10 €",
+      "options": ["10 €", "8 €", "5 €", "15 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 10 €. Tu achètes un livre à 6 €. Combien te reste-t-il ?",
+      "reponse": "4 €",
+      "options": ["4 €", "3 €", "5 €", "16 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un sac coûte 15 €. Tu paies avec 20 €. Combien te rend-on ?",
+      "reponse": "5 €",
+      "options": ["5 €", "4 €", "6 €", "35 €"],
+      "difficulty": "facile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un cahier coûte 1,35 € et un stylo 2,45 €. Combien coûtent-ils ensemble ?",
+      "reponse": "3,80 €",
+      "options": ["3,80 €", "3,70 €", "4,80 €", "2,80 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu paies un jouet à 2,65 € avec 5 €. Quelle monnaie te rend-on ?",
+      "reponse": "2,35 €",
+      "options": ["2,35 €", "2,45 €", "3,35 €", "1,35 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un petit gâteau coûte 0,85 €. Combien coûtent trois gâteaux ?",
+      "reponse": "2,55 €",
+      "options": ["2,55 €", "2,45 €", "3,55 €", "1,55 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un livre coûte 4,20 € et un jeu 3,75 €. Quel est le prix total ?",
+      "reponse": "7,95 €",
+      "options": ["7,95 €", "7,85 €", "8,95 €", "6,95 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 10 €. Tes achats coûtent 6,80 €. Combien te reste-t-il ?",
+      "reponse": "3,20 €",
+      "options": ["3,20 €", "3,30 €", "4,20 €", "2,20 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un paquet coûte 0,65 € et une boisson 0,85 €. Quel est le total ?",
+      "reponse": "1,50 €",
+      "options": ["1,50 €", "1,40 €", "2,50 €", "0,50 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Une règle coûte 3,50 €. Tu paies avec 5 €. Combien te rend-on ?",
+      "reponse": "1,50 €",
+      "options": ["1,50 €", "1,40 €", "2,50 €", "1 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un cahier coûte 2,25 €. Combien coûtent deux cahiers ?",
+      "reponse": "4,50 €",
+      "options": ["4,50 €", "4,25 €", "5,50 €", "3,50 €"],
+      "difficulty": "normal"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu achètes deux livres à 3,75 € et un crayon à 1,80 €. Quel est le total ?",
+      "reponse": "9,30 €",
+      "options": ["9,30 €", "9,20 €", "8,30 €", "10,30 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 20 €. Tu achètes un jeu à 6,85 € et un livre à 4,75 €. Combien te reste-t-il ?",
+      "reponse": "8,40 €",
+      "options": ["8,40 €", "8,50 €", "9,40 €", "7,40 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un jouet coûte 4,95 €. Combien coûtent trois jouets ?",
+      "reponse": "14,85 €",
+      "options": ["14,85 €", "14,75 €", "15,85 €", "13,85 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 12,50 €. Tu achètes un livre à 3,85 € et un jeu à 2,75 €. Combien reste-t-il ?",
+      "reponse": "5,90 €",
+      "options": ["5,90 €", "5,80 €", "6,90 €", "4,90 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 15 €. Tes achats coûtent 4,65 €, 3,80 € et 2,95 €. Combien te reste-t-il ?",
+      "reponse": "3,60 €",
+      "options": ["3,60 €", "3,50 €", "4,60 €", "2,60 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu achètes trois cahiers à 1,85 € et une trousse à 2,40 €. Quel est le total ?",
+      "reponse": "7,95 €",
+      "options": ["7,95 €", "7,85 €", "8,95 €", "6,95 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Tu as 25 €. Tu achètes un sac à 8,75 € et un livre à 6,90 €. Combien te reste-t-il ?",
+      "reponse": "9,35 €",
+      "options": ["9,35 €", "9,25 €", "10,35 €", "8,35 €"],
+      "difficulty": "difficile"
+    },
+    {
+      "type": "centimes",
+      "enonce": "Un jeu coûte 14,90 € et un puzzle 8,65 €. Quelle est la différence de prix ?",
+      "reponse": "6,25 €",
+      "options": ["6,25 €", "6,15 €", "7,25 €", "5,25 €"],
+      "difficulty": "difficile"
     }
   ]
 }

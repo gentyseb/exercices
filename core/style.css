@@ -242,6 +242,21 @@ a.card[hidden] {
   font-weight: 700;
 }
 
+.earned-badge[href] {
+  color: inherit;
+  text-decoration: none;
+}
+
+.earned-badge[href]:hover {
+  border-color: var(--color-success);
+}
+
+.earned-badge[href]:focus-visible,
+.badge-card[href]:focus-visible {
+  outline: 3px solid var(--color-border-strong);
+  outline-offset: 3px;
+}
+
 .earned-badge-icon {
   font-size: 2.6rem;
   line-height: 1.2;
@@ -337,6 +352,16 @@ a.card[hidden] {
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-text-muted);
+}
+
+.badge-card[href] {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.badge-card[href]:hover {
+  border-color: var(--color-primary);
 }
 
 .badge-card.earned {

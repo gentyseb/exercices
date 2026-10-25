@@ -29,7 +29,7 @@ const PROGRESSION_NAME = "progression.html";
 const BADGES_NAME = "badges.html";
 const DAILY_CHALLENGE_NAME = "defi-du-jour.html";
 const DAILY_CHALLENGE_QUESTION_COUNT = 5;
-const DAILY_CHALLENGE_POOL_SIZE = 80;
+const DAILY_CHALLENGE_POOL_SIZE = 120;
 const DAILY_CHALLENGE_COMPLETIONS_KEY = "daily-challenge:completed";
 const DAILY_CHALLENGE_RESULT_PREFIX = "daily-challenge:result:";
 const DAILY_CHALLENGE_BADGES = [
@@ -908,13 +908,13 @@ ${cards}
 function buildDailyChallengeBadgesSection() {
   const cards = DAILY_CHALLENGE_BADGES.map(
     (badge) =>
-      '          <article class="badge-card daily-challenge-badge" data-daily-challenge-threshold="' +
-      badge.threshold + '">\n' +
+      '          <a class="badge-card daily-challenge-badge" data-daily-challenge-threshold="' +
+      badge.threshold + '" href="' + DAILY_CHALLENGE_NAME + '">\n' +
       '            <span class="badge-icon" aria-hidden="true">' + badge.icon + "</span>\n" +
       "            <h4>" + badge.title + "</h4>\n" +
       "            <p>Terminer " + badge.threshold + " défis quotidiens.</p>\n" +
       '            <span class="badge-status">0 / ' + badge.threshold + " défis terminés</span>\n" +
-      "          </article>"
+      "          </a>"
   ).join("\n");
 
   return `        <div class="badge-category daily-challenge-badge-category">
@@ -931,15 +931,15 @@ function buildBadgesSection(categories) {
       const badges = category.exercises
         .map(
           (exercise) =>
-            '            <article class="badge-card" data-score-key="' +
+            '            <a class="badge-card" data-score-key="' +
             escapeHtml(exercise.storageKey || "") +
-            '">\n' +
+            '" href="' + escapeHtml(exercise.rel) + '">\n' +
             '              <span class="badge-icon" aria-hidden="true">' +
             escapeHtml(getBadgeIcon(exercise)) + "</span>\n" +
             "              <h4>" + escapeHtml(exercise.title) + "</h4>\n" +
             "              <p>Au moins 20 réponses et 80 % de réussite.</p>\n" +
             '              <span class="badge-status">0 / 20 réponses</span>\n' +
-            "            </article>"
+            "            </a>"
         )
         .join("\n");
 
@@ -993,11 +993,12 @@ function buildBadgesSummary(categories) {
     .flatMap((category) => category.exercises)
     .map(
       (exercise) =>
-        '          <span class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="' +
+        '          <a class="earned-badge earned-badge-top" data-badge-scope="summary" data-score-key="' +
         escapeHtml(exercise.storageKey || "") +
+        '" href="' + escapeHtml(exercise.rel) +
         '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
         escapeHtml(getBadgeIcon(exercise)) +
-        "</span><span>" + escapeHtml(exercise.title) + "</span></span>"
+        "</span><span>" + escapeHtml(exercise.title) + "</span></a>"
     )
     .join("\n");
   const globalBadges = GLOBAL_BADGES.map(
@@ -1014,9 +1015,10 @@ function buildBadgesSummary(categories) {
   ).join("\n");
   const dailyChallengeBadges = DAILY_CHALLENGE_BADGES.map(
     (badge) =>
-      '          <span class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="' +
-      badge.threshold + '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
-      badge.icon + "</span><span>" + badge.title + "</span></span>"
+      '          <a class="earned-badge earned-daily-challenge-badge" data-daily-challenge-threshold="' +
+      badge.threshold + '" href="' + DAILY_CHALLENGE_NAME +
+      '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
+      badge.icon + "</span><span>" + badge.title + "</span></a>"
   ).join("\n");
   const ultimateBadge =
     '          <span class="earned-badge ultimate-badge earned-ultimate-badge" hidden>' +
@@ -1585,11 +1587,12 @@ function buildHtml(root, categories) {
       const earnedBadges = cat.exercises
         .map(
           (exercise) =>
-            '        <span class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="' +
+            '        <a class="earned-badge earned-badge-category" data-badge-scope="category" data-score-key="' +
             escapeHtml(exercise.storageKey || "") +
+            '" href="' + escapeHtml(exercise.rel) +
             '" hidden><span class="earned-badge-icon" aria-hidden="true">' +
             escapeHtml(getBadgeIcon(exercise)) +
-            "</span><span>" + escapeHtml(exercise.title) + "</span></span>"
+            "</span><span>" + escapeHtml(exercise.title) + "</span></a>"
         )
         .join("\n");
 

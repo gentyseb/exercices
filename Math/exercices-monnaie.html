@@ -10,6 +10,32 @@
     <main class="card">
       <h1>Monnaie et rendu de monnaie</h1>
       <p class="subtitle">Calcule le prix total ou la monnaie à rendre.</p>
+      <button id="settingsToggle" type="button" aria-expanded="false">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <label class="setting-label" for="question-type">Type de questions</label>
+          <select id="question-type">
+            <option value="all">Tout mélangé</option>
+            <option value="classique">Prix et monnaie à rendre</option>
+            <option value="pieces">Compter les pièces et les billets</option>
+            <option value="composer">Faire une somme de plusieurs façons</option>
+            <option value="comparer">Comparer des prix</option>
+            <option value="budget">Respecter un budget</option>
+            <option value="achats">Achats multiples</option>
+            <option value="centimes">Euros et centimes</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <label class="setting-label" for="difficulty">Niveau de difficulté</label>
+          <select id="difficulty">
+            <option value="all">Tous les niveaux</option>
+            <option value="facile">Facile — euros entiers, sans centimes</option>
+            <option value="normal">Normal — calculs simples avec centimes</option>
+            <option value="difficile">Difficile — calculs complexes avec centimes</option>
+          </select>
+        </div>
+        <p class="hint">En facile, les montants sont en euros entiers, sans centimes. En mode « Tout mélangé », les autres types de questions restent inclus.</p>
+      </div>
       <div class="task" id="question">Chargement de la question…</div>
       <div class="feedback" id="feedback" role="status"></div>
       <div class="choices" id="choices"></div>
@@ -26,7 +52,12 @@
       const STORAGE_KEY = "exercices-monnaie";
       window.CHOICE_EXERCISE_CONFIG = {
         storageKey: STORAGE_KEY,
-        dataUrl: "../data/monnaie.json"
+        dataUrl: "../data/monnaie.json",
+        settings: {
+          selectId: "question-type",
+          difficultySelectId: "difficulty",
+          defaultValue: "all"
+        }
       };
     </script>
     <script src="../core/choice-exercise.js"></script>
