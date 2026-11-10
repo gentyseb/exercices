@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices : Problèmes Mathématiques Dynamiques</title>
+    <link rel="stylesheet" href="../core/style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Problèmes Mathématiques Dynamiques</h1>
+      <p class="subtitle">Résous des problèmes générés aléatoirement. Choisis ta réponse, puis clique sur Vérifier.</p>
+
+      <div class="problem" id="problem"></div>
+      <div class="answer-row">
+        <label for="answer">Ma réponse :</label>
+        <input type="number" inputmode="numeric" min="0" id="answer" autocomplete="off" />
+      </div>
+      <div class="feedback" id="feedback"></div>
+      <button id="check">Vérifier</button>
+
+      <div class="score">
+        <div class="label">Score</div>
+        <div class="numbers"><span id="good">0</span> / <span id="total">0</span></div>
+        <div class="pct" id="pct">— %</div>
+      </div>
+
+      <button id="reset">Réinitialiser le score</button>
+
+      <button id="settingsToggle">⚙️ Paramètres <span class="arrow">▾</span></button>
+      <div class="settings" id="settingsPanel">
+        <div class="setting-row">
+          <div class="setting-label">Niveau</div>
+          <select id="setLevel">
+            <option value="CE1">CE1 (6-7 ans)</option>
+            <option value="CE2" selected>CE2 (7-8 ans)</option>
+            <option value="CM1">CM1 (8-9 ans)</option>
+            <option value="CM2">CM2 (9-10 ans)</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Type de problème</div>
+          <select id="setType">
+            <option value="all" selected>Tous les types</option>
+            <option value="simple">Opérations simples</option>
+            <option value="steps">Problèmes à étapes</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Opération</div>
+          <select id="setOp">
+            <option value="all" selected>Toutes les opérations</option>
+            <option value="add">Addition</option>
+            <option value="sub">Soustraction</option>
+            <option value="mul">Multiplication</option>
+            <option value="div">Division</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <div class="setting-label">Thème</div>
+          <select id="setTheme">
+            <option value="all" selected>Tous les thèmes</option>
+            <option value="quotidien">Vie quotidienne</option>
+            <option value="ecole">École/Classes</option>
+            <option value="shopping">Achats/Argent</option>
+            <option value="mesures">Mesures</option>
+            <option value="geometrie">Géométrie</option>
+            <option value="temps">Temps/Calendrier</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Ton score et tes réglages sont sauvegardés automatiquement.</div>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "exercices-problemes-dynamiques";
+
+      const PROBLEM_CONFIG = {
+        CE1: { numbers: { min: 1, max: 20 }, operations: ['add', 'sub'], steps: { min: 1, max: 1 }, allowMultiStep: false },
+        CE2: { numbers: { min: 1, max: 50 }, operations: ['add', 'sub', 'mul'], steps: { min: 1, max: 2 }, allowMultiStep: true },
+        CM1: { numbers: { min: 1, max: 100 }, operations: ['add', 'sub', 'mul', 'div'], steps: { min: 1, max: 2 }, allowMultiStep: true },
+        CM2: { numbers: { min: 1, max: 200 }, operations: ['add', 'sub', 'mul', 'div'], steps: { min: 1, max: 3 }, allowMultiStep: true }
+      };
+
+      const PROBLEM_TEMPLATES = {
+        add: [
+          "{person} a {a} {object}. {person2} lui en donne {b}. Combien en a-t-il maintenant ?",
+          "{person} a {a} {object} et {person2} en a {b}. Combien en ont-ils ensemble ?",
+          "Dans une classe, il y a {a} garçons et {b} filles. Combien y a-t-il d'élèves en tout ?",
+          "Un élève a {a} crayons. Il en achète {b} de plus. Combien de crayons a-t-il maintenant ?",
+          "{person} a {a} €. {person2} lui en donne {b} €. Combien a-t-il maintenant ?",
+          "Un livre coûte {a} € et un cahier coûte {b} €. Combien coûtent les deux ensemble ?",
+          "Un bâton mesure {a} cm. On ajoute {b} cm. Quelle est la nouvelle longueur ?"
+        ],
+        sub: [
+          "{person} a {a} {object}. {person2} lui en prend {b}. Combien en reste-t-il ?",
+          "La maîtresse a {a} feutres. Elle en distribue {b} aux élèves. Combien lui en reste-t-il ?",
+          "J'ai {a} €. Je dépense {b} €. Combien me reste-t-il ?",
+          "Un ruban mesure {a} m. On coupe {b} m. Quelle est la longueur restante ?",
+          "Un récipient contient {a} L d'eau. On verse {b} L. Quelle quantité reste-t-il ?",
+          "Un film dure {a} minutes. On l'a déjà regardé {b} minutes. Combien de temps reste-t-il ?"
+        ],
+        mul: [
+          "Un crayon coûte {a} €. Combien coûtent {b} crayons ?",
+          "Pour un spectacle, les élèves sont répartis en {a} groupes de {b} enfants. Combien y a-t-il d'enfants au total ?",
+          "Un rectangle a une longueur de {a} cm et une largeur de {b} cm. Quelle est son aire ?"
+        ],
+        div: [
+          "{person} veut partager {a} {object} entre {b} amis. Combien chacun recevra-t-il ?"
+        ]
+      };
+
+      const PERSONS = ['Lucas', 'Emma', 'Noah', 'Léa', 'Hugo', 'Chloé', 'Arthur', 'Manon'];
+      const OBJECTS = ['pommes', 'oranges', 'billes', 'crayons', 'stylos', 'bonbons', 'livres', 'jouets'];
+
+      let settings = { level: 'CE2', type: 'all', op: 'all', theme: 'all' };
+      let stats = { good: 0, total: 0 };
+      let current = null;
+      let answered = false;
+      let pending = null;
+      let baseSeed = null;
+      let problemCounter = 0;
+      let randomSalt = null;
+
+      function loadState() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const data = JSON.parse(saved);
+            if (data.settings) {
+              settings.level = data.settings.level || settings.level;
+              settings.type = data.settings.type || settings.type;
+              settings.op = data.settings.op || settings.op;
+              settings.theme = data.settings.theme || settings.theme;
+            }
+            if (data.stats) {
+              stats.good = data.stats.good || 0;
+              stats.total = data.stats.total || 0;
+            }
+            if (data.pending) pending = data.pending;
+            if (data.baseSeed) baseSeed = Number(data.baseSeed);
+            if (data.problemCounter) problemCounter = Number(data.problemCounter) || 0;
+            if (data.randomSalt) randomSalt = Number(data.randomSalt);
+          }
+        } catch (e) {}
+        if (!baseSeed) baseSeed = buildSeed();
+        if (!randomSalt) randomSalt = Math.floor(Math.random() * 1000000);
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            settings, stats,
+            pending: (current && !answered) ? current : null,
+            baseSeed,
+            problemCounter,
+            randomSalt
+          }));
+        } catch (e) {}
+      }
+
+      function simpleRandom(seed) {
+        seed = seed || 42;
+        let value = seed;
+        return function() {
+          value = (value * 16807) % 2147483647;
+          return value / 2147483647;
+        };
+      }
+
+      function randInt(random, min, max) {
+        return min + Math.floor(random() * (max - min + 1));
+      }
+
+      function pick(random, arr) {
+        return arr[Math.floor(random() * arr.length)];
+      }
+
+      function buildSeed() {
+        const today = new Date();
+        return today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+      }
+
+      function getOperations() {
+        const config = PROBLEM_CONFIG[settings.level] || PROBLEM_CONFIG.CE2;
+        if (settings.op === 'all') return config.operations;
+        if (settings.op === 'add-mul') return config.operations.filter(o => ['add', 'mul'].includes(o));
+        return [settings.op];
+      }
+
+      function makeExercise() {
+        const config = PROBLEM_CONFIG[settings.level] || PROBLEM_CONFIG.CE2;
+        const seed = baseSeed + (problemCounter * 999983) + randomSalt;
+        const detRandom = simpleRandom(seed);
+        
+        // Utiliser Math.random() pour choisir op et template (vraiment aléatoire)
+        const operations = getOperations();
+        const op = operations[Math.floor(Math.random() * operations.length)];
+        const templates = PROBLEM_TEMPLATES[op];
+        const template = templates[Math.floor(Math.random() * templates.length)];
+        
+        let a, b, answer;
+        
+        // Utiliser le générateur déterministe pour les valeurs
+        switch (op) {
+          case 'add':
+            a = randInt(detRandom, config.numbers.min, config.numbers.max);
+            b = randInt(detRandom, config.numbers.min, config.numbers.max);
+            answer = a + b;
+            break;
+          case 'sub':
+            b = randInt(detRandom, config.numbers.min, Math.floor(config.numbers.max * 0.5));
+            a = randInt(detRandom, b + 1, config.numbers.max);
+            answer = a - b;
+            break;
+          case 'mul':
+            a = randInt(detRandom, config.numbers.min, Math.min(12, Math.floor(config.numbers.max * 0.3)));
+            b = randInt(detRandom, config.numbers.min, Math.min(12, Math.floor(config.numbers.max * 0.3)));
+            answer = a * b;
+            break;
+          case 'div':
+            b = randInt(detRandom, 2, 10);
+            answer = randInt(detRandom, config.numbers.min, Math.floor(config.numbers.max / b));
+            a = answer * b;
+            break;
+        }
+        
+        // Utiliser Math.random() pour les noms/objets
+        const p1 = PERSONS[Math.floor(Math.random() * PERSONS.length)];
+        const p2 = PERSONS.filter(n => n !== p1)[Math.floor(Math.random() * (PERSONS.length - 1))] || PERSONS[Math.floor(Math.random() * PERSONS.length)];
+        const obj = OBJECTS[Math.floor(Math.random() * OBJECTS.length)];
+        
+        let problemText = template
+          .replace(/\{a\}/g, a)
+          .replace(/\{b\}/g, b)
+          .replace(/\{person\}/g, p1)
+          .replace(/\{person2\}/g, p2)
+          .replace(/\{object\}/g, obj);
+        
+        console.log('Generated:', { op, a, b, answer, text: problemText, seed, pc: problemCounter });
+        return { text: problemText, answer: Math.floor(answer) };
+      }
+
+      // ---- Affichage ----
+      const problemEl = document.getElementById("problem");
+      const feedbackEl = document.getElementById("feedback");
+      const checkBtn = document.getElementById("check");
+      const goodEl = document.getElementById("good");
+      const totalEl = document.getElementById("total");
+      const pctEl = document.getElementById("pct");
+      const input = document.getElementById("answer");
+
+      function renderExercise(restore) {
+        if (restore && pending) {
+          current = pending;
+          pending = null;
+        } else {
+          current = makeExercise();
+          problemCounter++;
+        }
+        answered = false;
+        saveState();
+        problemEl.textContent = current.text;
+        feedbackEl.textContent = "";
+        feedbackEl.className = "feedback";
+        checkBtn.disabled = false;
+        input.value = "";
+        input.disabled = false;
+        input.focus();
+      }
+
+      function updateScore() {
+        goodEl.textContent = stats.good;
+        totalEl.textContent = stats.total;
+        const pct = stats.total === 0 ? null : Math.round((stats.good / stats.total) * 100);
+        pctEl.textContent = pct === null ? "— %" : pct + " %";
+        pctEl.style.color = pct === null ? "#16a34a" : (pct >= 70 ? "#16a34a" : "#dc2626");
+      }
+
+      function checkAnswer() {
+        if (answered) return;
+        const given = parseInt(input.value, 10);
+        if (isNaN(given)) {
+          feedbackEl.textContent = "Écris ta réponse d'abord 🙂";
+          feedbackEl.className = "feedback";
+          return;
+        }
+        answered = true;
+        stats.total++;
+        const ok = given === current.answer;
+        if (ok) {
+          stats.good++;
+          feedbackEl.textContent = "Bravo ! ✅";
+          feedbackEl.className = "feedback good";
+        } else {
+          feedbackEl.textContent = "Oups… La bonne réponse était " + current.answer + ". ❌";
+          feedbackEl.className = "feedback bad";
+        }
+        input.disabled = true;
+        checkBtn.disabled = true;
+        updateScore();
+        saveState();
+        setTimeout(renderExercise, ok ? 2500 : 4500);
+      }
+
+      function onSettingsChanged() {
+        stats = { good: 0, total: 0 };
+        pending = null;
+        problemCounter = 0;
+        baseSeed = buildSeed();
+        randomSalt = Math.floor(Math.random() * 1000000);
+        saveState();
+        refreshSettingsUI();
+        updateScore();
+        renderExercise();
+      }
+
+      function refreshSettingsUI() {
+        document.getElementById("setLevel").value = settings.level;
+        document.getElementById("setType").value = settings.type;
+        document.getElementById("setOp").value = settings.op;
+        document.getElementById("setTheme").value = settings.theme;
+      }
+
+      checkBtn.addEventListener("click", checkAnswer);
+      input.addEventListener("keydown", e => { if (e.key === "Enter" && !answered) checkAnswer(); });
+
+      document.getElementById("setLevel").addEventListener("change", () => { settings.level = document.getElementById("setLevel").value; onSettingsChanged(); });
+      document.getElementById("setType").addEventListener("change", () => { settings.type = document.getElementById("setType").value; onSettingsChanged(); });
+      document.getElementById("setOp").addEventListener("change", () => { settings.op = document.getElementById("setOp").value; onSettingsChanged(); });
+      document.getElementById("setTheme").addEventListener("change", () => { settings.theme = document.getElementById("setTheme").value; onSettingsChanged(); });
+
+      document.getElementById("settingsToggle").addEventListener("click", () => {
+        document.getElementById("settingsPanel").classList.toggle("open");
+        document.getElementById("settingsToggle").classList.toggle("open");
+      });
+
+      document.getElementById("reset").addEventListener("click", () => {
+        if (!confirm('Vraiment réinitialiser le score ?')) return;
+        stats = { good: 0, total: 0 };
+        problemCounter = 0;
+        baseSeed = buildSeed();
+        randomSalt = Math.floor(Math.random() * 1000000);
+        saveState();
+        updateScore();
+        renderExercise();
+      });
+
+      // ---- Démarrage ----
+      loadState();
+      refreshSettingsUI();
+      updateScore();
+      renderExercise(true);
+    </script>
+  </body>
+</html>
