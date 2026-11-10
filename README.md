@@ -29,11 +29,19 @@ Une collection d'exercices interactifs pour l'apprentissage du français et des 
 
 ### Serveur de développement
 Pour éviter les problèmes CORS avec le chargement des fichiers JSON :
+
+**Serveur Node.js dédié (recommandé) :**
 ```bash
-# Avec Node.js (npx)
+# Utilise le serveur intégré au projet (port 4200)
+node server.js
+```
+
+**Autres options :**
+```bash
+# Avec npx (port par défaut 8080)
 npx http-server
 
-# Avec Node.js (npx, port personnalisé)
+# Avec npx sur le port 4200
 npx http-server -p 4200
 
 # Avec Python 3
