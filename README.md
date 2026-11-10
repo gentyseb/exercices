@@ -30,11 +30,14 @@ Une collection d'exercices interactifs pour l'apprentissage du français et des 
 ### Serveur de développement
 Pour éviter les problèmes CORS avec le chargement des fichiers JSON :
 ```bash
-# Avec Python 3
-python -m http.server 8000
-
 # Avec Node.js (npx)
 npx http-server
+
+# Avec Node.js (npx, port personnalisé)
+npx http-server -p 4200
+
+# Avec Python 3
+python -m http.server 8000
 
 # Avec PHP
 php -S localhost:8000
