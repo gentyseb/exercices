@@ -2,6 +2,8 @@
 
 Une collection d'exercices interactifs pour l'apprentissage du français et des mathématiques, conçus pour les élèves de primaire (CE1, CE2, CM1, CM2).
 
+**🌐 Site en ligne :** [https://gentyseb.github.io/exercices/index.html](https://gentyseb.github.io/exercices/index.html)
+
 ## 📚 Fonctionnalités
 
 ### Mathématiques
