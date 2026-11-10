@@ -132,7 +132,7 @@
     },
     {
       "mode": "classification",
-      "enonce": "Laquelle de ces planètes est une géante gazeuse ?",
+      "enonce": "Quelle planète géante gazeuse est connue pour ses grands anneaux ?",
       "reponse": "Saturne",
       "options": ["Saturne", "Vénus", "Uranus", "Neptune"]
     },
@@ -141,6 +141,171 @@
       "enonce": "Uranus et Neptune sont des géantes de glace. Laquelle est la plus proche du Soleil ?",
       "reponse": "Uranus",
       "options": ["Uranus", "Neptune", "Saturne", "Jupiter"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est la plus grande du système solaire ?",
+      "reponse": "Jupiter",
+      "options": ["Jupiter", "Saturne", "Neptune", "Terre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est souvent appelée la planète rouge ?",
+      "reponse": "Mars",
+      "options": ["Mars", "Vénus", "Mercure", "Neptune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète possède des anneaux très visibles depuis la Terre avec un télescope ?",
+      "reponse": "Saturne",
+      "options": ["Saturne", "Mars", "Mercure", "Vénus"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est la plus chaude en moyenne à sa surface ?",
+      "reponse": "Vénus",
+      "options": ["Vénus", "Mercure", "Mars", "Neptune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est rocheuse ?",
+      "reponse": "La Terre",
+      "options": ["La Terre", "Jupiter", "Saturne", "Uranus"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est composée principalement de gaz ?",
+      "reponse": "Jupiter",
+      "options": ["Jupiter", "Mars", "Mercure", "Vénus"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est une géante de glace ?",
+      "reponse": "Neptune",
+      "options": ["Neptune", "Terre", "Mars", "Mercure"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est la plus proche du Soleil ?",
+      "reponse": "Mercure",
+      "options": ["Mercure", "Vénus", "Terre", "Mars"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est la plus éloignée du Soleil parmi les huit planètes ?",
+      "reponse": "Neptune",
+      "options": ["Neptune", "Uranus", "Saturne", "Jupiter"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est connue pour sa grande tache rouge, une immense tempête ?",
+      "reponse": "Jupiter",
+      "options": ["Jupiter", "Mars", "Terre", "Mercure"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète tourne presque couchée sur le côté ?",
+      "reponse": "Uranus",
+      "options": ["Uranus", "Vénus", "Mars", "Jupiter"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Sur quelle planète trouve-t-on la Grande Tache rouge ?",
+      "reponse": "Jupiter",
+      "options": ["Jupiter", "Saturne", "Neptune", "Terre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est parfois appelée l’étoile du matin ou du soir ?",
+      "reponse": "Vénus",
+      "options": ["Vénus", "Mars", "Jupiter", "Uranus"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète possède une atmosphère très dense composée surtout de dioxyde de carbone ?",
+      "reponse": "Vénus",
+      "options": ["Vénus", "Mercure", "Terre", "Mars"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est la seule connue à abriter de la vie ?",
+      "reponse": "La Terre",
+      "options": ["La Terre", "Mars", "Vénus", "Jupiter"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète est principalement composée de gaz et n’a pas de surface solide comme la Terre ?",
+      "reponse": "Saturne",
+      "options": ["Saturne", "Mars", "Mercure", "La Terre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quel astre se trouve au centre du système solaire ?",
+      "reponse": "Le Soleil",
+      "options": ["Le Soleil", "La Terre", "La Lune", "Mars"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Autour de quel astre les planètes du système solaire tournent-elles ?",
+      "reponse": "Le Soleil",
+      "options": ["Le Soleil", "La Lune", "La Terre", "Jupiter"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Laquelle de ces planètes est une géante de glace, et non une planète rocheuse ?",
+      "reponse": "Uranus",
+      "options": ["Uranus", "Mars", "La Terre", "Mercure"]
+    },
+    {
+      "mode": "ordre",
+      "enonce": "Range les quatre planètes géantes du Soleil vers l’extérieur.",
+      "reponse": ["Jupiter", "Saturne", "Uranus", "Neptune"]
+    },
+    {
+      "mode": "ordre",
+      "enonce": "Classe les planètes rocheuses de la plus éloignée à la plus proche du Soleil.",
+      "reponse": ["Mars", "Terre", "Vénus", "Mercure"]
+    },
+    {
+      "mode": "ordre",
+      "enonce": "Ordonne ces planètes de la plus proche à la plus éloignée de la Terre en moyenne : Mercure, Vénus, Mars, Jupiter.",
+      "reponse": ["Vénus", "Mars", "Mercure", "Jupiter"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la plus grande lune de Jupiter ?",
+      "reponse": "Ganymède",
+      "options": ["Ganymède", "Europe", "Titan", "Phobos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Jupiter est connue pour son activité volcanique intense ?",
+      "reponse": "Io",
+      "options": ["Io", "Europe", "Ganymède", "Callisto"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Saturne possède une atmosphère épaisse et des lacs de méthane ?",
+      "reponse": "Titan",
+      "options": ["Titan", "La Lune", "Phobos", "Europe"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la grande lune de Neptune ?",
+      "reponse": "Triton",
+      "options": ["Triton", "Titan", "Io", "Phobos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quel est le nom de la plus grande lune d’Uranus ?",
+      "reponse": "Titania",
+      "options": ["Titania", "Triton", "Ganymède", "Europe"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Jupiter est l’une des quatre grandes lunes découvertes par Galilée ?",
+      "reponse": "Callisto",
+      "options": ["Callisto", "Phobos", "Titan", "Triton"]
     }
   ]
 }

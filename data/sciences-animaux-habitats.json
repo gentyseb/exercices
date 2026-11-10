@@ -10,7 +10,7 @@
     },
     {
       "type": "association",
-      "animal": "Pingouin",
+      "animal": "Manchot",
       "reponse": "Antarctique",
       "options": ["Prairie", "Antarctique", "Forêt", "Marais"]
     },
@@ -31,6 +31,282 @@
       "animal": "Dauphin",
       "reponse": "Océan",
       "options": ["Océan", "Désert", "Prairie", "Forêt"]
+    },
+    {
+      "type": "association",
+      "animal": "Girafe",
+      "reponse": "Savane",
+      "options": ["Savane", "Océan", "Toundra", "Grotte"]
+    },
+    {
+      "type": "association",
+      "animal": "Dromadaire",
+      "reponse": "Désert",
+      "options": ["Forêt tropicale", "Désert", "Rivière", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Castor",
+      "reponse": "Berges des rivières",
+      "options": ["Berges des rivières", "Désert", "Savane", "Haute montagne"]
+    },
+    {
+      "type": "association",
+      "animal": "Grenouille verte",
+      "reponse": "Mare",
+      "options": ["Mare", "Désert", "Banquise", "Cime des arbres"]
+    },
+    {
+      "type": "association",
+      "animal": "Koala",
+      "reponse": "Forêt d’eucalyptus",
+      "options": ["Forêt d’eucalyptus", "Océan", "Savane africaine", "Toundra"]
+    },
+    {
+      "type": "association",
+      "animal": "Orang-outan",
+      "reponse": "Forêt tropicale",
+      "options": ["Forêt tropicale", "Désert", "Banquise", "Prairie alpine"]
+    },
+    {
+      "type": "association",
+      "animal": "Renard polaire",
+      "reponse": "Toundra arctique",
+      "options": ["Toundra arctique", "Forêt tropicale", "Savane", "Récif corallien"]
+    },
+    {
+      "type": "association",
+      "animal": "Tortue marine",
+      "reponse": "Océan",
+      "options": ["Océan", "Forêt de montagne", "Désert", "Prairie"]
+    },
+    {
+      "type": "association",
+      "animal": "Chameau",
+      "reponse": "Désert",
+      "options": ["Désert", "Banquise", "Forêt humide", "Mare"]
+    },
+    {
+      "type": "association",
+      "animal": "Aigle royal",
+      "reponse": "Montagne",
+      "options": ["Montagne", "Récif corallien", "Désert polaire", "Marécage tropical"]
+    },
+    {
+      "type": "association",
+      "animal": "Loutre",
+      "reponse": "Rivière",
+      "options": ["Rivière", "Savane sèche", "Banquise", "Désert"]
+    },
+    {
+      "type": "association",
+      "animal": "Hérisson",
+      "reponse": "Jardin et haies",
+      "options": ["Jardin et haies", "Océan", "Désert", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Perroquet",
+      "reponse": "Forêt tropicale",
+      "options": ["Forêt tropicale", "Toundra", "Haute montagne", "Désert froid"]
+    },
+    {
+      "type": "association",
+      "animal": "Étoile de mer",
+      "reponse": "Fond marin",
+      "options": ["Fond marin", "Forêt", "Prairie", "Désert"]
+    },
+    {
+      "type": "association",
+      "animal": "Marmotte",
+      "reponse": "Alpages de montagne",
+      "options": ["Alpages de montagne", "Océan", "Forêt tropicale", "Savane"]
+    },
+    {
+      "type": "association",
+      "animal": "Hippocampe",
+      "reponse": "Herbiers marins",
+      "options": ["Herbiers marins", "Désert", "Forêt de pins", "Prairie"]
+    },
+    {
+      "type": "association",
+      "animal": "Éléphant d’Afrique",
+      "reponse": "Savane",
+      "options": ["Savane", "Océan", "Banquise", "Grotte"]
+    },
+    {
+      "type": "association",
+      "animal": "Zèbre",
+      "reponse": "Savane",
+      "options": ["Savane", "Rivière", "Forêt de pins", "Toundra"]
+    },
+    {
+      "type": "association",
+      "animal": "Suricate",
+      "reponse": "Savane",
+      "options": ["Savane", "Océan profond", "Banquise", "Forêt boréale"]
+    },
+    {
+      "type": "association",
+      "animal": "Fennec",
+      "reponse": "Désert",
+      "options": ["Désert", "Récif corallien", "Mare", "Forêt humide"]
+    },
+    {
+      "type": "association",
+      "animal": "Renard roux",
+      "reponse": "Forêt et campagne",
+      "options": ["Forêt et campagne", "Océan", "Banquise", "Récif corallien"]
+    },
+    {
+      "type": "association",
+      "animal": "Écureuil roux",
+      "reponse": "Forêt",
+      "options": ["Forêt", "Désert", "Océan", "Marais salant"]
+    },
+    {
+      "type": "association",
+      "animal": "Cerf élaphe",
+      "reponse": "Forêt",
+      "options": ["Forêt", "Océan", "Désert", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Taupe",
+      "reponse": "Galeries souterraines",
+      "options": ["Galeries souterraines", "Cime des arbres", "Océan", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Chouette hulotte",
+      "reponse": "Forêt",
+      "options": ["Forêt", "Désert", "Récif corallien", "Océan"]
+    },
+    {
+      "type": "association",
+      "animal": "Chauve-souris",
+      "reponse": "Grotte ou abri sombre",
+      "options": ["Grotte ou abri sombre", "Pleine mer", "Banquise", "Désert sans abri"]
+    },
+    {
+      "type": "association",
+      "animal": "Abeille domestique",
+      "reponse": "Prairies fleuries et jardins",
+      "options": ["Prairies fleuries et jardins", "Fond de l’océan", "Banquise", "Désert rocheux"]
+    },
+    {
+      "type": "association",
+      "animal": "Papillon monarque",
+      "reponse": "Prairies et forêts",
+      "options": ["Prairies et forêts", "Fond marin", "Désert polaire", "Grotte sous-marine"]
+    },
+    {
+      "type": "association",
+      "animal": "Salamandre tachetée",
+      "reponse": "Forêt humide",
+      "options": ["Forêt humide", "Désert", "Savane sèche", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Truite",
+      "reponse": "Rivière d’eau douce",
+      "options": ["Rivière d’eau douce", "Océan tropical", "Désert", "Cime des arbres"]
+    },
+    {
+      "type": "association",
+      "animal": "Flamant rose",
+      "reponse": "Lagunes et zones humides",
+      "options": ["Lagunes et zones humides", "Désert glacé", "Forêt de montagne", "Grotte sèche"]
+    },
+    {
+      "type": "association",
+      "animal": "Crocodile du Nil",
+      "reponse": "Rivières et marais",
+      "options": ["Rivières et marais", "Banquise", "Forêt de pins", "Prairie alpine"]
+    },
+    {
+      "type": "association",
+      "animal": "Gorille",
+      "reponse": "Forêt tropicale",
+      "options": ["Forêt tropicale", "Désert", "Océan", "Toundra"]
+    },
+    {
+      "type": "association",
+      "animal": "Chimpanzé",
+      "reponse": "Forêt tropicale",
+      "options": ["Forêt tropicale", "Banquise", "Récif corallien", "Désert polaire"]
+    },
+    {
+      "type": "association",
+      "animal": "Phoque",
+      "reponse": "Côtes et eaux froides",
+      "options": ["Côtes et eaux froides", "Savane", "Forêt tropicale", "Désert chaud"]
+    },
+    {
+      "type": "association",
+      "animal": "Requin blanc",
+      "reponse": "Océan",
+      "options": ["Océan", "Forêt", "Prairie", "Mare"]
+    },
+    {
+      "type": "association",
+      "animal": "Pieuvre",
+      "reponse": "Fonds marins",
+      "options": ["Fonds marins", "Cime des arbres", "Désert", "Prairie"]
+    },
+    {
+      "type": "association",
+      "animal": "Crabe",
+      "reponse": "Bord de mer",
+      "options": ["Bord de mer", "Forêt boréale", "Haute montagne", "Désert glacé"]
+    },
+    {
+      "type": "association",
+      "animal": "Bison d’Amérique",
+      "reponse": "Prairie",
+      "options": ["Prairie", "Océan", "Forêt tropicale", "Récif corallien"]
+    },
+    {
+      "type": "association",
+      "animal": "Yak",
+      "reponse": "Hautes montagnes",
+      "options": ["Hautes montagnes", "Savane", "Océan", "Forêt tropicale"]
+    },
+    {
+      "type": "association",
+      "animal": "Lama",
+      "reponse": "Montagnes des Andes",
+      "options": ["Montagnes des Andes", "Banquise", "Fond marin", "Savane africaine"]
+    },
+    {
+      "type": "association",
+      "animal": "Chamois",
+      "reponse": "Montagne",
+      "options": ["Montagne", "Océan", "Désert chaud", "Forêt tropicale"]
+    },
+    {
+      "type": "association",
+      "animal": "Manchot empereur",
+      "reponse": "Antarctique",
+      "options": ["Antarctique", "Savane", "Forêt tropicale", "Désert chaud"]
+    },
+    {
+      "type": "association",
+      "animal": "Pie-grièche grise",
+      "reponse": "Prairies et campagnes",
+      "options": ["Prairies et campagnes", "Récif corallien", "Océan profond", "Banquise"]
+    },
+    {
+      "type": "association",
+      "animal": "Méduse",
+      "reponse": "Océan",
+      "options": ["Océan", "Forêt", "Désert", "Prairie alpine"]
+    },
+    {
+      "type": "association",
+      "animal": "Orque",
+      "reponse": "Océan",
+      "options": ["Océan", "Savane", "Forêt", "Désert"]
     }
   ]
 }

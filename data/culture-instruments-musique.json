@@ -246,6 +246,16 @@
       "instrument": "Clavier électronique",
       "reponse": "Électronique",
       "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Clavicorde",
+      "reponse": "Cordes",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
+    },
+    {
+      "instrument": "Cornet à pistons",
+      "reponse": "Vents",
+      "options": ["Cordes", "Vents", "Percussions", "Électronique"]
     }
   ]
 }

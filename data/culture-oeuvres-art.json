@@ -26,6 +26,236 @@
       "oeuvre": "Le Tableau du déluge",
       "reponse": "Gustave Doré",
       "options": ["Gustave Doré", "Frida Kahlo", "Albrecht Dürer", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "Guernica",
+      "reponse": "Pablo Picasso",
+      "options": ["Pablo Picasso", "Claude Monet", "Salvador Dalí", "Edvard Munch"]
+    },
+    {
+      "oeuvre": "La Liberté guidant le peuple",
+      "reponse": "Eugène Delacroix",
+      "options": ["Eugène Delacroix", "Auguste Renoir", "Henri Matisse", "Gustave Courbet"]
+    },
+    {
+      "oeuvre": "La Naissance de Vénus",
+      "reponse": "Sandro Botticelli",
+      "options": ["Sandro Botticelli", "Raphaël", "Michel-Ange", "Léonard de Vinci"]
+    },
+    {
+      "oeuvre": "La Jeune Fille à la perle",
+      "reponse": "Johannes Vermeer",
+      "options": ["Johannes Vermeer", "Rembrandt", "Vincent van Gogh", "Piet Mondrian"]
+    },
+    {
+      "oeuvre": "La Persistance de la mémoire",
+      "reponse": "Salvador Dalí",
+      "options": ["Salvador Dalí", "Pablo Picasso", "Edvard Munch", "Claude Monet"]
+    },
+    {
+      "oeuvre": "Impression, soleil levant",
+      "reponse": "Claude Monet",
+      "options": ["Claude Monet", "Paul Cézanne", "Édouard Manet", "Henri Matisse"]
+    },
+    {
+      "oeuvre": "La Création d’Adam",
+      "reponse": "Michel-Ange",
+      "options": ["Michel-Ange", "Sandro Botticelli", "Raphaël", "Léonard de Vinci"]
+    },
+    {
+      "oeuvre": "La Grande Vague de Kanagawa",
+      "reponse": "Hokusai",
+      "options": ["Hokusai", "Utagawa Hiroshige", "Katsushika Ōi", "Kitagawa Utamaro"]
+    },
+    {
+      "oeuvre": "Le Baiser",
+      "reponse": "Gustav Klimt",
+      "options": ["Gustav Klimt", "Egon Schiele", "Edvard Munch", "Alphonse Mucha"]
+    },
+    {
+      "oeuvre": "Les Ménines",
+      "reponse": "Diego Velázquez",
+      "options": ["Diego Velázquez", "Francisco de Goya", "El Greco", "Bartolomé Esteban Murillo"]
+    },
+    {
+      "oeuvre": "La Ronde de nuit",
+      "reponse": "Rembrandt",
+      "options": ["Rembrandt", "Johannes Vermeer", "Peter Paul Rubens", "Frans Hals"]
+    },
+    {
+      "oeuvre": "Les Tournesols",
+      "reponse": "Vincent van Gogh",
+      "options": ["Vincent van Gogh", "Claude Monet", "Paul Gauguin", "Paul Cézanne"]
+    },
+    {
+      "oeuvre": "Le Déjeuner des canotiers",
+      "reponse": "Auguste Renoir",
+      "options": ["Auguste Renoir", "Édouard Manet", "Claude Monet", "Edgar Degas"]
+    },
+    {
+      "oeuvre": "La Danse",
+      "reponse": "Henri Matisse",
+      "options": ["Henri Matisse", "Pablo Picasso", "Joan Miró", "Marc Chagall"]
+    },
+    {
+      "oeuvre": "Le Penseur",
+      "reponse": "Auguste Rodin",
+      "options": ["Auguste Rodin", "Camille Claudel", "Constantin Brâncuși", "Antoine Bourdelle"]
+    },
+    {
+      "oeuvre": "Les Demoiselles d’Avignon",
+      "reponse": "Pablo Picasso",
+      "options": ["Pablo Picasso", "Georges Braque", "Henri Matisse", "Salvador Dalí"]
+    },
+    {
+      "oeuvre": "Le Fils de l’homme",
+      "reponse": "René Magritte",
+      "options": ["René Magritte", "Salvador Dalí", "Pablo Picasso", "Joan Miró"]
+    },
+    {
+      "oeuvre": "Les Époux Arnolfini",
+      "reponse": "Jan van Eyck",
+      "options": ["Jan van Eyck", "Rembrandt", "Johannes Vermeer", "Pieter Bruegel l’Ancien"]
+    },
+    {
+      "oeuvre": "Le Radeau de la Méduse",
+      "reponse": "Théodore Géricault",
+      "options": ["Théodore Géricault", "Eugène Delacroix", "Gustave Courbet", "Jacques-Louis David"]
+    },
+    {
+      "oeuvre": "Olympia",
+      "reponse": "Édouard Manet",
+      "options": ["Édouard Manet", "Auguste Renoir", "Claude Monet", "Edgar Degas"]
+    },
+    {
+      "oeuvre": "La Cène",
+      "reponse": "Léonard de Vinci",
+      "options": ["Léonard de Vinci", "Michel-Ange", "Raphaël", "Sandro Botticelli"]
+    },
+    {
+      "oeuvre": "Le Jardin des délices",
+      "reponse": "Jérôme Bosch",
+      "options": ["Jérôme Bosch", "Pieter Bruegel l’Ancien", "Jan van Eyck", "Albrecht Dürer"]
+    },
+    {
+      "oeuvre": "La Mort de Marat",
+      "reponse": "Jacques-Louis David",
+      "options": ["Jacques-Louis David", "Jean-Auguste-Dominique Ingres", "Eugène Delacroix", "Théodore Géricault"]
+    },
+    {
+      "oeuvre": "La Grande Odalisque",
+      "reponse": "Jean-Auguste-Dominique Ingres",
+      "options": ["Jean-Auguste-Dominique Ingres", "Eugène Delacroix", "Gustave Courbet", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "Les Coquelicots",
+      "reponse": "Claude Monet",
+      "options": ["Claude Monet", "Auguste Renoir", "Vincent van Gogh", "Camille Pissarro"]
+    },
+    {
+      "oeuvre": "Le Bal du moulin de la Galette",
+      "reponse": "Auguste Renoir",
+      "options": ["Auguste Renoir", "Edgar Degas", "Claude Monet", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "Le Déjeuner sur l’herbe",
+      "reponse": "Édouard Manet",
+      "options": ["Édouard Manet", "Claude Monet", "Auguste Renoir", "Gustave Courbet"]
+    },
+    {
+      "oeuvre": "La Laitière",
+      "reponse": "Johannes Vermeer",
+      "options": ["Johannes Vermeer", "Rembrandt", "Jan van Eyck", "Pieter de Hooch"]
+    },
+    {
+      "oeuvre": "Les Noces de Cana",
+      "reponse": "Paolo Veronese",
+      "options": ["Paolo Veronese", "Titien", "Tintoret", "Raphaël"]
+    },
+    {
+      "oeuvre": "David",
+      "reponse": "Michel-Ange",
+      "options": ["Michel-Ange", "Donatello", "Auguste Rodin", "Gian Lorenzo Bernini"]
+    },
+    {
+      "oeuvre": "Autoportrait avec collier d’épines",
+      "reponse": "Frida Kahlo",
+      "options": ["Frida Kahlo", "Georgia O’Keeffe", "Tamara de Lempicka", "Leonora Carrington"]
+    },
+    {
+      "oeuvre": "La Fée Électricité",
+      "reponse": "Raoul Dufy",
+      "options": ["Raoul Dufy", "Henri Matisse", "André Derain", "Marc Chagall"]
+    },
+    {
+      "oeuvre": "La Gare Saint-Lazare",
+      "reponse": "Claude Monet",
+      "options": ["Claude Monet", "Édouard Manet", "Auguste Renoir", "Camille Pissarro"]
+    },
+    {
+      "oeuvre": "Les Raboteurs de parquet",
+      "reponse": "Gustave Caillebotte",
+      "options": ["Gustave Caillebotte", "Edgar Degas", "Gustave Courbet", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "La Chambre à Arles",
+      "reponse": "Vincent van Gogh",
+      "options": ["Vincent van Gogh", "Paul Gauguin", "Claude Monet", "Paul Cézanne"]
+    },
+    {
+      "oeuvre": "La Femme à l’ombrelle",
+      "reponse": "Claude Monet",
+      "options": ["Claude Monet", "Auguste Renoir", "Berthe Morisot", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "La Reproduction interdite",
+      "reponse": "René Magritte",
+      "options": ["René Magritte", "Salvador Dalí", "Max Ernst", "Joan Miró"]
+    },
+    {
+      "oeuvre": "Les Amants",
+      "reponse": "René Magritte",
+      "options": ["René Magritte", "Salvador Dalí", "Pablo Picasso", "Joan Miró"]
+    },
+    {
+      "oeuvre": "L’Empire des lumières",
+      "reponse": "René Magritte",
+      "options": ["René Magritte", "Max Ernst", "Salvador Dalí", "Paul Delvaux"]
+    },
+    {
+      "oeuvre": "Une baignade à Asnières",
+      "reponse": "Georges Seurat",
+      "options": ["Georges Seurat", "Paul Cézanne", "Auguste Renoir", "Édouard Manet"]
+    },
+    {
+      "oeuvre": "Les Joueurs de cartes",
+      "reponse": "Paul Cézanne",
+      "options": ["Paul Cézanne", "Paul Gauguin", "Vincent van Gogh", "Henri Matisse"]
+    },
+    {
+      "oeuvre": "La Colonne brisée",
+      "reponse": "Frida Kahlo",
+      "options": ["Frida Kahlo", "Georgia O’Keeffe", "Leonora Carrington", "Tamara de Lempicka"]
+    },
+    {
+      "oeuvre": "Le Carnaval d’Arlequin",
+      "reponse": "Joan Miró",
+      "options": ["Joan Miró", "Salvador Dalí", "Pablo Picasso", "René Magritte"]
+    },
+    {
+      "oeuvre": "Carré noir sur fond blanc",
+      "reponse": "Kazimir Malevitch",
+      "options": ["Kazimir Malevitch", "Wassily Kandinsky", "Piet Mondrian", "Marc Chagall"]
+    },
+    {
+      "oeuvre": "Composition VIII",
+      "reponse": "Wassily Kandinsky",
+      "options": ["Wassily Kandinsky", "Kazimir Malevitch", "Piet Mondrian", "Paul Klee"]
+    },
+    {
+      "oeuvre": "Les Noctambules",
+      "reponse": "Edward Hopper",
+      "options": ["Edward Hopper", "Grant Wood", "Georgia O’Keeffe", "Andy Warhol"]
     }
   ]
 }

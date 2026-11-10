@@ -101,6 +101,161 @@
       "enonce": "La matière est ce qui…",
       "reponse": "Compose les objets et les substances qui nous entourent",
       "options": ["Compose les objets et les substances qui nous entourent", "N’existe que dans les liquides", "Est toujours invisible", "Ne peut jamais changer d’état"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit quand l’eau liquide devient de la glace ?",
+      "reponse": "La solidification",
+      "options": ["La solidification", "La fusion", "La vaporisation", "La condensation"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit quand la glace devient de l’eau ?",
+      "reponse": "La fusion",
+      "options": ["La fusion", "La condensation", "La solidification", "La liquéfaction"]
+    },
+    {
+      "enonce": "Que devient généralement l’eau liquide lorsqu’on la chauffe longtemps ?",
+      "reponse": "Elle se vaporise",
+      "options": ["Elle se vaporise", "Elle devient du sable", "Elle se transforme en métal", "Elle se solidifie immédiatement"]
+    },
+    {
+      "enonce": "Que se passe-t-il lorsque la vapeur d’eau se refroidit ?",
+      "reponse": "Elle peut se condenser en eau liquide",
+      "options": ["Elle peut se condenser en eau liquide", "Elle devient du bois", "Elle se transforme en pierre", "Elle disparaît sans changement"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit lorsqu’un solide devient un liquide ?",
+      "reponse": "La fusion",
+      "options": ["La fusion", "La solidification", "La condensation", "La sublimation"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit lorsqu’un liquide devient un solide ?",
+      "reponse": "La solidification",
+      "options": ["La solidification", "La fusion", "La vaporisation", "La condensation"]
+    },
+    {
+      "enonce": "Quel changement d’état explique la formation de gouttes sur un verre froid ?",
+      "reponse": "La condensation de la vapeur d’eau",
+      "options": ["La condensation de la vapeur d’eau", "La fusion du verre", "La solidification de l’air", "La vaporisation du verre"]
+    },
+    {
+      "enonce": "Lequel de ces matériaux garde généralement sa forme si on le pose sur une table ?",
+      "reponse": "Un morceau de craie",
+      "options": ["Un morceau de craie", "De l’eau", "Du jus", "De l’air"]
+    },
+    {
+      "enonce": "Quelle propriété distingue un solide d’un liquide ?",
+      "reponse": "Un solide garde généralement sa forme propre",
+      "options": ["Un solide garde généralement sa forme propre", "Un solide prend toujours la forme du récipient", "Un solide n’occupe aucun espace", "Un solide est toujours transparent"]
+    },
+    {
+      "enonce": "Que fait un liquide lorsqu’on le verse dans un récipient différent ?",
+      "reponse": "Il prend la forme du récipient",
+      "options": ["Il prend la forme du récipient", "Il garde toujours la forme du verre précédent", "Il devient automatiquement solide", "Il cesse d’occuper de l’espace"]
+    },
+    {
+      "enonce": "L’air dans un ballon est principalement dans quel état ?",
+      "reponse": "Gazeux",
+      "options": ["Gazeux", "Solide", "Liquide", "Métallique"]
+    },
+    {
+      "enonce": "Pourquoi un gaz peut-il remplir un ballon ?",
+      "reponse": "Il occupe l’espace disponible",
+      "options": ["Il occupe l’espace disponible", "Il garde une forme fixe", "Il se transforme toujours en liquide", "Il n’a pas de volume"]
+    },
+    {
+      "enonce": "La buée qui apparaît sur un miroir après une douche est faite de…",
+      "reponse": "Petites gouttes d’eau liquide",
+      "options": ["Petites gouttes d’eau liquide", "Grains de sable", "Poussière de glace solide", "Bulles de métal"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de l’eau liquide en vapeur ?",
+      "reponse": "La vaporisation",
+      "options": ["La vaporisation", "La fusion", "La solidification", "La condensation"]
+    },
+    {
+      "enonce": "Comment appelle-t-on le passage de la vapeur d’eau en eau liquide ?",
+      "reponse": "La condensation",
+      "options": ["La condensation", "La vaporisation", "La fusion", "La solidification"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit quand la cire fond ?",
+      "reponse": "La fusion",
+      "options": ["La fusion", "La solidification", "La condensation", "La vaporisation"]
+    },
+    {
+      "enonce": "Que devient de l’eau placée assez longtemps au congélateur ?",
+      "reponse": "De la glace solide",
+      "options": ["De la glace solide", "De l’huile liquide", "Du gaz carbonique", "Du sable"]
+    },
+    {
+      "enonce": "Pourquoi une flaque peut-elle disparaître après une journée ensoleillée ?",
+      "reponse": "Une partie de l’eau s’évapore",
+      "options": ["Une partie de l’eau s’évapore", "L’eau se transforme en pierre", "Le sol aspire toute la lumière", "La flaque devient du métal"]
+    },
+    {
+      "enonce": "Dans quel état se trouve généralement l’huile à température ambiante ?",
+      "reponse": "Liquide",
+      "options": ["Liquide", "Solide", "Gazeux", "Cristallisé"]
+    },
+    {
+      "enonce": "Dans quel état se trouve généralement une pièce de monnaie ?",
+      "reponse": "Solide",
+      "options": ["Solide", "Liquide", "Gazeux", "Vaporeux"]
+    },
+    {
+      "enonce": "La fumée est-elle un état de la matière comme solide, liquide ou gazeux ?",
+      "reponse": "Non, c’est un mélange de gaz et de petites particules",
+      "options": ["Non, c’est un mélange de gaz et de petites particules", "Oui, c’est toujours un solide pur", "Oui, c’est le quatrième état courant", "Non, elle n’est faite d’aucune matière"]
+    },
+    {
+      "enonce": "Que se passe-t-il généralement à la cire solide lorsqu’on la chauffe suffisamment ?",
+      "reponse": "Elle fond et devient liquide",
+      "options": ["Elle fond et devient liquide", "Elle devient immédiatement de l’eau", "Elle se transforme en air", "Elle se solidifie davantage"]
+    },
+    {
+      "enonce": "Quel changement d’état permet à l’eau de former du givre sur une surface très froide ?",
+      "reponse": "La vapeur d’eau se transforme directement en glace",
+      "options": ["La vapeur d’eau se transforme directement en glace", "La glace devient de la vapeur", "L’eau liquide devient du sable", "Le métal se transforme en eau"]
+    },
+    {
+      "enonce": "Que remarque-t-on souvent sur une casserole froide exposée à de l’air humide ?",
+      "reponse": "Des gouttes d’eau peuvent se former à sa surface",
+      "options": ["Des gouttes d’eau peuvent se former à sa surface", "La casserole devient gazeuse", "L’air se transforme en métal", "La casserole fond à température ambiante"]
+    },
+    {
+      "enonce": "Que signifie « matière » ?",
+      "reponse": "Ce qui compose les objets et les substances",
+      "options": ["Ce qui compose les objets et les substances", "Uniquement ce qui est vivant", "Uniquement les liquides", "Ce qui ne prend jamais de place"]
+    },
+    {
+      "enonce": "Un glaçon posé dans une pièce chaude finit par fondre. Quel facteur favorise ce changement ?",
+      "reponse": "La chaleur reçue par le glaçon",
+      "options": ["La chaleur reçue par le glaçon", "Le bruit de la pièce", "La lumière éteinte", "Le mouvement de la table"]
+    },
+    {
+      "enonce": "Quel exemple montre un liquide qui devient solide en refroidissant ?",
+      "reponse": "De l’eau qui gèle en glaçons",
+      "options": ["De l’eau qui gèle en glaçons", "Un glaçon qui fond", "Une flaque qui s’évapore", "De la buée qui se forme"]
+    },
+    {
+      "enonce": "Quel exemple montre un gaz qui devient liquide en refroidissant ?",
+      "reponse": "La vapeur d’eau qui forme des gouttes",
+      "options": ["La vapeur d’eau qui forme des gouttes", "La glace qui fond", "L’eau qui gèle", "L’eau qui bout"]
+    },
+    {
+      "enonce": "Une bouteille fermée contient de l’air. L’air occupe-t-il de la place ?",
+      "reponse": "Oui, l’air occupe l’espace à l’intérieur",
+      "options": ["Oui, l’air occupe l’espace à l’intérieur", "Non, seul un liquide occupe de la place", "Non, un gaz n’a pas de volume", "Oui, mais seulement s’il est coloré"]
+    },
+    {
+      "enonce": "Quelle phrase décrit correctement un solide ?",
+      "reponse": "Il possède généralement une forme propre",
+      "options": ["Il possède généralement une forme propre", "Il prend toujours la forme de son récipient", "Il remplit spontanément toute une pièce", "Il n’occupe aucun volume"]
+    },
+    {
+      "enonce": "Quel changement d’état se produit quand du chocolat solide fond en le chauffant ?",
+      "reponse": "La fusion",
+      "options": ["La fusion", "La solidification", "La condensation", "La vaporisation"]
     }
   ]
 }

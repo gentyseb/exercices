@@ -101,6 +101,161 @@
       "enonce": "Pourquoi les animaux et les plantes ont-ils besoin d’un environnement sain ?",
       "reponse": "Pour trouver nourriture, eau, abri et conditions de vie adaptées",
       "options": ["Pour trouver nourriture, eau, abri et conditions de vie adaptées", "Pour ne jamais se déplacer", "Pour arrêter les saisons", "Pour transformer l’air en métal"]
+    },
+    {
+      "enonce": "Dans une chaîne alimentaire, que désigne une flèche ?",
+      "reponse": "Le sens du transfert de nourriture et d’énergie",
+      "options": ["Le sens du transfert de nourriture et d’énergie", "La direction du vent", "Le déplacement obligatoire de tous les animaux", "Le cycle des saisons"]
+    },
+    {
+      "enonce": "Dans la chaîne graines → souris → chouette, quel animal mange les graines ?",
+      "reponse": "La souris",
+      "options": ["La souris", "La chouette", "Le chêne", "Le renard"]
+    },
+    {
+      "enonce": "Dans la chaîne algues → petit poisson → gros poisson, que mange le gros poisson ?",
+      "reponse": "Le petit poisson",
+      "options": ["Le petit poisson", "Les algues uniquement", "Les cailloux", "Les arbres"]
+    },
+    {
+      "enonce": "Quel animal est herbivore ?",
+      "reponse": "La vache",
+      "options": ["La vache", "Le renard", "Le hibou", "Le brochet"]
+    },
+    {
+      "enonce": "Quel animal est carnivore ?",
+      "reponse": "Le lynx",
+      "options": ["Le lynx", "Le lapin", "La chenille", "La vache"]
+    },
+    {
+      "enonce": "Quel animal est omnivore ?",
+      "reponse": "Le sanglier",
+      "options": ["Le sanglier", "Le koala", "La chenille", "Le panda herbivore"]
+    },
+    {
+      "enonce": "Quel être vivant est un producteur dans une chaîne alimentaire ?",
+      "reponse": "Une plante verte",
+      "options": ["Une plante verte", "Un renard", "Une chouette", "Un ver de terre"]
+    },
+    {
+      "enonce": "De quoi les plantes ont-elles besoin pour fabriquer leur matière ?",
+      "reponse": "De lumière, d’eau et de dioxyde de carbone",
+      "options": ["De lumière, d’eau et de dioxyde de carbone", "De viande et de lait", "De sable uniquement", "De lumière sans eau ni air"]
+    },
+    {
+      "enonce": "Quel rôle jouent les champignons et certaines bactéries dans un écosystème ?",
+      "reponse": "Ils décomposent une partie des restes organiques",
+      "options": ["Ils décomposent une partie des restes organiques", "Ils fabriquent les roches", "Ils arrêtent la pluie", "Ils remplacent toutes les plantes"]
+    },
+    {
+      "enonce": "Que deviennent peu à peu les feuilles mortes dans le sol ?",
+      "reponse": "Elles se décomposent et enrichissent le sol",
+      "options": ["Elles se décomposent et enrichissent le sol", "Elles deviennent toujours du plastique", "Elles disparaissent sans aucune transformation", "Elles se changent en animaux"]
+    },
+    {
+      "enonce": "Qu’est-ce qu’un écosystème ?",
+      "reponse": "Des êtres vivants et leur milieu qui interagissent",
+      "options": ["Des êtres vivants et leur milieu qui interagissent", "Une seule espèce isolée de tout", "Un objet fabriqué en usine", "Une liste de villes"]
+    },
+    {
+      "enonce": "Qu’est-ce que la biodiversité ?",
+      "reponse": "La diversité des êtres vivants",
+      "options": ["La diversité des êtres vivants", "Le nombre de voitures dans une ville", "La quantité de pluie en une journée", "La couleur d’un seul animal"]
+    },
+    {
+      "enonce": "Pourquoi les haies peuvent-elles être utiles aux animaux ?",
+      "reponse": "Elles peuvent leur fournir nourriture et abri",
+      "options": ["Elles peuvent leur fournir nourriture et abri", "Elles empêchent toute plante de pousser", "Elles rendent l’air irrespirable", "Elles remplacent les rivières"]
+    },
+    {
+      "enonce": "Quel effet peut avoir la destruction d’une forêt sur les animaux qui y vivent ?",
+      "reponse": "Ils peuvent perdre leur habitat",
+      "options": ["Ils peuvent perdre leur habitat", "Ils trouvent toujours plus de nourriture", "Leur habitat devient un océan", "Aucun être vivant ne dépend jamais d’une forêt"]
+    },
+    {
+      "enonce": "Pourquoi faut-il protéger les zones humides ?",
+      "reponse": "Elles abritent des espèces et retiennent de l’eau",
+      "options": ["Elles abritent des espèces et retiennent de l’eau", "Elles ne servent à aucun être vivant", "Elles fabriquent du pétrole", "Elles empêchent toutes les pluies"]
+    },
+    {
+      "enonce": "Quel geste aide à économiser l’eau à la maison ?",
+      "reponse": "Fermer le robinet pendant le brossage des dents",
+      "options": ["Fermer le robinet pendant le brossage des dents", "Laisser couler l’eau inutilement", "Remplir la baignoire plusieurs fois", "Laver le trottoir au tuyau chaque jour"]
+    },
+    {
+      "enonce": "Que signifie réutiliser un objet ?",
+      "reponse": "S’en servir plusieurs fois au lieu de le jeter tout de suite",
+      "options": ["S’en servir plusieurs fois au lieu de le jeter tout de suite", "Le jeter dans la nature", "Le brûler après chaque usage", "Le remplacer immédiatement"]
+    },
+    {
+      "enonce": "Quel déchet peut généralement être recyclé dans le bac de tri adapté ?",
+      "reponse": "Une bouteille en verre",
+      "options": ["Une bouteille en verre", "Une épluchure mélangée aux piles", "Un mouchoir sale dans tous les bacs", "Un reste de soupe"]
+    },
+    {
+      "enonce": "Pourquoi ne faut-il pas jeter de déchets dans une rivière ?",
+      "reponse": "Ils peuvent polluer l’eau et blesser les êtres vivants",
+      "options": ["Ils peuvent polluer l’eau et blesser les êtres vivants", "Ils rendent toujours l’eau plus propre", "Ils nourrissent tous les poissons sans danger", "Ils transforment la rivière en forêt"]
+    },
+    {
+      "enonce": "Quelle action protège les insectes pollinisateurs ?",
+      "reponse": "Préserver des fleurs et des espaces naturels",
+      "options": ["Préserver des fleurs et des espaces naturels", "Détruire toutes les plantes à fleurs", "Retirer les abris des insectes", "Polluer les mares"]
+    },
+    {
+      "enonce": "Quel est un exemple de ressource naturelle renouvelable ?",
+      "reponse": "La lumière du Soleil",
+      "options": ["La lumière du Soleil", "Le pétrole", "Le charbon", "Le gaz naturel"]
+    },
+    {
+      "enonce": "Pourquoi les arbres sont-ils importants pour de nombreux êtres vivants ?",
+      "reponse": "Ils offrent nourriture, abri et lieux de vie",
+      "options": ["Ils offrent nourriture, abri et lieux de vie", "Ils empêchent l’eau d’exister", "Ils sont la seule nourriture des carnivores", "Ils transforment les animaux en plantes"]
+    },
+    {
+      "enonce": "Que peut provoquer une trop grande quantité de plastique dans la mer ?",
+      "reponse": "Des dangers pour les animaux marins",
+      "options": ["Des dangers pour les animaux marins", "La disparition de toutes les vagues", "La transformation de l’eau en air", "Une meilleure croissance de tous les coraux"]
+    },
+    {
+      "enonce": "Quel comportement respecte la nature lors d’une sortie ?",
+      "reponse": "Observer les animaux sans les déranger",
+      "options": ["Observer les animaux sans les déranger", "Détruire les nids", "Abandonner des emballages", "Cueillir toutes les plantes"]
+    },
+    {
+      "enonce": "Pourquoi certaines espèces migrent-elles selon les saisons ?",
+      "reponse": "Pour trouver des conditions de vie ou de la nourriture adaptées",
+      "options": ["Pour trouver des conditions de vie ou de la nourriture adaptées", "Pour changer de couleur à volonté", "Parce que les saisons les déplacent toutes de la même façon", "Pour fabriquer leur propre habitat"]
+    },
+    {
+      "enonce": "Quel élément non vivant fait partie d’un milieu naturel ?",
+      "reponse": "L’eau",
+      "options": ["L’eau", "Le renard", "Le chêne", "Le papillon"]
+    },
+    {
+      "enonce": "Que peut faire une plante pour se protéger des animaux ?",
+      "reponse": "Produire des épines",
+      "options": ["Produire des épines", "Construire un terrier", "Changer en animal", "Boire du pétrole"]
+    },
+    {
+      "enonce": "Quel est le rôle des racines dans la vie d’une plante ?",
+      "reponse": "Elles l’ancrent dans le sol et absorbent de l’eau",
+      "options": ["Elles l’ancrent dans le sol et absorbent de l’eau", "Elles chassent les insectes", "Elles produisent des pierres", "Elles remplacent les feuilles pour entendre"]
+    },
+    {
+      "enonce": "Dans une chaîne alimentaire, que peut manger une grenouille ?",
+      "reponse": "Des insectes",
+      "options": ["Des insectes", "Des pierres", "Des feuilles mortes uniquement", "Des nuages"]
+    },
+    {
+      "enonce": "Qu’est-ce qu’un prédateur ?",
+      "reponse": "Un animal qui chasse d’autres animaux pour se nourrir",
+      "options": ["Un animal qui chasse d’autres animaux pour se nourrir", "Une plante qui fabrique de la lumière", "Un animal qui mange uniquement des feuilles", "Un être vivant qui décompose les roches"]
+    },
+    {
+      "enonce": "Pourquoi les milieux naturels sont-ils parfois fragiles ?",
+      "reponse": "Parce que les êtres vivants dépendent les uns des autres et de leur milieu",
+      "options": ["Parce que les êtres vivants dépendent les uns des autres et de leur milieu", "Parce qu’ils ne contiennent jamais d’eau", "Parce que les animaux peuvent vivre sans nourriture", "Parce que les plantes n’ont besoin d’aucune condition"]
     }
   ]
 }

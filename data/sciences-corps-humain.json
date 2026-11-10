@@ -246,6 +246,72 @@
       "difficulte": "difficile",
       "reponse": "Régler la quantité de lumière qui entre dans l’œil",
       "options": ["Régler la quantité de lumière qui entre dans l’œil", "Transformer les sons en messages", "Produire les larmes", "Protéger les poumons"]
+    },
+    {
+      "organe": "Larynx",
+      "difficulte": "normal",
+      "reponse": "Participer à la production de la voix",
+      "options": ["Participer à la production de la voix", "Filtrer l’urine", "Pomper le sang", "Absorber les nutriments"]
+    },
+    {
+      "organe": "Pharynx",
+      "difficulte": "normal",
+      "reponse": "Faire passer l’air vers le larynx et les aliments vers l’œsophage",
+      "options": ["Faire passer l’air vers le larynx et les aliments vers l’œsophage", "Stocker la bile", "Produire les globules rouges", "Régler la lumière dans l’œil"]
+    },
+    {
+      "organe": "Bronches",
+      "difficulte": "normal",
+      "reponse": "Conduire l’air de la trachée vers les poumons",
+      "options": ["Conduire l’air de la trachée vers les poumons", "Transporter l’urine vers la vessie", "Faire circuler les aliments", "Relier les muscles aux os"]
+    },
+    {
+      "organe": "Alvéoles pulmonaires",
+      "difficulte": "difficile",
+      "reponse": "Permettre les échanges de gaz entre l’air et le sang",
+      "options": ["Permettre les échanges de gaz entre l’air et le sang", "Produire la bile", "Filtrer l’urine", "Protéger les articulations"]
+    },
+    {
+      "organe": "Moelle osseuse",
+      "difficulte": "difficile",
+      "reponse": "Fabriquer les cellules du sang",
+      "options": ["Fabriquer les cellules du sang", "Faire circuler l’air", "Digérer les aliments dans l’estomac", "Régler la quantité de lumière dans l’œil"]
+    },
+    {
+      "organe": "Ligaments",
+      "difficulte": "normal",
+      "reponse": "Relier les os entre eux au niveau des articulations",
+      "options": ["Relier les os entre eux au niveau des articulations", "Relier les muscles aux os", "Transporter l’oxygène", "Faire passer l’air vers les poumons"]
+    },
+    {
+      "organe": "Cartilage",
+      "difficulte": "normal",
+      "reponse": "Protéger les extrémités des os dans certaines articulations",
+      "options": ["Protéger les extrémités des os dans certaines articulations", "Pomper le sang", "Produire l’urine", "Transmettre les sons au cerveau"]
+    },
+    {
+      "organe": "Intestin grêle",
+      "difficulte": "normal",
+      "reponse": "Absorber la plupart des nutriments des aliments digérés",
+      "options": ["Absorber la plupart des nutriments des aliments digérés", "Produire l’air respiré", "Stocker l’urine", "Contrôler la vue"]
+    },
+    {
+      "organe": "Émail des dents",
+      "difficulte": "difficile",
+      "reponse": "Protéger la partie visible des dents",
+      "options": ["Protéger la partie visible des dents", "Fabriquer la salive", "Transporter le sang", "Faire bouger les poumons"]
+    },
+    {
+      "organe": "Paupières",
+      "difficulte": "facile",
+      "reponse": "Protéger les yeux et aider à les garder humides",
+      "options": ["Protéger les yeux et aider à les garder humides", "Entendre les sons", "Digérer les aliments", "Filtrer le sang"]
+    },
+    {
+      "organe": "Cordes vocales",
+      "difficulte": "difficile",
+      "reponse": "Vibrer pour produire des sons quand l’air passe",
+      "options": ["Vibrer pour produire des sons quand l’air passe", "Faire circuler le sang", "Absorber l’eau des aliments", "Protéger les reins"]
     }
   ]
 }

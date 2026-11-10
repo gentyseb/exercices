@@ -311,6 +311,106 @@
         "Parlant",
         "Agité"
       ]
+    },
+    {
+      "enonce": "Quel est un synonyme de « malin » ?",
+      "reponse": "Intelligent",
+      "options": ["Intelligent", "Naïf", "Distrait", "Lent"]
+    },
+    {
+      "enonce": "Quel est le contraire de « fragile » ?",
+      "reponse": "Solide",
+      "options": ["Solide", "Cassant", "Délicat", "Faible"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « heureux » ?",
+      "reponse": "Ravi",
+      "options": ["Ravi", "Inquiet", "Fâché", "Malheureux"]
+    },
+    {
+      "enonce": "Quel est le contraire de « éteindre » ?",
+      "reponse": "Allumer",
+      "options": ["Allumer", "Fermer", "Cacher", "Baisser"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « bavarder » ?",
+      "reponse": "Discuter",
+      "options": ["Discuter", "Se taire", "Courir", "Dessiner"]
+    },
+    {
+      "enonce": "Quel est le contraire de « tôt » ?",
+      "reponse": "Tard",
+      "options": ["Tard", "Bientôt", "Hier", "Vite"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « habile » ?",
+      "reponse": "Adroit",
+      "options": ["Adroit", "Maladroit", "Lent", "Fragile"]
+    },
+    {
+      "enonce": "Quel est le contraire de « large » ?",
+      "reponse": "Étroit",
+      "options": ["Étroit", "Vaste", "Grand", "Ouvert"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « gigantesque » ?",
+      "reponse": "Énorme",
+      "options": ["Énorme", "Minuscule", "Faible", "Court"]
+    },
+    {
+      "enonce": "Quel est le contraire de « gagner » ?",
+      "reponse": "Perdre",
+      "options": ["Perdre", "Réussir", "Recevoir", "Trouver"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « demeurer » ?",
+      "reponse": "Rester",
+      "options": ["Rester", "Partir", "Déménager", "Courir"]
+    },
+    {
+      "enonce": "Quel est le contraire de « visible » ?",
+      "reponse": "Invisible",
+      "options": ["Invisible", "Brillant", "Clair", "Apparent"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « tranquille » ?",
+      "reponse": "Paisible",
+      "options": ["Paisible", "Agité", "Bruyant", "Pressé"]
+    },
+    {
+      "enonce": "Quel est le contraire de « moderne » ?",
+      "reponse": "Ancien",
+      "options": ["Ancien", "Récent", "Neuf", "Actuel"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « peureux » ?",
+      "reponse": "Craintif",
+      "options": ["Craintif", "Audacieux", "Vaillant", "Intrépide"]
+    },
+    {
+      "enonce": "Quel est le contraire de « humide » ?",
+      "reponse": "Sec",
+      "options": ["Sec", "Mouillé", "Trempé", "Moite"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « fatiguer » ?",
+      "reponse": "Épuiser",
+      "options": ["Épuiser", "Reposer", "Réveiller", "Amuser"]
+    },
+    {
+      "enonce": "Quel est le contraire de « autoriser » ?",
+      "reponse": "Interdire",
+      "options": ["Interdire", "Permettre", "Accepter", "Encourager"]
+    },
+    {
+      "enonce": "Quel est un synonyme de « prompt » ?",
+      "reponse": "Rapide",
+      "options": ["Rapide", "Lent", "Tardif", "Calme"]
+    },
+    {
+      "enonce": "Quel est le contraire de « possible » ?",
+      "reponse": "Impossible",
+      "options": ["Impossible", "Réalisable", "Certain", "Facile"]
     }
   ]
 }

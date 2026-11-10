@@ -311,6 +311,106 @@
         "Un pétale",
         "Une graine"
       ]
+    },
+    {
+      "enonce": "Quel pigment vert aide les feuilles à capter la lumière ?",
+      "reponse": "La chlorophylle",
+      "options": ["La chlorophylle", "La sève", "Le pollen", "L’amidon"]
+    },
+    {
+      "enonce": "Quelle substance sucrée certaines fleurs produisent-elles pour attirer les pollinisateurs ?",
+      "reponse": "Le nectar",
+      "options": ["Le nectar", "La terre", "La chlorophylle", "Le bois"]
+    },
+    {
+      "enonce": "Quel est le rôle du pollen dans la reproduction de nombreuses plantes ?",
+      "reponse": "Il transporte les cellules reproductrices mâles",
+      "options": ["Il transporte les cellules reproductrices mâles", "Il absorbe l’eau du sol", "Il forme les racines", "Il protège toujours le tronc"]
+    },
+    {
+      "enonce": "Quel animal peut polliniser une fleur en venant y chercher du nectar ?",
+      "reponse": "Un papillon",
+      "options": ["Un papillon", "Un poisson", "Une taupe", "Un ver de terre"]
+    },
+    {
+      "enonce": "Pourquoi certaines fleurs ont-elles des couleurs vives et un parfum ?",
+      "reponse": "Pour attirer certains pollinisateurs",
+      "options": ["Pour attirer certains pollinisateurs", "Pour fabriquer des racines", "Pour empêcher la pluie de tomber", "Pour se déplacer"]
+    },
+    {
+      "enonce": "Que peut devenir une graine après avoir germé et grandi ?",
+      "reponse": "Une nouvelle plante",
+      "options": ["Une nouvelle plante", "Un caillou", "Un insecte", "Une goutte d’eau"]
+    },
+    {
+      "enonce": "Quel élément aide souvent une graine à germer ?",
+      "reponse": "De l’eau",
+      "options": ["De l’eau", "Du plastique", "Du métal", "De la peinture"]
+    },
+    {
+      "enonce": "Comment appelle-t-on une plante qui perd ses feuilles à une certaine saison ?",
+      "reponse": "Une plante à feuilles caduques",
+      "options": ["Une plante à feuilles caduques", "Une plante carnivore", "Une plante aquatique", "Une plante artificielle"]
+    },
+    {
+      "enonce": "Comment appelle-t-on souvent un arbre qui garde ses feuilles toute l’année ?",
+      "reponse": "Un arbre à feuillage persistant",
+      "options": ["Un arbre à feuillage persistant", "Un arbre sans racines", "Un arbre à feuilles caduques", "Un arbre annuel"]
+    },
+    {
+      "enonce": "Quelle partie colorée d’une fleur attire souvent les insectes pollinisateurs ?",
+      "reponse": "Les pétales",
+      "options": ["Les pétales", "Les racines", "L’écorce", "Les tubercules"]
+    },
+    {
+      "enonce": "À quoi sert généralement le fruit d’une plante à fleurs ?",
+      "reponse": "À contenir et protéger les graines",
+      "options": ["À contenir et protéger les graines", "À absorber l’eau du sol", "À transporter la sève dans la tige", "À remplacer les racines"]
+    },
+    {
+      "enonce": "Comment les graines du bardane peuvent-elles voyager ?",
+      "reponse": "Elles s’accrochent parfois aux poils des animaux",
+      "options": ["Elles s’accrochent parfois aux poils des animaux", "Elles se transforment en plumes", "Elles nagent toujours sous la terre", "Elles sont fabriquées par les racines"]
+    },
+    {
+      "enonce": "Quelle partie de la plante porte souvent les graines après la floraison ?",
+      "reponse": "Le fruit",
+      "options": ["Le fruit", "La racine", "La tige", "L’écorce"]
+    },
+    {
+      "enonce": "Comment appelle-t-on une plante qui vit une seule année ou une seule saison de croissance ?",
+      "reponse": "Une plante annuelle",
+      "options": ["Une plante annuelle", "Un arbre persistant", "Une plante fossile", "Une plante artificielle"]
+    },
+    {
+      "enonce": "Qu’est-ce qu’un bulbe chez certaines plantes ?",
+      "reponse": "Un organe souterrain qui stocke des réserves",
+      "options": ["Un organe souterrain qui stocke des réserves", "Une feuille qui vole", "Une fleur sans pétales", "Un fruit rempli d’eau de mer"]
+    },
+    {
+      "enonce": "Quel organe souterrain permet à une tulipe de repousser après l’hiver ?",
+      "reponse": "Son bulbe",
+      "options": ["Son bulbe", "Son pétale", "Son pollen", "Son fruit"]
+    },
+    {
+      "enonce": "Comment appelle-t-on la tige horizontale souterraine de certaines plantes, comme le gingembre ?",
+      "reponse": "Un rhizome",
+      "options": ["Un rhizome", "Un pétiole", "Un pistil", "Un sépale"]
+    },
+    {
+      "enonce": "À quoi servent les stomates présents sur beaucoup de feuilles ?",
+      "reponse": "À permettre des échanges de gaz avec l’air",
+      "options": ["À permettre des échanges de gaz avec l’air", "À fabriquer des graines dans le sol", "À ancrer la plante", "À absorber directement les minéraux des roches"]
+    },
+    {
+      "enonce": "Quel est le nom du petit orifice qui peut laisser sortir de la vapeur d’eau d’une feuille ?",
+      "reponse": "Un stomate",
+      "options": ["Un stomate", "Un tubercule", "Un pétale", "Un rhizome"]
+    },
+    {
+      "enonce": "Quelle plante peut attraper de petits insectes avec ses feuilles ?",
+      "reponse": "La dionée attrape-mouches",
+      "options": ["La dionée attrape-mouches", "Le pommier", "Le blé", "La tulipe"]
     }
   ]
 }

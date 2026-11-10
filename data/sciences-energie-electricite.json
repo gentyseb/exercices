@@ -101,6 +101,161 @@
       "enonce": "Quand une bouilloire chauffe l’eau, l’énergie électrique devient surtout…",
       "reponse": "De la chaleur",
       "options": ["De la chaleur", "Du papier", "Du vent", "De la terre"]
+    },
+    {
+      "enonce": "Quelle énergie fait avancer une voiture électrique ?",
+      "reponse": "L’énergie électrique stockée dans sa batterie",
+      "options": ["L’énergie électrique stockée dans sa batterie", "L’énergie du charbon dans ses roues", "L’énergie de l’eau dans ses phares", "L’énergie du papier"]
+    },
+    {
+      "enonce": "Quel appareil transforme principalement l’énergie électrique en mouvement ?",
+      "reponse": "Un ventilateur",
+      "options": ["Un ventilateur", "Une ampoule", "Un livre", "Un miroir"]
+    },
+    {
+      "enonce": "Que produit une ampoule allumée ?",
+      "reponse": "De la lumière et un peu de chaleur",
+      "options": ["De la lumière et un peu de chaleur", "De l’eau et du vent", "Du bois et du métal", "De la glace uniquement"]
+    },
+    {
+      "enonce": "Quel élément fournit l’énergie à une lampe de poche sans fil ?",
+      "reponse": "Une pile ou une batterie",
+      "options": ["Une pile ou une batterie", "Un morceau de carton", "Une ficelle", "Un glaçon"]
+    },
+    {
+      "enonce": "Dans un circuit simple, à quoi servent les fils conducteurs ?",
+      "reponse": "À relier les éléments du circuit",
+      "options": ["À relier les éléments du circuit", "À remplacer la pile", "À fabriquer la lumière tout seuls", "À refroidir l’ampoule"]
+    },
+    {
+      "enonce": "Que faut-il pour qu’une ampoule s’allume dans un circuit simple ?",
+      "reponse": "Un circuit fermé avec une source d’énergie",
+      "options": ["Un circuit fermé avec une source d’énergie", "Un fil coupé", "Un interrupteur toujours ouvert", "Une pile posée à côté du circuit"]
+    },
+    {
+      "enonce": "Que fait un interrupteur en position « fermé » dans un circuit ?",
+      "reponse": "Il laisse le courant circuler",
+      "options": ["Il laisse le courant circuler", "Il coupe toujours les fils", "Il transforme la pile en aimant", "Il enlève l’ampoule"]
+    },
+    {
+      "enonce": "Pourquoi un objet en plastique ne laisse-t-il généralement pas passer le courant ?",
+      "reponse": "Parce que le plastique est isolant",
+      "options": ["Parce que le plastique est isolant", "Parce que le plastique est un métal", "Parce qu’il produit du courant", "Parce qu’il est toujours mouillé"]
+    },
+    {
+      "enonce": "Lequel de ces matériaux est généralement conducteur d’électricité ?",
+      "reponse": "L’aluminium",
+      "options": ["L’aluminium", "Le verre", "Le caoutchouc", "Le bois sec"]
+    },
+    {
+      "enonce": "Quelle source d’énergie utilise une éolienne ?",
+      "reponse": "Le vent",
+      "options": ["Le vent", "Le charbon", "Le pétrole", "Le gaz naturel"]
+    },
+    {
+      "enonce": "Que transforme un panneau solaire photovoltaïque ?",
+      "reponse": "La lumière du Soleil en électricité",
+      "options": ["La lumière du Soleil en électricité", "Le vent en charbon", "L’eau en plastique", "Le son en bois"]
+    },
+    {
+      "enonce": "Quelle source permet à une centrale hydroélectrique de produire de l’électricité ?",
+      "reponse": "Le mouvement de l’eau",
+      "options": ["Le mouvement de l’eau", "Le sable immobile", "La lumière d’une lampe", "Le bruit des voitures"]
+    },
+    {
+      "enonce": "Laquelle de ces sources d’énergie est non renouvelable ?",
+      "reponse": "Le pétrole",
+      "options": ["Le pétrole", "Le vent", "La lumière du Soleil", "L’eau en mouvement"]
+    },
+    {
+      "enonce": "Pourquoi dit-on que le vent est une source d’énergie renouvelable ?",
+      "reponse": "Parce qu’il se renouvelle naturellement",
+      "options": ["Parce qu’il se renouvelle naturellement", "Parce qu’il vient du pétrole", "Parce qu’il ne peut jamais s’arrêter", "Parce qu’il est fabriqué par les piles"]
+    },
+    {
+      "enonce": "Quelle énergie une pile fournit-elle à un jouet électrique ?",
+      "reponse": "De l’énergie électrique",
+      "options": ["De l’énergie électrique", "De l’énergie alimentaire", "De l’énergie du vent", "De l’énergie sonore uniquement"]
+    },
+    {
+      "enonce": "Quel appareil transforme l’énergie électrique en chaleur pour réchauffer une pièce ?",
+      "reponse": "Un radiateur électrique",
+      "options": ["Un radiateur électrique", "Une règle", "Un arrosoir", "Un miroir"]
+    },
+    {
+      "enonce": "Quel équipement permet d’écouter de la musique grâce à un signal électrique converti en son ?",
+      "reponse": "Une enceinte",
+      "options": ["Une enceinte", "Une casserole froide", "Un cahier", "Une fenêtre"]
+    },
+    {
+      "enonce": "Quand on pédale pour faire avancer un vélo, quelle énergie utilise-t-on surtout ?",
+      "reponse": "L’énergie musculaire",
+      "options": ["L’énergie musculaire", "L’énergie d’une pile cachée", "L’énergie du charbon dans les pédales", "L’énergie des nuages"]
+    },
+    {
+      "enonce": "Quel geste permet d’éviter de gaspiller l’électricité en quittant une pièce ?",
+      "reponse": "Éteindre les lumières inutilisées",
+      "options": ["Éteindre les lumières inutilisées", "Allumer toutes les lampes", "Laisser les appareils en marche", "Ouvrir le réfrigérateur"]
+    },
+    {
+      "enonce": "Que faut-il faire si l’on voit un câble électrique abîmé ?",
+      "reponse": "Ne pas le toucher et prévenir un adulte",
+      "options": ["Ne pas le toucher et prévenir un adulte", "Le réparer soi-même", "Le mouiller", "Le tirer pour le débrancher"]
+    },
+    {
+      "enonce": "Pourquoi ne faut-il pas toucher une prise avec les mains mouillées ?",
+      "reponse": "L’eau peut augmenter le risque de choc électrique",
+      "options": ["L’eau peut augmenter le risque de choc électrique", "L’eau transforme la prise en lampe", "La prise peut devenir du plastique", "Cela empêche toujours le courant de circuler"]
+    },
+    {
+      "enonce": "Dans une pile, quelle énergie est transformée pour faire fonctionner un appareil ?",
+      "reponse": "L’énergie chimique en énergie électrique",
+      "options": ["L’énergie chimique en énergie électrique", "L’énergie sonore en énergie du vent", "L’énergie lumineuse en eau", "L’énergie mécanique en papier"]
+    },
+    {
+      "enonce": "À quoi sert une batterie rechargeable ?",
+      "reponse": "À stocker de l’énergie et à la restituer à un appareil",
+      "options": ["À stocker de l’énergie et à la restituer à un appareil", "À produire du carburant", "À remplacer tous les fils électriques", "À transformer le plastique en lumière"]
+    },
+    {
+      "enonce": "Quel objet utilise l’énergie électrique pour refroidir les aliments ?",
+      "reponse": "Un réfrigérateur",
+      "options": ["Un réfrigérateur", "Un grille-pain", "Une bougie", "Un tambour"]
+    },
+    {
+      "enonce": "Quelle transformation d’énergie a lieu dans un grille-pain en fonctionnement ?",
+      "reponse": "L’énergie électrique devient de la chaleur",
+      "options": ["L’énergie électrique devient de la chaleur", "La chaleur devient du papier", "Le son devient de l’eau", "Le vent devient du métal"]
+    },
+    {
+      "enonce": "Quelle énergie permet à une voile de faire avancer un bateau ?",
+      "reponse": "L’énergie du vent",
+      "options": ["L’énergie du vent", "L’énergie d’une ampoule", "L’énergie du charbon dans l’eau", "L’énergie des rochers"]
+    },
+    {
+      "enonce": "Quel équipement transforme la lumière du Soleil en chaleur pour chauffer de l’eau ?",
+      "reponse": "Un capteur solaire thermique",
+      "options": ["Un capteur solaire thermique", "Une pile au charbon", "Un haut-parleur", "Un isolant en plastique"]
+    },
+    {
+      "enonce": "Dans une centrale éolienne, que fait tourner le vent ?",
+      "reponse": "Les pales de l’éolienne",
+      "options": ["Les pales de l’éolienne", "Les roues d’un réfrigérateur", "Les fils d’une prise", "Les ampoules d’une maison"]
+    },
+    {
+      "enonce": "À quoi sert un isolant autour d’un fil électrique ?",
+      "reponse": "À limiter le contact avec le conducteur",
+      "options": ["À limiter le contact avec le conducteur", "À produire davantage de courant", "À remplacer la source d’énergie", "À faire tourner un moteur"]
+    },
+    {
+      "enonce": "Quel appareil transforme l’énergie électrique en mouvement pour mélanger une pâte ?",
+      "reponse": "Un batteur électrique",
+      "options": ["Un batteur électrique", "Un verre", "Une cuillère en bois immobile", "Un cahier"]
+    },
+    {
+      "enonce": "Quelle énergie est transférée par une prise électrique à un appareil branché ?",
+      "reponse": "De l’énergie électrique",
+      "options": ["De l’énergie électrique", "De l’énergie alimentaire", "De l’énergie du vent", "De l’énergie des marées"]
     }
   ]
 }

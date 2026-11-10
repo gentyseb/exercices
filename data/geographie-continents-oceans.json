@@ -311,6 +311,106 @@
         "L’Afrique",
         "L’Asie"
       ]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Allemagne ?",
+      "reponse": "L’Europe",
+      "options": ["L’Europe", "L’Afrique", "L’Asie", "L’Océanie"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Nigeria ?",
+      "reponse": "L’Afrique",
+      "options": ["L’Afrique", "L’Europe", "L’Amérique du Nord", "L’Antarctique"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Chili ?",
+      "reponse": "L’Amérique du Sud",
+      "options": ["L’Amérique du Sud", "L’Amérique du Nord", "L’Asie", "L’Europe"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Thaïlande ?",
+      "reponse": "L’Asie",
+      "options": ["L’Asie", "L’Afrique", "L’Europe", "L’Amérique du Sud"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Maroc ?",
+      "reponse": "L’Afrique",
+      "options": ["L’Afrique", "L’Europe", "L’Océanie", "L’Amérique du Nord"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Norvège ?",
+      "reponse": "L’Europe",
+      "options": ["L’Europe", "L’Asie", "L’Afrique", "L’Amérique du Sud"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Venezuela ?",
+      "reponse": "L’Amérique du Sud",
+      "options": ["L’Amérique du Sud", "L’Amérique du Nord", "L’Europe", "L’Océanie"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Corée du Sud ?",
+      "reponse": "L’Asie",
+      "options": ["L’Asie", "L’Europe", "L’Afrique", "L’Amérique du Nord"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Tanzanie ?",
+      "reponse": "L’Afrique",
+      "options": ["L’Afrique", "L’Asie", "L’Europe", "L’Amérique du Sud"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Grèce ?",
+      "reponse": "L’Europe",
+      "options": ["L’Europe", "L’Afrique", "L’Amérique du Nord", "L’Océanie"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Bolivie ?",
+      "reponse": "L’Amérique du Sud",
+      "options": ["L’Amérique du Sud", "L’Amérique du Nord", "L’Asie", "L’Afrique"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Pakistan ?",
+      "reponse": "L’Asie",
+      "options": ["L’Asie", "L’Afrique", "L’Europe", "L’Amérique du Sud"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve le Sénégal ?",
+      "reponse": "L’Afrique",
+      "options": ["L’Afrique", "L’Europe", "L’Asie", "L’Antarctique"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve la Suède ?",
+      "reponse": "L’Europe",
+      "options": ["L’Europe", "L’Asie", "L’Afrique", "L’Amérique du Nord"]
+    },
+    {
+      "enonce": "Sur quel continent se trouve l’Équateur ?",
+      "reponse": "L’Amérique du Sud",
+      "options": ["L’Amérique du Sud", "L’Amérique du Nord", "L’Afrique", "L’Europe"]
+    },
+    {
+      "enonce": "Quel océan borde la côte est de l’Australie ?",
+      "reponse": "L’océan Pacifique",
+      "options": ["L’océan Pacifique", "L’océan Atlantique", "L’océan Arctique", "L’océan Austral"]
+    },
+    {
+      "enonce": "Quel océan se trouve à l’ouest de l’Europe ?",
+      "reponse": "L’océan Atlantique",
+      "options": ["L’océan Atlantique", "L’océan Pacifique", "L’océan Indien", "L’océan Austral"]
+    },
+    {
+      "enonce": "Quel océan borde la côte est de l’Afrique ?",
+      "reponse": "L’océan Indien",
+      "options": ["L’océan Indien", "L’océan Atlantique", "L’océan Arctique", "L’océan Austral"]
+    },
+    {
+      "enonce": "Quel océan borde le nord de l’Asie ?",
+      "reponse": "L’océan Arctique",
+      "options": ["L’océan Arctique", "L’océan Indien", "L’océan Austral", "L’océan Atlantique"]
+    },
+    {
+      "enonce": "Quel océan se trouve au sud de l’Inde ?",
+      "reponse": "L’océan Indien",
+      "options": ["L’océan Indien", "L’océan Arctique", "L’océan Austral", "L’océan Atlantique"]
     }
   ]
 }

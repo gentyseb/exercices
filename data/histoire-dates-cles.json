@@ -901,6 +901,222 @@
       "enonce": "En quelle année a eu lieu la prise de la Bastille ?",
       "reponse": "1789",
       "options": ["1788", "1789", "1790", "1792"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu la bataille de Bouvines ?",
+      "reponse": "1214",
+      "options": ["1066", "1214", "1337", "1429"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la guerre de Cent Ans a-t-elle commencé ?",
+      "reponse": "1337",
+      "options": ["1214", "1337", "1429", "1453"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Jeanne d’Arc a-t-elle contribué à libérer Orléans ?",
+      "reponse": "1429",
+      "options": ["1337", "1415", "1429", "1453"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la guerre de Cent Ans s’est-elle terminée ?",
+      "reponse": "1453",
+      "options": ["1337", "1429", "1453", "1492"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année François Ier a-t-il remporté la bataille de Marignan ?",
+      "reponse": "1515",
+      "options": ["1492", "1515", "1539", "1598"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année l’ordonnance de Villers-Cotterêts a-t-elle été signée ?",
+      "reponse": "1539",
+      "options": ["1515", "1539", "1598", "1661"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Henri IV a-t-il signé l’édit de Nantes ?",
+      "reponse": "1598",
+      "options": ["1515", "1539", "1598", "1682"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Louis XIV a-t-il commencé à gouverner seul ?",
+      "reponse": "1661",
+      "options": ["1598", "1643", "1661", "1682"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la cour de Louis XIV s’est-elle installée à Versailles ?",
+      "reponse": "1682",
+      "options": ["1661", "1682", "1715", "1789"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Louis XIV est-il mort ?",
+      "reponse": "1715",
+      "options": ["1661", "1682", "1715", "1789"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la Déclaration d’indépendance des États-Unis a-t-elle été adoptée ?",
+      "reponse": "1776",
+      "options": ["1756", "1776", "1789", "1792"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la Déclaration des droits de l’homme et du citoyen a-t-elle été adoptée ?",
+      "reponse": "1789",
+      "options": ["1776", "1789", "1791", "1792"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la première Constitution française a-t-elle été adoptée ?",
+      "reponse": "1791",
+      "options": ["1789", "1791", "1792", "1804"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Louis XVI a-t-il été exécuté ?",
+      "reponse": "1793",
+      "options": ["1789", "1791", "1793", "1799"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année le Code civil de Napoléon a-t-il été promulgué ?",
+      "reponse": "1804",
+      "options": ["1799", "1804", "1815", "1848"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la France a-t-elle aboli l’esclavage dans ses colonies ?",
+      "reponse": "1848",
+      "options": ["1789", "1815", "1848", "1870"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la Troisième République a-t-elle été proclamée en France ?",
+      "reponse": "1870",
+      "options": ["1815", "1848", "1870", "1889"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la tour Eiffel a-t-elle été inaugurée ?",
+      "reponse": "1889",
+      "options": ["1848", "1870", "1889", "1905"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la loi française de séparation des Églises et de l’État a-t-elle été adoptée ?",
+      "reponse": "1905",
+      "options": ["1889", "1905", "1914", "1918"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la Seconde Guerre mondiale a-t-elle commencé en Europe ?",
+      "reponse": "1939",
+      "options": ["1918", "1936", "1939", "1944"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année le général de Gaulle a-t-il lancé son appel du 18 Juin ?",
+      "reponse": "1940",
+      "options": ["1939", "1940", "1944", "1945"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les femmes ont-elles obtenu le droit de vote en France ?",
+      "reponse": "1944",
+      "options": ["1936", "1940", "1944", "1948"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année l’Organisation des Nations unies a-t-elle été créée ?",
+      "reponse": "1945",
+      "options": ["1919", "1939", "1945", "1957"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les traités de Rome ont-ils été signés ?",
+      "reponse": "1957",
+      "options": ["1945", "1951", "1957", "1992"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les premiers humains ont-ils marché sur la Lune ?",
+      "reponse": "1969",
+      "options": ["1957", "1961", "1969", "1975"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la loi Veil sur l’interruption volontaire de grossesse a-t-elle été votée en France ?",
+      "reponse": "1975",
+      "options": ["1969", "1975", "1981", "1989"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la peine de mort a-t-elle été abolie en France ?",
+      "reponse": "1981",
+      "options": ["1975", "1981", "1989", "1992"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année l’accord de Paris sur le climat a-t-il été adopté ?",
+      "reponse": "2015",
+      "options": ["2002", "2008", "2015", "2020"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année le traité de Maastricht a-t-il été signé ?",
+      "reponse": "1992",
+      "options": ["1989", "1992", "2000", "2002"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les pièces et billets en euros ont-ils été mis en circulation ?",
+      "reponse": "2002",
+      "options": ["1992", "1999", "2002", "2005"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année le tunnel sous la Manche a-t-il été ouvert au service ferroviaire ?",
+      "reponse": "1994",
+      "options": ["1989", "1992", "1994", "2002"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année l’édit de Nantes a-t-il été révoqué par Louis XIV ?",
+      "reponse": "1685",
+      "options": ["1598", "1661", "1682", "1685"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la bataille de Waterloo a-t-elle marqué la défaite définitive de Napoléon ?",
+      "reponse": "1815",
+      "options": ["1804", "1812", "1815", "1848"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année le premier tour de France cycliste a-t-il été organisé ?",
+      "reponse": "1903",
+      "options": ["1889", "1903", "1914", "1929"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les Jeux olympiques modernes ont-ils eu lieu pour la première fois ?",
+      "reponse": "1896",
+      "options": ["1889", "1896", "1900", "1912"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année les premiers Jeux olympiques d’hiver ont-ils eu lieu à Chamonix ?",
+      "reponse": "1924",
+      "options": ["1896", "1900", "1924", "1936"]
     }
   ]
 }

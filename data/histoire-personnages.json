@@ -46,14 +46,14 @@
         "reponse": "Premier roi franc chrétien (496)",
         "epoch": "Moyen Âge (Ve siècle)",
         "hint": "Baptême à Reims",
-        "options": ["Premier roi franc chrétien", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
+        "options": ["Premier roi franc chrétien (496)", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
       },
       {
         "personnage": "Charlemagne",
         "reponse": "Empereur carolingien, roi des Francs (800)",
         "epoch": "Moyen Âge",
         "hint": "Couronnement à Aix-la-Chapelle",
-        "options": ["Empereur carolingien, roi des Francs", "Chef viking", "Roi de France médiéval", "Pape"]
+        "options": ["Empereur carolingien, roi des Francs (800)", "Chef viking", "Roi de France médiéval", "Pape"]
       },
       {
         "personnage": "Roland",
@@ -190,7 +190,7 @@
         "reponse": "Dernier roi avant la Révolution (1789)",
         "epoch": "XVIIIe siècle (1774-1792)",
         "hint": "Mari de Marie-Antoinette",
-        "options": ["Dernier roi avant la Révolution", "Roi du peuple", "Empereur", "Roi citoyen"]
+        "options": ["Dernier roi avant la Révolution (1789)", "Roi du peuple", "Empereur", "Roi citoyen"]
       },
       {
         "personnage": "Marie-Antoinette",
@@ -227,14 +227,14 @@
         "reponse": "Héroïne française, libératrice d'Orléans (1429)",
         "epoch": "Moyen Âge (XVe siècle)",
         "hint": "La Pucelle d'Orléans",
-        "options": ["Héroïne française, libératrice d'Orléans", "Reine de France", "Sainte guerrière", "Princesse"]
+        "options": ["Héroïne française, libératrice d'Orléans (1429)", "Reine de France", "Sainte guerrière", "Princesse"]
       },
       {
         "personnage": "Napoléon Bonaparte",
         "reponse": "Général puis empereur français (1804-1815)",
         "epoch": "XIXe siècle",
         "hint": "Bataille d'Austerlitz",
-        "options": ["Général puis empereur français", "Roi de France", "Président de la République", "Maréchal"]
+        "options": ["Général puis empereur français (1804-1815)", "Roi de France", "Président de la République", "Maréchal"]
       },
       {
         "personnage": "Joséphine de Beauharnais",
@@ -315,7 +315,7 @@
         "reponse": "Homme politique, Père la Victoire (1918)",
         "epoch": "XXe siècle",
         "hint": "Le Tigre",
-        "options": ["Homme politique, Père la Victoire", "Général", "Maréchal", "Roi"]
+        "options": ["Homme politique, Père la Victoire (1918)", "Général", "Maréchal", "Roi"]
       },
       {
         "personnage": "De Gaulle",
@@ -336,7 +336,7 @@
         "reponse": "Général, libérateur de Paris (1944)",
         "epoch": "XXe siècle",
         "hint": "2e DB",
-        "options": ["Général, libérateur de Paris", "Maréchal", "Chef d'État", "Ministre"]
+        "options": ["Général, libérateur de Paris (1944)", "Maréchal", "Chef d'État", "Ministre"]
       },
       {
         "personnage": "Marie Curie",
@@ -493,12 +493,12 @@
     {
       "personnage": "Clovis",
       "reponse": "Premier roi franc chrétien (496)",
-      "options": ["Premier roi franc chrétien", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
+      "options": ["Premier roi franc chrétien (496)", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
     },
     {
       "personnage": "Charlemagne",
       "reponse": "Empereur carolingien, roi des Francs (800)",
-      "options": ["Empereur carolingien, roi des Francs", "Chef viking", "Roi de France médiéval", "Pape"]
+      "options": ["Empereur carolingien, roi des Francs (800)", "Chef viking", "Roi de France médiéval", "Pape"]
     },
     {
       "personnage": "Philippe Auguste",
@@ -538,7 +538,7 @@
     {
       "personnage": "Louis XVI",
       "reponse": "Dernier roi avant la Révolution (1789)",
-      "options": ["Dernier roi avant la Révolution", "Roi du peuple", "Empereur", "Roi citoyen"]
+      "options": ["Dernier roi avant la Révolution (1789)", "Roi du peuple", "Empereur", "Roi citoyen"]
     },
     {
       "personnage": "Marie-Antoinette",
@@ -558,12 +558,12 @@
     {
       "personnage": "Jeanne d'Arc",
       "reponse": "Héroïne française, libératrice d'Orléans (1429)",
-      "options": ["Héroïne française, libératrice d'Orléans", "Reine de France", "Sainte guerrière", "Princesse"]
+      "options": ["Héroïne française, libératrice d'Orléans (1429)", "Reine de France", "Sainte guerrière", "Princesse"]
     },
     {
       "personnage": "Napoléon Bonaparte",
       "reponse": "Général puis empereur français (1804-1815)",
-      "options": ["Général puis empereur français", "Roi de France", "Président de la République", "Maréchal"]
+      "options": ["Général puis empereur français (1804-1815)", "Roi de France", "Président de la République", "Maréchal"]
     },
     {
       "personnage": "Joséphine de Beauharnais",
@@ -588,7 +588,7 @@
     {
       "personnage": "Clémenceau",
       "reponse": "Homme politique, Père la Victoire (1918)",
-      "options": ["Homme politique, Père la Victoire", "Général", "Maréchal", "Roi"]
+      "options": ["Homme politique, Père la Victoire (1918)", "Général", "Maréchal", "Roi"]
     },
     {
       "personnage": "De Gaulle",
@@ -603,12 +603,12 @@
     {
       "personnage": "Leclerc",
       "reponse": "Général, libérateur de Paris (1944)",
-      "options": ["Général, libérateur de Paris", "Maréchal", "Chef d'État", "Ministre"]
+      "options": ["Général, libérateur de Paris (1944)", "Maréchal", "Chef d'État", "Ministre"]
     },
     {
       "personnage": "Victor Hugo",
       "reponse": "Écrivain, Les Misérables, Notre-Dame de Paris",
-      "options": ["Écrivain, Les Misérables", "Peintre impressionniste", "Compositeur", "Poète"]
+      "options": ["Écrivain, Les Misérables, Notre-Dame de Paris", "Peintre impressionniste", "Compositeur", "Poète"]
     },
     {
       "personnage": "Molière",
@@ -633,7 +633,7 @@
     {
       "personnage": "Christophe Colomb",
       "reponse": "Explorateur, découverte de l'Amérique (1492)",
-      "options": ["Explorateur, découverte de l'Amérique", "Premier homme sur la Lune", "Roi d'Espagne", "Amiral français"]
+      "options": ["Explorateur, découverte de l'Amérique (1492)", "Premier homme sur la Lune", "Roi d'Espagne", "Amiral français"]
     },
     {
       "personnage": "Magellan",
@@ -658,7 +658,7 @@
     {
       "personnage": "Armstrong",
       "reponse": "Premier homme sur la Lune (1969)",
-      "options": ["Premier homme sur la Lune", "Premier spationaute", "Astronome", "Pilote d'avion"]
+      "options": ["Premier homme sur la Lune (1969)", "Premier spationaute", "Astronome", "Pilote d'avion"]
     },
     {
       "personnage": "Monet",
@@ -683,7 +683,7 @@
     {
       "personnage": "Simone Veil",
       "reponse": "Femme politique, loi sur l'IVG (1975)",
-      "options": ["Femme politique, loi sur l'IVG", "Médecin", "Avocate", "Journaliste"]
+      "options": ["Femme politique, loi sur l'IVG (1975)", "Médecin", "Avocate", "Journaliste"]
     },
     {
       "personnage": "Mitterrand",
@@ -693,7 +693,52 @@
     {
       "personnage": "Chirac",
       "reponse": "Président, reconnaissance de la responsabilité de la France dans la Shoah",
-      "options": ["Président, reconnaissance de la Shoah", "Premier ministre", "Ministre", "Député"]
+      "options": ["Président, reconnaissance de la responsabilité de la France dans la Shoah", "Premier ministre", "Ministre", "Député"]
+    },
+    {
+      "personnage": "Galilée",
+      "reponse": "Astronome italien qui a observé le ciel avec une lunette",
+      "options": ["Astronome italien qui a observé le ciel avec une lunette", "Roi de France", "Navigateur portugais", "Peintre espagnol"]
+    },
+    {
+      "personnage": "Nicolas Copernic",
+      "reponse": "Astronome qui a défendu l’idée que la Terre tourne autour du Soleil",
+      "options": ["Astronome qui a défendu l’idée que la Terre tourne autour du Soleil", "Empereur romain", "Explorateur des Amériques", "Écrivain français"]
+    },
+    {
+      "personnage": "Johannes Gutenberg",
+      "reponse": "Artisan associé au développement de l’imprimerie en Europe",
+      "options": ["Artisan associé au développement de l’imprimerie en Europe", "Roi d’Angleterre", "Peintre de la Renaissance", "Chef de la Résistance"]
+    },
+    {
+      "personnage": "Olympe de Gouges",
+      "reponse": "Autrice qui a défendu les droits des femmes pendant la Révolution française",
+      "options": ["Autrice qui a défendu les droits des femmes pendant la Révolution française", "Reine d’Égypte", "Peintre impressionniste", "Exploratrice des pôles"]
+    },
+    {
+      "personnage": "Rosa Parks",
+      "reponse": "Militante américaine des droits civiques, connue pour son refus de céder sa place dans un bus",
+      "options": ["Militante américaine des droits civiques, connue pour son refus de céder sa place dans un bus", "Reine d’Angleterre", "Astronaute française", "Reine de France"]
+    },
+    {
+      "personnage": "Martin Luther King Jr.",
+      "reponse": "Pasteur et militant américain des droits civiques",
+      "options": ["Pasteur et militant américain des droits civiques", "Explorateur espagnol", "Empereur romain", "Compositeur français"]
+    },
+    {
+      "personnage": "Nelson Mandela",
+      "reponse": "Dirigeant sud-africain qui a combattu l’apartheid et est devenu président",
+      "options": ["Dirigeant sud-africain qui a combattu l’apartheid et est devenu président", "Roi de France au Moyen Âge", "Astronome italien", "Peintre néerlandais"]
+    },
+    {
+      "personnage": "Ada Lovelace",
+      "reponse": "Mathématicienne anglaise qui a écrit des notes sur une machine de calcul",
+      "options": ["Mathématicienne anglaise qui a écrit des notes sur une machine de calcul", "Reine d’Égypte", "Cheffe de la Résistance française", "Exploratrice du Pacifique"]
+    },
+    {
+      "personnage": "Harriet Tubman",
+      "reponse": "Militante abolitionniste américaine qui a aidé des personnes réduites en esclavage à gagner leur liberté",
+      "options": ["Militante abolitionniste américaine qui a aidé des personnes réduites en esclavage à gagner leur liberté", "Impératrice romaine", "Peintre de la Renaissance", "Présidente française"]
     }
   ]
 }

@@ -13,6 +13,198 @@
     {
       "enonce": "Ordonne ces éléments du cycle de l’eau.",
       "reponse": ["Évaporation", "Condensation", "Précipitations", "Infiltration"]
+    },
+    {
+      "enonce": "Que se passe-t-il entre l’évaporation de l’eau et la pluie ?",
+      "reponse": ["Évaporation", "Condensation", "Précipitations"]
+    },
+    {
+      "enonce": "Remets dans l’ordre les étapes qui mènent de la vapeur d’eau à la pluie.",
+      "reponse": ["Vapeur d’eau", "Condensation", "Formation des nuages", "Précipitations"]
+    },
+    {
+      "enonce": "Après la pluie, comment l’eau peut-elle rejoindre un cours d’eau ?",
+      "reponse": ["Précipitations", "Ruissellement", "Ruisseau", "Rivière"]
+    },
+    {
+      "enonce": "Ordonne le trajet de l’eau de pluie qui s’infiltre dans le sol.",
+      "reponse": ["Précipitations", "Infiltration", "Nappe souterraine", "Source"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le trajet de l’eau de la mer jusqu’aux nuages.",
+      "reponse": ["Eau de mer", "Évaporation", "Vapeur d’eau", "Condensation"]
+    },
+    {
+      "enonce": "Que devient l’eau qui ruisselle jusqu’à la mer avant de repartir dans l’air ?",
+      "reponse": ["Ruissellement", "Rivière", "Mer", "Évaporation"]
+    },
+    {
+      "enonce": "Ordonne les étapes depuis l’eau chauffée par le Soleil jusqu’à la formation d’un nuage.",
+      "reponse": ["Le Soleil réchauffe l’eau", "Évaporation", "La vapeur monte", "Condensation"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le parcours de l’eau qui tombe sur une montagne.",
+      "reponse": ["Précipitations", "Ruissellement", "Ruisseau", "Rivière"]
+    },
+    {
+      "enonce": "Comment l’eau peut-elle passer d’un nuage à un lac ?",
+      "reponse": ["Condensation", "Formation des nuages", "Précipitations", "Lac"]
+    },
+    {
+      "enonce": "Ordonne le parcours d’une goutte de pluie jusqu’à l’océan.",
+      "reponse": ["Précipitations", "Ruisseau", "Rivière", "Océan"]
+    },
+    {
+      "enonce": "Remets dans l’ordre ces étapes du retour de l’eau vers l’atmosphère.",
+      "reponse": ["Eau à la surface", "Réchauffement par le Soleil", "Évaporation", "Vapeur d’eau dans l’air"]
+    },
+    {
+      "enonce": "Que se passe-t-il quand la vapeur d’eau se refroidit dans l’air ?",
+      "reponse": ["Vapeur d’eau", "Refroidissement", "Condensation", "Gouttelettes d’eau"]
+    },
+    {
+      "enonce": "Ordonne les étapes qui permettent à l’eau de former un nuage.",
+      "reponse": ["Évaporation", "Vapeur d’eau dans l’air", "Refroidissement", "Condensation"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le trajet de l’eau de pluie vers une nappe souterraine.",
+      "reponse": ["Nuage", "Précipitations", "Infiltration dans le sol", "Nappe souterraine"]
+    },
+    {
+      "enonce": "Que peut-il arriver à l’eau après être tombée sur le sol ?",
+      "reponse": ["Précipitations", "Infiltration", "Nappe souterraine", "Source"]
+    },
+    {
+      "enonce": "Ordonne les étapes depuis la formation des nuages jusqu’au retour de l’eau à la mer.",
+      "reponse": ["Formation des nuages", "Précipitations", "Ruissellement", "Mer"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le cycle simplifié de l’eau entre la surface et les nuages.",
+      "reponse": ["Eau à la surface", "Évaporation", "Condensation", "Nuages"]
+    },
+    {
+      "enonce": "Range les grandes étapes du cycle de l’eau depuis un lac jusqu’à la pluie.",
+      "reponse": ["Eau du lac", "Évaporation", "Condensation", "Précipitations"]
+    },
+    {
+      "enonce": "Ordonne le trajet de l’eau qui tombe sur une colline et rejoint un ruisseau.",
+      "reponse": ["Nuage", "Pluie", "Ruissellement", "Ruisseau"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le passage de l’eau de pluie vers le sous-sol.",
+      "reponse": ["Pluie", "Infiltration", "Sol", "Nappe souterraine"]
+    },
+    {
+      "enonce": "Classe les étapes depuis l’eau de mer jusqu’à sa condensation dans l’air.",
+      "reponse": ["Eau de mer", "Réchauffement", "Évaporation", "Condensation"]
+    },
+    {
+      "enonce": "Ordonne les étapes qui conduisent de la vapeur d’eau à une averse.",
+      "reponse": ["Vapeur d’eau", "Refroidissement", "Condensation", "Précipitations"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le trajet d’une goutte de pluie qui rejoint un fleuve.",
+      "reponse": ["Nuage", "Précipitations", "Ruisseau", "Fleuve"]
+    },
+    {
+      "enonce": "Classe les étapes du retour de l’eau d’une rivière vers l’atmosphère.",
+      "reponse": ["Rivière", "Réchauffement par le Soleil", "Évaporation", "Vapeur d’eau"]
+    },
+    {
+      "enonce": "Ordonne le parcours de l’eau qui s’infiltre puis ressort par une source.",
+      "reponse": ["Pluie", "Infiltration", "Nappe souterraine", "Source"]
+    },
+    {
+      "enonce": "Remets dans l’ordre les étapes de formation des gouttes dans un nuage.",
+      "reponse": ["Évaporation", "Vapeur d’eau", "Refroidissement", "Gouttelettes"]
+    },
+    {
+      "enonce": "Classe le trajet de l’eau de pluie qui rejoint une rivière puis la mer.",
+      "reponse": ["Précipitations", "Ruissellement", "Rivière", "Mer"]
+    },
+    {
+      "enonce": "Ordonne les étapes du cycle quand l’eau tombe sur une forêt.",
+      "reponse": ["Nuage", "Pluie", "Infiltration dans le sol", "Nappe d’eau"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le parcours de l’eau d’un étang vers un nuage.",
+      "reponse": ["Étang", "Évaporation", "Vapeur d’eau", "Condensation"]
+    },
+    {
+      "enonce": "Classe les étapes depuis la formation d’un nuage jusqu’à l’infiltration de la pluie.",
+      "reponse": ["Condensation", "Nuage", "Précipitations", "Infiltration"]
+    },
+    {
+      "enonce": "Ordonne le parcours d’une goutte qui ruisselle d’un champ jusqu’à l’océan.",
+      "reponse": ["Pluie", "Ruissellement", "Cours d’eau", "Océan"]
+    },
+    {
+      "enonce": "Remets dans l’ordre les étapes entre l’évaporation et la formation de la pluie.",
+      "reponse": ["Évaporation", "Vapeur d’eau", "Condensation", "Pluie"]
+    },
+    {
+      "enonce": "Classe les étapes du trajet de l’eau tombée en montagne vers une rivière.",
+      "reponse": ["Précipitations", "Ruissellement sur la pente", "Ruisseau", "Rivière"]
+    },
+    {
+      "enonce": "Ordonne le parcours de l’eau qui tombe sur le sol et rejoint une nappe.",
+      "reponse": ["Pluie", "Infiltration dans le sol", "Sous-sol", "Nappe souterraine"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le cycle simplifié entre la mer et le sol.",
+      "reponse": ["Mer", "Évaporation", "Nuages", "Pluie sur les terres"]
+    },
+    {
+      "enonce": "Classe les étapes depuis l’eau chauffée dans une flaque jusqu’à la vapeur.",
+      "reponse": ["Flaque d’eau", "Chaleur du Soleil", "Évaporation", "Vapeur d’eau"]
+    },
+    {
+      "enonce": "Ordonne la formation de la pluie à partir de la vapeur d’eau.",
+      "reponse": ["Vapeur d’eau", "Refroidissement de l’air", "Condensation", "Gouttes de pluie"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le trajet de l’eau de pluie vers un ruisseau.",
+      "reponse": ["Nuage", "Précipitations", "Ruissellement", "Ruisseau"]
+    },
+    {
+      "enonce": "Classe les étapes du retour de l’eau souterraine vers une rivière.",
+      "reponse": ["Infiltration", "Nappe souterraine", "Source", "Rivière"]
+    },
+    {
+      "enonce": "Ordonne les étapes depuis la pluie jusqu’au retour de l’eau dans un lac.",
+      "reponse": ["Précipitations", "Ruissellement", "Ruisseau", "Lac"]
+    },
+    {
+      "enonce": "Remets dans l’ordre les étapes par lesquelles l’eau de mer peut former un nuage.",
+      "reponse": ["Eau de mer", "Évaporation", "Vapeur qui monte", "Condensation"]
+    },
+    {
+      "enonce": "Classe le parcours de l’eau depuis un nuage jusqu’à son infiltration.",
+      "reponse": ["Nuage", "Précipitations", "Sol", "Infiltration"]
+    },
+    {
+      "enonce": "Ordonne le trajet d’une goutte de pluie qui descend d’une montagne vers la mer.",
+      "reponse": ["Pluie en montagne", "Ruisseau", "Rivière", "Mer"]
+    },
+    {
+      "enonce": "Remets dans l’ordre les étapes du cycle de l’eau après une forte pluie.",
+      "reponse": ["Précipitations", "Ruissellement", "Cours d’eau", "Évaporation"]
+    },
+    {
+      "enonce": "Classe les étapes qui ramènent l’eau de l’air vers un cours d’eau.",
+      "reponse": ["Condensation", "Nuage", "Pluie", "Ruisseau"]
+    },
+    {
+      "enonce": "Ordonne le trajet de l’eau qui s’évapore d’un sol humide.",
+      "reponse": ["Sol humide", "Chaleur", "Évaporation", "Vapeur d’eau"]
+    },
+    {
+      "enonce": "Remets dans l’ordre le cycle de l’eau entre un nuage, la terre et la mer.",
+      "reponse": ["Nuage", "Pluie", "Ruissellement", "Mer"]
+    },
+    {
+      "enonce": "Classe les étapes depuis l’eau d’un ruisseau jusqu’à sa transformation en nuage.",
+      "reponse": ["Ruisseau", "Réchauffement par le Soleil", "Évaporation", "Condensation"]
     }
   ]
 }
