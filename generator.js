@@ -593,8 +593,8 @@ function loadDailyChallengeQuestions(root, categories) {
     (key) => !questionPools.has(key) || questionPools.get(key).length === 0
   );
   if (missingQuestions.length > 0) {
-    throw new Error(
-      "Aucune question de défi n’est définie pour : " + missingQuestions.join(", ")
+    console.warn(
+      "Aucune question de défi n’est définie pour (exercices dynamiques ?) : " + missingQuestions.join(", ")
     );
   }
 
@@ -603,6 +603,9 @@ function loadDailyChallengeQuestions(root, categories) {
     exercise: exerciseInfo.get(exerciseKey),
     questions: (() => {
       const pool = questionPools.get(exerciseKey);
+      if (!pool || pool.length === 0) {
+        return [];
+      }
       const random = createSeededRandom("daily-question-pool:" + exerciseKey);
       for (let index = pool.length - 1; index > 0; index--) {
         const other = Math.floor(random() * (index + 1));

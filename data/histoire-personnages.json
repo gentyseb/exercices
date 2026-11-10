@@ -1,31 +1,699 @@
 {
   "titre": "Personnages historiques",
-  "niveau": "CM1-CM2",
+  "niveau": "CE2-CM2",
+  "description": "Découvre les grands personnages qui ont marqué l'Histoire de France et du monde",
+  "categories": {
+    "Antiquite": [
+      {
+        "personnage": "Vercingétorix",
+        "reponse": "Chef gaulois qui a uni les tribus contre Rome",
+        "epoch": "Antiquité (-52 av. J.-C.)",
+        "hint": "Bataille d'Alésia",
+        "options": ["Chef gaulois qui a uni les tribus contre Rome", "Empereur romain", "Roi de France", "Saint de l'Église"]
+      },
+      {
+        "personnage": "Jules César",
+        "reponse": "Général et dictateur romain",
+        "epoch": "Antiquité (-1er siècle)",
+        "hint": "Vainqueur des Gaulois",
+        "options": ["Général et dictateur romain", "Roi des Gaulois", "Empereur byzantin", "Philosophe grec"]
+      },
+      {
+        "personnage": "Cléopâtre",
+        "reponse": "Dernière reine d'Égypte",
+        "epoch": "Antiquité",
+        "hint": "Reine ptolémaïque",
+        "options": ["Dernière reine d'Égypte", "Impératrice romaine", "Reine de France", "Déesse grecque"]
+      },
+      {
+        "personnage": "Auguste",
+        "reponse": "Premier empereur romain",
+        "epoch": "Antiquité (-27 av. J.-C. à 14 ap. J.-C.)",
+        "hint": "Fils adoptif de César",
+        "options": ["Premier empereur romain", "Roi de Rome", "Général grec", "Pape"]
+      },
+      {
+        "personnage": "Néron",
+        "reponse": "Empereur romain connu pour sa cruauté",
+        "epoch": "Antiquité (54-68 ap. J.-C.)",
+        "hint": "Incendie de Rome",
+        "options": ["Empereur romain connu pour sa cruauté", "Général victorieux", "Philosophe", "Poète"]
+      }
+    ],
+    "Moyen_Age": [
+      {
+        "personnage": "Clovis",
+        "reponse": "Premier roi franc chrétien (496)",
+        "epoch": "Moyen Âge (Ve siècle)",
+        "hint": "Baptême à Reims",
+        "options": ["Premier roi franc chrétien", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
+      },
+      {
+        "personnage": "Charlemagne",
+        "reponse": "Empereur carolingien, roi des Francs (800)",
+        "epoch": "Moyen Âge",
+        "hint": "Couronnement à Aix-la-Chapelle",
+        "options": ["Empereur carolingien, roi des Francs", "Chef viking", "Roi de France médiéval", "Pape"]
+      },
+      {
+        "personnage": "Roland",
+        "reponse": "Chevalier légendaire, neveu de Charlemagne",
+        "epoch": "Moyen Âge",
+        "hint": "Chanson de Roland",
+        "options": ["Chevalier légendaire, neveu de Charlemagne", "Roi franc", "Empereur", "Saint"]
+      },
+      {
+        "personnage": "Guillaume le Conquérant",
+        "reponse": "Duc de Normandie, conquérant de l'Angleterre (1066)",
+        "epoch": "Moyen Âge (XIe siècle)",
+        "hint": "Bataille d'Hastings",
+        "options": ["Duc de Normandie, conquérant de l'Angleterre", "Roi de France", "Chevalier de la Table Ronde", "Empereur"]
+      },
+      {
+        "personnage": "Philippe Auguste",
+        "reponse": "Roi de France qui a agrandi le domaine royal",
+        "epoch": "Moyen Âge (XIIe-XIIIe siècle)",
+        "hint": "Bataille de Bouvines (1214)",
+        "options": ["Roi de France qui a agrandi le domaine royal", "Empereur du Saint-Empire", "Chef de croisade", "Roi d'Angleterre"]
+      },
+      {
+        "personnage": "Saint Louis (Louis IX)",
+        "reponse": "Roi connu pour sa piété et sa justice",
+        "epoch": "Moyen Âge (XIIIe siècle)",
+        "hint": "Croisade et sainteté",
+        "options": ["Roi connu pour sa piété et sa justice", "Empereur byzantin", "Chevalier de la Table Ronde", "Pape"]
+      },
+      {
+        "personnage": "Charles V",
+        "reponse": "Roi sage qui a évité la guerre",
+        "epoch": "Moyen Âge (XIVe siècle)",
+        "hint": "Le Sage",
+        "options": ["Roi sage qui a évité la guerre", "Roi de la guerre de Cent Ans", "Roi renaissance", "Empereur"]
+      },
+      {
+        "personnage": "Charles VII",
+        "reponse": "Roi soutenu par Jeanne d'Arc",
+        "epoch": "Moyen Âge (XVe siècle)",
+        "hint": "Roi de Bourges",
+        "options": ["Roi soutenu par Jeanne d'Arc", "Roi qui a perdu la guerre de Cent Ans", "Roi de la Renaissance", "Empereur"]
+      },
+      {
+        "personnage": "Louis XI",
+        "reponse": "Roi rusé, surnommé l'araignée",
+        "epoch": "Moyen Âge (XVe siècle)",
+        "hint": "Diplomatie et ruse",
+        "options": ["Roi rusé, surnommé l'araignée", "Roi guerrier", "Roi poète", "Roi bâtisseur"]
+      }
+    ],
+    "Renaissance": [
+      {
+        "personnage": "François Ier",
+        "reponse": "Roi de la Renaissance, mécène",
+        "epoch": "Renaissance (XVIe siècle)",
+        "hint": "Bataille de Marignan (1515)",
+        "options": ["Roi de la Renaissance, mécène", "Roi de la guerre de Cent Ans", "Roi absolutiste", "Empereur"]
+      },
+      {
+        "personnage": "Henri IV",
+        "reponse": "Premier roi Bourbon, édit de Nantes",
+        "epoch": "Renaissance (XVIe-XVIIe siècle)",
+        "hint": "Paris vaut bien une messe",
+        "options": ["Premier roi Bourbon, édit de Nantes", "Roi de la guerre de Religion", "Roi absolutiste", "Empereur"]
+      },
+      {
+        "personnage": "Léonard de Vinci",
+        "reponse": "Génie italien, peintre et inventeur",
+        "epoch": "Renaissance (XVe-XVIe siècle)",
+        "hint": "La Joconde, machines volantes",
+        "options": ["Génie italien, peintre et inventeur", "Roi de France", "Savant grec", "Explorateur"]
+      },
+      {
+        "personnage": "Michel-Ange",
+        "reponse": "Sculpteur et peintre italien",
+        "epoch": "Renaissance",
+        "hint": "La Pietà, plafond de la Sixtine",
+        "options": ["Sculpteur et peintre italien", "Architecte français", "Poète", "Compositeur"]
+      },
+      {
+        "personnage": "Raphaël",
+        "reponse": "Peintre italien de la Renaissance",
+        "epoch": "XVIe siècle",
+        "hint": "L'École d'Athènes",
+        "options": ["Peintre italien de la Renaissance", "Sculpteur français", "Architecte", "Poète"]
+      }
+    ],
+    "Temps_Modernes": [
+      {
+        "personnage": "Louis XIII",
+        "reponse": "Roi juste, père de Louis XIV",
+        "epoch": "XVIIe siècle (1610-1643)",
+        "hint": "Règne avec Richelieu",
+        "options": ["Roi juste, père de Louis XIV", "Roi Soleil", "Roi de la Fronde", "Cardinal"]
+      },
+      {
+        "personnage": "Louis XIV",
+        "reponse": "Roi Soleil, absolu, Versailles",
+        "epoch": "XVIIe siècle (1643-1715)",
+        "hint": "72 ans de règne",
+        "options": ["Roi Soleil, absolu, Versailles", "Roi citoyen", "Empereur", "Président"]
+      },
+      {
+        "personnage": "Richelieu",
+        "reponse": "Cardinal, ministre de Louis XIII",
+        "epoch": "XVIIe siècle",
+        "hint": "La raison d'État",
+        "options": ["Cardinal, ministre de Louis XIII", "Roi de France", "Pape", "Général"]
+      },
+      {
+        "personnage": "Mazarin",
+        "reponse": "Cardinal, ministre de Louis XIV jeune",
+        "epoch": "XVIIe siècle",
+        "hint": "Successeur de Richelieu",
+        "options": ["Cardinal, ministre de Louis XIV jeune", "Roi de France", "Pape", "Général"]
+      },
+      {
+        "personnage": "Colbert",
+        "reponse": "Ministre de Louis XIV, économie",
+        "epoch": "XVIIe siècle",
+        "hint": "Mercantilisme",
+        "options": ["Ministre de Louis XIV, économie", "Général", "Cardinal", "Poète"]
+      },
+      {
+        "personnage": "Louis XV",
+        "reponse": "Roi bien-aimé puis critiqué",
+        "epoch": "XVIIIe siècle (1715-1774)",
+        "hint": "Après moi, le déluge",
+        "options": ["Roi bien-aimé puis critiqué", "Roi révolutionnaire", "Roi restaurateur", "Empereur"]
+      },
+      {
+        "personnage": "Louis XVI",
+        "reponse": "Dernier roi avant la Révolution (1789)",
+        "epoch": "XVIIIe siècle (1774-1792)",
+        "hint": "Mari de Marie-Antoinette",
+        "options": ["Dernier roi avant la Révolution", "Roi du peuple", "Empereur", "Roi citoyen"]
+      },
+      {
+        "personnage": "Marie-Antoinette",
+        "reponse": "Reine, épouse de Louis XVI",
+        "epoch": "XVIIIe siècle",
+        "hint": "Qu'ils mangent de la brioche",
+        "options": ["Reine, épouse de Louis XVI", "Impératrice", "Princesse", "Duchesse"]
+      }
+    ],
+    "Revolution_Empire": [
+      {
+        "personnage": "Robespierre",
+        "reponse": "Avocat, révolutionnaire, Terreur",
+        "epoch": "Révolution française (1758-1794)",
+        "hint": "L'Incorruptible",
+        "options": ["Avocat, révolutionnaire, Terreur", "Roi de France", "Général", "Empereur"]
+      },
+      {
+        "personnage": "Danton",
+        "reponse": "Tribun révolutionnaire",
+        "epoch": "Révolution française",
+        "hint": "De l'audace, encore de l'audace",
+        "options": ["Tribun révolutionnaire", "Roi", "Général", "Pape"]
+      },
+      {
+        "personnage": "Marat",
+        "reponse": "Journaliste révolutionnaire, L'Ami du peuple",
+        "epoch": "Révolution française",
+        "hint": "Assassiné dans son bain",
+        "options": ["Journaliste révolutionnaire, L'Ami du peuple", "Général", "Roi", "Avocat"]
+      },
+      {
+        "personnage": "Jeanne d'Arc",
+        "reponse": "Héroïne française, libératrice d'Orléans (1429)",
+        "epoch": "Moyen Âge (XVe siècle)",
+        "hint": "La Pucelle d'Orléans",
+        "options": ["Héroïne française, libératrice d'Orléans", "Reine de France", "Sainte guerrière", "Princesse"]
+      },
+      {
+        "personnage": "Napoléon Bonaparte",
+        "reponse": "Général puis empereur français (1804-1815)",
+        "epoch": "XIXe siècle",
+        "hint": "Bataille d'Austerlitz",
+        "options": ["Général puis empereur français", "Roi de France", "Président de la République", "Maréchal"]
+      },
+      {
+        "personnage": "Joséphine de Beauharnais",
+        "reponse": "Première épouse de Napoléon",
+        "epoch": "XIXe siècle",
+        "hint": "Impératrice",
+        "options": ["Première épouse de Napoléon", "Reine de France", "Princesse", "Duchesse"]
+      },
+      {
+        "personnage": "Maréchal Ney",
+        "reponse": "Maréchal d'Empire, brave des braves",
+        "epoch": "XIXe siècle",
+        "hint": "Bataille de la Moskowa",
+        "options": ["Maréchal d'Empire, brave des braves", "Général de Napoléon", "Roi soldat", "Amiral"]
+      }
+    ],
+    "XIXe_Siecle": [
+      {
+        "personnage": "Victor Hugo",
+        "reponse": "Écrivain, Les Misérables, Notre-Dame de Paris",
+        "epoch": "XIXe siècle",
+        "hint": "Romantisme, engagement politique",
+        "options": ["Écrivain, Les Misérables", "Peintre impressionniste", "Compositeur", "Poète"]
+      },
+      {
+        "personnage": "Molière",
+        "reponse": "Dramaturge, maître de la comédie",
+        "epoch": "XVIIe siècle",
+        "hint": "Tartuffe, L'Avare",
+        "options": ["Dramaturge, maître de la comédie", "Poète tragique", "Romanier", "Peintre"]
+      },
+      {
+        "personnage": "Balzac",
+        "reponse": "Écrivain, La Comédie humaine",
+        "epoch": "XIXe siècle",
+        "hint": "Romancier réaliste",
+        "options": ["Écrivain, La Comédie humaine", "Poète", "Dramaturge", "Journaliste"]
+      },
+      {
+        "personnage": "Gustave Flaubert",
+        "reponse": "Écrivain, Madame Bovary",
+        "epoch": "XIXe siècle",
+        "hint": "Réalisme littéraire",
+        "options": ["Écrivain, Madame Bovary", "Poète", "Dramaturge", "Journaliste"]
+      },
+      {
+        "personnage": "Pasteur",
+        "reponse": "Savant français, vaccins et pasteurisation",
+        "epoch": "XIXe siècle",
+        "hint": "Microbiologie",
+        "options": ["Savant français, vaccins et pasteurisation", "Médecin anglais", "Chimiste allemand", "Biologiste italien"]
+      },
+      {
+        "personnage": "Edison",
+        "reponse": "Inventeur américain, ampoule électrique",
+        "epoch": "XIXe-XXe siècle",
+        "hint": "1000 brevets",
+        "options": ["Inventeur américain, ampoule électrique", "Savant français", "Physicien anglais", "Chimiste allemand"]
+      }
+    ],
+    "XXe_Siecle": [
+      {
+        "personnage": "Joffre",
+        "reponse": "Général de la Première Guerre mondiale",
+        "epoch": "XXe siècle",
+        "hint": "Taxi de la Marne",
+        "options": ["Général de la Première Guerre mondiale", "Maréchal de Napoléon", "Chef de la Résistance", "Président"]
+      },
+      {
+        "personnage": "Foch",
+        "reponse": "Maréchal, vainqueur de 1918",
+        "epoch": "XXe siècle",
+        "hint": "Commandant suprême interallié",
+        "options": ["Maréchal, vainqueur de 1918", "Général de 1914", "Chef de la Résistance", "Président"]
+      },
+      {
+        "personnage": "Clémenceau",
+        "reponse": "Homme politique, Père la Victoire (1918)",
+        "epoch": "XXe siècle",
+        "hint": "Le Tigre",
+        "options": ["Homme politique, Père la Victoire", "Général", "Maréchal", "Roi"]
+      },
+      {
+        "personnage": "De Gaulle",
+        "reponse": "Général, chef de la France Libre, président",
+        "epoch": "XXe siècle (1940-1970)",
+        "hint": "Appel du 18 juin",
+        "options": ["Général, chef de la France Libre, président", "Maréchal de France", "Premier ministre", "Roi"]
+      },
+      {
+        "personnage": "Jean Moulin",
+        "reponse": "Résistant, unificateur de la Résistance",
+        "epoch": "XXe siècle",
+        "hint": "Arrêté et torturé par la Gestapo",
+        "options": ["Résistant, unificateur de la Résistance", "Général", "Politicien", "Espion"]
+      },
+      {
+        "personnage": "Leclerc",
+        "reponse": "Général, libérateur de Paris (1944)",
+        "epoch": "XXe siècle",
+        "hint": "2e DB",
+        "options": ["Général, libérateur de Paris", "Maréchal", "Chef d'État", "Ministre"]
+      },
+      {
+        "personnage": "Marie Curie",
+        "reponse": "Physicienne, découvreuse du radium",
+        "epoch": "XIXe-XXe siècle",
+        "hint": "Premier prix Nobel féminin",
+        "options": ["Physicienne, découvreuse du radium", "Chimiste française", "Médecin", "Biologiste"]
+      },
+      {
+        "personnage": "Einstein",
+        "reponse": "Physicien, théorie de la relativité",
+        "epoch": "XXe siècle",
+        "hint": "E = mc²",
+        "options": ["Physicien, théorie de la relativité", "Mathématicien", "Chimiste", "Astronome"]
+      }
+    ],
+    "XXIe_Siecle": [
+      {
+        "personnage": "Simone Veil",
+        "reponse": "Femme politique, loi sur l'IVG (1975)",
+        "epoch": "XXe-XXIe siècle",
+        "hint": "Rescapée d'Auschwitz",
+        "options": ["Femme politique, loi sur l'IVG", "Médecin", "Avocate", "Journaliste"]
+      },
+      {
+        "personnage": "Mitterrand",
+        "reponse": "Président, premier socialiste sous la Ve République",
+        "epoch": "XXe siècle (1981-1995)",
+        "hint": "Abolition de la peine de mort",
+        "options": ["Président, premier socialiste sous la Ve République", "Premier ministre", "Ministre", "Député"]
+      },
+      {
+        "personnage": "Chirac",
+        "reponse": "Président, reconnaissane de la responsabilité de la France dans la Shoah",
+        "epoch": "XXe-XXIe siècle (1995-2007)",
+        "hint": "Discours de 1995",
+        "options": ["Président, reconnaissance de la Shoah", "Premier ministre", "Ministre", "Député"]
+      },
+      {
+        "personnage": "Sarkozy",
+        "reponse": "Président de la République (2007-2012)",
+        "epoch": "XXIe siècle",
+        "hint": "Traité de Lisbonne",
+        "options": ["Président de la République", "Premier ministre", "Ministre", "Député"]
+      },
+      {
+        "personnage": "Macron",
+        "reponse": "Président de la République (2017-)",
+        "epoch": "XXIe siècle",
+        "hint": "Plus jeune président élu",
+        "options": ["Président de la République", "Premier ministre", "Ministre", "Député"]
+      }
+    ],
+    "Explorateurs": [
+      {
+        "personnage": "Christophe Colomb",
+        "reponse": "Explorateur, découverte de l'Amérique (1492)",
+        "epoch": "XVe siècle",
+        "hint": "Santa Maria, Pinta, Niña",
+        "options": ["Explorateur, découverte de l'Amérique", "Premier homme sur la Lune", "Roi d'Espagne", "Amiral français"]
+      },
+      {
+        "personnage": "Magellan",
+        "reponse": "Premier tour du monde en bateau",
+        "epoch": "XVIe siècle",
+        "hint": "Victoria",
+        "options": ["Premier tour du monde en bateau", "Découvreur de l'Amérique", "Explorateur de l'Afrique", "Capitaine portugais"]
+      },
+      {
+        "personnage": "Jacques Cartier",
+        "reponse": "Explorateur français du Canada",
+        "epoch": "XVIe siècle",
+        "hint": "Fleuve Saint-Laurent",
+        "options": ["Explorateur français du Canada", "Découvreur du Brésil", "Pirate anglais", "Marin espagnol"]
+      },
+      {
+        "personnage": "Bougainville",
+        "reponse": "Explorateur français, tour du monde",
+        "epoch": "XVIIIe siècle",
+        "hint": "La Boudeuse",
+        "options": ["Explorateur français, tour du monde", "Amiral anglais", "Capitaine portugais", "Savant italien"]
+      },
+      {
+        "personnage": "Champlain",
+        "reponse": "Fondateur du Québec",
+        "epoch": "XVIIe siècle",
+        "hint": "Québec en 1608",
+        "options": ["Fondateur du Québec", "Explorateur de l'Amérique", "Roi de France", "Gouverneur"]
+      },
+      {
+        "personnage": "Armstrong",
+        "reponse": "Premier homme sur la Lune (1969)",
+        "epoch": "XXe siècle",
+        "hint": "Apollo 11",
+        "options": ["Premier homme sur la Lune", "Premier spationaute", "Astronome", "Pilote d'avion"]
+      }
+    ],
+    "Artistes": [
+      {
+        "personnage": "Monet",
+        "reponse": "Peintre impressionniste",
+        "epoch": "XIXe-XXe siècle",
+        "hint": "Nymphéas",
+        "options": ["Peintre impressionniste", "Sculpteur", "Architecte", "Photographe"]
+      },
+      {
+        "personnage": "Rodin",
+        "reponse": "Sculpteur, Le Penseur",
+        "epoch": "XIXe-XXe siècle",
+        "hint": "La Porte de l'Enfer",
+        "options": ["Sculpteur, Le Penseur", "Peintre", "Architecte", "Poète"]
+      },
+      {
+        "personnage": "Debussy",
+        "reponse": "Compositeur de musique classique",
+        "epoch": "XIXe-XXe siècle",
+        "hint": "Clair de Lune",
+        "options": ["Compositeur de musique classique", "Peintre", "Écrivain", "Danseur"]
+      },
+      {
+        "personnage": "Édith Piaf",
+        "reponse": "Chanteuse, La Vie en rose",
+        "epoch": "XXe siècle",
+        "hint": "La môme",
+        "options": ["Chanteuse, La Vie en rose", "Actrice", "Danseuse", "Peintre"]
+      },
+      {
+        "personnage": "Charles Aznavour",
+        "reponse": "Chanteur et compositeur français",
+        "epoch": "XXe-XXIe siècle",
+        "hint": "La Bohème",
+        "options": ["Chanteur et compositeur français", "Acteur", "Danseur", "Peintre"]
+      },
+      {
+        "personnage": "Jean Gabin",
+        "reponse": "Acteur français, monument du cinéma",
+        "epoch": "XXe siècle",
+        "hint": "La Grande Illusion",
+        "options": ["Acteur français, monument du cinéma", "Chanteur", "Réalisateur", "Scénariste"]
+      }
+    ]
+  },
   "questions": [
     {
       "personnage": "Vercingétorix",
-      "reponse": "Chef gaulois",
-      "options": ["Grand empereur romain", "Chef gaulois", "Roi de France", "Saint de l'Église"]
+      "reponse": "Chef gaulois qui a uni les tribus contre Rome",
+      "options": ["Chef gaulois qui a uni les tribus contre Rome", "Empereur romain", "Roi de France", "Saint de l'Église"]
+    },
+    {
+      "personnage": "Jules César",
+      "reponse": "Général et dictateur romain",
+      "options": ["Général et dictateur romain", "Roi des Gaulois", "Empereur byzantin", "Philosophe grec"]
+    },
+    {
+      "personnage": "Clovis",
+      "reponse": "Premier roi franc chrétien (496)",
+      "options": ["Premier roi franc chrétien", "Dernier empereur romain", "Roi des Wisigoths", "Pape"]
     },
     {
       "personnage": "Charlemagne",
-      "reponse": "Empereur",
-      "options": ["Chef des Vikings", "Empereur", "Président de la République", "Pape"]
+      "reponse": "Empereur carolingien, roi des Francs (800)",
+      "options": ["Empereur carolingien, roi des Francs", "Chef viking", "Roi de France médiéval", "Pape"]
     },
     {
-      "personnage": "Jeanne d'Arc",
-      "reponse": "Héroïne de la France",
-      "options": ["Exploratrice", "Héroïne de la France", "Reine d'Angleterre", "Astronaute"]
+      "personnage": "Philippe Auguste",
+      "reponse": "Roi de France qui a agrandi le domaine royal",
+      "options": ["Roi de France qui a agrandi le domaine royal", "Empereur du Saint-Empire", "Chef de croisade", "Roi d'Angleterre"]
     },
     {
-      "personnage": "Napoléon Bonaparte",
-      "reponse": "Empereur français",
-      "options": ["Empereur français", "Roi d'Espagne", "Chef des Gaulois", "Pape de Rome"]
+      "personnage": "Saint Louis (Louis IX)",
+      "reponse": "Roi connu pour sa piété et sa justice",
+      "options": ["Roi connu pour sa piété et sa justice", "Empereur byzantin", "Chevalier de la Table Ronde", "Pape"]
+    },
+    {
+      "personnage": "François Ier",
+      "reponse": "Roi de la Renaissance, mécène",
+      "options": ["Roi de la Renaissance, mécène", "Roi de la guerre de Cent Ans", "Roi absolutiste", "Empereur"]
+    },
+    {
+      "personnage": "Henri IV",
+      "reponse": "Premier roi Bourbon, édit de Nantes",
+      "options": ["Premier roi Bourbon, édit de Nantes", "Roi de la guerre de Religion", "Roi absolutiste", "Empereur"]
+    },
+    {
+      "personnage": "Louis XIII",
+      "reponse": "Roi juste, père de Louis XIV",
+      "options": ["Roi juste, père de Louis XIV", "Roi Soleil", "Roi de la Fronde", "Cardinal"]
     },
     {
       "personnage": "Louis XIV",
-      "reponse": "Roi de France",
-      "options": ["Roi de France", "Chef des Romains", "Premier ministre", "Maire de Paris"]
+      "reponse": "Roi Soleil, absolu, Versailles",
+      "options": ["Roi Soleil, absolu, Versailles", "Roi citoyen", "Empereur", "Président"]
+    },
+    {
+      "personnage": "Louis XV",
+      "reponse": "Roi bien-aimé puis critiqué",
+      "options": ["Roi bien-aimé puis critiqué", "Roi révolutionnaire", "Roi restaurateur", "Empereur"]
+    },
+    {
+      "personnage": "Louis XVI",
+      "reponse": "Dernier roi avant la Révolution (1789)",
+      "options": ["Dernier roi avant la Révolution", "Roi du peuple", "Empereur", "Roi citoyen"]
+    },
+    {
+      "personnage": "Marie-Antoinette",
+      "reponse": "Reine, épouse de Louis XVI",
+      "options": ["Reine, épouse de Louis XVI", "Impératrice", "Princesse", "Duchesse"]
+    },
+    {
+      "personnage": "Robespierre",
+      "reponse": "Avocat, révolutionnaire, Terreur",
+      "options": ["Avocat, révolutionnaire, Terreur", "Roi de France", "Général", "Empereur"]
+    },
+    {
+      "personnage": "Danton",
+      "reponse": "Tribun révolutionnaire",
+      "options": ["Tribun révolutionnaire", "Roi", "Général", "Pape"]
+    },
+    {
+      "personnage": "Jeanne d'Arc",
+      "reponse": "Héroïne française, libératrice d'Orléans (1429)",
+      "options": ["Héroïne française, libératrice d'Orléans", "Reine de France", "Sainte guerrière", "Princesse"]
+    },
+    {
+      "personnage": "Napoléon Bonaparte",
+      "reponse": "Général puis empereur français (1804-1815)",
+      "options": ["Général puis empereur français", "Roi de France", "Président de la République", "Maréchal"]
+    },
+    {
+      "personnage": "Joséphine de Beauharnais",
+      "reponse": "Première épouse de Napoléon",
+      "options": ["Première épouse de Napoléon", "Reine de France", "Princesse", "Duchesse"]
+    },
+    {
+      "personnage": "Maréchal Ney",
+      "reponse": "Maréchal d'Empire, brave des braves",
+      "options": ["Maréchal d'Empire, brave des braves", "Général de Napoléon", "Roi soldat", "Amiral"]
+    },
+    {
+      "personnage": "Joffre",
+      "reponse": "Général de la Première Guerre mondiale",
+      "options": ["Général de la Première Guerre mondiale", "Maréchal de Napoléon", "Chef de la Résistance", "Président"]
+    },
+    {
+      "personnage": "Foch",
+      "reponse": "Maréchal, vainqueur de 1918",
+      "options": ["Maréchal, vainqueur de 1918", "Général de 1914", "Chef de la Résistance", "Président"]
+    },
+    {
+      "personnage": "Clémenceau",
+      "reponse": "Homme politique, Père la Victoire (1918)",
+      "options": ["Homme politique, Père la Victoire", "Général", "Maréchal", "Roi"]
+    },
+    {
+      "personnage": "De Gaulle",
+      "reponse": "Général, chef de la France Libre, président",
+      "options": ["Général, chef de la France Libre, président", "Maréchal de France", "Premier ministre", "Roi"]
+    },
+    {
+      "personnage": "Jean Moulin",
+      "reponse": "Résistant, unificateur de la Résistance",
+      "options": ["Résistant, unificateur de la Résistance", "Général", "Politicien", "Espion"]
+    },
+    {
+      "personnage": "Leclerc",
+      "reponse": "Général, libérateur de Paris (1944)",
+      "options": ["Général, libérateur de Paris", "Maréchal", "Chef d'État", "Ministre"]
+    },
+    {
+      "personnage": "Victor Hugo",
+      "reponse": "Écrivain, Les Misérables, Notre-Dame de Paris",
+      "options": ["Écrivain, Les Misérables", "Peintre impressionniste", "Compositeur", "Poète"]
+    },
+    {
+      "personnage": "Molière",
+      "reponse": "Dramaturge, maître de la comédie",
+      "options": ["Dramaturge, maître de la comédie", "Poète tragique", "Romanier", "Peintre"]
+    },
+    {
+      "personnage": "Pasteur",
+      "reponse": "Savant français, vaccins et pasteurisation",
+      "options": ["Savant français, vaccins et pasteurisation", "Médecin anglais", "Chimiste allemand", "Biologiste italien"]
+    },
+    {
+      "personnage": "Marie Curie",
+      "reponse": "Physicienne, découvreuse du radium",
+      "options": ["Physicienne, découvreuse du radium", "Chimiste française", "Médecin", "Biologiste"]
+    },
+    {
+      "personnage": "Einstein",
+      "reponse": "Physicien, théorie de la relativité",
+      "options": ["Physicien, théorie de la relativité", "Mathématicien", "Chimiste", "Astronome"]
+    },
+    {
+      "personnage": "Christophe Colomb",
+      "reponse": "Explorateur, découverte de l'Amérique (1492)",
+      "options": ["Explorateur, découverte de l'Amérique", "Premier homme sur la Lune", "Roi d'Espagne", "Amiral français"]
+    },
+    {
+      "personnage": "Magellan",
+      "reponse": "Premier tour du monde en bateau",
+      "options": ["Premier tour du monde en bateau", "Découvreur de l'Amérique", "Explorateur de l'Afrique", "Capitaine portugais"]
+    },
+    {
+      "personnage": "Jacques Cartier",
+      "reponse": "Explorateur français du Canada",
+      "options": ["Explorateur français du Canada", "Découvreur du Brésil", "Pirate anglais", "Marin espagnol"]
+    },
+    {
+      "personnage": "Bougainville",
+      "reponse": "Explorateur français, tour du monde",
+      "options": ["Explorateur français, tour du monde", "Amiral anglais", "Capitaine portugais", "Savant italien"]
+    },
+    {
+      "personnage": "Champlain",
+      "reponse": "Fondateur du Québec",
+      "options": ["Fondateur du Québec", "Explorateur de l'Amérique", "Roi de France", "Gouverneur"]
+    },
+    {
+      "personnage": "Armstrong",
+      "reponse": "Premier homme sur la Lune (1969)",
+      "options": ["Premier homme sur la Lune", "Premier spationaute", "Astronome", "Pilote d'avion"]
+    },
+    {
+      "personnage": "Monet",
+      "reponse": "Peintre impressionniste",
+      "options": ["Peintre impressionniste", "Sculpteur", "Architecte", "Photographe"]
+    },
+    {
+      "personnage": "Rodin",
+      "reponse": "Sculpteur, Le Penseur",
+      "options": ["Sculpteur, Le Penseur", "Peintre", "Architecte", "Poète"]
+    },
+    {
+      "personnage": "Debussy",
+      "reponse": "Compositeur de musique classique",
+      "options": ["Compositeur de musique classique", "Peintre", "Écrivain", "Danseur"]
+    },
+    {
+      "personnage": "Édith Piaf",
+      "reponse": "Chanteuse, La Vie en rose",
+      "options": ["Chanteuse, La Vie en rose", "Actrice", "Danseuse", "Peintre"]
+    },
+    {
+      "personnage": "Simone Veil",
+      "reponse": "Femme politique, loi sur l'IVG (1975)",
+      "options": ["Femme politique, loi sur l'IVG", "Médecin", "Avocate", "Journaliste"]
+    },
+    {
+      "personnage": "Mitterrand",
+      "reponse": "Président, premier socialiste sous la Ve République",
+      "options": ["Président, premier socialiste sous la Ve République", "Premier ministre", "Ministre", "Député"]
+    },
+    {
+      "personnage": "Chirac",
+      "reponse": "Président, reconnaissance de la responsabilité de la France dans la Shoah",
+      "options": ["Président, reconnaissance de la Shoah", "Premier ministre", "Ministre", "Député"]
     }
   ]
 }

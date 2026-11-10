@@ -1,6 +1,816 @@
 {
-  "titre": "Dates clés de l’Histoire de France",
-  "niveau": "CM1-CM2",
+  "titre": "Dates clés de l'Histoire de France et du monde",
+  "niveau": "CE2-CM2",
+  "description": "Retrouve les grandes dates qui ont marqué l'Histoire, de l'Antiquité à nos jours",
+  "categories": {
+    "Antiquite": [
+      {
+        "date": "-52",
+        "evenement": "Bataille d'Alésia : Vercingétorix capitule devant César",
+        "epoch": "Antiquité",
+        "lieu": "Gaule (Alésia, Bourgogne)",
+        "type": "bataille"
+      },
+      {
+        "date": "-27",
+        "evenement": "Auguste devient le premier empereur romain",
+        "epoch": "Antiquité",
+        "lieu": "Rome",
+        "type": "politique"
+      },
+      {
+        "date": "1er siècle",
+        "evenement": "Naissance du christianisme",
+        "epoch": "Antiquité",
+        "lieu": "Jérusalem",
+        "type": "religion"
+      },
+      {
+        "date": "79",
+        "evenement": "Éruption du Vésuve : destruction de Pompéi",
+        "epoch": "Antiquité",
+        "lieu": "Italie",
+        "type": "catastrophe"
+      },
+      {
+        "date": "313",
+        "evenement": "Édit de Milan : le christianisme est autorisé dans l'Empire romain",
+        "epoch": "Antiquité",
+        "lieu": "Empire romain",
+        "type": "politique"
+      }
+    ],
+    "Moyen_Age": [
+      {
+        "date": "476",
+        "evenement": "Chute de l'Empire romain d'Occident",
+        "epoch": "Moyen Âge",
+        "lieu": "Europe",
+        "type": "politique"
+      },
+      {
+        "date": "496",
+        "evenement": "Baptême de Clovis à Reims : il devient le premier roi franc chrétien",
+        "epoch": "Moyen Âge",
+        "lieu": "Reims",
+        "type": "politique"
+      },
+      {
+        "date": "732",
+        "evenement": "Bataille de Poitiers : Charles Martel arrête les Arabes",
+        "epoch": "Moyen Âge",
+        "lieu": "Poitiers",
+        "type": "bataille"
+      },
+      {
+        "date": "800",
+        "evenement": "Charlemagne est couronné empereur par le pape Léon III",
+        "epoch": "Moyen Âge",
+        "lieu": "Aix-la-Chapelle",
+        "type": "politique"
+      },
+      {
+        "date": "987",
+        "evenement": "Hugues Capet est élu roi de France : début de la dynastie capétienne",
+        "epoch": "Moyen Âge",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1066",
+        "evenement": "Bataille d'Hastings : Guillaume le Conquérant conquiert l'Angleterre",
+        "epoch": "Moyen Âge",
+        "lieu": "Angleterre",
+        "type": "bataille"
+      },
+      {
+        "date": "1096",
+        "evenement": "Première croisade : départ des chevaliers pour Jérusalem",
+        "epoch": "Moyen Âge",
+        "lieu": "Jérusalem",
+        "type": "guerre"
+      },
+      {
+        "date": "1180-1223",
+        "evenement": "Règne de Philippe Auguste : agrandissement du domaine royal",
+        "epoch": "Moyen Âge",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1214",
+        "evenement": "Bataille de Bouvines : victoire de Philippe Auguste contre une coalition",
+        "epoch": "Moyen Âge",
+        "lieu": "Bouvines (Belgique actuelle)",
+        "type": "bataille"
+      },
+      {
+        "date": "1226-1270",
+        "evenement": "Règne de Saint Louis (Louis IX) : justice et piété",
+        "epoch": "Moyen Âge",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1337",
+        "evenement": "Début de la guerre de Cent Ans entre la France et l'Angleterre",
+        "epoch": "Moyen Âge",
+        "lieu": "France/Angleterre",
+        "type": "guerre"
+      },
+      {
+        "date": "1415",
+        "evenement": "Bataille d'Azincourt : défaite française contre les Anglais",
+        "epoch": "Moyen Âge",
+        "lieu": "Azincourt (Pas-de-Calais)",
+        "type": "bataille"
+      },
+      {
+        "date": "1429",
+        "evenement": "Jeanne d'Arc libère Orléans des Anglais",
+        "epoch": "Moyen Âge",
+        "lieu": "Orléans",
+        "type": "bataille"
+      },
+      {
+        "date": "1453",
+        "evenement": "Fin de la guerre de Cent Ans : victoire française",
+        "epoch": "Moyen Âge",
+        "lieu": "France",
+        "type": "guerre"
+      },
+      {
+        "date": "1455",
+        "evenement": "Invention de l'imprimerie par Gutenberg",
+        "epoch": "Moyen Âge",
+        "lieu": "Allemagne",
+        "type": "invention"
+      },
+      {
+        "date": "1492",
+        "evenement": "Christophe Colomb découvre l'Amérique",
+        "epoch": "Moyen Âge/Renaissance",
+        "lieu": "Amérique",
+        "type": "exploration"
+      }
+    ],
+    "Renaissance": [
+      {
+        "date": "1498",
+        "evenement": "Vasco de Gama atteint les Indes par la mer",
+        "epoch": "Renaissance",
+        "lieu": "Inde",
+        "type": "exploration"
+      },
+      {
+        "date": "1515",
+        "evenement": "François Ier devient roi de France, bataille de Marignan",
+        "epoch": "Renaissance",
+        "lieu": "Marignan (Italie)",
+        "type": "politique"
+      },
+      {
+        "date": "1517",
+        "evenement": "Martin Luther lance la Réforme protestante",
+        "epoch": "Renaissance",
+        "lieu": "Allemagne",
+        "type": "religion"
+      },
+      {
+        "date": "1519-1522",
+        "evenement": "Magellan effectue le premier tour du monde en bateau",
+        "epoch": "Renaissance",
+        "lieu": "Monde",
+        "type": "exploration"
+      },
+      {
+        "date": "1534",
+        "evenement": "Jacques Cartier explore le Canada pour la France",
+        "epoch": "Renaissance",
+        "lieu": "Canada",
+        "type": "exploration"
+      },
+      {
+        "date": "1539",
+        "evenement": "Ordonnance de Villers-Cotterêts : le français devient la langue officielle",
+        "epoch": "Renaissance",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1562",
+        "evenement": "Massacre de la Saint-Barthélemy : début des guerres de Religion",
+        "epoch": "Renaissance",
+        "lieu": "Paris",
+        "type": "guerre"
+      },
+      {
+        "date": "1572",
+        "evenement": "Massacre de la Saint-Barthélemy (24 août)",
+        "epoch": "Renaissance",
+        "lieu": "Paris",
+        "type": "guerre"
+      },
+      {
+        "date": "1598",
+        "evenement": "Édit de Nantes : Henri IV accorde la liberté religieuse aux protestants",
+        "epoch": "Renaissance",
+        "lieu": "Nantes",
+        "type": "politique"
+      }
+    ],
+    "Temps_Modernes": [
+      {
+        "date": "1600",
+        "evenement": "Henri IV fonde la dynastie des Bourbons",
+        "epoch": "Temps Modernes",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1610",
+        "evenement": "Assassinat d'Henri IV par Ravaillac",
+        "epoch": "Temps Modernes",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1618-1648",
+        "evenement": "Guerre de Trente Ans en Europe",
+        "epoch": "Temps Modernes",
+        "lieu": "Europe",
+        "type": "guerre"
+      },
+      {
+        "date": "1643",
+        "evenement": "Louis XIV devient roi à 5 ans, début de l'absolutisme",
+        "epoch": "Temps Modernes",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1648",
+        "evenement": "Fin de la guerre de Trente Ans, paix de Westphalie",
+        "epoch": "Temps Modernes",
+        "lieu": "Europe",
+        "type": "politique"
+      },
+      {
+        "date": "1661-1715",
+        "evenement": "Règne personnel de Louis XIV (après la mort de Mazarin)",
+        "epoch": "Temps Modernes",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1682",
+        "evenement": "Louis XIV s'installe à Versailles",
+        "epoch": "Temps Modernes",
+        "lieu": "Versailles",
+        "type": "politique"
+      },
+      {
+        "date": "1685",
+        "evenement": "Révocation de l'édit de Nantes par Louis XIV",
+        "epoch": "Temps Modernes",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1715",
+        "evenement": "Mort de Louis XIV : fin du règne le plus long de l'histoire de France (72 ans)",
+        "epoch": "Temps Modernes",
+        "lieu": "Versailles",
+        "type": "politique"
+      },
+      {
+        "date": "1756-1763",
+        "evenement": "Guerre de Sept Ans entre la France et l'Angleterre",
+        "epoch": "Temps Modernes",
+        "lieu": "Monde",
+        "type": "guerre"
+      },
+      {
+        "date": "1774",
+        "evenement": "Louis XVI devient roi de France",
+        "epoch": "Temps Modernes",
+        "lieu": "France",
+        "type": "politique"
+      }
+    ],
+    "Revolution_Empire": [
+      {
+        "date": "1789",
+        "evenement": "Révolution française : Prise de la Bastille (14 juillet)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "révolution"
+      },
+      {
+        "date": "1789",
+        "evenement": "Déclaration des droits de l'homme et du citoyen (26 août)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1791",
+        "evenement": "Louis XVI tente de fuir à Varennes (20 juin)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Varennes",
+        "type": "politique"
+      },
+      {
+        "date": "1792",
+        "evenement": "Proclamation de la Première République française (21 septembre)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1793",
+        "evenement": "Exécution de Louis XVI (21 janvier)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1793-1794",
+        "evenement": "La Terreur : Robespierre dirige la Révolution",
+        "epoch": "Révolution/Empire",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1794",
+        "evenement": "Chute de Robespierre (9 thermidor)",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1799",
+        "evenement": "Coup d'État du 18 brumaire : Napoléon prend le pouvoir",
+        "epoch": "Révolution/Empire",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1804",
+        "evenement": "Napoléon Ier se couronne empereur des Français",
+        "epoch": "Révolution/Empire",
+        "lieu": "Notre-Dame de Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1805",
+        "evenement": "Bataille d'Austerlitz : grande victoire de Napoléon",
+        "epoch": "Révolution/Empire",
+        "lieu": "Austerlitz (République tchèque actuelle)",
+        "type": "bataille"
+      },
+      {
+        "date": "1812",
+        "evenement": "Campagne de Russie : retraite désastreuse de la Grande Armée",
+        "epoch": "Révolution/Empire",
+        "lieu": "Russie",
+        "type": "guerre"
+      },
+      {
+        "date": "1815",
+        "evenement": "Bataille de Waterloo : défaite définitive de Napoléon",
+        "epoch": "Révolution/Empire",
+        "lieu": "Waterloo (Belgique)",
+        "type": "bataille"
+      }
+    ],
+    "XIXe_Siecle": [
+      {
+        "date": "1815-1848",
+        "evenement": "Restauration monarchique : retour des Bourbons puis des Orléans",
+        "epoch": "XIXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1830",
+        "evenement": "Révolution de Juillet : Louis-Philippe devient roi des Français",
+        "epoch": "XIXe siècle",
+        "lieu": "Paris",
+        "type": "révolution"
+      },
+      {
+        "date": "1836",
+        "evenement": "Invention du télégraphe par Morse",
+        "epoch": "XIXe siècle",
+        "lieu": "États-Unis",
+        "type": "invention"
+      },
+      {
+        "date": "1848",
+        "evenement": "Révolution de 1848 : Proclamation de la IIe République",
+        "epoch": "XIXe siècle",
+        "lieu": "France",
+        "type": "révolution"
+      },
+      {
+        "date": "1851",
+        "evenement": "Coup d'État de Louis-Napoléon Bonaparte (futur Napoléon III)",
+        "epoch": "XIXe siècle",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1852-1870",
+        "evenement": "Second Empire : Napoléon III est empereur",
+        "epoch": "XIXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1859",
+        "evenement": "Invention du moteur à explosion par Étienne Lenoir",
+        "epoch": "XIXe siècle",
+        "lieu": "France",
+        "type": "invention"
+      },
+      {
+        "date": "1860",
+        "evenement": "Invention du téléphone par Graham Bell",
+        "epoch": "XIXe siècle",
+        "lieu": "États-Unis",
+        "type": "invention"
+      },
+      {
+        "date": "1870",
+        "evenement": "Défaite française face à la Prusse : chute de Napoléon III",
+        "epoch": "XIXe siècle",
+        "lieu": "Sedan",
+        "type": "guerre"
+      },
+      {
+        "date": "1870",
+        "evenement": "Proclamation de la IIIe République (4 septembre)",
+        "epoch": "XIXe siècle",
+        "lieu": "Paris",
+        "type": "politique"
+      },
+      {
+        "date": "1871",
+        "evenement": "La Commune de Paris : soulèvement populaire",
+        "epoch": "XIXe siècle",
+        "lieu": "Paris",
+        "type": "révolution"
+      },
+      {
+        "date": "1889",
+        "evenement": "Construction de la Tour Eiffel pour l'Exposition universelle",
+        "epoch": "XIXe siècle",
+        "lieu": "Paris",
+        "type": "construction"
+      },
+      {
+        "date": "1895",
+        "evenement": "Découverte des rayons X par Wilhelm Röntgen",
+        "epoch": "XIXe siècle",
+        "lieu": "Allemagne",
+        "type": "invention"
+      },
+      {
+        "date": "1895",
+        "evenement": "Les frères Lumière inventent le cinéma",
+        "epoch": "XIXe siècle",
+        "lieu": "Lyon",
+        "type": "invention"
+      }
+    ],
+    "XXe_Siecle": [
+      {
+        "date": "1900",
+        "evenement": "Inauguration du métro parisien",
+        "epoch": "XXe siècle",
+        "lieu": "Paris",
+        "type": "construction"
+      },
+      {
+        "date": "1903",
+        "evenement": "Premier vol en avion par les frères Wright",
+        "epoch": "XXe siècle",
+        "lieu": "États-Unis",
+        "type": "invention"
+      },
+      {
+        "date": "1914",
+        "evenement": "Début de la Première Guerre mondiale (28 juillet)",
+        "epoch": "XXe siècle",
+        "lieu": "Europe",
+        "type": "guerre"
+      },
+      {
+        "date": "1914",
+        "evenement": "Assassinat de l'archiduc François-Ferdinand à Sarajevo",
+        "epoch": "XXe siècle",
+        "lieu": "Sarajevo (Bosnie)",
+        "type": "politique"
+      },
+      {
+        "date": "1916",
+        "evenement": "Bataille de Verdun : symbole de la résistance française",
+        "epoch": "XXe siècle",
+        "lieu": "Verdun (Meuse)",
+        "type": "bataille"
+      },
+      {
+        "date": "1917",
+        "evenement": "Révolution russe : les bolcheviks prennent le pouvoir",
+        "epoch": "XXe siècle",
+        "lieu": "Russie",
+        "type": "révolution"
+      },
+      {
+        "date": "1918",
+        "evenement": "Armistice du 11 novembre : fin de la Première Guerre mondiale",
+        "epoch": "XXe siècle",
+        "lieu": "Rethondes (Oise)",
+        "type": "guerre"
+      },
+      {
+        "date": "1929",
+        "evenement": "Krach boursier de Wall Street : début de la Grande Dépression",
+        "epoch": "XXe siècle",
+        "lieu": "États-Unis",
+        "type": "économie"
+      },
+      {
+        "date": "1939",
+        "evenement": "Début de la Seconde Guerre mondiale (1er septembre)",
+        "epoch": "XXe siècle",
+        "lieu": "Europe",
+        "type": "guerre"
+      },
+      {
+        "date": "1940",
+        "evenement": "Appel du 18 juin du général de Gaulle depuis Londres",
+        "epoch": "XXe siècle",
+        "lieu": "Londres",
+        "type": "politique"
+      },
+      {
+        "date": "1940",
+        "evenement": "Armistice du 22 juin : la France capitule face à l'Allemagne",
+        "epoch": "XXe siècle",
+        "lieu": "Rethondes (Oise)",
+        "type": "guerre"
+      },
+      {
+        "date": "1941",
+        "evenement": "Attaque de Pearl Harbor : les États-Unis entrent en guerre",
+        "epoch": "XXe siècle",
+        "lieu": "Hawaï",
+        "type": "guerre"
+      },
+      {
+        "date": "1944",
+        "evenement": "Débarquement allié en Normandie (6 juin, D-Day)",
+        "epoch": "XXe siècle",
+        "lieu": "Normandie",
+        "type": "guerre"
+      },
+      {
+        "date": "1944",
+        "evenement": "Libération de Paris (25 août)",
+        "epoch": "XXe siècle",
+        "lieu": "Paris",
+        "type": "guerre"
+      },
+      {
+        "date": "1945",
+        "evenement": "Armistice du 8 mai : fin de la Seconde Guerre mondiale en Europe",
+        "epoch": "XXe siècle",
+        "lieu": "Reims",
+        "type": "guerre"
+      },
+      {
+        "date": "1945",
+        "evenement": "Bombe atomique sur Hiroshima (6 août) et Nagasaki (9 août)",
+        "epoch": "XXe siècle",
+        "lieu": "Japon",
+        "type": "guerre"
+      },
+      {
+        "date": "1945",
+        "evenement": "Création de l'Organisation des Nations Unies (ONU)",
+        "epoch": "XXe siècle",
+        "lieu": "New York",
+        "type": "politique"
+      },
+      {
+        "date": "1946",
+        "evenement": "Création de la Sécurité sociale en France",
+        "epoch": "XXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1947",
+        "evenement": "Indépendance de l'Inde",
+        "epoch": "XXe siècle",
+        "lieu": "Inde",
+        "type": "politique"
+      },
+      {
+        "date": "1948",
+        "evenement": "Déclaration universelle des droits de l'homme",
+        "epoch": "XXe siècle",
+        "lieu": "ONU",
+        "type": "politique"
+      },
+      {
+        "date": "1949",
+        "evenement": "Création de la République fédérale allemande (RFA) et de la République démocratique allemande (RDA)",
+        "epoch": "XXe siècle",
+        "lieu": "Allemagne",
+        "type": "politique"
+      },
+      {
+        "date": "1954",
+        "evenement": "Début de la guerre d'Algérie",
+        "epoch": "XXe siècle",
+        "lieu": "Algérie",
+        "type": "guerre"
+      },
+      {
+        "date": "1957",
+        "evenement": "Traité de Rome : création de la Communauté économique européenne (CEE)",
+        "epoch": "XXe siècle",
+        "lieu": "Rome",
+        "type": "politique"
+      },
+      {
+        "date": "1958",
+        "evenement": "De Gaulle devient président : début de la Ve République",
+        "epoch": "XXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1961",
+        "evenement": "Construction du mur de Berlin",
+        "epoch": "XXe siècle",
+        "lieu": "Berlin",
+        "type": "politique"
+      },
+      {
+        "date": "1962",
+        "evenement": "Fin de la guerre d'Algérie : indépendance de l'Algérie",
+        "epoch": "XXe siècle",
+        "lieu": "Algérie",
+        "type": "politique"
+      },
+      {
+        "date": "1963",
+        "evenement": "Assassinat de John F. Kennedy",
+        "epoch": "XXe siècle",
+        "lieu": "Dallas (États-Unis)",
+        "type": "politique"
+      },
+      {
+        "date": "1969",
+        "evenement": "Premier pas sur la Lune par Neil Armstrong (21 juillet)",
+        "epoch": "XXe siècle",
+        "lieu": "Lune",
+        "type": "exploration"
+      },
+      {
+        "date": "1975",
+        "evenement": "Loi Veil : légalisation de l'IVG en France",
+        "epoch": "XXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1981",
+        "evenement": "Première élection de François Mitterrand (premier président socialiste de la Ve République)",
+        "epoch": "XXe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "1989",
+        "evenement": "Chute du mur de Berlin (9 novembre)",
+        "epoch": "XXe siècle",
+        "lieu": "Berlin",
+        "type": "politique"
+      },
+      {
+        "date": "1992",
+        "evenement": "Traité de Maastricht : création de l'Union européenne",
+        "epoch": "XXe siècle",
+        "lieu": "Maastricht (Pays-Bas)",
+        "type": "politique"
+      }
+    ],
+    "XXIe_Siecle": [
+      {
+        "date": "2000",
+        "evenement": "Passage à l'euro pour les transactions électroniques",
+        "epoch": "XXIe siècle",
+        "lieu": "Europe",
+        "type": "économie"
+      },
+      {
+        "date": "2001",
+        "evenement": "Attaque terroriste du 11 septembre contre les États-Unis",
+        "epoch": "XXIe siècle",
+        "lieu": "New York/Washington",
+        "type": "terrorisme"
+      },
+      {
+        "date": "2002",
+        "evenement": "Passage à l'euro fiduciaire (pièces et billets)",
+        "epoch": "XXIe siècle",
+        "lieu": "Europe",
+        "type": "économie"
+      },
+      {
+        "date": "2005",
+        "evenement": "Rejet du Traité constitutionnel européen par référendum en France",
+        "epoch": "XXIe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "2008",
+        "evenement": "Crise financière mondiale",
+        "epoch": "XXIe siècle",
+        "lieu": "Monde",
+        "type": "économie"
+      },
+      {
+        "date": "2012",
+        "evenement": "Élection de François Hollande à la présidence",
+        "epoch": "XXIe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "2015",
+        "evenement": "Attentats terroristes à Paris (7 et 9 janvier : Charlie Hebdo, Hyper Cacher)",
+        "epoch": "XXIe siècle",
+        "lieu": "Paris",
+        "type": "terrorisme"
+      },
+      {
+        "date": "2015",
+        "evenement": "Attentats du 13 novembre à Paris (Bataclan, stades, terrasses)",
+        "epoch": "XXIe siècle",
+        "lieu": "Paris",
+        "type": "terrorisme"
+      },
+      {
+        "date": "2016",
+        "evenement": "Brexit : le Royaume-Uni vote pour quitter l'Union européenne",
+        "epoch": "XXIe siècle",
+        "lieu": "Royaume-Uni",
+        "type": "politique"
+      },
+      {
+        "date": "2017",
+        "evenement": "Élection d'Emmanuel Macron à la présidence (plus jeune président élu)",
+        "epoch": "XXIe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "2020",
+        "evenement": "Début de la pandémie de COVID-19",
+        "epoch": "XXIe siècle",
+        "lieu": "Monde",
+        "type": "santé"
+      },
+      {
+        "date": "2020",
+        "evenement": "Assassinat de Samuel Paty, professeur d'histoire",
+        "epoch": "XXIe siècle",
+        "lieu": "Conflans-Sainte-Honorine",
+        "type": "terrorisme"
+      },
+      {
+        "date": "2022",
+        "evenement": "Réélection d'Emmanuel Macron à la présidence",
+        "epoch": "XXIe siècle",
+        "lieu": "France",
+        "type": "politique"
+      },
+      {
+        "date": "2022",
+        "evenement": "Guerre en Ukraine : invasion russe (24 février)",
+        "epoch": "XXIe siècle",
+        "lieu": "Ukraine",
+        "type": "guerre"
+      }
+    ]
+  },
   "questions": [
     {
       "type": "association",
@@ -31,6 +841,66 @@
       "enonce": "En quelle année Charlemagne a-t-il été sacré empereur ?",
       "reponse": "800",
       "options": ["595", "800", "1066", "1215"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu le baptême de Clovis ?",
+      "reponse": "496",
+      "options": ["476", "496", "500", "525"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Christophe Colomb a-t-il découvert l'Amérique ?",
+      "reponse": "1492",
+      "options": ["1453", "1492", "1515", "1562"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu la bataille d'Alésia ?",
+      "reponse": "-52",
+      "options": ["-60", "-52", "-40", "-30"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année la Première Guerre mondiale a-t-elle commencé ?",
+      "reponse": "1914",
+      "options": ["1900", "1914", "1929", "1939"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu le Débarquement en Normandie ?",
+      "reponse": "1944",
+      "options": ["1940", "1942", "1944", "1945"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année l (**Armistic**e du 11 novembre a-t-il été signé, mettant fin à la Première Guerre mondiale ?",
+      "reponse": "1918",
+      "options": ["1916", "1917", "1918", "1919"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année Napoléon a-t-il été couronné empereur ?",
+      "reponse": "1804",
+      "options": ["1799", "1804", "1810", "1815"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu la Libération de Paris ?",
+      "reponse": "1944",
+      "options": ["1940", "1942", "1944", "1945"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a été signé l'armistice mettant fin à la Seconde Guerre mondiale en Europe ?",
+      "reponse": "1945",
+      "options": ["1944", "1945", "1946", "1947"]
+    },
+    {
+      "type": "association",
+      "enonce": "En quelle année a eu lieu la prise de la Bastille ?",
+      "reponse": "1789",
+      "options": ["1788", "1789", "1790", "1792"]
     }
   ]
 }

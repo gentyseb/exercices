@@ -2,7 +2,9 @@
   "TENSES": {
     "present": "présent",
     "futur": "futur",
-    "imparfait": "imparfait"
+    "imparfait": "imparfait",
+    "passé simple": "passé simple",
+    "subjonctif": "subjonctif présent"
   },
   "PERSONS": [
     [
@@ -76,6 +78,22 @@
       "ions",
       "iez",
       "aient"
+    ],
+    "passé simple": [
+      "ai",
+      "as",
+      "a",
+      "âmes",
+      "âtes",
+      "èrent"
+    ],
+    "subjonctif": [
+      "e",
+      "es",
+      "e",
+      "ions",
+      "iez",
+      "ent"
     ]
   },
   "IRR": {
@@ -103,6 +121,22 @@
         "étions",
         "étiez",
         "étaient"
+      ],
+      "passé simple": [
+        "fus",
+        "fus",
+        "fut",
+        "fûmes",
+        "fûtes",
+        "furent"
+      ],
+      "subjonctif": [
+        "sois",
+        "sois",
+        "soit",
+        "soyons",
+        "soyez",
+        "soient"
       ]
     },
     "avoir": {
@@ -129,6 +163,22 @@
         "avions",
         "aviez",
         "avaient"
+      ],
+      "passé simple": [
+        "eus",
+        "eus",
+        "eut",
+        "eûmes",
+        "eûtes",
+        "eurent"
+      ],
+      "subjonctif": [
+        "aie",
+        "aies",
+        "ait",
+        "ayons",
+        "ayez",
+        "aient"
       ]
     },
     "aller": {
@@ -155,6 +205,22 @@
         "allions",
         "alliez",
         "allaient"
+      ],
+      "passé simple": [
+        "allai",
+        "allas",
+        "alla",
+        "allâmes",
+        "allâtes",
+        "allèrent"
+      ],
+      "subjonctif": [
+        "aille",
+        "ailles",
+        "aille",
+        "allions",
+        "alliez",
+        "aillent"
       ]
     },
     "faire": {
@@ -181,6 +247,22 @@
         "faisions",
         "faisiez",
         "faisaient"
+      ],
+      "passé simple": [
+        "fis",
+        "fis",
+        "fit",
+        "fîmes",
+        "fîtes",
+        "firent"
+      ],
+      "subjonctif": [
+        "fasse",
+        "fasses",
+        "fasse",
+        "fassions",
+        "fassiez",
+        "fassent"
       ]
     },
     "venir": {
@@ -207,6 +289,22 @@
         "venions",
         "veniez",
         "venaient"
+      ],
+      "passé simple": [
+        "vins",
+        "vins",
+        "vint",
+        "vînmes",
+        "vîntes",
+        "vinrent"
+      ],
+      "subjonctif": [
+        "vienne",
+        "viennes",
+        "vienne",
+        "venions",
+        "veniez",
+        "viennent"
       ]
     },
     "prendre": {
@@ -233,6 +331,22 @@
         "prenions",
         "preniez",
         "prenaient"
+      ],
+      "passé simple": [
+        "pris",
+        "pris",
+        "prit",
+        "prîmes",
+        "prîtes",
+        "prirent"
+      ],
+      "subjonctif": [
+        "prenne",
+        "prennes",
+        "prenne",
+        "prenions",
+        "preniez",
+        "prennent"
       ]
     },
     "voir": {
@@ -259,6 +373,22 @@
         "voyions",
         "voyiez",
         "voyaient"
+      ],
+      "passé simple": [
+        "vis",
+        "vis",
+        "vit",
+        "vîmes",
+        "vîtes",
+        "virent"
+      ],
+      "subjonctif": [
+        "voie",
+        "voies",
+        "voie",
+        "voyions",
+        "voyiez",
+        "voient"
       ]
     },
     "dire": {
@@ -285,6 +415,22 @@
         "disions",
         "disiez",
         "disaient"
+      ],
+      "passé simple": [
+        "dis",
+        "dis",
+        "dit",
+        "dîmes",
+        "dîtes",
+        "dirent"
+      ],
+      "subjonctif": [
+        "dise",
+        "dises",
+        "dise",
+        "disions",
+        "disiez",
+        "disent"
       ]
     },
     "pouvoir": {
@@ -311,6 +457,22 @@
         "pouvions",
         "pouviez",
         "pouvaient"
+      ],
+      "passé simple": [
+        "pus",
+        "pus",
+        "put",
+        "pûmes",
+        "pûtes",
+        "purent"
+      ],
+      "subjonctif": [
+        "puisse",
+        "puisses",
+        "puisse",
+        "puissions",
+        "puissiez",
+        "puissent"
       ]
     },
     "vouloir": {
@@ -337,6 +499,22 @@
         "voulions",
         "vouliez",
         "voulaient"
+      ],
+      "passé simple": [
+        "voulus",
+        "voulus",
+        "voulut",
+        "voulûmes",
+        "voulûtes",
+        "voulurent"
+      ],
+      "subjonctif": [
+        "veuille",
+        "veuilles",
+        "veuille",
+        "voulions",
+        "vouliez",
+        "veuillent"
       ]
     }
   }
