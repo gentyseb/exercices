@@ -227,10 +227,10 @@ function addExerciseBackLinks(root, categories) {
   for (const exercise of categories.flatMap((category) => category.exercises)) {
     const filePath = path.join(root, exercise.rel);
     const html = fs.readFileSync(filePath, "utf8");
-    if (html.includes('<nav class="exercise-back"')) continue;
 
     const mainCard = '<main class="card">';
-    if (!html.includes(mainCard)) {
+    const hasBackLink = html.includes('<nav class="exercise-back"');
+    if (!hasBackLink && !html.includes(mainCard)) {
       throw new Error("Impossible d’ajouter le lien de retour à : " + filePath);
     }
 
@@ -240,14 +240,14 @@ function addExerciseBackLinks(root, categories) {
     ).split(path.sep).join("/");
     const backLink =
       '<nav class="exercise-back" aria-label="Navigation de l’exercice">' +
-      '<a href="' + indexRelativePath + '">' +
-      '<span aria-hidden="true">←</span> Retour</a></nav>';
+      '<a href="' + indexRelativePath + '">&#8592; Retour</a></nav>';
+    const backLinkPattern = /<nav class="exercise-back"[^>]*>[\s\S]*?<\/nav>/;
+    const updatedHtml = hasBackLink
+      ? html.replace(backLinkPattern, backLink)
+      : html.replace(mainCard, mainCard + "\n      " + backLink);
 
-    fs.writeFileSync(
-      filePath,
-      html.replace(mainCard, mainCard + "\n      " + backLink),
-      "utf8"
-    );
+    if (updatedHtml === html) continue;
+    fs.writeFileSync(filePath, updatedHtml, "utf8");
   }
 }
 
