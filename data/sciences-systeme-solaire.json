@@ -306,6 +306,198 @@
       "enonce": "Quelle lune de Jupiter est l’une des quatre grandes lunes découvertes par Galilée ?",
       "reponse": "Callisto",
       "options": ["Callisto", "Phobos", "Titan", "Triton"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle est la lune galiléenne la plus proche de Jupiter ?",
+      "reponse": "Io",
+      "options": ["Io", "Europe", "Ganymède", "Callisto"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Parmi les quatre grandes lunes de Jupiter, laquelle est la plus éloignée de la planète ?",
+      "reponse": "Callisto",
+      "options": ["Callisto", "Io", "Europe", "Ganymède"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Jupiter est recouverte d’une épaisse couche de glace et pourrait abriter un océan sous sa surface ?",
+      "reponse": "Europe",
+      "options": ["Europe", "Io", "Phobos", "Titan"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Jupiter possède un champ magnétique qui lui est propre ?",
+      "reponse": "Ganymède",
+      "options": ["Ganymède", "Callisto", "Europe", "Io"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Saturne projette des panaches d’eau glacée dans l’espace ?",
+      "reponse": "Encelade",
+      "options": ["Encelade", "Titan", "Rhéa", "Mimas"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle est la deuxième plus grande lune de Saturne ?",
+      "reponse": "Rhéa",
+      "options": ["Rhéa", "Encelade", "Mimas", "Dioné"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Saturne présente de grandes différences de couleur entre ses deux hémisphères ?",
+      "reponse": "Japet",
+      "options": ["Japet", "Titan", "Rhéa", "Encelade"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune d’Uranus est connue pour son relief très accidenté et ses grandes falaises ?",
+      "reponse": "Miranda",
+      "options": ["Miranda", "Titania", "Oberon", "Ariel"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle est la plus grande lune d’Uranus ?",
+      "reponse": "Titania",
+      "options": ["Titania", "Miranda", "Ariel", "Umbriel"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Neptune tourne dans le sens opposé à la rotation de Neptune ?",
+      "reponse": "Triton",
+      "options": ["Triton", "Titania", "Europe", "Phobos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Comment s’appelle la plus grande lune de Pluton ?",
+      "reponse": "Charon",
+      "options": ["Charon", "Triton", "Titan", "Déimos"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Mars est la plus proche de la planète ?",
+      "reponse": "Phobos",
+      "options": ["Phobos", "Déimos", "La Lune", "Europe"]
+    },
+    {
+      "mode": "lunes-nom",
+      "enonce": "Quelle lune de Mars est la plus éloignée de la planète ?",
+      "reponse": "Déimos",
+      "options": ["Déimos", "Phobos", "Titan", "Triton"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quel astre est une étoile ?",
+      "reponse": "Le Soleil",
+      "options": ["Le Soleil", "Jupiter", "La Terre", "La Lune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Dans quelle galaxie se trouve notre système solaire ?",
+      "reponse": "La Voie lactée",
+      "options": ["La Voie lactée", "Andromède", "Le Petit Nuage de Magellan", "Le Grand Nuage de Magellan"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Entre quelles planètes se trouve la principale ceinture d’astéroïdes ?",
+      "reponse": "Mars et Jupiter",
+      "options": ["Mars et Jupiter", "Terre et Mars", "Jupiter et Saturne", "Uranus et Neptune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle planète naine se trouve dans la ceinture d’astéroïdes ?",
+      "reponse": "Cérès",
+      "options": ["Cérès", "Pluton", "Neptune", "Mercure"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Comment classe-t-on Pluton aujourd’hui ?",
+      "reponse": "Comme une planète naine",
+      "options": ["Comme une planète naine", "Comme une planète géante", "Comme une étoile", "Comme un astéroïde"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Dans quelle région au-delà de Neptune se trouve Pluton ?",
+      "reponse": "La ceinture de Kuiper",
+      "options": ["La ceinture de Kuiper", "La ceinture d’astéroïdes", "La couronne solaire", "Les anneaux de Saturne"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "De quoi les comètes sont-elles principalement constituées ?",
+      "reponse": "De glace, de poussières et de roches",
+      "options": ["De glace, de poussières et de roches", "De métal liquide seulement", "De gaz brûlant seulement", "De lave et de sable"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Dans quelle direction la queue d’une comète pointe-t-elle généralement ?",
+      "reponse": "À l’opposé du Soleil",
+      "options": ["À l’opposé du Soleil", "Vers le Soleil", "Toujours vers la Terre", "Toujours dans le sens de son déplacement"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Comment appelle-t-on le phénomène lumineux produit lorsqu’un petit corps traverse l’atmosphère terrestre ?",
+      "reponse": "Un météore",
+      "options": ["Un météore", "Une comète", "Une planète naine", "Une éclipse"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Comment appelle-t-on un fragment venu de l’espace qui atteint le sol ?",
+      "reponse": "Une météorite",
+      "options": ["Une météorite", "Un météore", "Une étoile filante", "Une comète"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Pourquoi les planètes brillent-elles dans le ciel ?",
+      "reponse": "Elles réfléchissent la lumière du Soleil",
+      "options": ["Elles réfléchissent la lumière du Soleil", "Elles produisent toutes leur propre lumière", "Elles brûlent comme des étoiles", "Elles éclairent le Soleil"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quel mouvement de la Terre provoque l’alternance du jour et de la nuit ?",
+      "reponse": "La rotation sur elle-même",
+      "options": ["La rotation sur elle-même", "Son tour autour du Soleil", "Le déplacement de la Lune", "La rotation du Soleil autour de la Terre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Combien de temps environ la Terre met-elle pour faire un tour autour du Soleil ?",
+      "reponse": "Un an",
+      "options": ["Un an", "Un jour", "Un mois", "Une semaine"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle est la plus petite planète du système solaire ?",
+      "reponse": "Mercure",
+      "options": ["Mercure", "Mars", "Vénus", "La Terre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quel est le plus grand volcan connu du système solaire, situé sur Mars ?",
+      "reponse": "Olympus Mons",
+      "options": ["Olympus Mons", "Le mont Everest", "Le Mauna Loa", "Le mont Olympe terrestre"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quel gaz compose la plus grande partie de l’atmosphère terrestre ?",
+      "reponse": "L’azote",
+      "options": ["L’azote", "L’oxygène", "Le dioxyde de carbone", "L’hydrogène"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelles sont les quatre planètes rocheuses les plus proches du Soleil ?",
+      "reponse": "Mercure, Vénus, la Terre et Mars",
+      "options": ["Mercure, Vénus, la Terre et Mars", "Jupiter, Saturne, Uranus et Neptune", "Vénus, Mars, Jupiter et Saturne", "Terre, Mars, Saturne et Neptune"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelles sont les deux géantes de glace du système solaire ?",
+      "reponse": "Uranus et Neptune",
+      "options": ["Uranus et Neptune", "Jupiter et Saturne", "Terre et Mars", "Vénus et Mercure"]
+    },
+    {
+      "mode": "classification",
+      "enonce": "Quelle unité correspond à la distance moyenne entre la Terre et le Soleil ?",
+      "reponse": "L’unité astronomique",
+      "options": ["L’unité astronomique", "L’année-lumière", "Le parsec", "Le kilomètre lunaire"]
     }
   ]
 }
