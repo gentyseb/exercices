@@ -1,0 +1,13 @@
+node_modules/
+www/
+
+# Android build output and local machine settings
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# IDE and operating system files
+.idea/
+*.iml
+.DS_Store

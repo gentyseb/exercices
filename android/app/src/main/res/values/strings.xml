@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Exercices scolaires</string>
+    <string name="title_activity_main">Exercices scolaires</string>
+    <string name="package_name">fr.gentyseb.exercices.scolaires</string>
+    <string name="custom_url_scheme">fr.gentyseb.exercices.scolaires</string>
+</resources>

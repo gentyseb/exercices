@@ -87,6 +87,20 @@ Les paramètres de chaque exercice peuvent être modifiés directement dans l'in
 
 Les préférences sont sauvegardées dans le `localStorage` du navigateur.
 
+## 📱 Application mobile
+
+Le projet utilise Capacitor pour embarquer les exercices dans une application Android et iOS. Les pages et données sont incluses dans l'application ; la progression reste enregistrée sur l'appareil.
+
+```bash
+npm install
+npm run cap:sync
+npx cap open android
+```
+
+La génération et la compilation Android nécessitent Android Studio, le JDK et le SDK Android. La génération et la compilation iOS nécessitent macOS et Xcode ; elles ne peuvent pas être effectuées sur Windows.
+
+Le nom et l'identifiant d'application sont définis dans `capacitor.config.json`. L'identifiant `fr.gentyseb.exercices.scolaires` doit rester stable après la première publication. La publication sur les stores demandera également les comptes développeur, une icône et des captures d'écran, ainsi que les formulaires de confidentialité et les informations de fiche store.
+
 ## 💡 Contribution
 
 1. Forker le projet
