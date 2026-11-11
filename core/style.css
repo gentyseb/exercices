@@ -183,6 +183,35 @@ a.card[hidden] {
   text-decoration: underline;
 }
 
+.exercise-back {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 0 16px;
+}
+
+.exercise-back a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.exercise-back a:hover {
+  background: var(--color-primary-soft-strong);
+}
+
+.exercise-back a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .badges-panel {
   margin: 0 0 28px;
   padding: 18px;

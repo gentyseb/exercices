@@ -89,7 +89,7 @@ Les préférences sont sauvegardées dans le `localStorage` du navigateur.
 
 ## 📱 Application mobile
 
-Le projet utilise Capacitor pour embarquer les exercices dans une application Android et iOS. Les pages et données sont incluses dans l'application ; la progression reste enregistrée sur l'appareil.
+Le projet utilise Capacitor pour embarquer les exercices dans une application Android et iOS. Les pages et données sont incluses dans l'application ; la progression reste enregistrée sur l'appareil. Les exercices reçoivent un lien « Retour » en haut de la page pour revenir à l'accueil.
 
 ```bash
 npm install
