@@ -344,10 +344,6 @@ a.card[hidden] {
   text-decoration: none;
 }
 
-.badges-summary a:hover {
-  text-decoration: underline;
-}
-
 .badges-panel h2 {
   margin: 0;
   font-size: 1.2rem;
