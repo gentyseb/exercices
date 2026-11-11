@@ -101,6 +101,12 @@ La génération et la compilation Android nécessitent Android Studio, le JDK et
 
 Le nom et l'identifiant d'application sont définis dans `capacitor.config.json`. L'identifiant `fr.gentyseb.exercices.scolaires` doit rester stable après la première publication. La publication sur les stores demandera également les comptes développeur, une icône et des captures d'écran, ainsi que les formulaires de confidentialité et les informations de fiche store.
 
+### Compilation en ligne avec GitHub Actions
+
+Le workflow `Mobile builds` s'exécute sur les pushes et les pull requests vers `main`, ou manuellement depuis l'onglet **Actions** de GitHub. Il produit un APK Android de débogage et une application iOS pour simulateur, disponibles dans les artefacts du workflow pendant 14 jours.
+
+Ces builds servent aux tests et ne sont pas signés pour les stores. La publication nécessitera des builds de production signés, les certificats et profils Apple pour iOS, une clé de signature Android, ainsi que les comptes développeur correspondants. Ne placez jamais ces clés ou mots de passe dans le dépôt.
+
 ## 💡 Contribution
 
 1. Forker le projet
