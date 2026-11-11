@@ -223,6 +223,34 @@ function scan(root) {
   return result;
 }
 
+function addExerciseBackLinks(root, categories) {
+  for (const exercise of categories.flatMap((category) => category.exercises)) {
+    const filePath = path.join(root, exercise.rel);
+    const html = fs.readFileSync(filePath, "utf8");
+    if (html.includes('<nav class="exercise-back"')) continue;
+
+    const mainCard = '<main class="card">';
+    if (!html.includes(mainCard)) {
+      throw new Error("Impossible d’ajouter le lien de retour à : " + filePath);
+    }
+
+    const indexRelativePath = path.relative(
+      path.dirname(filePath),
+      path.join(root, OUTPUT_NAME)
+    ).split(path.sep).join("/");
+    const backLink =
+      '<nav class="exercise-back" aria-label="Navigation de l’exercice">' +
+      '<a href="' + indexRelativePath + '">' +
+      '<span aria-hidden="true">←</span> Retour</a></nav>';
+
+    fs.writeFileSync(
+      filePath,
+      html.replace(mainCard, mainCard + "\n      " + backLink),
+      "utf8"
+    );
+  }
+}
+
 // --- Génération de la page --------------------------------------------------
 
 function slug(s) {
@@ -1846,6 +1874,7 @@ function main() {
   }
   console.log("Scan de : " + root);
   const categories = scan(root);
+  addExerciseBackLinks(root, categories);
 
   const total = categories.reduce((n, c) => n + c.exercises.length, 0);
   if (total === 0) {
